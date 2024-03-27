@@ -1,4 +1,5 @@
 import Head from "@/components/head/Head";
+import Mediapartners from "@/components/sponsor-p/mediapartners/Mediapartners";
 import Oursponsor from "@/components/sponsor-p/oursponsor/Oursponsor";
 import Whoshould from "@/components/sponsor-p/whoshould/Whoshould";
 import React from "react";
@@ -9,7 +10,7 @@ function Sponsors() {
       <Head head="Sponsors" />
       <Whoshould />
       <Oursponsor />
-      <Oursponsor />
+      <Mediapartners />
     </div>
   );
 }

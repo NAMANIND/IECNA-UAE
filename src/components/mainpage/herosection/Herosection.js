@@ -7,7 +7,7 @@ import { ephesis, anton } from "@/styles/fonts";
 function Herosection() {
   return (
     <section
-      className="flex overflow-hidden relative z-10 flex-col  w-full text-white  h-full max-md:max-w-full
+      className="flex overflow-hidden relative z-10 flex-col  w-full text-white  h-full min-h-[100vh] max-md:max-w-full
     "
     >
       <Image

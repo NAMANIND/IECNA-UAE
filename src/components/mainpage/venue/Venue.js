@@ -56,7 +56,7 @@ function Venue() {
               Don't Miss Out!
             </div>
             <div className="flex justify-center w-full self-start  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
-              <Button href="./register" color="black" img="arrow">
+              <Button href="./register" color="green" img="arrow">
                 Register Now
               </Button>
             </div>

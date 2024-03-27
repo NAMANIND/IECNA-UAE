@@ -13,25 +13,25 @@ function Whattoexpect() {
         "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
     },
     {
-      title: "Engaging Interactions",
+      title: "Curated Program",
       imgUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
       description:
-        "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
+        "Dive into a carefully designed agenda featuring keynote speeches, interactive panel discussions, and hands-on workshops, providing actionable strategies and practical knowledge to drive success in influencer marketing.",
     },
     {
-      title: "Engaging Interactions",
+      title: "Top-Notch Insights",
       imgUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
       description:
-        "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
+        "Rub shoulders with industry leaders and experts, gaining valuable insights and establishing significant relationships that transcend the event, empowering you to stay ahead of industry trends and developments.",
     },
     {
-      title: "Engaging Interactions",
+      title: "Future of Marketing",
       imgUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
       description:
-        "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
+        "Explore the latest trends and technologies in MarTech and AdTech, uncovering innovative approaches and cutting-edge solutions to reshape the future of marketing and influencer collaboration.",
     },
     // Add more objects as needed
   ];
@@ -61,11 +61,11 @@ function Whattoexpect() {
       </div>
 
       <div className="mt-20 w-full max-md:mt-10 max-md:max-w-full  p-10">
-        <div className="flex flex-wrap gap-[2%] max-md:gap-0 rounded-[36px] ">
+        <div className="flex flex-wrap gap-[4%] max-md:gap-0 rounded-[36px] ">
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="flex flex-col w-[49%] max-md:ml-0 max-md:w-full py-5"
+              className="flex flex-col w-[48%] max-md:ml-0 max-md:w-full py-5"
             >
               <div className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full">
                 <img

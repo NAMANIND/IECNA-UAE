@@ -1,133 +1,108 @@
 "use client";
 
 import React, { useState } from "react";
+import { work_sans, anton } from "@/styles/fonts";
+import Button from "@/components/button/Button";
 
 function Criteria() {
   // Define state to manage which heading's criteria to display
   const [selectedHeading, setSelectedHeading] = useState(
-    "Marketing Award Categories and Criteria"
+    "Marketing Leader of the Year"
   );
 
   // Define data structure to store headings, descriptions, and criteria
   const data = [
     {
-      "Marketing Award Categories and Criteria": {
+      "Marketing Leader of the Year": {
         description:
-          "Celebrate excellence with us as we honour outstanding contributions across various domains. Nominate deserving individuals, brands, or organizations for their achievements and innovation in marketing and influencer engagement.",
+          "Recognizes a marketing professional who has demonstrated exceptional leadership skills and achieved remarkable results in driving successful marketing strategies.",
         criteria: [
           "Resume/CV showcasing leadership experience in marketing roles.",
           "A summary of major marketing achievements and outcomes.",
           "Two professional references who can vouch for their marketing leadership skills.",
         ],
       },
-      "ooMarketing Award Categories and Criteria": {
+      "Branding Excellence": {
         description:
-          "Celebrate excellence with us as we honour outstanding contributions across various domains. Nominate deserving individuals, brands, or organizations for their achievements and innovation in marketing and influencer engagement.",
+          "Honors brands that have excelled in creating and maintaining a strong brand identity, positioning, and recognition in the market.",
         criteria: [
-          "Resume/CV showcasing leadership experience in marketing roles.",
-          "A summary of major marketing achievements and outcomes.",
-          "Two professional references who can vouch for their marketing leadership skills.",
+          "Evidence of consistent brand messaging and visual identity.",
+          "Examples of successful brand campaigns and initiatives.",
+          "Metrics demonstrating brand awareness and perception.",
         ],
       },
-
-      "Influencer Award Categories and Criteria": {
+      "Digital Marketing Innovator": {
         description:
-          "Recognize the efforts of influencers who have made a significant impact on their audience and the industry. Nominate influencers who have demonstrated creativity, authenticity, and engagement in their content.",
+          "Celebrates individuals or teams that have demonstrated creativity and innovation in digital marketing strategies and campaigns.",
         criteria: [
-          "A portfolio of influencer campaigns and collaborations.",
-          "A summary of the influencer's unique value proposition and audience engagement strategies.",
-          "Two professional references who can vouch for the influencer's authenticity and impact.",
+          "Examples of innovative digital marketing campaigns or initiatives.",
+          "Metrics showcasing the effectiveness and impact of digital marketing efforts.",
+          "Evidence of using cutting-edge technologies or techniques in digital marketing.",
         ],
       },
-
-      "kRANDING EXCELLENCE": {
+      "Influencer Marketing Strategy": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Recognizes brands or agencies that have developed and executed effective influencer marketing strategies to reach and engage target audiences.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Case studies demonstrating successful influencer marketing campaigns.",
+          "Metrics on campaign performance, including reach, engagement, and ROI.",
+          "Evidence of strategic planning and execution in influencer partnerships.",
         ],
       },
-
-      "tBRANDING EXCELLENCE": {
+      "Social Media Engagement Champion": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Honours individuals or brands that have excelled in engaging their audience on social media platforms through compelling content and interactions.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Metrics demonstrating high levels of social media engagement, including likes, shares, comments, and followers.",
+          "Examples of engaging social media content and campaigns.",
+          "Evidence of community building and fostering meaningful interactions on social media.",
         ],
       },
-
-      "oBRANDING EXCELLENCE": {
+      "Customer Experience Advocate": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Celebrates organizations that prioritize and excel in delivering exceptional customer experiences across all touchpoints.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Evidence of customer-centric initiatives and strategies.",
+          "Metrics demonstrating high levels of customer satisfaction and loyalty.",
+          "Examples of innovative approaches to improving the customer experience.",
         ],
       },
-
-      "NBRANDING EXCELLENCE": {
+      "Data-Driven Marketing Excellence": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Recognizes organizations that leverage data and analytics to drive informed marketing decisions and achieve measurable results.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Examples of data-driven marketing campaigns or initiatives.",
+          "Metrics demonstrating the impact of data-driven marketing efforts on business outcomes.",
+          "Evidence of using data analytics tools and methodologies to optimize marketing strategies.",
         ],
       },
-
-      "mBRANDING EXCELLENCE": {
+      "Innovation in Brand Activation": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Honors brands that have demonstrated creativity and innovation in activating their brand across various channels and touchpoints.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Examples of innovative brand activation campaigns or initiatives.",
+          "Metrics demonstrating the effectiveness and impact of brand activation efforts.",
+          "Evidence of using creative approaches and techniques to connect with target audiences.",
         ],
       },
-
-      "vBRANDING EXCELLENCE": {
+      "Strategic Digital Transformation": {
         description:
-          "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
+          "Celebrates organizations that have successfully embraced digital transformation to adapt to changing market dynamics and customer preferences.",
         criteria: [
-          "Brand portfolio showcasing successful branding projects.",
-          "Brand strategy documents outlining unique selling propositions and brand values.",
-          "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
+          "Evidence of digital transformation initiatives and strategies.",
+          "Examples of successful digital transformation projects and their impact on business outcomes.",
+          "Metrics demonstrating the effectiveness of digital transformation efforts in achieving organizational goals.",
         ],
-
-        "cBRANDING EXCELLENCE": {
-          description:
-            "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
-          criteria: [
-            "Brand portfolio showcasing successful branding projects.",
-            "Brand strategy documents outlining unique selling propositions and brand values.",
-            "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
-          ],
-        },
-        "iBRANDING EXCELLENCE": {
-          description:
-            "Acknowledges a marketer who has successfully built and managed a strong brand identity, effectively communicating brand values and unique selling propositions.",
-
-          criteria: [
-            "Brand portfolio showcasing successful branding projects.",
-            "Brand strategy documents outlining unique selling propositions and brand values.",
-            "Testimonials or case studies from clients/customers regarding the effectiveness of the branding efforts.",
-          ],
-        },
       },
-
-      // Add more headings with their respective criteria
+      "Influencer Relationship Builder": {
+        description:
+          "Recognizes individuals or organizations that have excelled in building and nurturing relationships with influencers to drive successful partnerships and collaborations.",
+        criteria: [
+          "Examples of successful influencer partnerships and collaborations.",
+          "Testimonials from influencers highlighting positive experiences working with the nominee.",
+          "Evidence of strategic relationship-building efforts and long-term partnerships with influencers.",
+        ],
+      },
     },
   ];
 
@@ -137,30 +112,32 @@ function Criteria() {
   };
 
   return (
-    <div className="bg-black">
-      <div className="text-2xl font-medium tracking-tighter leading-8 text-white max-md:max-w-full">
+    <div className={`bg-black ${work_sans.className} `}>
+      <div className="text-2xl font-medium tracking-tighter mx-80 text-justify  leading-8 text-white max-md:max-w-full">
         Celebrate excellence with us as we honour outstanding contributions
         across various domains. Nominate deserving individuals, brands, or
         organizations for their achievements and innovation in marketing and
         influencer engagement.
       </div>
-      <div className="mt-44 text-5xl text-center text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl">
+      <div
+        className={`mt-44 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
+      >
         MARKETING AWARD CATEGORIES AND CRITERIA
       </div>
 
-      <div className="flex justify-center  m-10">
-        <div className="flex flex-wrap w-1/2 gap-[2%]">
+      <div className="flex justify-center  p-10">
+        <div className="flex flex-wrap w-1/2 gap-[4%]">
           {data.map((item, index) => (
             <React.Fragment key={index}>
               {Object.keys(item).map((heading, index) => (
                 <button
                   key={index}
-                  className={`w-[48%] h-10 flex align-middle justify-center px-8 py-6 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
+                  className={`w-[48%] h-10 flex align-middle justify-center px-8 py-6 my-4 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
                     selectedHeading === heading ? "bg-lime-400" : "bg-gray-200"
                   }`}
                   onClick={() => handleHeadingClick(heading)}
                 >
-                  <p> {heading}</p>
+                  <p className={`${anton.className}`}> {heading}</p>
                 </button>
               ))}
             </React.Fragment>
@@ -174,15 +151,17 @@ function Criteria() {
                 {Object.keys(item).map((heading, index) =>
                   heading === selectedHeading ? (
                     <div key={index} className="text-white">
-                      <div className="mb-5 font-bold text-lime-400">
+                      <div className="mb-5 font-bold text-3xl text-lime-400">
                         {heading}
                       </div>
-                      <div className="mb-5">{item[heading].description}</div>
+                      <div className="mb-5  text-md">
+                        {item[heading].description}
+                      </div>
                       <div>
-                        <div className="mb-5 font-bold text-lime-400">
+                        <div className="mb-5 font-bold text-3xl text-lime-400">
                           Criteria
                         </div>
-                        <ul className="list-disc pl-5">
+                        <ul className="list-disc pl-5  text-md">
                           {item[heading].criteria.map((criterion, index) => (
                             <li key={index}>{criterion}</li>
                           ))}
@@ -194,6 +173,12 @@ function Criteria() {
               </React.Fragment>
             ))}
         </div>
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <Button color="green" img="trophy" href="/nominate">
+          Nominate
+        </Button>
       </div>
     </div>
   );

@@ -19,7 +19,11 @@ const Button = ({ href, children, color, img }) => {
         <Image
           className={`ml-2 transition-all duration-800 ease  
           
-          ${img === "arrow" ? `filter invert group-hover:invert-0` : ""}
+          ${
+            img === "arrow" || img === "mic" || img === "trophy"
+              ? `filter invert group-hover:invert-0`
+              : ""
+          }
     `}
           src={img === "mic" ? mic : img === "trophy" ? trophy : arrow}
           alt="arrow"

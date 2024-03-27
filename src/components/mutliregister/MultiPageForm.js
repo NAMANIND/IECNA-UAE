@@ -16,6 +16,7 @@ const MultiPageForm = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState("");
   const [page, setPage] = useState(1);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     category: "",
     field: "",
@@ -58,6 +59,7 @@ const MultiPageForm = () => {
   };
 
   const prevPage = () => {
+    setErrorMessage("");
     if (
       formData.category === "mediapartner" ||
       formData.category === "sponsor"
@@ -108,7 +110,7 @@ const MultiPageForm = () => {
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
-          className=" w-[60%]  p-20   rounded-[32px] "
+          className=" w-[60%]  p-16   rounded-[32px] "
           style={{
             boxShadow: "0px 0px 10px 0px #0000001a ",
             background: "rgba(255, 255, 255, 1.15) ",
@@ -120,13 +122,18 @@ const MultiPageForm = () => {
         >
           {page === 1 && (
             <div className="flex  flex-col md:flex-nowrap gap-4">
-              <h2 className={` text-black  ${anton}`}>First Page</h2>
+              <h2 className={` text-black  `}>Register as*</h2>
 
               <Select
                 label="Select category"
                 className="max-w-md"
                 onChange={handleselect}
                 variant="underlined"
+                defaultSelectedKeys={
+                  formData.category ? [formData.category] : []
+                }
+                isRequired
+                errorMessage={errorMessage}
               >
                 <SelectItem key="delegate">Delegate</SelectItem>
                 <SelectItem key="speaker">Speaker</SelectItem>
@@ -135,8 +142,16 @@ const MultiPageForm = () => {
               </Select>
 
               <button
-                onClick={nextPage}
-                className="btn btn-primary border-2 border-sky-500 "
+                onClick={() => {
+                  if (formData.category !== "") {
+                    setErrorMessage("");
+                    nextPage();
+                  } else {
+                    setErrorMessage("*Please select a category*");
+                  }
+                }}
+                className="
+                newsletterbtn "
               >
                 Next
               </button>
@@ -145,39 +160,47 @@ const MultiPageForm = () => {
 
           {page === 2 && (
             <div className="flex  flex-col md:flex-nowrap gap-4">
-              <h2>Second Page</h2>
+              <h2 className={` text-black  `}>Field*</h2>
               {formData.category !== "sponsor" &&
                 formData.category !== "mediapartner" && (
                   <Select
                     variant="underlined"
                     label="Select Field"
-                    value={formData.field}
-                    onChange={(value) =>
-                      setFormData({ ...formData, field: value })
+                    defaultSelectedKeys={formData.field ? [formData.field] : []}
+                    onChange={(key) =>
+                      setFormData({ ...formData, field: key.target.value })
                     }
                     className="max-w-md"
+                    isRequired
+                    errorMessage={errorMessage}
                   >
                     <SelectItem value="influencer">Influencer</SelectItem>
                     <SelectItem value="marketer">Marketer</SelectItem>
                   </Select>
                 )}
-              <button
-                onClick={prevPage}
-                className="btn btn-primary border-2 border-sky-500 "
-              >
-                Previous
-              </button>
-              <button
-                onClick={nextPage}
-                className="btn btn-primary border-2 border-sky-500 "
-              >
-                Next
-              </button>
+              <div className="flex flex-row justify-between w-full gap-4">
+                <button onClick={prevPage} className="newsletterbtn w-6/12 ">
+                  Previous
+                </button>
+                <button
+                  onClick={() => {
+                    if (formData.category) {
+                      nextPage();
+                    } else {
+                      setErrorMessage("*Please select a field*");
+                    }
+                  }}
+                  className="newsletterbtn w-6/12 "
+                >
+                  Next
+                </button>
+              </div>
             </div>
           )}
 
           {page === 3 && (
             <div className="flex  flex-wrap    gap-4">
+              <h2 className={` text-black `}>Details*</h2>
               <div className="flex flex-row gap-4 w-full">
                 <Input
                   variant="underlined"
@@ -187,6 +210,7 @@ const MultiPageForm = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   size="lg"
+                  isRequired
                 />
                 <Input
                   variant="underlined"
@@ -196,6 +220,7 @@ const MultiPageForm = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   size="lg"
+                  isRequired
                 />
               </div>
               <div className="flex flex-row align-bottom gap-4 w-full">
@@ -207,6 +232,7 @@ const MultiPageForm = () => {
                   onChange={handleChange}
                   variant="underlined"
                   size="lg"
+                  isRequired
                 />
                 {/* <Input
                   label="Phone"
@@ -230,6 +256,7 @@ const MultiPageForm = () => {
                   value={formData.company}
                   onChange={handleChange}
                   size="lg"
+                  isRequired
                 />
                 <Input
                   variant="underlined"
@@ -238,6 +265,7 @@ const MultiPageForm = () => {
                   value={formData.jobTitle}
                   onChange={handleChange}
                   size="lg"
+                  isRequired
                 />
               </div>
               <div className="flex flex-row gap-4 w-full">
@@ -257,6 +285,7 @@ const MultiPageForm = () => {
                     setSelectedCountryCode(countries[value]);
                   }}
                   size="lg"
+                  isRequired
                 >
                   {countries.map((country) => (
                     <SelectItem key={country.label}>{country.label}</SelectItem>
@@ -269,22 +298,19 @@ const MultiPageForm = () => {
                   value={formData.industry}
                   onChange={handleChange}
                   size="lg"
+                  isRequired
                 />
               </div>
 
               {/* Add other input fields as needed */}
-              <button
-                onClick={prevPage}
-                className="btn btn-primary border-2 border-sky-500 "
-              >
-                Previous
-              </button>
-              <button
-                type="submit"
-                className="btn btn-primary border-2 border-sky-500 "
-              >
-                Submit
-              </button>
+              <div className="flex flex-row justify-between w-full gap-4">
+                <button onClick={prevPage} className="newsletterbtn w-6/12">
+                  Previous
+                </button>
+                <button type="submit" className="newsletterbtn w-6/12">
+                  Submit
+                </button>
+              </div>
             </div>
           )}
         </form>

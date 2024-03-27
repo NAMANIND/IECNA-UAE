@@ -1,11 +1,13 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../../firbase/clientApp";
+import Head from "@/components/head/Head";
+import { anton, work_sans } from "@/styles/fonts";
 
 const Voting = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState({});
   const [selectedNominees, setSelectedNominees] = useState([]);
+  const [isAnyCategorySelected, setIsAnyCategorySelected] = useState(false);
 
   useEffect(() => {
     const fetchNominees = async () => {
@@ -20,7 +22,6 @@ const Voting = () => {
         nomineesData.forEach((nominee) => {
           for (const categoryKey in nominee.categories) {
             const category = nominee.categories[categoryKey];
-            console.log("categoryereeeeeeeee", category);
             if (category.og !== undefined) {
               if (!nomineesByCategoryObj[category.og]) {
                 nomineesByCategoryObj[category.og] = [];
@@ -29,7 +30,6 @@ const Voting = () => {
                 id: nominee.id,
                 imageUrl: nominee.imageUrl,
                 selected: false,
-
                 category: category.og,
                 vote: category.vote,
                 firstName: nominee.firstName,
@@ -50,20 +50,38 @@ const Voting = () => {
 
   const handleNomineeSelect = (category, nomineeId) => {
     setSelectedNominees((prevSelectedNominees) => {
-      // Check if any nominee is already selected for the category
       const isCategorySelected = prevSelectedNominees.some(
         (selectedNominee) => selectedNominee.category === category
       );
 
       if (isCategorySelected) {
-        // Replace the existing selection with the newly selected nominee for the category
-        return prevSelectedNominees.map((selectedNominee) =>
-          selectedNominee.category === category
-            ? { ...selectedNominee, nomineeId: nomineeId }
-            : selectedNominee
+        // Check if the selected nominee is already in the selected nominees list
+        const isNomineeSelected = prevSelectedNominees.some(
+          (selectedNominee) =>
+            selectedNominee.category === category &&
+            selectedNominee.nomineeId === nomineeId
         );
+
+        if (isNomineeSelected) {
+          // If the selected nominee is already selected, remove it from the list
+          return prevSelectedNominees.filter(
+            (selectedNominee) =>
+              !(
+                selectedNominee.category === category &&
+                selectedNominee.nomineeId === nomineeId
+              )
+          );
+        } else {
+          // Otherwise, replace the existing selection with the newly selected nominee for the category
+          return prevSelectedNominees.map((selectedNominee) =>
+            selectedNominee.category === category
+              ? { ...selectedNominee, nomineeId: nomineeId }
+              : selectedNominee
+          );
+        }
       } else {
         // Add the newly selected nominee to the selectedNominees array
+        setIsAnyCategorySelected(true); // Set flag to true when any category is selected
         return [
           ...prevSelectedNominees,
           {
@@ -90,20 +108,13 @@ const Voting = () => {
 
           const categoryKey = category
             .replace(/\s/g, "")
-            .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_"); // Remove spaces from the category name for the key
+            .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
 
           if (updatedCategories.hasOwnProperty(categoryKey)) {
-            // Check if the selected category exists in the nominee's categories
-            console.log(
-              "updatedCategories[categoryKey]",
-              updatedCategories[categoryKey],
-              updatedCategories[categoryKey].vote
-            );
-            updatedCategories[categoryKey].vote += 1; // Increment vote count for the selected category
+            updatedCategories[categoryKey].vote += 1;
           }
 
           const updatedVote = updatedCategories[categoryKey].vote;
-          console.log("path" + [`categories.${categoryKey}.vote`]);
           batch.update(nomineeRef, {
             [`categories.${categoryKey}.vote`]: updatedVote,
           });
@@ -118,45 +129,66 @@ const Voting = () => {
   };
 
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-semibold mb-8">Vote for Nominees</h1>
-      {Object.entries(nomineesByCategory).map(([category, nominees]) => (
-        <div key={category} className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">{category}</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {nominees.map((nominee) => (
-              <div
-                key={nominee.id}
-                className={`flex flex-col items-center border ${
-                  selectedNominees.some(
+    <div>
+      <Head head="Voting" />
+      <div className={`container mx-auto p-8 bg-white ${work_sans.className} `}>
+        <h1
+          className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
+        >
+          Vote for Nominees
+        </h1>
+        {Object.entries(nomineesByCategory).map(([category, nominees]) => (
+          <div key={category} className="mb-8">
+            <h2
+              className={`text-2xl font-semibold mb-4 w-full text-center ${anton.className} `}
+            >
+              {category}
+            </h2>
+            <div className="grid grid-cols-3 gap-4">
+              {nominees.map((nominee) => (
+                <div
+                  key={nominee.id}
+                  className={`relative border rounded-lg overflow-hidden shadow-md ${
+                    selectedNominees.some(
+                      (selectedNominee) =>
+                        selectedNominee.category === category &&
+                        selectedNominee.nomineeId === nominee.id
+                    )
+                      ? "border-blue-500"
+                      : "border-gray-300"
+                  }`}
+                  onClick={() => handleNomineeSelect(category, nominee.id)}
+                >
+                  <img
+                    src={nominee.imageUrl}
+                    alt={nominee.firstName}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-xl font-semibold mb-2">
+                      {nominee.firstName} {nominee.lastName}
+                    </p>
+                  </div>
+                  {selectedNominees.some(
                     (selectedNominee) =>
                       selectedNominee.category === category &&
                       selectedNominee.nomineeId === nominee.id
-                  )
-                    ? "border-white"
-                    : "border-transparent"
-                }`}
-                onClick={() => handleNomineeSelect(category, nominee.id)}
-              >
-                <img
-                  src={nominee.imageUrl}
-                  alt={nominee.firstName}
-                  className="w-24 h-24 rounded-full mb-2"
-                />
-                <p>
-                  {nominee.firstName} {nominee.lastName}
-                </p>
-              </div>
-            ))}
+                  ) && (
+                    <div className="absolute inset-0 border-2 border-blue-500 pointer-events-none"></div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-      <button
-        onClick={handleVote}
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
-      >
-        Vote
-      </button>
+        ))}
+        {selectedNominees.length !== 0 && (
+          <div className="sticky bottom-10 w-full flex justify-center">
+            <button onClick={handleVote} className="newsletterbtn w-1/2">
+              Vote
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -38,6 +38,7 @@ export const MuiPhone = ({ value, onChange, ...restProps }) => {
       type="tel"
       className={`h-60 w-full ${work_sans.className} `}
       size="lg"
+      required
       inputRef={inputRef}
       InputProps={{
         startAdornment: (

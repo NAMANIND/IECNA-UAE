@@ -42,7 +42,7 @@ function Well() {
               <span className="text-lime-400">IEC&A!</span>
             </div>
             <div className="flex gap-1.5 self-start  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
-              <Button href="./register" color="black" img="arrow">
+              <Button href="./register" color="green" img="arrow">
                 Register Now
               </Button>
             </div>

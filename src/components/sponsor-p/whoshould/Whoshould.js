@@ -14,37 +14,51 @@ function Whoshould() {
     {
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      title: "SOCIAL MEDIA PLATFORMS",
+      title: "INFLUENCER MARKETING AGENCIES ",
       description:
-        "Social media platforms are used by influencers to reach the target audiences.",
+        "They act as the intermediaries in the influencer marketing process.",
     },
     {
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      title: "SOCIAL MEDIA PLATFORMS",
+      title: "TECH AND DATA ANALYTICS PLATFORMS",
       description:
-        "Social media platforms are used by influencers to reach the target audiences.",
+        "Provides full life cycle of influencer marketing campaigns.",
     },
     {
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      title: "SOCIAL MEDIA PLATFORMS",
+      title: "E-COMMERCE PLATFORMS",
       description:
-        "Social media platforms are used by influencers to reach the target audiences.",
+        "Influencers drive traffic to the e-commerce websites and influence purchasing decisions.",
     },
     {
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      title: "SOCIAL MEDIA PLATFORMS",
+      title: "INFLUENCER MARKETING SOFTWARE PLATFORMS ",
       description:
-        "Social media platforms are used by influencers to reach the target audiences.",
+        "They offer platforms to brands for collaboration with influencers.",
     },
     {
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      title: "SOCIAL MEDIA PLATFORMS",
+      title: "DIGITAL MEDIA COMPANIES",
       description:
-        "Social media platforms are used by influencers to reach the target audiences.",
+        "They provide content and distribution channels for influencer campaigns and help track results.",
+    },
+    {
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      title: "DIGITAL MARKETING PLATFORMS",
+      description:
+        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+    },
+    {
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      title: "MARKETING AUTOMATION PLATFORMS",
+      description:
+        "They provide tools to identify prospective clients that are most likely to convert and help marketers to automate the campaigns and track results.",
     },
     // Add more card data as needed
   ];

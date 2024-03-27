@@ -1,9 +1,9 @@
-// pages/vote/[name].js
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
 import { firestore } from "../../../../firbase/clientApp";
+import Head from "@/components/head/Head";
 
 const PersonalVote = ({ params }) => {
   const { name } = params;
@@ -29,7 +29,7 @@ const PersonalVote = ({ params }) => {
         // Initialize selected categories
         const initialSelectedCategories = {};
         for (const categoryKey in nominee.categories) {
-          initialSelectedCategories[categoryKey] = null;
+          initialSelectedCategories[categoryKey] = false;
         }
         setSelectedCategories(initialSelectedCategories);
       } catch (error) {
@@ -45,7 +45,7 @@ const PersonalVote = ({ params }) => {
   const handleCategorySelect = (categoryKey) => {
     setSelectedCategories((prevSelectedCategories) => ({
       ...prevSelectedCategories,
-      [categoryKey]: nomineeData.categories[categoryKey].vote,
+      [categoryKey]: !prevSelectedCategories[categoryKey],
     }));
   };
 
@@ -84,38 +84,61 @@ const PersonalVote = ({ params }) => {
     }
   };
 
-  if (!nomineeData) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-semibold mb-8">{name}</h1>
-      <Image src={nomineeData.imageUrl} alt={name} className="mb-4" />
-      <h2 className="text-xl font-semibold mb-4">Categories:</h2>
-      <div className="grid grid-cols-2 gap-4">
-        {Object.entries(nomineeData.categories).map(
-          ([categoryKey, category]) => (
-            <div key={categoryKey} className="flex flex-col">
-              <label>
-                <input
-                  type="radio"
-                  name={categoryKey}
-                  value={category.og}
+    <div>
+      <Head head="Vote for me" />
+      {nomineeData && (
+        <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="text-3xl font-semibold mb-8 text-center ">{name}</h1>
+          <div className="relative w-full flex justify-center h-64 mb-4 overflow-hidden rounded-lg">
+            <img
+              src={nomineeData.imageUrl}
+              alt={name}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <h2 className="text-xl font-semibold mb-4">Categories:</h2>
+          {/* <div className="grid grid-cols-2 gap-4">
+     {Object.entries(nomineeData.categories).map(
+       ([categoryKey, category]) => (
+         <div key={categoryKey} className="flex flex-col">
+           <label>
+             <input
+               type="checkbox"
+               checked={selectedCategories[categoryKey]}
+               onChange={() => handleCategorySelect(categoryKey)}
+             />
+             {category.og}
+           </label>
+         </div>
+       )
+     )}
+   </div> */}
+
+          <div className="grid grid-cols-2 gap-4">
+            {Object.entries(nomineeData.categories).map(
+              ([categoryKey, category]) => (
+                <button
+                  key={categoryKey}
+                  className={`bg-gray-200 p-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white ${
+                    selectedCategories[categoryKey]
+                      ? "bg-gray-800 text-white"
+                      : ""
+                  }`}
+                  onClick={() => handleCategorySelect(categoryKey)}
                   onChange={() => handleCategorySelect(categoryKey)}
-                />
-                {category.og}
-              </label>
-            </div>
-          )
-        )}
-      </div>
-      <button
-        onClick={handleVote}
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
-      >
-        Vote
-      </button>
+                >
+                  {category.og}
+                </button>
+              )
+            )}
+          </div>
+          <button onClick={handleVote} className="newsletterbtn w-1/2 mx-auto">
+            Vote
+          </button>
+        </div>
+      )}
     </div>
   );
 };

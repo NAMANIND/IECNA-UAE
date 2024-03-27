@@ -13,22 +13,22 @@ function Whyattend() {
       text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
     },
     {
-      title: "Networking Opportunities",
+      title: "Cutting-Edge Insights",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
+      text: "Gain access to top-notch insights and industry expertise from leading marketers, influencers, and technology contributors, staying ahead of the curve with innovative strategies and trends.",
     },
     {
-      title: "Networking Opportunities",
+      title: "Business Expansion",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
+      text: "Explore new business opportunities, expand your network, and collaborate with like-minded professionals, whether you're a brand seeking innovative strategies or an influencer looking to connect with brands.",
     },
     {
-      title: "Networking Opportunities",
+      title: "Exclusive Content",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
+      text: "Immerse yourself in a curated program featuring keynote speeches, panel discussions, workshops, and networking sessions, ensuring every moment is packed with valuable content and meaningful interactions.",
     },
     // Add more card data objects here as needed
   ];
@@ -63,11 +63,11 @@ function Whyattend() {
       </div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
-        <div className="flex gap-y-5 gap-x-[2%] flex-wrap max-md:gap-0 ">
+        <div className="flex gap-y-5 px-[5%] gap-x-[4%] flex-wrap max-md:gap-0 ">
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`flex flex-col w-[48%] max-md:ml-0 max-md:w-full px-[30px] ${
+              className={`flex flex-col w-[48%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
@@ -83,7 +83,7 @@ function Whyattend() {
                   <img
                     loading="lazy"
                     src={card.imageUrl}
-                    className="w-full aspect-[2.38] max-md:max-w-full relative  my-10 imgaward"
+                    className="w-full aspect-[2.38] max-md:max-w-full relative scale-[1.12]  my-10 imgaward"
                   />
                   <div className="self-center mt-11 max-md:mt-10 px-[40px]">
                     {card.text}

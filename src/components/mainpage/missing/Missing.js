@@ -99,7 +99,7 @@ function Missing() {
                     className="w-[40%] max-md:w-full ml-10"
                     initial={{ opacity: 0, rotate: 0 }}
                     animate={{ opacity: 1, rotate: -5 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
                   >
                     <Image
                       src={img1}

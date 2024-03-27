@@ -1,6 +1,7 @@
 import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Marquee from "react-fast-marquee";
+import Button from "@/components/button/Button";
 
 function RegisterNowButton() {
   return (
@@ -34,19 +35,33 @@ function EventDetails() {
 function Venue() {
   return (
     <div className="flex flex-col items-center bg-white">
-      <div className="overflow-hidden h-[500px] ">
-        <Marquee
-          gradient={false}
-          speed={50}
-          className="self-stretch mt-32 w-[100%] bg-black shadow-2xl min-h-[99px] max-md:mt-10 max-md:max-w-full"
+      <div
+        className="overflow-hidden h-[500px]
+      relative z-10
+
+     
+      "
+      >
+        <div
           style={{ transform: "rotate(5deg)" }} // Rotate the text by -5 degrees
+          className="w-[120%] bg-black relative  left-[-10%] "
         >
-          <h2 className={`text-5xl text-center text-white ${anton.className}`}>
-            REGISTER - REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
-            REGISTER - REGISTER
-          </h2>
-        </Marquee>
+          <Marquee
+            gradient={false}
+            speed={50}
+            className="self-stretch mt-32  shadow-2xl min-h-[99px] max-md:mt-10 "
+            autoFill
+          >
+            <h2
+              className={`text-5xl text-center text-white ${anton.className} `}
+            >
+              REGISTER - REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
+              REGISTER - REGISTER
+            </h2>
+          </Marquee>
+        </div>
       </div>
+
       <div className={`w-full bg-white ${work_sans.className}  p-10 `}>
         <div className="flex gap-5 max-md:flex-col bg-black rounded-[36px]   max-md:gap-0">
           <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
@@ -57,7 +72,14 @@ function Venue() {
                 className="object-cover absolute inset-0 size-full rounded-[36px] "
                 alt=""
               />
-              <RegisterNowButton />
+              {/* <RegisterNowButton /> */}
+              <div
+                className={`relative justify-center items-center px-16 py-5 mt-72 max-w-full shadow-2xl  max-md:px-5 max-md:mt-10 ${work_sans.className} `}
+              >
+                <Button color="green" href="./register" img="arrow">
+                  Register
+                </Button>
+              </div>
             </div>
           </div>
           <div className="flex flex-col mr-10 w-[44%] max-md:ml-0 max-md:w-full">

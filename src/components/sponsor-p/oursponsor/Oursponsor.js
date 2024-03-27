@@ -13,8 +13,9 @@ function Oursponsor() {
         OUR SPONSORS
       </div>
       <div className="mt-16 text-2xl font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full">
-        We extend our sincere gratitude to our valued sponsors for their support
-        and contribution towards the success of the event.
+        We extend our sincere gratitude to our valued sponsors for their
+        <br />
+        support and contribution towards the success of the event.
       </div>
       <div className="self-stretch mt-24 w-full max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
@@ -95,7 +96,7 @@ function Oursponsor() {
           </div>
         </div>
       </div>
-      <Button href="./sponsors" color="green">
+      <Button href="./sponsors" color="black">
         View All Sponsors
       </Button>
     </div>

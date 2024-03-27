@@ -112,7 +112,7 @@ function Aboutone() {
   return (
     <div className={`flex flex-col bg-black ${work_sans.className}   `}>
       <div className="flex flex-col pt-1.5 pb-20 w-full max-md:px-5 max-md:max-w-full rounded-b-[42px]">
-        <p className="text-2xl  px-10 font-medium tracking-tighter leading-8 text-white max-md:max-w-full">
+        <p className="text-2xl  px-64 font-medium tracking-tighter leading-8 text-white max-md:max-w-full">
           The Influence Exchange Confex and Awards, a prestigious global
           platform uniting industry leaders, innovators, and influencers across
           diverse sectors for insightful discussions and the celebration of

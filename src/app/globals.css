@@ -155,9 +155,14 @@ body {
 }
 
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
-  line-height: 46px !important;
+  line-height: 52px !important;
   font-size: 17px !important;
-  font-weight: 900 !important;
+  font-weight: 400 !important;
+  font-family: var(--work-sans-font) !important;
+  color: #52525b !important;
+}
+.css-wgai2y-MuiFormLabel-asterisk {
+  color: hsl(339 90% 51% / 1);
 }
 label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
   margin-top: 8px !important;
@@ -173,13 +178,14 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 }
 
 .hoveredaward .imgaward {
-  transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.2);
 }
 .hoveredaward {
   transition: all 0.3s ease-in-out;
 }
 
 .imgaward {
+  box-shadow: 3px 5px 80px 0 rgba(81, 182, 255, 0.6);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -232,13 +238,15 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 
 .green_main {
   color: #000;
-  background-color: #fff;
-  border-color: #ccff00;
+  background-color: #ccff00;
+
+  border-color: #000;
   /* border-image: linear-gradient(to left, #51f575, #06f4da); */
   border-image-slice: 1;
 }
 .green_main:hover {
   color: #fff;
+  border-color: #ccff00;
 }
 
 .black_main:hover {
@@ -246,10 +254,10 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 }
 
 .black_main {
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  background-color: #000;
+  border-color: #ccff00;
 
-  border-color: #000;
   /* border-image: linear-gradient(to left, #51f575, #06f4da); */
   border-image-slice: 1;
 }
@@ -267,4 +275,40 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 .foot h2 {
   color: #ccff00;
   font-weight: bold;
+}
+
+.newsletterbtn {
+  margin-top: 2rem;
+
+  background-color: black;
+
+  border-radius: 9999px;
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  padding: 1rem;
+
+  border-width: 2px;
+
+  border-color: black;
+
+  transition-property: background-color, color, border-color;
+
+  transition-duration: 300ms;
+
+  transition-timing-function: ease-in-out;
+}
+
+.newsletterbtn:hover {
+  background-color: white;
+
+  color: black;
+
+  border-color: black;
+}
+
+.nav-p a {
+  mix-blend-mode: difference;
 }
