@@ -11,7 +11,7 @@ import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 
 import { firestore, storage } from "../../../firbase/clientApp";
-import { Sendemail } from "../../app/email/page";
+import Sendemail from "../../app/email/page";
 import ImageDownloadPage from "../../app/imagetransform/page";
 
 const MultiPageForm = () => {

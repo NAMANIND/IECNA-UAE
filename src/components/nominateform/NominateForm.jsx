@@ -9,7 +9,7 @@ import img1 from "../../../public/images/Intersect.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { MuiPhone } from "../phone/MuiPhone";
-import { Sendemail } from "../../app/email/page";
+import Sendemail from "../../app/email/page";
 
 const NominateForm = () => {
   const [step, setStep] = useState(1);
