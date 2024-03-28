@@ -43,45 +43,13 @@ const DescriptionCard = ({
         />
 
         <motion.div
-          className="bg-black shadow-2xl overflow-hidden rounded-[32px] px-5 py-5 absolute bottom-[-100px] w-full "
+          className="bg-black/75 shadow-2xl overflow-hidden rounded-[32px]  py-5 absolute bottom-[-100px] w-full "
           initial={{ y: 0, height: 200 }}
-          animate={isHovered ? { y: 0, height: 350 } : { y: 0, height: 150 }}
+          animate={isHovered ? { y: 0, height: 400 } : { y: 0, height: 150 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className={`text-[24px] text-[#ccff00] ${anton.className}`}>
-            {title}
-          </h2>
-          <p className={` text-[16px] my-2 ${work_sans.className}`}>{job}</p>
-          <div className="flex gap-5 ">
-            {linkedin && (
-              <a href={linkedin} target="_blank" rel="noopener noreferrer">
-                <FaLinkedin size={28} />
-              </a>
-            )}
-            {instagram && (
-              <a href={instagram} target="_blank" rel="noopener noreferrer">
-                <FaInstagram size={28} />
-              </a>
-            )}
-            {tiktok && (
-              <a href={tiktok} target="_blank" rel="noopener noreferrer">
-                <FaTiktok size={28} />
-              </a>
-            )}
-            {snapchat && (
-              <a href={snapchat} target="_blank" rel="noopener noreferrer">
-                <FaSnapchat size={28} />
-              </a>
-            )}
-            {youtube && (
-              <a href={youtube} target="_blank" rel="noopener noreferrer">
-                <FaYoutube size={28} />
-              </a>
-            )}
-          </div>
-
           {isHovered && (
-            <p className={`text-[16px] my-2 ${work_sans.className}`}>
+            <p className={`text-[16px] my-2 px-5 ${work_sans.className}`}>
               {" "}
               {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
               ipsum facilis nisi, blanditiis omnis, sit dolor culpa molestiae
@@ -90,6 +58,39 @@ const DescriptionCard = ({
               {des}
             </p>
           )}
+          <div className="absolute bottom-0 py-5 px-5  rounded-[32px]    bg-black w-full">
+            <h2 className={`text-[24px] text-[#ccff00] ${anton.className}`}>
+              {title}
+            </h2>
+            <p className={` text-[16px] my-2 ${work_sans.className}`}>{job}</p>
+            <div className="flex gap-5 h-[35px] ">
+              {linkedin && (
+                <a href={linkedin} target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin size={28} />
+                </a>
+              )}
+              {instagram && (
+                <a href={instagram} target="_blank" rel="noopener noreferrer">
+                  <FaInstagram size={28} />
+                </a>
+              )}
+              {tiktok && (
+                <a href={tiktok} target="_blank" rel="noopener noreferrer">
+                  <FaTiktok size={28} />
+                </a>
+              )}
+              {snapchat && (
+                <a href={snapchat} target="_blank" rel="noopener noreferrer">
+                  <FaSnapchat size={28} />
+                </a>
+              )}
+              {youtube && (
+                <a href={youtube} target="_blank" rel="noopener noreferrer">
+                  <FaYoutube size={28} />
+                </a>
+              )}
+            </div>
+          </div>
         </motion.div>
       </div>
     </motion.div>
