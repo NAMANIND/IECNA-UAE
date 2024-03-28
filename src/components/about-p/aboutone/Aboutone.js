@@ -1,11 +1,14 @@
+"use client";
 import * as React from "react";
 import imgman from "../../../../public/images/DSC04857.png";
 import Image from "next/image";
 import { anton, work_sans } from "@/styles/fonts";
+import { motion } from "framer-motion";
+
 function WhyInfluencerMarketing() {
   return (
     <section className="flex flex-col w-[100%] max-md:ml-0 max-md:w-full">
-      <ul className="mt-24 text-xl tracking-tighter leading-7 text-white max-md:mt-10 max-md:max-w-full  list-disc text-justify  ">
+      <ul className="mt-24 text-xl text-justify tracking-tighter leading-7 text-white max-md:mt-10 max-md:max-w-full  list-disc   ">
         <li>
           Elevate search engine rankings by harnessing influencer collaborations
           to increase brand visibility and organic reach.
@@ -59,14 +62,14 @@ function InfluencerMarketingImage() {
 
 function InfluencerMarketingimg() {
   return (
-    <div className="w-full overflow-hidden pt-20 rounded-[46px] ml-10 ">
+    <div className="w-full overflow-hidden pt-20 rounded-[46px] flex justify-end ml-10 ">
       <Image
         loading="lazy"
         src={imgman}
         alt="Influencer marketing "
         className="shrink-0   max-md:mt-10 rounded-[46px] "
         height="100%"
-        style={{ objectFit: "cover", width: "40vw" }}
+        style={{ objectFit: "cover", width: "30vw" }}
       />
     </div>
   );
@@ -76,12 +79,12 @@ function InfluencerMarketingStats({ title, value, description }) {
   return (
     <div className="flex flex-col max-md:mt-10">
       <div
-        className={`text-6xl text-lime-400   leading-[62.08px] max-md:text-4xl ${anton.className} `}
+        className={`text-6xl text-[#ccff00]   leading-[62.08px] max-md:text-4xl ${anton.className} `}
       >
         {value}
       </div>
       <div className="mt-7 text-xl font-medium tracking-tighter leading-7 text-white">
-        <span className="font-bold text-lime-400">{title}:</span> {description}
+        <span className="font-bold text-[#ccff00]">{title}:</span> {description}
       </div>
     </div>
   );
@@ -109,20 +112,45 @@ function Aboutone() {
     },
   ];
 
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
+
   return (
     <div className={`flex flex-col bg-black ${work_sans.className}   `}>
       <div className="flex flex-col pt-1.5 pb-20 w-full max-md:px-5 max-md:max-w-full rounded-b-[42px]">
-        <p className="text-2xl  px-64 font-medium tracking-tighter leading-8 text-white max-md:max-w-full">
+        <motion.p
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+          className="text-2xl  px-64 font-medium  tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+        >
           The Influence Exchange Confex and Awards, a prestigious global
           platform uniting industry leaders, innovators, and influencers across
           diverse sectors for insightful discussions and the celebration of
           remarkable achievements. Building on the success of past editions, we
           are delighted to announce the upcoming India edition scheduled for
           July 12, 2024.
-        </p>
-        <div className="px-10 mt-44 mb-32  max-md:max-w-full">
+        </motion.p>
+        <motion.div
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+          className="px-20 mt-44 mb-32  max-md:max-w-full"
+        >
           <h2
-            className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white ${anton.className} `}
+            className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
           >
             WHY INFLUENCER MARKETING?
           </h2>
@@ -141,9 +169,12 @@ function Aboutone() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
         className="flex overflow-hidden relative flex-col justify-center w-full shadow-2xl min-h-[400px] max-md:max-w-full "
         style={{
           backgroundImage: "linear-gradient(0deg, #fff 80%, #000 20%)",
@@ -167,7 +198,7 @@ function Aboutone() {
             ))}
             <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
               <p className="relative text-base font-medium tracking-tighter leading-5 text-justify text-white max-md:mt-10">
-                <span className="text-xl font-bold text-lime-400">
+                <span className="text-xl font-bold text-[#ccff00]">
                   Instagram Growth:{" "}
                 </span>{" "}
                 Instagram Influencer marketing in India has witnessed
@@ -181,7 +212,7 @@ function Aboutone() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

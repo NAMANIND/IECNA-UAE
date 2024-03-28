@@ -1,13 +1,28 @@
+"use client";
 import * as React from "react";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
 import got from "../../../../public/images/got.png";
 import { anton, work_sans } from "@/styles/fonts";
+import { motion } from "framer-motion";
 
 function Ig() {
+  const offscreen = {
+    x: -100,
+    opacity: 0,
+  };
+  const onscreen = {
+    x: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.4,
+      duration: 0.4,
+    },
+  };
   return (
     <section
-      className={`  items-end   text-2xl text-right max-md:px-5 relative bg-white   pt-[100px] align-middle font-bold  ${work_sans.className} `}
+      className={`  items-end   text-2xl text-right max-md:px-5 relative bg-white   pt-[120px] align-middle font-bold  ${work_sans.className} `}
     >
       <div
         className="flex flex-row pr-8 align-middle"
@@ -20,16 +35,22 @@ function Ig() {
           alignItems: "center",
         }}
       >
-        <Image
-          src={got}
-          alt="Igate"
-          width={1000}
-          height="auto"
-          style={{
-            boxShadow: "0 20px 60px 0 rgba(0, 0, 0, 0.25)",
-            transform: "rotate(-5deg)",
-          }}
-        />
+        <motion.div
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <Image
+            src={got}
+            alt="Igate"
+            width={1000}
+            height="auto"
+            style={{
+              boxShadow: "0 20px 60px 0 rgba(0, 0, 0, 0.25)",
+              transform: "rotate(-5deg)",
+            }}
+          />
+        </motion.div>
         <div>
           <h1 className="leading-7 text-black uppercase max-md:max-w-full  font-bold">
             The D-day for Brands and Marketing Tech in the World of Influencer
@@ -41,7 +62,7 @@ function Ig() {
           >
             12<span className="text-white">TH</span> JULY 2024
           </time>
-          <p className="mt-5 text-lime-400 uppercase leading-[117%]  font-bold">
+          <p className="mt-5 text-[#ccff00] uppercase leading-[117%]  font-bold">
             MUMBAI
           </p>
         </div>

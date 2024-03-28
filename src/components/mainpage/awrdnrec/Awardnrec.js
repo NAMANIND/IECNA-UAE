@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
@@ -10,7 +12,21 @@ import aw5 from "../../../../public/images/DSC05203 copy.png";
 
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
+import { motion } from "framer-motion";
 const Awardnrec = () => {
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
   return (
     <div
       className="flex flex-col px-10 py-20 w-full  max-md:px-5 max-md:max-w-full"
@@ -19,12 +35,20 @@ const Awardnrec = () => {
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
-      <div
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
         className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
       >
         AWARDS AND RECOGNITION
-      </div>
-      <div className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1">
+      </motion.div>
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1"
+      >
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-[24%] max-md:ml-0 max-md:w-full ">
             <Image
@@ -108,13 +132,18 @@ const Awardnrec = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex w-full justify-center">
-        <Button href="./awards" color="green" img="trophy">
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="flex w-full justify-center mt-[100px]"
+      >
+        <Button href="./awards" color="black" img="trophy">
           Nominate
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 };

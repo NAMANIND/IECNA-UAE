@@ -5,8 +5,25 @@ import { motion } from "framer-motion";
 import { anton, work_sans } from "@/styles/fonts";
 import Image from "next/image";
 import img1 from "../../../public/images/Intersect.png";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaTiktok,
+  FaSnapchat,
+  FaYoutube,
+} from "react-icons/fa";
 
-const DescriptionCard = ({ title }) => {
+const DescriptionCard = ({
+  title,
+  img,
+  des,
+  job,
+  linkedin,
+  instagram,
+  tiktok,
+  snapchat,
+  youtube,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -17,10 +34,11 @@ const DescriptionCard = ({ title }) => {
     >
       <div>
         <Image
-          src={img1}
+          src={img}
           alt="Speaker Image"
           width={300}
           height={200}
+          className="rounded-[32px]"
           layout="responsive"
         />
 
@@ -33,18 +51,43 @@ const DescriptionCard = ({ title }) => {
           <h2 className={`text-[24px] text-[#ccff00] ${anton.className}`}>
             {title}
           </h2>
-          <p className={` text-[16px] ${work_sans.className}`}>
-            Description: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-          <p>Author: John Doe</p>
+          <p className={` text-[16px] my-2 ${work_sans.className}`}>{job}</p>
+          <div className="flex gap-5 ">
+            {linkedin && (
+              <a href={linkedin} target="_blank" rel="noopener noreferrer">
+                <FaLinkedin size={28} />
+              </a>
+            )}
+            {instagram && (
+              <a href={instagram} target="_blank" rel="noopener noreferrer">
+                <FaInstagram size={28} />
+              </a>
+            )}
+            {tiktok && (
+              <a href={tiktok} target="_blank" rel="noopener noreferrer">
+                <FaTiktok size={28} />
+              </a>
+            )}
+            {snapchat && (
+              <a href={snapchat} target="_blank" rel="noopener noreferrer">
+                <FaSnapchat size={28} />
+              </a>
+            )}
+            {youtube && (
+              <a href={youtube} target="_blank" rel="noopener noreferrer">
+                <FaYoutube size={28} />
+              </a>
+            )}
+          </div>
+
           {isHovered && (
-            <p>
-              Additional information Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Magnam asperiores obcaecati reprehenderit
-              tempore nam laudantium alias magni animi, officia recusandae iusto
-              nisi error rem excepturi vel sapiente hic eos. Architecto
-              doloribus nulla non porro iusto.
+            <p className={`text-[16px] my-2 ${work_sans.className}`}>
+              {" "}
+              {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
+              ipsum facilis nisi, blanditiis omnis, sit dolor culpa molestiae
+              neque temporibus corrupti. Possimus maiores unde quam nesciunt
+              laudantium at iste amet asperiores */}
+              {des}
             </p>
           )}
         </motion.div>

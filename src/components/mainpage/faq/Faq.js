@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import { anton, work_sans } from "@/styles/fonts";
+import { motion } from "framer-motion";
 const data = [
   {
     question: "When and where will the event take place?",
@@ -68,62 +69,83 @@ export default function Faq() {
     setActiveQuestions(updatedActiveQuestions);
   };
 
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
   return (
     <div
-      className={`bg-white text-black w-full px-10 py-10 ${work_sans.className} `}
+      className={`bg-white text-black w-full px-10 py-56 ${work_sans.className} `}
     >
-      <h1
-        className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        FAQ
-      </h1>
+        <h1
+          className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
+        >
+          FAQ
+        </h1>
 
-      <p
-        className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
-      >
-        Frequently Asked Questions
-      </p>
-      <p
-        className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
-      >
-        Find answers to common queries about the event.
-      </p>
+        <p
+          className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
+        >
+          Frequently Asked Questions
+        </p>
+        <p
+          className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
+        >
+          Find answers to common queries about the event.
+        </p>
 
-      <div className="flex flex-col w-full justify-center align-middle ">
-        {data.map((item, index) => (
-          <div key={index} className="my-4 w-[100%]">
-            <button
-              className={`question-section w-[100%] ${activeQuestions[index]}`}
-              onClick={() => toggleAccordion(index)}
-            >
-              <div className="border-b-2 border-gray-200">
-                <div className="question-align">
-                  <h4 className="question-style  text-xl my-2 font-bold  ">
-                    Q. {item.question}
-                  </h4>
-                  <FiPlus
+        <div className="flex flex-col w-full justify-center align-middle ">
+          {data.map((item, index) => (
+            <div key={index} className="my-4 w-[100%]">
+              <button
+                className={`question-section w-[100%] ${activeQuestions[index]}`}
+                onClick={() => toggleAccordion(index)}
+              >
+                <div className="border-b-2 border-gray-200">
+                  <div className="question-align">
+                    <h4 className="question-style  text-xl my-2 font-bold  ">
+                      Q. {item.question}
+                    </h4>
+                    <FiPlus
+                      className={
+                        activeQuestions[index]
+                          ? "question-icon rotate"
+                          : "question-icon"
+                      }
+                    />
+                  </div>
+                  <div
+                    ref={(el) => (contentRefs.current[index] = el)}
                     className={
                       activeQuestions[index]
-                        ? "question-icon rotate"
-                        : "question-icon"
+                        ? "answer answer-divider pl-1"
+                        : "answer pl-1"
                     }
-                  />
+                  >
+                    <p className="answer-style text-lg my-2">
+                      A. {item.answer}
+                    </p>
+                  </div>
                 </div>
-                <div
-                  ref={(el) => (contentRefs.current[index] = el)}
-                  className={
-                    activeQuestions[index]
-                      ? "answer answer-divider pl-1"
-                      : "answer pl-1"
-                  }
-                >
-                  <p className="answer-style text-lg my-2">A. {item.answer}</p>
-                </div>
-              </div>
-            </button>
-          </div>
-        ))}
-      </div>
+              </button>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }

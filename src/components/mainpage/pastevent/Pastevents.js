@@ -76,9 +76,9 @@ function Pastevents() {
   };
   return (
     <div
-      className={`self-stretch pt-20 max-md:mt-10 bg-black max-md:max-w-full px-10 ${anton.className} `}
+      className={`self-stretch pt-20 max-md:mt-10 bg-black max-md:max-w-full px-20 ${anton.className} `}
     >
-      <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+      <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">
         <motion.div
           initial={offscreen} // Initial state
           whileInView={onscreen} // Target state when in view

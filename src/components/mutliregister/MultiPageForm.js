@@ -10,13 +10,19 @@ import { MuiPhone } from "../phone/MuiPhone";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 
+import { firestore, storage } from "../../../firbase/clientApp";
+import { Sendemail } from "../../app/email/page";
+import ImageDownloadPage from "../../app/imagetransform/page";
+
 const MultiPageForm = () => {
   const [phone, setPhone] = useState("");
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("");
+  const [selectedImageurl, setSelectedImageurl] = useState("");
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
+  const [poppage, setPoppage] = useState("");
+  const [sent, setSent] = useState(false);
   const [formData, setFormData] = useState({
     category: "",
     field: "",
@@ -33,6 +39,9 @@ const MultiPageForm = () => {
     tiktok: "",
     snapchat: "",
     youtube: "",
+    linkdin: "",
+    coupon: "",
+    image: null,
   });
   useEffect(() => {
     fetch(
@@ -71,6 +80,7 @@ const MultiPageForm = () => {
   };
 
   const handleChange = (e) => {
+    console.log(formData);
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -78,9 +88,154 @@ const MultiPageForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleImageUpload = async (e) => {
+    const imageFile = e.target.files[0];
+    setFormData({ ...formData, image: imageFile });
+    console.log(imageFile);
+    const popup = (
+      <ImageDownloadPage imageData={imageFile} title="IECNA" text="IECNA" />
+    );
+    setPoppage(popup);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // Handle form submission here
+    console.log(formData); // For testing purposes
+
+    // Send email with form details
+    if (formData.category !== "speaker") {
+      const to = "20bei033@ietdavv.edu.in";
+      const subject =
+        formData.category +
+        " Registration Form Submission by " +
+        formData.firstName +
+        " " +
+        formData.lastName;
+
+      const html = `
+    <h1>Registration Form Submission</h1>
+    <p><strong>First Name:</strong> ${formData.firstName}</p>
+    <p><strong>Last Name:</strong> ${formData.lastName}</p>
+    <p><strong>Category:</strong> ${formData.category}</p>
+    <p><strong>Field:</strong> ${formData.field}</p>
+    <p><strong>Details:</strong> ${formData.details}</p>
+    <p><strong>Email:</strong> ${formData.email}</p>
+    <p><strong>Phone:</strong> ${formData.phone}</p>
+    <p><strong>Company:</strong> ${formData.company}</p>
+    <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
+    <p><strong>Country:</strong> ${formData.country}</p>
+    <p><strong>Industry:</strong> ${formData.industry}</p>
+    <p><strong>Instagram:</strong> ${formData.instagram}</p>
+    <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
+    <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
+    <p><strong>Youtube:</strong> ${formData.youtube}</p>
+    <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
+    <p><strong>Coupon:</strong> ${formData.coupon}</p>
+
+    <p><strong>Image:</strong></p>
+    <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
+  `;
+
+      await Sendemail(to, subject, html);
+    }
+
+    if (formData.category === "speaker") {
+      // Upload image to Firebase storage
+      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+      await imageRef.put(formData.image);
+      const imageUrl = await imageRef.getDownloadURL();
+      setSelectedImageurl(imageUrl);
+
+      const nomineeRef = firestore.collection("speakers").doc();
+      const nomineeId = nomineeRef.id;
+
+      // Save speaker details to Firestore
+      await nomineeRef.set({
+        id: nomineeId,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        imageUrl: imageUrl,
+        instagram: formData.instagram,
+        tiktok: formData.tiktok,
+        snapchat: formData.snapchat,
+        youtube: formData.youtube,
+        linkdin: formData.linkdin ? formData.linkdin : "",
+        details: formData.details,
+      });
+
+      const to = "20bei033@ietdavv.edu.in";
+      const subject =
+        formData.category +
+        " Registration Form Submission by " +
+        formData.firstName +
+        " " +
+        formData.lastName;
+
+      const html = `
+      <h1>Registration Form Submission</h1>
+      <p><strong>First Name:</strong> ${formData.firstName}</p>
+      <p><strong>Last Name:</strong> ${formData.lastName}</p>
+      <p><strong>Category:</strong> ${formData.category}</p>
+      <p><strong>Field:</strong> ${formData.field}</p>
+      <p><strong>Details:</strong> ${formData.details}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Phone:</strong> ${formData.phone}</p>
+      <p><strong>Company:</strong> ${formData.company}</p>
+      <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
+      <p><strong>Country:</strong> ${formData.country}</p>
+      <p><strong>Industry:</strong> ${formData.industry}</p>
+      <p><strong>Instagram:</strong> ${formData.instagram}</p>
+      <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
+      <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
+      <p><strong>Youtube:</strong> ${formData.youtube}</p>
+      <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
+      <p><strong>Coupon:</strong> ${formData.coupon}</p>
+  
+      <p><strong>Image:</strong></p>
+      <img src="${imageUrl}" alt="Uploaded Image" width="200" height="200"  />
+    `;
+
+      await Sendemail(to, subject, html);
+
+      alert("Speaker details submitted successfully!");
+    } else {
+      alert("Form submitted successfully!"); // For other categories
+    }
+
+    if (formData.category === "speaker" || formData.category === "delegate") {
+      setSent(true);
+    }
+    // Reset form and page state
+    setFormData({
+      category: "",
+      field: "",
+      details: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      jobTitle: "",
+      country: "",
+      industry: "",
+      instagram: "",
+      tiktok: "",
+      snapchat: "",
+      youtube: "",
+      image: null,
+    });
+    setPage(1);
+  };
+
+  const handleFormDataChange = (e) => {
+    console.log(formData);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleselect = (key) => {
@@ -174,8 +329,8 @@ const MultiPageForm = () => {
                     isRequired
                     errorMessage={errorMessage}
                   >
-                    <SelectItem value="influencer">Influencer</SelectItem>
-                    <SelectItem value="marketer">Marketer</SelectItem>
+                    <SelectItem key="influencer">Influencer</SelectItem>
+                    <SelectItem key="marketer">Marketer</SelectItem>
                   </Select>
                 )}
               <div className="flex flex-row justify-between w-full gap-4">
@@ -243,7 +398,8 @@ const MultiPageForm = () => {
 
                 <MuiPhone
                   value={formData.phone}
-                  onChange={(phone) => setPhone(phone)}
+                  // onChange={handleFormDataChange}
+                  onChange={(phone) => setFormData({ ...formData, phone })}
                   className="w-1/2"
                 />
               </div>
@@ -280,9 +436,9 @@ const MultiPageForm = () => {
                   variant="underlined"
                   label="Select Country"
                   value={selectedCountry}
-                  onChange={(value) => {
-                    setSelectedCountry(value);
-                    setSelectedCountryCode(countries[value]);
+                  onChange={(e) => {
+                    setFormData({ ...formData, country: e.target.value });
+                    setSelectedCountry(e.target.value);
                   }}
                   size="lg"
                   isRequired
@@ -302,6 +458,117 @@ const MultiPageForm = () => {
                 />
               </div>
 
+              {(formData.category === "sponsor" ||
+                formData.field === "marketer") && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    variant="underlined"
+                    label="Linkdin"
+                    name="linkdin"
+                    value={formData.linkdin}
+                    onChange={handleChange}
+                    size="lg"
+                    isRequired
+                  />
+                </div>
+              )}
+
+              {formData.category === "mediapartner" && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    variant="underlined"
+                    label="Linkdin"
+                    name="linkdin"
+                    value={formData.linkdin}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                    isRequired
+                  />
+
+                  <Input
+                    variant="underlined"
+                    label="Coupon"
+                    name="coupon"
+                    value={formData.cupon}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                  />
+                </div>
+              )}
+
+              {formData.field === "influencer" && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    variant="underlined"
+                    label="Instagram"
+                    name="instagram"
+                    value={formData.instagram}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                    isRequired
+                  />
+                  <Input
+                    label="Youtube"
+                    name="youtube"
+                    value={formData.youtube}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                    variant="underlined"
+                  />
+                </div>
+              )}
+
+              {formData.field === "influencer" && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    variant="underlined"
+                    label="Tiktok"
+                    name="tiktok"
+                    value={formData.tiktok}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                  />
+                  <Input
+                    variant="underlined"
+                    label="Snapchat"
+                    name="snapchat"
+                    value={formData.snapchat}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                  />
+                </div>
+              )}
+
+              {formData.category === "speaker" && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    variant="underlined"
+                    label="Details"
+                    name="details"
+                    value={formData.details}
+                    onChange={handleFormDataChange}
+                    size="lg"
+                    isRequired
+                  />
+                </div>
+              )}
+
+              {(formData.category === "speaker" ||
+                formData.category === "delegate") && (
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    type="file"
+                    label="Upload Image"
+                    accept="image/*"
+                    placeholder="."
+                    onChange={handleImageUpload}
+                    className="w-full "
+                    variant="underlined"
+                    isRequired
+                  />
+                </div>
+              )}
+
               {/* Add other input fields as needed */}
               <div className="flex flex-row justify-between w-full gap-4">
                 <button onClick={prevPage} className="newsletterbtn w-6/12">
@@ -315,6 +582,32 @@ const MultiPageForm = () => {
           )}
         </form>
       </div>
+
+      {/* popup */}
+
+      {sent && (
+        <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div
+            className="bg-white p-10 rounded-lg m-10 max-h-fit"
+            style={{ width: "800px" }}
+          >
+            <h1 className="text-2xl font-bold mb-10 text-center text-black">
+              Form submitted successfully!
+            </h1>
+            <div className="flex justify-center items-center w-full h-[400px]">
+              `{poppage}`
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <button
+                onClick={() => setSent(false)}
+                className="newsletterbtn w-6/12"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

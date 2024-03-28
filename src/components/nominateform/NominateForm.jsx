@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { storage, firestore } from "../../../firbase/clientApp";
 import Marquee from "react-fast-marquee";
@@ -9,17 +9,23 @@ import img1 from "../../../public/images/Intersect.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { MuiPhone } from "../phone/MuiPhone";
+import { Sendemail } from "../../app/email/page";
 
 const NominateForm = () => {
   const [step, setStep] = useState(1);
   const [field, setField] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [countries, setCountries] = useState([]);
+  const [selectedCountryCode, setSelectedCountryCode] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
+
   const [values, setValues] = useState(new Set([]));
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    field: "",
     email: "",
     phone: "",
     company: "",
@@ -27,10 +33,27 @@ const NominateForm = () => {
     country: "",
     industry: "",
     linkedin: "",
+    instagram: "",
+    youtube: "",
+    tiktok: "",
+    snapchat: "",
     image: null,
   });
 
+  useEffect(() => {
+    fetch(
+      "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCountries(data.countries);
+
+        setSelectedCountry(data.userSelectValue);
+      });
+  }, []);
+
   const handleFieldSelect = (selectedField) => {
+    setFormData({ ...formData, field: selectedField });
     setField(selectedField);
   };
 
@@ -53,6 +76,7 @@ const NominateForm = () => {
       "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)",
   };
   const handleFormDataChange = (e) => {
+    console.log(formData);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -102,6 +126,39 @@ const NominateForm = () => {
 
     console.log(categoriesData);
 
+    const htmlcontent = `
+    <p>First Name: ${formData.firstName}</p>
+    <p>Last Name: ${formData.lastName}</p>
+    <p>Field: ${field}</p>
+    <p>Categories: ${Array.from(values)
+      .map((category) => `<span>${category}</span>`)
+      .join(", ")}</p>
+    <p>Email: ${formData.email}</p>
+    <p>Phone: ${formData.phone}</p>
+    <p>Company: ${formData.company}</p>
+    <p>Job Title: ${formData.jobTitle}</p>
+    <p>Country: ${formData.country}</p>
+    <p>Industry: ${formData.industry}</p>
+    <p>LinkedIn: ${formData.linkedin}</p>
+    <p>Instagram: ${formData.instagram}</p>
+    <p>Youtube: ${formData.youtube}</p>
+    <p>Tiktok: ${formData.tiktok}</p>
+    <p>Snapchat: ${formData.snapchat}</p>
+
+
+    <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
+    `;
+    const to = ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"];
+    const subject =
+      field +
+      " Nomination form submission by: " +
+      formData.firstName +
+      " " +
+      formData.lastName;
+    const html = htmlcontent;
+
+    await Sendemail(to, subject, html);
+
     if (Object.keys(categoriesData).length === 0) {
       setErrorMessage("*Please select at least one category*");
       return;
@@ -127,6 +184,8 @@ const NominateForm = () => {
     // Reset form to first step
     setStep(1);
     setField("");
+    setErrorMessage("");
+    setValues(new Set([]));
     setSelectedCategories([]);
     setFormData({
       firstName: "",
@@ -138,6 +197,11 @@ const NominateForm = () => {
       country: "",
       industry: "",
       linkedin: "",
+      instagram: "",
+      youtube: "",
+      tiktok: "",
+      snapchat: "",
+      field: "",
       image: null,
     });
   };
@@ -209,7 +273,11 @@ const NominateForm = () => {
                   </SelectItem>
                 ))}
           </Select>
-
+          {values.size > 0 && (
+            <p className="text-small text-default-500">
+              Selected: {Array.from(values).join(", ")}
+            </p>
+          )}
           <div className="flex flex-row justify-between w-full gap-4">
             <button onClick={handlePrevStep} className="newsletterbtn w-6/12 ">
               Previous
@@ -237,7 +305,7 @@ const NominateForm = () => {
           <h2 className={` text-black `}>
             Fill in Personal Details and Upload Image
           </h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="flex flex-row gap-4 w-full">
               <Input
                 label="First Name"
@@ -298,7 +366,7 @@ const NominateForm = () => {
               />
             </div>
             <div className="flex flex-row gap-4 w-full">
-              <Input
+              {/* <Input
                 label="Country"
                 name="country"
                 value={formData.country}
@@ -306,7 +374,23 @@ const NominateForm = () => {
                 className="w-1/2 "
                 variant="underlined"
                 isRequired
-              />
+              /> */}
+
+              <Select
+                variant="underlined"
+                label="Select Country"
+                value={selectedCountry}
+                onChange={(e) => {
+                  setFormData({ ...formData, country: e.target.value });
+                  setSelectedCountry(e.target.value);
+                }}
+                className="w-1/2"
+                isRequired
+              >
+                {countries.map((country) => (
+                  <SelectItem key={country.label}>{country.label}</SelectItem>
+                ))}
+              </Select>
               <Input
                 label="Industry"
                 name="industry"
@@ -318,28 +402,83 @@ const NominateForm = () => {
               />
             </div>
 
-            <div className="flex flex-row gap-4 w-full">
-              <Input
-                label="LinkedIn"
-                name="linkedin"
-                value={formData.linkedin}
-                onChange={handleFormDataChange}
-                className="w-1/2 "
-                variant="underlined"
-                isRequired
-              />
-              <Input
-                type="file"
-                label="Upload Image"
-                accept="image/*"
-                placeholder="."
-                ref={fileInputRef}
-                onChange={handleImageUpload}
-                className="w-1/2 "
-                variant="underlined"
-                isRequired
-              />
-            </div>
+            {field === "influencer" ? (
+              <div className="flex flex-col gap-4 w-full">
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    label="Instagram"
+                    name="instagram"
+                    value={formData.instagram}
+                    onChange={handleFormDataChange}
+                    className="w-1/2 "
+                    variant="underlined"
+                    isRequired
+                  />
+                  <Input
+                    label="Youtube"
+                    name="youtube"
+                    value={formData.youtube}
+                    onChange={handleFormDataChange}
+                    className="w-1/2 "
+                    variant="underlined"
+                  />
+                </div>
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    label="Tiktok"
+                    name="tiktok"
+                    value={formData.tiktok}
+                    onChange={handleFormDataChange}
+                    className="w-1/2 "
+                    variant="underlined"
+                  />
+
+                  <Input
+                    label="Snapchat"
+                    name="snapchat"
+                    value={formData.snapchat}
+                    onChange={handleFormDataChange}
+                    className="w-1/2 "
+                    variant="underlined"
+                  />
+                </div>
+                <div className="flex flex-row gap-4 w-full">
+                  <Input
+                    type="file"
+                    label="Upload Image"
+                    accept="image/*"
+                    placeholder="."
+                    onChange={handleImageUpload}
+                    className="w-1/2 "
+                    variant="underlined"
+                    isRequired
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-row gap-4 w-full">
+                <Input
+                  label="LinkedIn"
+                  name="linkedin"
+                  value={formData.linkedin}
+                  onChange={handleFormDataChange}
+                  className="w-1/2 "
+                  variant="underlined"
+                  isRequired
+                />
+                <Input
+                  type="file"
+                  label="Upload Image"
+                  accept="image/*"
+                  placeholder="."
+                  onChange={handleImageUpload}
+                  className="w-1/2 "
+                  variant="underlined"
+                  isRequired
+                />
+              </div>
+            )}
+
             <div className="flex flex-row gap-4 w-full">
               <button onClick={handlePrevStep} className="newsletterbtn w-6/12">
                 Previous

@@ -1,6 +1,8 @@
+"use client";
 import * as React from "react";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
+import { motion } from "framer-motion";
 
 function Whattoexpect() {
   // Sample data for cards
@@ -36,10 +38,25 @@ function Whattoexpect() {
     // Add more objects as needed
   ];
 
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
+
   return (
     <div className="flex flex-col items-center  bg-white">
       <div className={`${anton.className} w-full`}>
-        <h1 className="uppercase text-4xl relative z-10 text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5 top-32">
+        <h1 className="uppercase text-5xl relative z-10 text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5  top-[132px]">
           What to expect
         </h1>
         <Marquee
@@ -48,34 +65,50 @@ function Whattoexpect() {
           autoFill
           className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full max-md:text-4xl"
         >
-          <h2>EXPECT EVERYTHING UNEXPECTED!</h2>
+          <h2> &nbsp; EXPECT EVERYTHING UNEXPECTED!</h2>
         </Marquee>
       </div>
 
-      <div
-        className={`mt-20 text-2xl  p-10 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className={`mt-10 text-2xl  px-20 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At the Influence Exchange & Awards Confex India 2024, expect an
-        unforgettable experience filled with engaging interactions, curated
-        content, and invaluable insights:
-      </div>
+        unforgettable experience <br /> filled with engaging interactions,
+        curated content, and invaluable insights:
+      </motion.div>
 
-      <div className="mt-20 w-full max-md:mt-10 max-md:max-w-full  p-10">
+      <div className="m-10 w-full max-md:mt-10 max-md:max-w-full  p-10">
         <div className="flex flex-wrap gap-[4%] max-md:gap-0 rounded-[36px] ">
           {cardData.map((card, index) => (
-            <div
+            <motion.div
+              initial={offscreen}
+              whileInView={onscreen}
+              viewport={{ once: true, amount: 0.1 }}
               key={index}
-              className="flex flex-col w-[48%] max-md:ml-0 max-md:w-full py-5"
+              className="flex flex-col w-[48%] h-full max-md:ml-0 max-md:w-full py-5 group"
             >
-              <div className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full">
+              <div
+                className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full 
+              
+                rounded-[36px]
+               "
+              >
                 <img
                   loading="lazy"
                   src={card.imgUrl}
                   alt={card.title}
-                  className="object-cover absolute inset-0 size-full  rounded-[36px]"
+                  className="object-cover absolute inset-0 size-full
+                  group-hover:scale-105 
+                  
+                  transition-transform duration-300 ease-in-out
+              
+                   rounded-[36px]"
                 />
                 <div
-                  className="flex relative flex-col px-6 pt-20 pb-8 mt-40 rounded-[36px] max-md:px-5 max-md:mt-10 max-md:max-w-full
+                  className="flex relative flex-col overflow-hidden px-6 pt-20 pb-8 mt-40 rounded-[36px] max-md:px-5 max-md:mt-10 max-md:max-w-full
                 
                 "
                   style={{
@@ -84,7 +117,7 @@ function Whattoexpect() {
                   }}
                 >
                   <div
-                    className={`mt-12 text-5xl text-lime-400 uppercase leading-[62px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[58px] ${anton.className} `}
+                    className={`mt-12 text-5xl text-[#ccff00] uppercase leading-[62px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[58px] ${anton.className} `}
                   >
                     {card.title}
                   </div>
@@ -95,7 +128,7 @@ function Whattoexpect() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

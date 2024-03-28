@@ -1,10 +1,26 @@
+"use client";
+
 import * as React from "react";
 import img from "../../../../public/images/well.png";
 import Image from "next/image";
 import { anton } from "@/styles/fonts";
 import Button from "@/components/button/Button";
+import { motion } from "framer-motion";
 
 function Well() {
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
   return (
     <div className="bg-white py-28 px-10 relative w-full">
       <div
@@ -28,18 +44,21 @@ function Well() {
             />
           </div>
         </div>
-        <div
+        <motion.div
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
           className={`flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full ${anton.className}`}
         >
           <div className="flex flex-col p-10 uppercase max-md:mt-10 max-md:max-w-full">
             <div className="text-4xl leading-10 text-white max-md:max-w-full">
               Well, they say third time is a{" "}
-              <span className="text-lime-400">charm!</span>
+              <span className="text-[#ccff00]">charm!</span>
               <br />
               And IXG is back with the{" "}
-              <span className="text-lime-400">third edition </span>
+              <span className="text-[#ccff00]">third edition </span>
               <br /> of the much awaited{" "}
-              <span className="text-lime-400">IEC&A!</span>
+              <span className="text-[#ccff00]">IEC&A!</span>
             </div>
             <div className="flex gap-1.5 self-start  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
               <Button href="./register" color="green" img="arrow">
@@ -47,7 +66,7 @@ function Well() {
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

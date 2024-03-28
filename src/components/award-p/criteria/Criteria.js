@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { work_sans, anton } from "@/styles/fonts";
 import Button from "@/components/button/Button";
+import { motion } from "framer-motion";
 
 function Criteria() {
   // Define state to manage which heading's criteria to display
@@ -110,34 +111,62 @@ function Criteria() {
   const handleHeadingClick = (heading) => {
     setSelectedHeading(heading);
   };
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+  const onscreen = {
+    y: 0,
+    opacity: 1,
 
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
   return (
     <div className={`bg-black ${work_sans.className} `}>
-      <div className="text-2xl font-medium tracking-tighter mx-80 text-justify  leading-8 text-white max-md:max-w-full">
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="text-2xl font-medium tracking-tighter mx-80 text-justify  leading-8 text-white max-md:max-w-full"
+      >
         Celebrate excellence with us as we honour outstanding contributions
         across various domains. Nominate deserving individuals, brands, or
         organizations for their achievements and innovation in marketing and
         influencer engagement.
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
         className={`mt-44 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         MARKETING AWARD CATEGORIES AND CRITERIA
-      </div>
+      </motion.div>
 
-      <div className="flex justify-center  p-10">
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="flex justify-center gap-20  p-10"
+      >
         <div className="flex flex-wrap w-1/2 gap-[4%]">
           {data.map((item, index) => (
             <React.Fragment key={index}>
               {Object.keys(item).map((heading, index) => (
                 <button
                   key={index}
-                  className={`w-[48%] h-10 flex align-middle justify-center px-8 py-6 my-4 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
-                    selectedHeading === heading ? "bg-lime-400" : "bg-gray-200"
+                  className={`w-[48%] max-h-fit flex align-middle justify-center px-8 py-6 my-4 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
+                    selectedHeading === heading ? "bg-[#ccff55]" : "bg-white"
                   }`}
                   onClick={() => handleHeadingClick(heading)}
                 >
-                  <p className={`${anton.className}`}> {heading}</p>
+                  <p className={`${work_sans.className} font-medium text-xl `}>
+                    {" "}
+                    {heading}
+                  </p>
                 </button>
               ))}
             </React.Fragment>
@@ -151,17 +180,17 @@ function Criteria() {
                 {Object.keys(item).map((heading, index) =>
                   heading === selectedHeading ? (
                     <div key={index} className="text-white">
-                      <div className="mb-5 font-bold text-3xl text-lime-400">
+                      <div className="mb-5 font-bold text-3xl text-[#ccff55]">
                         {heading}
                       </div>
-                      <div className="mb-5  text-md">
+                      <div className="mb-5  text-xl">
                         {item[heading].description}
                       </div>
-                      <div>
-                        <div className="mb-5 font-bold text-3xl text-lime-400">
+                      <div className="mt-20">
+                        <div className="mb-5 font-bold text-3xl text-[#ccff55]">
                           Criteria
                         </div>
-                        <ul className="list-disc pl-5  text-md">
+                        <ul className="list-disc pl-5  text-xl">
                           {item[heading].criteria.map((criterion, index) => (
                             <li key={index}>{criterion}</li>
                           ))}
@@ -173,13 +202,18 @@ function Criteria() {
               </React.Fragment>
             ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex justify-center mt-10">
-        <Button color="green" img="trophy" href="/nominate">
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="flex justify-center mt-10"
+      >
+        <Button color="black" img="trophy" href="/nominate">
           Nominate
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 }

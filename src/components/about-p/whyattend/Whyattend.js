@@ -3,6 +3,7 @@ import * as React from "react";
 import { useState } from "react";
 
 import { anton, work_sans } from "@/styles/fonts";
+import { motion } from "framer-motion";
 
 function Whyattend() {
   const cardData = [
@@ -35,37 +36,69 @@ function Whyattend() {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
+
   return (
     <div
-      className={`flex flex-col items-center px-5 bg-white ${work_sans.className} `}
+      className={`flex flex-col items-center px-10 py-10 bg-white ${work_sans.className} `}
     >
-      <div
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
         className={`text-5xl text-center text-black uppercase leading-[61.92px] max-md:text-4xl ${anton.className} `}
       >
         WHY ATTEND?
-      </div>
-      <div className="self-stretch mt-20 w-full text-3xl italic font-bold tracking-tighter leading-7 text-center text-blue-400 uppercase max-md:mt-10 max-md:max-w-full  ">
+      </motion.div>
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="self-stretch mt-20 w-full text-4xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
+      >
         <span className="font-semibold  italic">
           INDIA, WE ARE BRINGING TOGETHER OVER{" "}
         </span>
-        <span className="font-semibold italic text-blue-400">
+        <span className="font-semibold italic text-[#51B6FF]">
           100 MARKETERS
         </span>
         <span className="font-semibold italic"> AND </span>
-        <span className="font-semibold italic text-blue-400">
+        <span className="font-semibold italic text-[#51B6FF]">
           100 INFLUENCERS!
         </span>
-      </div>
-      <div className="mt-11 text-2xl font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full">
+      </motion.div>
+      <motion.div
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.1 }}
+        className="mt-11 text-2xl px-10 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
+      >
         Experience the future of marketing in the dynamic world of influencer
-        marketing at the Influence Exchange & Awards Confex India 2024. Here are
-        some reasons why you shouldn't miss this event:
-      </div>
+        marketing at the Influence
+        <br /> Exchange & Awards Confex India 2024. Here are some reasons why
+        you shouldn't miss this event:
+      </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
         <div className="flex gap-y-5 px-[5%] gap-x-[4%] flex-wrap max-md:gap-0 ">
           {cardData.map((card, index) => (
-            <div
+            <motion.div
+              initial={offscreen}
+              whileInView={onscreen}
+              viewport={{ once: true, amount: 0.1 }}
               key={index}
               className={`flex flex-col w-[48%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
@@ -90,7 +123,7 @@ function Whyattend() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

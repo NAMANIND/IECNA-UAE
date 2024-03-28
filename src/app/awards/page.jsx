@@ -10,6 +10,7 @@ function Awards() {
   return (
     <NextUIProvider>
       <Head head="Awards" />
+
       <Criteria />
       <CriteriaIn />
       <NominateForm />

@@ -16,7 +16,7 @@ const SectionTitle = ({ children }) => (
 
 const HighlightedText = ({ children, color }) => (
   <div
-    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} w-[30%]   group-hover:text-lime-400`}
+    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} w-[30%]   group-hover:text-[#ccff00]`}
   >
     {children}
   </div>
@@ -60,6 +60,20 @@ const highlights = [
 function Missing() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.2,
+    },
+  };
+
   return (
     <section
       className={`flex justify-center items-center px-10 py-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
@@ -68,10 +82,18 @@ function Missing() {
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
-      <div className="flex flex-col mt-20 w-full max-w-[100%] max-md:mt-10 max-md:max-w-full">
-        <SectionTitle className={` ${anton.className}`}>
+      <div className="flex flex-col mt-20 w-full max-w-[100%] pb-[200px] max-md:mt-10 max-md:max-w-full">
+        <motion.div
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+          className={` ${anton.className} 
+         text-5xl text-center text-black uppercase  pt-[200px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
+         
+              `}
+        >
           What will you be missing out on, if you don't attend?
-        </SectionTitle>
+        </motion.div>
         {highlights.map((highlight, index) => (
           <motion.div
             key={highlight.title}
@@ -81,6 +103,9 @@ function Missing() {
             h-[300px]
             flex align-middle
             `}
+            // initial={offscreen}
+            // whileInView={onscreen}
+            // viewport={{ once: true, amount: 0.1 }}
             // whileHover={{ scale: 1.05 }}
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}

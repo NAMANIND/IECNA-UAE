@@ -1,7 +1,10 @@
+"use client";
 import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Marquee from "react-fast-marquee";
 import Button from "@/components/button/Button";
+
+import { motion } from "framer-motion";
 
 function RegisterNowButton() {
   return (
@@ -15,31 +18,58 @@ function RegisterNowButton() {
 
 function EventDetails() {
   return (
-    <div
-      className={`flex flex-col pl-14 mt-14 max-md:pl-5 max-md:mt-10 max-md:max-w-full ${anton.className}  `}
-    >
-      <time className=" text-7xl text-white max-md:text-4xl">
-        <span className="text-white">12</span>
-        <span className="text-white">th</span>
-        <span className="text-white"> JUL 2024</span>
-      </time>
-      <div className="self-end mt-12 text-5xl  font-medium  text-lime-400 tracking-[4px]	 leading-[56px] w-[282px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px]">
-        VENUE
-        <br />
-        MUMBAI
+    <>
+      <p
+        className={`text-md   text-white font-light  max-md:text-2xl max-md:leading-[52px] ${work_sans.className}`}
+      >
+        The Influence Exchange & Awards Confex India 2024 will take place at a
+        prestigious venue in India, providing a luxurious and conducive
+        environment for networking, learning, and collaboration. Stay tuned for
+        more details on the venue, and get ready to experience an event like no
+        other in the heart of India's vibrant landscape.
+      </p>
+      <div
+        className={`flex flex-col pl-14 mt-14 max-md:pl-5 max-md:mt-10 max-md:max-w-full ${anton.className}  `}
+      >
+        <time className=" text-7xl text-white max-md:text-4xl">
+          <span className="text-white">12</span>
+          <sup>
+            <span className="text-white">th</span>
+          </sup>
+          <span className="text-white"> JULY 2024</span>
+        </time>
+        <div className="self-end mt-12 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px]">
+          VENUE
+          <br />
+          MUMBAI
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 function Venue() {
+  const offscreen = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.1,
+      duration: 0.41,
+    },
+  };
   return (
     <div className="flex flex-col items-center bg-white">
       <div
-        className="overflow-hidden h-[500px]
+        className="overflow-hidden h-[400px]
       relative z-10
 
-     
+     mt-20
       "
       >
         <div
@@ -55,15 +85,29 @@ function Venue() {
             <h2
               className={`text-5xl text-center text-white ${anton.className} `}
             >
-              REGISTER - REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
-              REGISTER - REGISTER
+              &nbsp; REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
+              REGISTER - REGISTER - REGISTER -
             </h2>
           </Marquee>
         </div>
       </div>
 
-      <div className={`w-full bg-white ${work_sans.className}  p-10 `}>
-        <div className="flex gap-5 max-md:flex-col bg-black rounded-[36px]   max-md:gap-0">
+      <div className={`w-full bg-white ${work_sans.className}  p-20 `}>
+        <motion.h1
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+          className={`uppercase text-5xl  text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5 mb-10 ${anton.className} `}
+        >
+          Venue
+        </motion.h1>
+
+        <motion.div
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.1 }}
+          className="flex gap-5 my-20 max-md:flex-col bg-black rounded-[36px]   max-md:gap-0"
+        >
           <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
             <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px] max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-[36px] ">
               <img
@@ -84,13 +128,13 @@ function Venue() {
           </div>
           <div className="flex flex-col mr-10 w-[44%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col self-stretch px-5 my-auto font-bold text-right max-md:mt-10 max-md:max-w-full">
-              <h2 className="text-3xl tracking-tighter text-lime-400 uppercase leading-[56px] max-md:max-w-full">
-                We will be waiting for you!
+              <h2 className="text-3xl py-5 tracking-tighter text-[#ccff00] uppercase leading-[56px] max-md:max-w-full">
+                We will be waiting for you, HERE!
               </h2>
               <EventDetails />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

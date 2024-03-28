@@ -8,8 +8,7 @@ import Pastevents from "@/components/mainpage/pastevent/Pastevents";
 import Speakercard from "@/components/mainpage/speakercard/Speakercard";
 import Wsa from "@/components/mainpage/whoshouldattend/Wsa";
 import Venue from "@/components/mainpage/venue/Venue";
-import { NextUIProvider } from "@nextui-org/react";
-import Image from "next/image";
+
 import Well from "@/components/mainpage/well/Well";
 
 export default function Home() {
