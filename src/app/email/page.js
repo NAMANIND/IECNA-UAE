@@ -1,4 +1,4 @@
-"use server";
+"use client";
 import { Resend } from "resend";
 
 export const Sendemail = async (to, subject, html) => {
