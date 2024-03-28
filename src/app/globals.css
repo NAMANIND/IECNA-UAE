@@ -117,33 +117,33 @@ body {
 }
 
 .phone-input-container {
-  position: relative;
+  position: relative !important;
 }
 
 .phone-label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: top 0.3s, font-size 0.3s, color 0.3s;
+  position: absolute !important;
+  top: 50% !important;
+  left: 12px !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  transition: top 0.3s, font-size 0.3s, color 0.3s !important;
 }
 
 .phone-input {
-  padding-top: 30px; /* Adjust according to label height */
+  padding-top: 30px !important; /* Adjust according to label height */
 }
 
 .phone-input:focus + .phone-label,
 .phone-input:not(:placeholder-shown) + .phone-label {
-  top: 5px;
-  font-size: 12px;
-  color: #333; /* Change color as needed */
+  top: 5px !important;
+  font-size: 12px !important;
+  color: #333 !important; /* Change color as needed */
 }
 
 .phone-label.focused {
-  top: 5px;
-  font-size: 12px;
-  color: #333; /* Change color as needed */
+  top: 5px !important;
+  font-size: 12px !important;
+  color: #333 !important; /* Change color as needed */
 }
 
 .Mui-focused {
@@ -162,11 +162,11 @@ body {
   color: #52525b !important;
 }
 .css-wgai2y-MuiFormLabel-asterisk {
-  color: hsl(339 90% 51% / 1);
+  color: hsl(339 90% 51% / 1) !important;
 }
 label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
   margin-top: 8px !important;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 .css-1eed5fa-MuiInputBase-root-MuiInput-root::before {
