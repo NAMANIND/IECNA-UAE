@@ -3,6 +3,7 @@ import MultiPageForm from "@/components/mutliregister/MultiPageForm";
 import NominateForm from "@/components/nominateform/NominateForm";
 import React from "react";
 import { notFound } from "next/navigation";
+import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
 
 function page({ params }) {
   const { name } = params;
@@ -13,8 +14,7 @@ function page({ params }) {
     return (
       <div>
         <Head head="Event" />
-        <MultiPageForm />
-        <NominateForm />
+        <NewMultiPageForm />
       </div>
     );
   } else {

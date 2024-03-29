@@ -3,11 +3,11 @@ import { anton } from "@/styles/fonts";
 
 function Head({ head }) {
   return (
-    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center text-white whitespace-nowrap  min-h-[574px] max-md:text-4xl">
+    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center md:min-h-[574px] text-white">
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/063b8e8fe7eb40e3446e090b35f861bbf4fa8f4b8d7560523fc2deb330431dd3?apiKey=5e27b1defd60460eaa6dca842133145f&"
-        className="object-cover absolute inset-0 size-full"
+        className="object-cover absolute inset-0 w-full h-full"
         alt=""
       />
       <h1
@@ -17,7 +17,7 @@ function Head({ head }) {
         {head}
       </h1>
       <section
-        className="relative bottom-0 w-full min-h-[244px] max-md:max-w-full"
+        className="absolute bottom-0 w-full min-h-[25%] max-md:max-h-[25%] max-md:min-h-auto"
         style={{
           background: "linear-gradient(0deg, #000, transparent)",
         }}

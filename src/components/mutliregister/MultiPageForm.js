@@ -249,7 +249,7 @@ const MultiPageForm = () => {
   };
   return (
     <div
-      className={`p-20 bg-white text-2xl ${work_sans.className} font-extralight`}
+      className={`md:p-20 sm:p-5 bg-white text-2xl ${work_sans.className} font-extralight`}
     >
       <Marquee
         direction="left"
@@ -265,7 +265,7 @@ const MultiPageForm = () => {
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
-          className=" w-[60%]  p-16   rounded-[32px] "
+          className=" md:w-3/5 sm:w-11/12  p-16   rounded-[32px] "
           style={{
             boxShadow: "0px 0px 10px 0px #0000001a ",
             background: "rgba(255, 255, 255, 1.15) ",

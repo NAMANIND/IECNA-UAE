@@ -151,6 +151,7 @@ const PersonalVote = ({ params }) => {
           {Object.values(selectedCategories).some((value) => value) && (
             <div className="sticky bottom-10 w-full flex justify-center">
               <button
+              
                 onClick={handleVote}
                 className="newsletterbtn w-1/2 mx-auto"
               >

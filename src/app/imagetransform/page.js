@@ -58,8 +58,9 @@ function ImageDownloadPage({ imageData, title, text }) {
     // Construct the URL with the required transformations
     const transformedImageUrl =
       `https://res.cloudinary.com/dcijnycwn/image/upload/` +
-      `l_text:arial_24_bold:${encodeURIComponent(textOverlay)},y_350/` + // Add text overlay below the image
-      `l_iecna_upload:${overlayParam},w_300,h_300/fl_layer_apply,y_-600/hrsvctkdjoskq4yz5cnj.jpg`;
+      `l_iecna_upload:${overlayParam}/fl_layer_apply,w_225,h_225,x_289,y_-5,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+        textOverlay
+      )}/fl_layer_apply,x_295,y_195/hm42iinqwqnvlnynbhwz.jpg`;
 
     setTransformedImageUrl(transformedImageUrl);
   };
