@@ -49,7 +49,7 @@ function Influncers() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex justify-center mt-10"
       >
         <Image

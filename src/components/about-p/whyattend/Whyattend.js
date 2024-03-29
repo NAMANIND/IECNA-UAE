@@ -58,7 +58,7 @@ function Whyattend() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`text-5xl text-center text-black uppercase leading-[61.92px] max-md:text-4xl ${anton.className} `}
       >
         WHY ATTEND?
@@ -66,7 +66,7 @@ function Whyattend() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="self-stretch mt-20 w-full text-4xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
@@ -83,7 +83,7 @@ function Whyattend() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="mt-11 text-2xl px-10 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
       >
         Experience the future of marketing in the dynamic world of influencer
@@ -98,7 +98,7 @@ function Whyattend() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
               className={`flex flex-col w-[48%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""

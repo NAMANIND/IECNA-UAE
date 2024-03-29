@@ -130,7 +130,7 @@ function CriteriaIn() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`pt-44 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         INFLUENCER AWARD CATEGORIES AND CRITERIA
@@ -139,7 +139,7 @@ function CriteriaIn() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex justify-center gap-20  p-10"
       >
         <div className="flex flex-wrap w-1/2 gap-[4%]">
@@ -196,7 +196,7 @@ function CriteriaIn() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex justify-center mt-10"
       >
         <Button color="black" img="trophy" href="/nominate">

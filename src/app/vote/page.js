@@ -123,6 +123,11 @@ const Voting = () => {
 
       await batch.commit();
       console.log("Votes recorded successfully!");
+      // Trigger popup after voting is done
+      alert("Thank you for voting! Your vote has been recorded successfully.");
+
+      // Clear selected nominees
+      setSelectedNominees([]);
     } catch (error) {
       console.error("Error recording votes:", error);
     }

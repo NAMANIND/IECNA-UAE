@@ -13,9 +13,14 @@ const PersonalVote = ({ params }) => {
   useEffect(() => {
     const fetchNomineeData = async () => {
       try {
+        // Split the name into first and last names
+        const [firstName, lastName] = name.toLowerCase().split("_");
+
+        // Query the database with lowercase first and last names
         const nomineeSnapshot = await firestore
           .collection("nominees")
-          .where("firstName", "==", name)
+          .where("firstName", "==", firstName)
+          .where("lastName", "==", lastName)
           .get();
 
         if (nomineeSnapshot.empty) {
@@ -79,17 +84,26 @@ const PersonalVote = ({ params }) => {
 
       await batch.commit();
       console.log("Votes recorded successfully!");
+
+      // Clear selected categories after voting
+      setSelectedCategories({});
+
+      // Show a popup alert
+      window.alert("Thank you for voting!");
     } catch (error) {
       console.error("Error recording votes:", error);
     }
   };
 
+  const [firstName, lastName] = name.toLowerCase().split("_");
   return (
     <div>
       <Head head="Vote for me" />
       {nomineeData && (
         <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
-          <h1 className="text-3xl font-semibold mb-8 text-center ">{name}</h1>
+          <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">
+            {firstName} {lastName}
+          </h1>
           <div className="relative w-full flex justify-center h-64 mb-4 overflow-hidden rounded-lg">
             <img
               src={nomineeData.imageUrl}
@@ -134,9 +148,14 @@ const PersonalVote = ({ params }) => {
               )
             )}
           </div>
-          <button onClick={handleVote} className="newsletterbtn w-1/2 mx-auto">
-            Vote
-          </button>
+          <div className="sticky bottom-10 w-full flex justify-center">
+            <button
+              onClick={handleVote}
+              className="newsletterbtn w-1/2 mx-auto"
+            >
+              Vote
+            </button>
+          </div>
         </div>
       )}
     </div>

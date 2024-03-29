@@ -133,7 +133,7 @@ function Aboutone() {
         <motion.p
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="text-2xl  px-64 font-medium  tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
           The Influence Exchange Confex and Awards, a prestigious global
@@ -146,7 +146,7 @@ function Aboutone() {
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="px-20 mt-44 mb-32  max-md:max-w-full"
         >
           <h2
@@ -174,7 +174,7 @@ function Aboutone() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex overflow-hidden relative flex-col justify-center w-full shadow-2xl min-h-[400px] max-md:max-w-full "
         style={{
           backgroundImage: "linear-gradient(0deg, #fff 80%, #000 20%)",

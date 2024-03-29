@@ -86,7 +86,7 @@ function Missing() {
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className={` ${anton.className} 
          text-5xl text-center text-black uppercase  pt-[200px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
          
@@ -105,7 +105,7 @@ function Missing() {
             `}
             // initial={offscreen}
             // whileInView={onscreen}
-            // viewport={{ once: true, amount: 0.1 }}
+            // viewport={{ once: true, amount: 0.3 }}
             // whileHover={{ scale: 1.05 }}
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}

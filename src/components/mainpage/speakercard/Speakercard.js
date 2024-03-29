@@ -49,7 +49,7 @@ function SpeakerCard() {
       <motion.h2
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
       >
         OUR ESTEEMED SPEAKERS
@@ -60,7 +60,7 @@ function SpeakerCard() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
             >
               {/* Replace sample data with fetched speaker data */}
@@ -84,7 +84,7 @@ function SpeakerCard() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex gap-5 self-center mt-[200px] max-w-full text-2xl font-medium tracking-tighter uppercase leading-[90px] w-[688px] max-md:flex-wrap max-md:mt-10"
       >
         <Button href="./speakers" color="green" img="arrow">

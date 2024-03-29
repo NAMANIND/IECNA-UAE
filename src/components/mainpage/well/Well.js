@@ -47,7 +47,7 @@ function Well() {
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className={`flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full ${anton.className}`}
         >
           <div className="flex flex-col p-10 uppercase max-md:mt-10 max-md:max-w-full">

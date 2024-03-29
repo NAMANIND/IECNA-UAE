@@ -96,7 +96,7 @@ function Venue() {
         <motion.h1
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className={`uppercase text-5xl  text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5 mb-10 ${anton.className} `}
         >
           Venue
@@ -105,7 +105,7 @@ function Venue() {
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex gap-5 my-20 max-md:flex-col bg-black rounded-[36px]   max-md:gap-0"
         >
           <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">

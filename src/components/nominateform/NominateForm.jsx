@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { storage, firestore } from "../../../firbase/clientApp";
@@ -19,6 +20,8 @@ const NominateForm = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [poppage, setPoppage] = useState("");
+  const [sent, setSent] = useState(false);
 
   const [values, setValues] = useState(new Set([]));
 
@@ -84,6 +87,11 @@ const NominateForm = () => {
     const imageFile = e.target.files[0];
     console.log(imageFile);
     setFormData({ ...formData, image: imageFile });
+
+    const popup = (
+      <ImageDownloadPage imageData={imageFile} title="IECNA" text="IECNA" />
+    );
+    setPoppage(popup);
   };
 
   const handleSubmit = async (e) => {
@@ -168,8 +176,8 @@ const NominateForm = () => {
       id: nomineeId,
       field,
       categories: { ...categoriesData }, // Save categories and their votes
-      firstName: formData.firstName,
-      lastName: formData.lastName,
+      firstName: formData.firstName.toLowerCase(),
+      lastName: formData.lastName.toLowerCase(),
       email: formData.email,
       phone: formData.phone,
       company: formData.company,
@@ -179,7 +187,7 @@ const NominateForm = () => {
       linkedin: formData.linkedin,
       imageUrl,
     });
-
+    setSent(true);
     alert("Nomination submitted successfully!");
     // Reset form to first step
     setStep(1);
@@ -524,6 +532,29 @@ const NominateForm = () => {
           {stepComponent}
         </div>
       </div>
+      {sent && (
+        <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div
+            className="bg-white p-10 rounded-lg m-10 max-h-fit"
+            style={{ width: "800px" }}
+          >
+            <h1 className="text-2xl font-bold mb-10 text-center text-black">
+              Form submitted successfully!
+            </h1>
+            <div className="flex justify-center items-center w-full h-[400px]">
+              `{poppage}`
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <button
+                onClick={() => setSent(false)}
+                className="newsletterbtn w-6/12"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

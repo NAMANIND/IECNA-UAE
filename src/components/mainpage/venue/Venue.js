@@ -25,7 +25,7 @@ function Venue() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`flex w-full max-md:flex-col px-10 max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
       >
         <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">

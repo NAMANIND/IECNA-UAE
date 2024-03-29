@@ -38,7 +38,7 @@ function Ig() {
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <Image
             src={got}

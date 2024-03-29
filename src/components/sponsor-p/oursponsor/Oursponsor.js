@@ -60,7 +60,7 @@ function Oursponsor() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`text-5xl text-center text-black leading-[61.92px] max-md:text-4xl ${anton.className} `}
       >
         OUR SPONSORS
@@ -68,7 +68,7 @@ function Oursponsor() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="mt-16 text-2xl font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
       >
         We extend our sincere gratitude to our valued sponsors for their
@@ -92,7 +92,7 @@ function Oursponsor() {
                 <motion.div
                   initial={offscreen}
                   whileInView={onscreen}
-                  viewport={{ once: true, amount: 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   className="flex flex-col px-11 mt-7 max-md:px-5"
                 >
                   <div className="self-center font-medium text-center">

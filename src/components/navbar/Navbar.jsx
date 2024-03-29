@@ -111,6 +111,11 @@ function Navbar() {
                     REGISTER
                   </a>
                 </li>
+                <li>
+                  <a href="/vote" className=" hover:text-gray-700">
+                    VOTE
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

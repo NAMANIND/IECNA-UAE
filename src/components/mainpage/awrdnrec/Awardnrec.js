@@ -38,7 +38,7 @@ const Awardnrec = () => {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
       >
         AWARDS AND RECOGNITION
@@ -46,7 +46,7 @@ const Awardnrec = () => {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1"
       >
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
@@ -137,7 +137,7 @@ const Awardnrec = () => {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex w-full justify-center mt-[100px]"
       >
         <Button href="./awards" color="black" img="trophy">

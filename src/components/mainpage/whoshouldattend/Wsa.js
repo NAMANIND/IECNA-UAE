@@ -49,7 +49,7 @@ function Wsa() {
       <motion.h2
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`self-center mt-1 text-5xl text-center text-white uppercase leading-[61.92px] max-md:text-4xl ${anton.className}  `}
       >
         Who Should Attend?
@@ -62,7 +62,7 @@ function Wsa() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
               className="w-[33%]"
             >
@@ -77,7 +77,7 @@ function Wsa() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
               className="w-[33%]"
             >
@@ -92,7 +92,7 @@ function Wsa() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
               className="w-[33%]"
             >

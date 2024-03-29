@@ -25,7 +25,7 @@ function Ourmisson() {
       <motion.h1
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`text-5xl leading-[61.92px] max-md:text-4xl ${anton.className} `}
       >
         OUR MISSION
@@ -33,7 +33,7 @@ function Ourmisson() {
       <motion.p
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`mt-20 px-60 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At Influence Exchange Confex and Awards, we are dedicated to fostering

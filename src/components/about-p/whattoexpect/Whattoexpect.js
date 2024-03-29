@@ -72,7 +72,7 @@ function Whattoexpect() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`mt-10 text-2xl  px-20 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At the Influence Exchange & Awards Confex India 2024, expect an
@@ -86,7 +86,7 @@ function Whattoexpect() {
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
               key={index}
               className="flex flex-col w-[48%] h-full max-md:ml-0 max-md:w-full py-5 group"
             >

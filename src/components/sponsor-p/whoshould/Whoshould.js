@@ -84,7 +84,7 @@ function Whoshould() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`self-center text-5xl text-center text-white leading-[61.92px] max-md:max-w-full max-md:text-4xl ${anton.className}`}
       >
         WHO SHOULD SPONSOR?
@@ -99,7 +99,7 @@ function Whoshould() {
               <motion.div
                 initial={offscreen}
                 whileInView={onscreen}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
                 key={index}
                 className="flex flex-col w-[30%] max-md:ml-0 my-10 max-md:w-full"
               >

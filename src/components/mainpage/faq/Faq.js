@@ -89,7 +89,7 @@ export default function Faq() {
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <h1
           className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
