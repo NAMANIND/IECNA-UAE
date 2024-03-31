@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 import { Resend } from "resend";
 
 const Sendemail = async (to, subject, html) => {
@@ -7,9 +7,9 @@ const Sendemail = async (to, subject, html) => {
   try {
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: to,
-      subject: subject,
-      html: html, // Changed 'react' to 'html'
+      to: to ? to : "20bei033@ietdavv.edu.in",
+      subject: subject ? subject : "Hello from Resend!",
+      html: html ? html : "Html", // Changed 'react' to 'html'
     });
 
     alert("Email sent!");
