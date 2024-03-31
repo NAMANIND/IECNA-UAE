@@ -53,7 +53,7 @@ function InfluencerMarketingImage() {
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/cac9d992ac41ce5818bec6862e5915fda68a5353a5c4b1d4cf72b7d93f798bf6?apiKey=5e27b1defd60460eaa6dca842133145f&"
         alt="Influencer marketing"
-        className="shrink-0   max-w-full  w-full     max-md:mt-10"
+        className="shrink-0   max-w-full  w-full opacity-[0.8]    max-md:mt-10"
         style={{ objectFit: "fill", width: "20vw", height: "100vh" }}
       />
     </div>
@@ -62,7 +62,12 @@ function InfluencerMarketingImage() {
 
 function InfluencerMarketingimg() {
   return (
-    <div className="w-full overflow-hidden pt-20 rounded-[46px] flex justify-end ml-10 ">
+    <motion.div
+      initial={offscreen2}
+      whileInView={onscreen2}
+      viewport={{ once: true, amount: 0.3 }}
+      className="w-full overflow-hidden pt-20 rounded-[46px] flex justify-end ml-10 "
+    >
       <Image
         loading="lazy"
         src={imgman}
@@ -71,7 +76,7 @@ function InfluencerMarketingimg() {
         height="100%"
         style={{ objectFit: "cover", width: "30vw" }}
       />
-    </div>
+    </motion.div>
   );
 }
 
@@ -127,6 +132,35 @@ function Aboutone() {
     },
   };
 
+  const offscreen3 = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen3 = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.2,
+      duration: 0.41,
+    },
+  };
+
+  const offscreen2 = {
+    x: 100,
+    opacity: 0,
+  };
+  const onscreen2 = {
+    x: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.2,
+      duration: 0.41,
+    },
+  };
+
   return (
     <div className={`flex flex-col bg-black ${work_sans.className}   `}>
       <div className="flex flex-col pt-1.5 pb-20 w-full max-md:px-5 max-md:max-w-full rounded-b-[42px]">
@@ -147,7 +181,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="px-20 mt-44 mb-32  max-md:max-w-full"
+          className="px-20 pl-24 mt-44 mb-32  max-md:max-w-full"
         >
           <h2
             className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
@@ -160,7 +194,24 @@ function Aboutone() {
                 <div className="flex flex-col h-full">
                   <div className="flex h-full">
                     <WhyInfluencerMarketing />
-                    <InfluencerMarketingimg />
+                    <motion.div
+                      initial={offscreen2}
+                      whileInView={onscreen2}
+                      viewport={{ once: true, amount: 0.3 }}
+                      className="w-full  pt-20 relative right-[-10px] z-10 rounded-[46px] flex justify-end ml-10 "
+                      style={{
+                        boxShadow: "50px 0 100px 0 rgba(0, 0, 0, 0.95)",
+                      }}
+                    >
+                      <Image
+                        loading="lazy"
+                        src={imgman}
+                        alt="Influencer marketing "
+                        className="shrink-0   max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
+                        height="100%"
+                        style={{ objectFit: "cover", width: "30vw" }}
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -177,17 +228,23 @@ function Aboutone() {
         viewport={{ once: true, amount: 0.3 }}
         className="flex overflow-hidden relative flex-col justify-center w-full shadow-2xl min-h-[400px] max-md:max-w-full "
         style={{
-          backgroundImage: "linear-gradient(0deg, #fff 80%, #000 20%)",
+          backgroundImage:
+            "linear-gradient(0deg, rgb(255 255 255 / 90%) 80%, #000 20%)",
         }}
       >
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/594e60ecd26d1655acb9351cd0de5646ee3dbb4fd3b8ae111ec2766159a06140?apiKey=5e27b1defd60460eaa6dca842133145f&"
           alt=""
-          className="object-cover absolute inset-0 size-full rounded-[42px] "
+          className="object-cover absolute inset-0 size-full rounded-[82px] "
         />
-        <div className="relative px-10 py-20 w-full bg-black bg-opacity-30 flex justify-center size-full min-h-[400px] rounded-[42px] max-md:px-5 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div className="relative px-10 py-20 w-full bg-black bg-opacity-30 flex justify-center size-full min-h-[400px] rounded-[82px] max-md:px-5 max-md:max-w-full">
+          <motion.div
+            initial={offscreen3}
+            whileInView={onscreen3}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex gap-5 max-md:flex-col max-md:gap-0"
+          >
             {influencerMarketingStats.map((stat, index) => (
               <div
                 key={index}
@@ -210,7 +267,7 @@ function Aboutone() {
                 industry has witnessed widespread adoption across sectors.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </div>

@@ -41,6 +41,10 @@ body {
   box-shadow: 0 0 40px 0 rgba(204, 255, 0, 0.8);
 }
 
+.hover-box-shadow-2 {
+  box-shadow: 0 1px 16px 4px rgba(204, 255, 0, 0.8);
+}
+
 .mis {
   box-shadow: 0 20px 100px 0 rgba(0, 14, 41, 0.1);
 }
@@ -152,6 +156,13 @@ body {
 .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
   padding-top: 8px !important;
   justify-content: flex-end !important;
+}
+
+@media (max-width: 600px) {
+  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    padding-top: 24px !important;
+    justify-content: flex-end !important;
+  }
 }
 
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
@@ -311,4 +322,8 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 
 .nav-p a {
   mix-blend-mode: difference;
+}
+
+.form-color {
+  color: #71717a !important;
 }

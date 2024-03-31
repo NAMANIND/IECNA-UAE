@@ -15,11 +15,11 @@ import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
 const Awardnrec = () => {
   const offscreen = {
-    y: 100,
+    x: -100,
     opacity: 0,
   };
   const onscreen = {
-    y: 0,
+    x: 0,
     opacity: 1,
 
     transition: {
@@ -27,18 +27,46 @@ const Awardnrec = () => {
       duration: 0.41,
     },
   };
+
+  const offscreen2 = {
+    x: 100,
+    opacity: 0,
+  };
+
+  const onscreen2 = {
+    x: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.4,
+      duration: 0.4,
+    },
+  };
+
+  const offscreen3 = {
+    y: 100,
+    opacity: 0,
+  };
+
+  const onscreen3 = {
+    y: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.8,
+      duration: 0.4,
+    },
+  };
+
   return (
     <div
-      className="flex flex-col px-10 py-20 w-full  max-md:px-5 max-md:max-w-full"
+      className="flex flex-col px-20 py-20 w-full  max-md:px-5 max-md:max-w-full"
       style={{
         background:
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
       <motion.div
-        initial={offscreen}
-        whileInView={onscreen}
-        viewport={{ once: true, amount: 0.3 }}
         className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
       >
         AWARDS AND RECOGNITION
@@ -50,17 +78,27 @@ const Awardnrec = () => {
         className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1"
       >
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-[24%] max-md:ml-0 max-md:w-full ">
+          <motion.div
+            initial={offscreen}
+            whileInView={onscreen}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-col w-[24%] max-md:ml-0 max-md:w-full "
+          >
             <Image
               loading="lazy"
               src={aw1}
               className="shrink-0 max-w-full shadow-2xl aspect-[0.5] h-[100%]  w-[100%] max-md:mt-3 "
               alt=""
             />
-          </div>
+          </motion.div>
           <div className="flex flex-col ml-5 w-[76%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow max-md:mt-3 max-md:max-w-full">
-              <div className="max-md:max-w-full">
+              <motion.div
+                initial={offscreen2}
+                whileInView={onscreen2}
+                viewport={{ once: true, amount: 0.3 }}
+                className="max-md:max-w-full "
+              >
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                   <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
                     <div className="flex overflow-hidden relative flex-col grow pt-6 shadow-2xl aspect-[1.01] max-md:mt-3">
@@ -102,8 +140,13 @@ const Awardnrec = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="mt-3.5 max-md:max-w-full">
+              </motion.div>
+              <motion.div
+                initial={offscreen3}
+                whileInView={onscreen3}
+                viewport={{ once: true, amount: 0.3 }}
+                className="mt-3.5 max-md:max-w-full"
+              >
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                   <div className="flex flex-col w-[67%] max-md:ml-0 max-md:w-full">
                     <div className="flex overflow-hidden relative flex-col grow justify-center py-0.5 shadow-2xl min-h-[287px] max-md:mt-3 max-md:max-w-full">
@@ -128,15 +171,15 @@ const Awardnrec = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </motion.div>
 
       <motion.div
-        initial={offscreen}
-        whileInView={onscreen}
+        initial={offscreen3}
+        whileInView={onscreen3}
         viewport={{ once: true, amount: 0.3 }}
         className="flex w-full justify-center mt-[100px]"
       >

@@ -63,6 +63,20 @@ function Venue() {
       duration: 0.41,
     },
   };
+
+  const offscreen2 = {
+    x: -100,
+    opacity: 0,
+  };
+  const onscreen2 = {
+    x: 0,
+    opacity: 1,
+
+    transition: {
+      delay: 0.2,
+      duration: 0.41,
+    },
+  };
   return (
     <div className="flex flex-col items-center bg-white">
       <div
@@ -73,17 +87,18 @@ function Venue() {
       "
       >
         <div
-          style={{ transform: "rotate(5deg)" }} // Rotate the text by -5 degrees
+          style={{ transform: "rotate(2deg)" }} // Rotate the text by -5 degrees
           className="w-[120%] bg-black relative  left-[-10%] "
         >
           <Marquee
             gradient={false}
             speed={50}
-            className="self-stretch mt-32  shadow-2xl min-h-[99px] max-md:mt-10 "
+            className="self-stretch mt-32  shadow-2xl min-h-[59px] max-md:mt-10 group"
             autoFill
+            pauseOnHover
           >
             <h2
-              className={`text-5xl text-center text-white ${anton.className} `}
+              className={`text-4xl text-center text-white group-hover:text-[#ccff00]  ${anton.className} `}
             >
               &nbsp; REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
               REGISTER - REGISTER - REGISTER -
@@ -106,9 +121,14 @@ function Venue() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="flex gap-5 my-20 max-md:flex-col bg-black rounded-[36px]   max-md:gap-0"
+          className="flex gap-5 my-20 max-md:flex-col bg-black rounded-[36px]    max-md:gap-0"
         >
-          <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
+          <motion.div
+            initial={offscreen2}
+            whileInView={onscreen2}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full"
+          >
             <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px] max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-[36px] ">
               <img
                 loading="lazy"
@@ -125,7 +145,7 @@ function Venue() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
           <div className="flex flex-col mr-10 w-[44%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col self-stretch px-5 my-auto font-bold text-right max-md:mt-10 max-md:max-w-full">
               <h2 className="text-3xl py-5 tracking-tighter text-[#ccff00] uppercase leading-[56px] max-md:max-w-full">

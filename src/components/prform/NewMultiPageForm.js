@@ -166,8 +166,8 @@ const NewMultiPageForm = () => {
     if (formData.registrationType === "nomination") {
       await nomineeRef.set({
         nomineeId,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        firstName: formData.firstName.toLowerCase(),
+        lastName: formData.lastName.toLowerCase(),
         field,
         categories: { ...categoriesData },
         email: formData.email,
@@ -221,7 +221,7 @@ const NewMultiPageForm = () => {
         direction="left"
         gradient={false}
         speed={40}
-        className={` z-10 text-9xl w-full ${work_sans.className} font-bold absolute top-12 `}
+        className={` z-10 text-9xl w-full ${work_sans.className} font-bold absolute uppercase top-12 `}
         autoFill={true}
         style={{ height: "300px", ...maskImageStyle }}
       >

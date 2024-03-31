@@ -131,7 +131,7 @@ function CriteriaIn() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`pt-44 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
+        className={`pt-44 text-5xl text-center anton-f text-white leading-[61.92px]  max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         INFLUENCER AWARD CATEGORIES AND CRITERIA
       </motion.div>
@@ -140,16 +140,18 @@ function CriteriaIn() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex justify-center gap-20  p-10"
+        className="flex flex-col md:flex-row justify-center gap-20  md:p-10 p-5"
       >
-        <div className="flex flex-wrap w-1/2 gap-[4%]">
+        <div className="flex flex-wrap w-full md:w-1/2 gap-[4%]">
           {data.map((item, index) => (
             <React.Fragment key={index}>
               {Object.keys(item).map((heading, index) => (
                 <button
                   key={index}
                   className={`w-[48%] max-h-fit flex align-middle justify-center px-8 py-6 my-4 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
-                    selectedHeading === heading ? "bg-[#ccff55]" : "bg-white"
+                    selectedHeading === heading
+                      ? "bg-[#ccff00] hover-box-shadow-2"
+                      : "bg-white"
                   }`}
                   onClick={() => handleHeadingClick(heading)}
                 >
@@ -162,7 +164,7 @@ function CriteriaIn() {
             </React.Fragment>
           ))}
         </div>
-        <div className="w-1/2 p-5">
+        <div className="md:w-1/2 w-full md:p-5 p-2">
           {/* Display description and criteria for the selected heading */}
           {selectedHeading &&
             data.map((item, index) => (
@@ -170,14 +172,14 @@ function CriteriaIn() {
                 {Object.keys(item).map((heading, index) =>
                   heading === selectedHeading ? (
                     <div key={index} className="text-white">
-                      <div className="mb-5 font-bold text-3xl text-[#ccff55]">
+                      <div className="mb-5 font-bold text-3xl text-[#ccff00]">
                         {heading}
                       </div>
                       <div className="mb-5  text-xl">
                         {item[heading].description}
                       </div>
                       <div className="mt-20">
-                        <div className="mb-5 font-bold text-3xl text-[#ccff55]">
+                        <div className="mb-5 font-bold text-3xl text-[#ccff00]">
                           Criteria
                         </div>
                         <ul className="list-disc pl-5  text-xl">
@@ -192,16 +194,6 @@ function CriteriaIn() {
               </React.Fragment>
             ))}
         </div>
-      </motion.div>
-      <motion.div
-        initial={offscreen}
-        whileInView={onscreen}
-        viewport={{ once: true, amount: 0.3 }}
-        className="flex justify-center mt-10"
-      >
-        <Button color="black" img="trophy" href="/nominate">
-          Nominate
-        </Button>
       </motion.div>
     </div>
   );

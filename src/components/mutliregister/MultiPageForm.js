@@ -255,7 +255,7 @@ const MultiPageForm = () => {
         direction="left"
         gradient={false}
         speed={40}
-        className={` z-10 text-9xl w-full ${work_sans.className} font-bold absolute top-12 `}
+        className={` z-10 md:text-9xl text-7xl w-full ${work_sans.className} uppercase font-bold absolute top-12 `}
         autoFill={true}
         style={{ height: "300px", ...maskImageStyle }}
       >
@@ -265,7 +265,7 @@ const MultiPageForm = () => {
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
-          className=" md:w-3/5 sm:w-11/12  p-16   rounded-[32px] "
+          className=" md:w-3/5 w-11/12  md:p-16 p-8   rounded-[32px] "
           style={{
             boxShadow: "0px 0px 10px 0px #0000001a ",
             background: "rgba(255, 255, 255, 1.15) ",
@@ -356,37 +356,34 @@ const MultiPageForm = () => {
           {page === 3 && (
             <div className="flex  flex-wrap    gap-4">
               <h2 className={` text-black `}>Details*</h2>
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex md:flex-row flex-col gap-4 w-full">
                 <Input
                   variant="underlined"
-                  className="w-1/2 "
+                  className="md:w-1/2 w-full "
                   label="First Name"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  size="lg"
                   isRequired
                 />
                 <Input
                   variant="underlined"
-                  className="w-1/2"
+                  className="md:w-1/2 w-full "
                   label="Last Name"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  size="lg"
                   isRequired
                 />
               </div>
-              <div className="flex flex-row align-bottom gap-4 w-full">
+              <div className="flex md:flex-row flex-col align-bottom gap-4 w-full">
                 <Input
                   label="Business Email"
                   name="email"
-                  className="w-1/2"
+                  className="md:w-1/2 w-full "
                   value={formData.email}
                   onChange={handleChange}
                   variant="underlined"
-                  size="lg"
                   isRequired
                 />
                 {/* <Input
@@ -400,31 +397,31 @@ const MultiPageForm = () => {
                   value={formData.phone}
                   // onChange={handleFormDataChange}
                   onChange={(phone) => setFormData({ ...formData, phone })}
-                  className="w-1/2"
+                  className="md:w-1/2 w-full "
                 />
               </div>
 
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex md:flex-row flex-col gap-4 w-full">
                 <Input
                   variant="underlined"
                   label="Company"
                   name="company"
+                  className="md:w-1/2 w-full "
                   value={formData.company}
                   onChange={handleChange}
-                  size="lg"
                   isRequired
                 />
                 <Input
                   variant="underlined"
                   label="Job Title"
                   name="jobTitle"
+                  className="md:w-1/2 w-full "
                   value={formData.jobTitle}
                   onChange={handleChange}
-                  size="lg"
                   isRequired
                 />
               </div>
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex md:flex-row flex-col gap-4 w-full">
                 {/* <Input
                   label="Country"
                   name="country"
@@ -434,13 +431,13 @@ const MultiPageForm = () => {
 
                 <Select
                   variant="underlined"
+                  className="md:w-1/2 w-full "
                   label="Select Country"
                   value={selectedCountry}
                   onChange={(e) => {
                     setFormData({ ...formData, country: e.target.value });
                     setSelectedCountry(e.target.value);
                   }}
-                  size="lg"
                   isRequired
                 >
                   {countries.map((country) => (
@@ -451,37 +448,37 @@ const MultiPageForm = () => {
                   variant="underlined"
                   label="Industry"
                   name="industry"
+                  className="md:w-1/2 w-full "
                   value={formData.industry}
                   onChange={handleChange}
-                  size="lg"
                   isRequired
                 />
               </div>
 
               {(formData.category === "sponsor" ||
                 formData.field === "marketer") && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
                     label="Linkdin"
                     name="linkdin"
+                    className="md:w-1/2 w-full "
                     value={formData.linkdin}
                     onChange={handleChange}
-                    size="lg"
                     isRequired
                   />
                 </div>
               )}
 
               {formData.category === "mediapartner" && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
                     label="Linkdin"
                     name="linkdin"
+                    className="md:w-1/2 w-full "
                     value={formData.linkdin}
                     onChange={handleFormDataChange}
-                    size="lg"
                     isRequired
                   />
 
@@ -489,73 +486,74 @@ const MultiPageForm = () => {
                     variant="underlined"
                     label="Coupon"
                     name="coupon"
-                    value={formData.cupon}
+                    className="md:w-1/2 w-full "
+                    value={formData.coupon}
                     onChange={handleFormDataChange}
-                    size="lg"
                   />
                 </div>
               )}
 
               {formData.field === "influencer" && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
                     label="Instagram"
                     name="instagram"
+                    className="md:w-1/2 w-full "
                     value={formData.instagram}
                     onChange={handleFormDataChange}
-                    size="lg"
                     isRequired
                   />
                   <Input
                     label="Youtube"
                     name="youtube"
+                    className="md:w-1/2 w-full "
                     value={formData.youtube}
                     onChange={handleFormDataChange}
-                    size="lg"
                     variant="underlined"
                   />
                 </div>
               )}
 
               {formData.field === "influencer" && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
                     label="Tiktok"
                     name="tiktok"
+                    className="md:w-1/2 w-full "
                     value={formData.tiktok}
                     onChange={handleFormDataChange}
-                    size="lg"
                   />
                   <Input
                     variant="underlined"
                     label="Snapchat"
                     name="snapchat"
+                    className="md:w-1/2 w-full "
                     value={formData.snapchat}
                     onChange={handleFormDataChange}
-                    size="lg"
                   />
                 </div>
               )}
 
               {formData.category === "speaker" && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
                     label="Details"
                     name="details"
+                    className="md:w-1/2 w-full "
                     value={formData.details}
                     onChange={handleFormDataChange}
-                    size="lg"
                     isRequired
+                    maxLength={335}
                   />
                 </div>
               )}
 
               {(formData.category === "speaker" ||
                 formData.category === "delegate") && (
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     type="file"
                     label="Upload Image"

@@ -96,7 +96,9 @@ function Footer() {
               <p>(Head Of Event)</p>
               <p>T: +971 443 126 72</p>
               <p>M: +971 565 873 505</p>
-              <p>E: mohamed.suhel@influenceexchangegroup.com</p>
+              <p className="break-words">
+                E: mohamed.suhel@influenceexchangegroup.com
+              </p>
             </div>
             <div
               className="md:col-span-2 lg:col-span-1 

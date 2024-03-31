@@ -138,36 +138,36 @@ const Voting = () => {
       <Head head="Voting" />
       <div className={`container mx-auto p-8 bg-white ${work_sans.className} `}>
         <h1
-          className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
+          className={`text-4xl font-semibold my-20 w-full text-center ${anton.className} `}
         >
           Vote for Nominees
         </h1>
         {Object.entries(nomineesByCategory).map(([category, nominees]) => (
           <div key={category} className="mb-8">
             <h2
-              className={`text-2xl font-semibold mb-4 w-full text-center ${anton.className} `}
+              className={`text-3xl font-semibold my-10 w-full text-center ${work_sans.className} `}
             >
               {category}
             </h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 grid-flow-row md:gap-4 gap-10">
               {nominees.map((nominee) => (
                 <div
                   key={nominee.id}
-                  className={`relative border rounded-lg overflow-hidden shadow-md ${
+                  className={`relative border rounded-[32px] overflow-hidden shadow-md ${
                     selectedNominees.some(
                       (selectedNominee) =>
                         selectedNominee.category === category &&
                         selectedNominee.nomineeId === nominee.id
                     )
-                      ? "border-blue-500"
-                      : "border-gray-300"
+                      ? "border-blue-500  border-[4px] "
+                      : "border-gray-300  border-[4px]"
                   }`}
                   onClick={() => handleNomineeSelect(category, nominee.id)}
                 >
                   <img
                     src={nominee.imageUrl}
                     alt={nominee.firstName}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-[400px] object-cover rounded-[20px]"
                   />
                   <div className="p-4">
                     <p className="text-xl font-semibold mb-2">
@@ -178,8 +178,6 @@ const Voting = () => {
                     (selectedNominee) =>
                       selectedNominee.category === category &&
                       selectedNominee.nomineeId === nominee.id
-                  ) && (
-                    <div className="absolute inset-0 border-2 border-blue-500 pointer-events-none"></div>
                   )}
                 </div>
               ))}

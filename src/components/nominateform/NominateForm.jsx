@@ -4,13 +4,18 @@ import { motion } from "framer-motion";
 import { storage, firestore } from "../../../firbase/clientApp";
 import Marquee from "react-fast-marquee";
 import { work_sans } from "@/styles/fonts";
-import { Select, SelectItem, Input } from "@nextui-org/react";
+import { Select, SelectItem, Input, Checkbox } from "@nextui-org/react";
 import Image from "next/image";
 import img1 from "../../../public/images/Intersect.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { MuiPhone } from "../phone/MuiPhone";
 import Sendemail from "../../app/email/page";
+import ImageDownloadPage from "../../app/imagetransform/page";
+
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const NominateForm = () => {
   const [step, setStep] = useState(1);
@@ -22,8 +27,22 @@ const NominateForm = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [poppage, setPoppage] = useState("");
   const [sent, setSent] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [industry, setIndustry] = useState("");
 
   const [values, setValues] = useState(new Set([]));
+
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  });
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -60,8 +79,14 @@ const NominateForm = () => {
     setField(selectedField);
   };
 
-  const handleCategorySelect = (e) => {
-    setValues(new Set(e.target.value.split(",")));
+  const handleCategorySelect = (category) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== category)
+      );
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
   };
 
   const handleNextStep = () => {
@@ -99,12 +124,14 @@ const NominateForm = () => {
     // Prevent default form submission behavior
     e.stopPropagation();
 
+    setSubmitted(true);
+
     if (field === "") {
       setErrorMessage("*Please select a field*");
       return;
     }
 
-    if (values.size <= 0) {
+    if (selectedCategories.length <= 0) {
       setErrorMessage("*Please select at least one category*");
       return;
     }
@@ -119,8 +146,7 @@ const NominateForm = () => {
     const nomineeId = nomineeRef.id;
 
     const categoriesData = {};
-    values.forEach((category) => {
-      console.log(category);
+    selectedCategories.forEach((category) => {
       const cat = category
         .toString()
         .replace(/\s/g, "")
@@ -138,9 +164,7 @@ const NominateForm = () => {
     <p>First Name: ${formData.firstName}</p>
     <p>Last Name: ${formData.lastName}</p>
     <p>Field: ${field}</p>
-    <p>Categories: ${Array.from(values)
-      .map((category) => `<span>${category}</span>`)
-      .join(", ")}</p>
+    <p>Categories: ${selectedCategories.join(", ")}</p>
     <p>Email: ${formData.email}</p>
     <p>Phone: ${formData.phone}</p>
     <p>Company: ${formData.company}</p>
@@ -188,6 +212,7 @@ const NominateForm = () => {
       imageUrl,
     });
     setSent(true);
+    setSubmitted(false);
     alert("Nomination submitted successfully!");
     // Reset form to first step
     setStep(1);
@@ -219,7 +244,7 @@ const NominateForm = () => {
   switch (step) {
     case 1:
       stepComponent = (
-        <div className="flex  flex-col md:flex-nowrap gap-4 transition-none">
+        <div className="flex  flex-col md:flex-nowrap gap-4 ">
           <h2 className={` text-black `}>Select Field*</h2>
           <Select
             onChange={(key) => handleFieldSelect(key.target.value)}
@@ -255,44 +280,45 @@ const NominateForm = () => {
       stepComponent = (
         <div className="flex  flex-col md:flex-nowrap gap-4 transition-none">
           <h2 className={` text-black `}>Select Award Categories</h2>
-          <Select
-            multiple
-            // placeholder="Select categories"
-            onChange={handleCategorySelect}
-            // value={selectedCategories}
-            // onSelectionChange={setValues}
-            selectedKeys={values}
-            variant="underlined"
-            label="Award Categories"
-            className="max-w-md"
-            selectionMode="multiple"
-            isRequired
-            errorMessage={errorMessage}
-          >
+          <div className="max-w-md">
             {field === "influencer"
               ? influencerCategories.map((category, index) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
+                  <div key={category}>
+                    <Checkbox
+                      id={`category-${index}`}
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => handleCategorySelect(category)}
+                      label={category}
+                    >
+                      {category}
+                    </Checkbox>
+                  </div>
                 ))
               : marketerCategories.map((category, index) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
+                  <div key={category}>
+                    <Checkbox
+                      id={`category-${index}`}
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => handleCategorySelect(category)}
+                      label={category}
+                    >
+                      {category}
+                    </Checkbox>
+                  </div>
                 ))}
-          </Select>
-          {values.size > 0 && (
+          </div>
+          {/* {selectedCategories.length > 0 && (
             <p className="text-small text-default-500">
-              Selected: {Array.from(values).join(", ")}
+              Selected: {selectedCategories.join(", ")}
             </p>
-          )}
+          )} */}
           <div className="flex flex-row justify-between w-full gap-4">
             <button onClick={handlePrevStep} className="newsletterbtn w-6/12 ">
               Previous
             </button>
             <button
               onClick={() => {
-                if (values.size > 0) {
+                if (selectedCategories.length > 0) {
                   setErrorMessage("");
                   handleNextStep();
                 } else {
@@ -314,13 +340,13 @@ const NominateForm = () => {
             Fill in Personal Details and Upload Image
           </h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div className="flex flex-row gap-4 w-full">
+            <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
                 label="First Name"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleFormDataChange}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
                 variant="underlined"
                 isRequired
               />
@@ -329,19 +355,19 @@ const NominateForm = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleFormDataChange}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
                 variant="underlined"
                 isRequired
               />
             </div>
-            <div className="flex flex-row gap-4 w-full">
+            <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
                 type="email"
                 label="Email"
                 name="email"
                 value={formData.email}
                 onChange={handleFormDataChange}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
                 variant="underlined"
                 isRequired
               />
@@ -350,16 +376,16 @@ const NominateForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={(phone) => setFormData({ ...formData, phone })}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
               />
             </div>
-            <div className="flex flex-row gap-4 w-full">
+            <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
                 label="Company"
                 name="company"
                 value={formData.company}
                 onChange={handleFormDataChange}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
                 variant="underlined"
                 isRequired
               />
@@ -368,12 +394,12 @@ const NominateForm = () => {
                 name="jobTitle"
                 value={formData.jobTitle}
                 onChange={handleFormDataChange}
-                className="w-1/2 "
+                className="md:w-1/2 w-full "
                 variant="underlined"
                 isRequired
               />
             </div>
-            <div className="flex flex-row gap-4 w-full">
+            <div className="flex md:flex-row flex-col gap-4 w-full">
               {/* <Input
                 label="Country"
                 name="country"
@@ -392,33 +418,58 @@ const NominateForm = () => {
                   setFormData({ ...formData, country: e.target.value });
                   setSelectedCountry(e.target.value);
                 }}
-                className="w-1/2"
+                className="md:w-1/2 w-full "
                 isRequired
               >
                 {countries.map((country) => (
                   <SelectItem key={country.label}>{country.label}</SelectItem>
                 ))}
               </Select>
-              <Input
-                label="Industry"
-                name="industry"
-                value={formData.industry}
-                onChange={handleFormDataChange}
-                className="w-1/2 "
-                variant="underlined"
-                isRequired
-              />
+
+              {industry === "Other" ? (
+                <Input
+                  label="Industry"
+                  name="industry"
+                  value={formData.industry}
+                  placeholder="Enter other industry"
+                  onChange={handleFormDataChange}
+                  className="md:w-1/2 w-full "
+                  variant="underlined"
+                  isRequired
+                />
+              ) : (
+                <Select
+                  onChange={(key) => {
+                    key.target.value === "Other"
+                      ? setIndustry(key)
+                      : setFormData({
+                          ...formData,
+                          industry: key.target.value,
+                        });
+                  }}
+                  value={field}
+                  variant="underlined"
+                  label="Select Industry"
+                  className="md:w-1/2 w-full"
+                  isRequired
+                  errorMessage={errorMessage}
+                >
+                  {IndustryCategories.map((category, index) => (
+                    <SelectItem key={category}>{category}</SelectItem>
+                  ))}
+                </Select>
+              )}
             </div>
 
             {field === "influencer" ? (
               <div className="flex flex-col gap-4 w-full">
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     label="Instagram"
                     name="instagram"
                     value={formData.instagram}
                     onChange={handleFormDataChange}
-                    className="w-1/2 "
+                    className="md:w-1/2 w-full "
                     variant="underlined"
                     isRequired
                   />
@@ -427,17 +478,17 @@ const NominateForm = () => {
                     name="youtube"
                     value={formData.youtube}
                     onChange={handleFormDataChange}
-                    className="w-1/2 "
+                    className="md:w-1/2 w-full "
                     variant="underlined"
                   />
                 </div>
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     label="Tiktok"
                     name="tiktok"
                     value={formData.tiktok}
                     onChange={handleFormDataChange}
-                    className="w-1/2 "
+                    className="md:w-1/2 w-full "
                     variant="underlined"
                   />
 
@@ -446,53 +497,55 @@ const NominateForm = () => {
                     name="snapchat"
                     value={formData.snapchat}
                     onChange={handleFormDataChange}
-                    className="w-1/2 "
+                    className="md:w-1/2 w-full "
                     variant="underlined"
-                  />
-                </div>
-                <div className="flex flex-row gap-4 w-full">
-                  <Input
-                    type="file"
-                    label="Upload Image"
-                    accept="image/*"
-                    placeholder="."
-                    onChange={handleImageUpload}
-                    className="w-1/2 "
-                    variant="underlined"
-                    isRequired
                   />
                 </div>
               </div>
             ) : (
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex md:flex-row flex-col gap-4 w-full">
                 <Input
                   label="LinkedIn"
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={handleFormDataChange}
-                  className="w-1/2 "
-                  variant="underlined"
-                  isRequired
-                />
-                <Input
-                  type="file"
-                  label="Upload Image"
-                  accept="image/*"
-                  placeholder="."
-                  onChange={handleImageUpload}
-                  className="w-1/2 "
+                  className=" w-full "
                   variant="underlined"
                   isRequired
                 />
               </div>
             )}
-
-            <div className="flex flex-row gap-4 w-full">
+            <div className="flex md:flex-col flex-col gap-2 w-full">
+              <label className="text-sm form-color ">Upload Image</label>
+              <Button
+                component="label"
+                role={undefined}
+                variant="outlined"
+                tabIndex={-1}
+                startIcon={<CloudUploadIcon />}
+                style={{ color: "#71717a", border: "1px solid #71717a" }}
+              >
+                <VisuallyHiddenInput
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ color: "#71717a" }}
+                />
+                {formData.image
+                  ? "Image Selected: " + formData.image.name
+                  : "Upload Image"}
+              </Button>
+            </div>
+            <div className="flex flex-row  gap-4 w-full">
               <button onClick={handlePrevStep} className="newsletterbtn w-6/12">
                 Previous
               </button>
-              <button type="submit" className="newsletterbtn w-6/12">
-                Submit
+              <button
+                type="submit"
+                disabled={submitted}
+                className="newsletterbtn w-6/12"
+              >
+                {submitted ? "Submitting..." : "Submit"}
               </button>
             </div>
           </form>
@@ -505,13 +558,13 @@ const NominateForm = () => {
 
   return (
     <div
-      className={`p-20 bg-white text-black text-2xl  ${work_sans.className} font-extralight`}
+      className={`md:p-20 sm:p-5 bg-white text-black text-2xl  ${work_sans.className} font-extralight`}
     >
       <Marquee
         direction="left"
         gradient={false}
         speed={40}
-        className={` z-10 text-9xl w-full ${work_sans.className} font-bold absolute top-12 `}
+        className={` z-10 md:text-9xl text-7xl w-full ${work_sans.className} uppercase font-bold absolute top-12 `}
         autoFill={true}
         style={{ height: "300px", ...maskImageStyle }}
       >
@@ -519,7 +572,7 @@ const NominateForm = () => {
       </Marquee>
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <div
-          className=" w-[60%]  p-16   rounded-[32px] "
+          className=" md:w-3/5 w-11/12  md:p-16 p-8  rounded-[32px] "
           style={{
             boxShadow: "0px 0px 10px 0px #0000001a ",
             background: "rgba(255, 255, 255, 1.15) ",
@@ -583,6 +636,21 @@ const marketerCategories = [
   "Strategic Digital Transformation",
   "Social Media Engagement Champion",
   "Influencer Relationship Builder",
+];
+
+const IndustryCategories = [
+  "Airline",
+  "Retail",
+  "Real Estate",
+  "Education",
+  "Telecommunication",
+  "Banking/Finance",
+  "Tourism Hospitality",
+  "Consumer Electronics",
+  "Media",
+  "Entertainment",
+  "Logistic Supply Chain",
+  "Other",
 ];
 
 export default NominateForm;

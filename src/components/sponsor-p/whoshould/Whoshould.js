@@ -89,7 +89,7 @@ function Whoshould() {
       >
         WHO SHOULD SPONSOR?
       </motion.div>
-      <div className="flex flex-col px-10 mt-28 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full">
+      <div className="flex flex-col px-20 mt-28 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full">
         <div className="px-px max-md:max-w-full">
           <div
             className={`flex flex-wrap max-md:flex-col gap-[5%] max-md:gap-0 ${work_sans.className} `}
@@ -103,12 +103,14 @@ function Whoshould() {
                 key={index}
                 className="flex flex-col w-[30%] max-md:ml-0 my-10 max-md:w-full"
               >
-                <div className="flex flex-col grow max-md:mt-10">
-                  <img
-                    loading="lazy"
-                    src={card.imageUrl}
-                    className="w-full aspect-square"
-                  />
+                <div className="flex flex-col grow max-md:mt-10 group">
+                  <div className="overflow-hidden rounded-[42px]">
+                    <img
+                      loading="lazy"
+                      src={card.imageUrl}
+                      className="w-full aspect-square group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    />
+                  </div>
                   <div
                     className={`shrink-0 my-12 h-px  max-md:my-10 
                   

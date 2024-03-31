@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
 import got from "../../../../public/images/got.png";
@@ -7,6 +8,20 @@ import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
 
 function Ig() {
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // Call once on mount to set initial value
+    window.addEventListener("resize", handleResize); // Add event listener for window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up on unmount
+    };
+  }, []);
   const offscreen = {
     x: -100,
     opacity: 0,
@@ -25,12 +40,12 @@ function Ig() {
       className={`  items-end   text-2xl text-right max-md:px-5 relative bg-white   pt-[120px] align-middle font-bold  ${work_sans.className} `}
     >
       <div
-        className="flex flex-row pr-8 align-middle"
+        className="flex md:flex-row  flex-col md:pr-8 pr-2 align-middle "
         style={{
           backgroundImage:
             "linear-gradient(90deg, #00A4F1 0.41%, #51B6FF 34.07%, #A098DF 64.85%, #9B75EC 96.58%)",
-          backgroundSize: "100% 300px", // Adjust the height as needed
-          backgroundPositionY: "center", // Adjust the position
+          backgroundSize: isMobileView ? "cover" : "100% 300px", // Different background sizes for mobile and desktop
+          backgroundPositionY: "center", // Default background position
           backgroundRepeat: "no-repeat", // Ensure it doesn't repeat
           alignItems: "center",
         }}
@@ -51,7 +66,7 @@ function Ig() {
             }}
           />
         </motion.div>
-        <div>
+        <div className="md:mt-0 mt-5">
           <h1 className="leading-7 text-black uppercase max-md:max-w-full  font-bold">
             The D-day for Brands and Marketing Tech in the World of Influencer
             Marketing is here!

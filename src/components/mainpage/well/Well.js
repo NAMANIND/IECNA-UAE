@@ -22,7 +22,7 @@ function Well() {
     },
   };
   return (
-    <div className="bg-white py-28 px-10 relative w-full">
+    <div className="bg-white py-28 md:px-10 px-5 relative w-full">
       <div
         className="relative flex gap-5 max-md:flex-col max-md:gap-0"
         style={{
@@ -36,11 +36,11 @@ function Well() {
         }}
       >
         <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-          <div className="absolute left-7 bottom-4 w-fit  max-md:mt-10 max-md:max-w-full">
+          <div className="md:absolute static left-7 bottom-4 sm:w-fit w-full   max-md:mt-10 max-md:max-w-full">
             <Image
               loading="lazy"
               src={img}
-              className="w-[100%] h-[100%] scale-[1.1]  rounded-[36px] aspect-[1.61]"
+              className="w-[100%] h-[100%] md:scale-[1.1] scale-[1]  rounded-[36px] aspect-[1.61]"
             />
           </div>
         </div>
@@ -50,7 +50,7 @@ function Well() {
           viewport={{ once: true, amount: 0.3 }}
           className={`flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full ${anton.className}`}
         >
-          <div className="flex flex-col p-10 uppercase max-md:mt-10 max-md:max-w-full">
+          <div className="flex flex-col md:p-10 p-5 uppercase md:mt-10 mt-5 max-md:max-w-full">
             <div className="text-4xl leading-10 text-white max-md:max-w-full">
               Well, they say third time is a{" "}
               <span className="text-[#ccff00]">charm!</span>
@@ -60,7 +60,7 @@ function Well() {
               <br /> of the much awaited{" "}
               <span className="text-[#ccff00]">IEC&A!</span>
             </div>
-            <div className="flex gap-1.5 self-start  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
+            <div className="flex gap-1.5 self-start w-full  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
               <Button href="./register" color="green" img="arrow">
                 Register Now
               </Button>

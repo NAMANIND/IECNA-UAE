@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
@@ -16,7 +16,10 @@ const SectionTitle = ({ children }) => (
 
 const HighlightedText = ({ children, color }) => (
   <div
-    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} w-[30%]   group-hover:text-[#ccff00]`}
+    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} md:w-[30%] w-full   group-hover:text-[#ccff00]
+    transition-all duration-500
+    
+    `}
   >
     {children}
   </div>
@@ -24,7 +27,7 @@ const HighlightedText = ({ children, color }) => (
 
 const TextContent = ({ children, wid }) => (
   <div
-    className={`self-stretch my-auto text-xl  font-medium leading-7 text-right text-black group-hover:text-white w-[${wid}]  max-md:mt-10 max-md:max-w-full`}
+    className={`self-stretch my-auto text-xl  font-medium leading-7 md:text-right text-left text-black group-hover:text-white w-[${wid}]  max-md:mt-10 max-md:max-w-full`}
   >
     {children}
   </div>
@@ -59,6 +62,19 @@ const highlights = [
 
 function Missing() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobileView(window.innerWidth <= 768);
+  //   };
+
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   const offscreen = {
     y: 100,
@@ -76,7 +92,7 @@ function Missing() {
 
   return (
     <section
-      className={`flex justify-center items-center px-10 py-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
+      className={`flex justify-center items-center px-20 py-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
       style={{
         background:
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
@@ -97,43 +113,45 @@ function Missing() {
         {highlights.map((highlight, index) => (
           <motion.div
             key={highlight.title}
-            className={`mt-24 max-md:mt-10 max-md:max-w-full bg-white mis group hover:bg-black hover:text-white text-wrap transition-all duration-300
+            className={`mt-12 max-md:mt-10 max-md:max-w-full bg-white mis group hover:bg-black hover:text-white text-wrap 
+            transition-all duration-500
             w-[100%]
-            rounded-[40px] shadow-2xl px-10 py-10 max-md:px-5 max-md:py-5
-            h-[300px]
+            rounded-[40px] shadow-2xl px-10 py-5 max-md:px-5 max-md:py-5
+            md:h-[250px] h-full
             flex align-middle
             `}
             // initial={offscreen}
             // whileInView={onscreen}
             // viewport={{ once: true, amount: 0.3 }}
             // whileHover={{ scale: 1.05 }}
+
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}
           >
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div
-                className={`flex flex-row w-[100%] justify-between   max-md:ml-0 max-md:w-full`}
+                className={`flex md:flex-row flex-col w-[100%] justify-between   max-md:ml-0 max-md:w-full`}
                 style={{ alignItems: "center" }}
               >
                 <HighlightedText color={highlight.color}>
                   {highlight.title}
                 </HighlightedText>
 
-                {hoveredIndex === index && (
+                {(hoveredIndex === index || isMobileView) && (
                   <motion.div
-                    className="w-[40%] max-md:w-full ml-10"
-                    initial={{ opacity: 0, rotate: 0 }}
+                    className="md:w-[40%] w-full max-md:w-full md:ml-10 pl-10 md:mt-0 mt-2 "
+                    initial={{ opacity: isMobileView ? 1 : 0, rotate: 0 }}
                     animate={{ opacity: 1, rotate: -5 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
                   >
                     <Image
                       src={img1}
                       alt={highlight.title}
-                      width={400}
-                      height={400}
+                      width={300}
+                      height={300}
                       className="shadow-lg"
                       style={{
-                        width: "400px",
+                        width: "300px",
                         boxShadow: " 8px 15px 80px 0 rgba(81, 182, 255, 0.6)",
                       }}
                     />

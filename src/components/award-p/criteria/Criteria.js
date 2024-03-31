@@ -23,7 +23,7 @@ function Criteria() {
           "Two professional references who can vouch for their marketing leadership skills.",
         ],
       },
-      "Branding Excellence": {
+      "Branding Leader of the Year": {
         description:
           "Honors brands that have excelled in creating and maintaining a strong brand identity, positioning, and recognition in the market.",
         criteria: [
@@ -32,7 +32,7 @@ function Criteria() {
           "Metrics demonstrating brand awareness and perception.",
         ],
       },
-      "Digital Marketing Innovator": {
+      "Digital Marketeer of the Year": {
         description:
           "Celebrates individuals or teams that have demonstrated creativity and innovation in digital marketing strategies and campaigns.",
         criteria: [
@@ -41,7 +41,7 @@ function Criteria() {
           "Evidence of using cutting-edge technologies or techniques in digital marketing.",
         ],
       },
-      "Influencer Marketing Strategy": {
+      "Influencer Marketeer of the Year": {
         description:
           "Recognizes brands or agencies that have developed and executed effective influencer marketing strategies to reach and engage target audiences.",
         criteria: [
@@ -50,7 +50,7 @@ function Criteria() {
           "Evidence of strategic planning and execution in influencer partnerships.",
         ],
       },
-      "Social Media Engagement Champion": {
+      "Customer Experience Advocate": {
         description:
           "Honours individuals or brands that have excelled in engaging their audience on social media platforms through compelling content and interactions.",
         criteria: [
@@ -59,7 +59,7 @@ function Criteria() {
           "Evidence of community building and fostering meaningful interactions on social media.",
         ],
       },
-      "Customer Experience Advocate": {
+      "Data-Driven Marketer of the Year": {
         description:
           "Celebrates organizations that prioritize and excel in delivering exceptional customer experiences across all touchpoints.",
         criteria: [
@@ -68,7 +68,7 @@ function Criteria() {
           "Examples of innovative approaches to improving the customer experience.",
         ],
       },
-      "Data-Driven Marketing Excellence": {
+      "Brand Activation Strategist of the Year": {
         description:
           "Recognizes organizations that leverage data and analytics to drive informed marketing decisions and achieve measurable results.",
         criteria: [
@@ -77,7 +77,7 @@ function Criteria() {
           "Evidence of using data analytics tools and methodologies to optimize marketing strategies.",
         ],
       },
-      "Innovation in Brand Activation": {
+      "Social Media Marketeer of the Year": {
         description:
           "Honors brands that have demonstrated creativity and innovation in activating their brand across various channels and touchpoints.",
         criteria: [
@@ -86,7 +86,7 @@ function Criteria() {
           "Evidence of using creative approaches and techniques to connect with target audiences.",
         ],
       },
-      "Strategic Digital Transformation": {
+      "Digital Transformation Leader of the Year": {
         description:
           "Celebrates organizations that have successfully embraced digital transformation to adapt to changing market dynamics and customer preferences.",
         criteria: [
@@ -95,7 +95,7 @@ function Criteria() {
           "Metrics demonstrating the effectiveness of digital transformation efforts in achieving organizational goals.",
         ],
       },
-      "Influencer Relationship Builder": {
+      "PR and Communication Strategist of the Year": {
         description:
           "Recognizes individuals or organizations that have excelled in building and nurturing relationships with influencers to drive successful partnerships and collaborations.",
         criteria: [
@@ -130,7 +130,7 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="text-2xl font-medium tracking-tighter mx-80 text-justify  leading-8 text-white max-md:max-w-full"
+        className="md:text-2xl text-md font-medium tracking-tighter md:mx-80 mx-10  text-justify  leading-8 text-white max-md:max-w-full"
       >
         Celebrate excellence with us as we honour outstanding contributions
         across various domains. Nominate deserving individuals, brands, or
@@ -150,20 +150,24 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex justify-center gap-20  p-10"
+        className="flex flex-col md:flex-row justify-center gap-20  md:p-10 p-5"
       >
-        <div className="flex flex-wrap w-1/2 gap-[4%]">
+        <div className="flex flex-wrap md:w-1/2 w-full gap-[4%]">
           {data.map((item, index) => (
             <React.Fragment key={index}>
               {Object.keys(item).map((heading, index) => (
                 <button
                   key={index}
                   className={`w-[48%] max-h-fit flex align-middle justify-center px-8 py-6 my-4 items-center rounded-2xl shadow-sm max-md:px-5 text-center ${
-                    selectedHeading === heading ? "bg-[#ccff55]" : "bg-white"
+                    selectedHeading === heading
+                      ? "bg-[#ccff00]  hover-box-shadow-2    "
+                      : "bg-white"
                   }`}
                   onClick={() => handleHeadingClick(heading)}
                 >
-                  <p className={`${work_sans.className} font-medium text-xl `}>
+                  <p
+                    className={`${work_sans.className} font-medium text-xl text-black `}
+                  >
                     {" "}
                     {heading}
                   </p>
@@ -172,7 +176,7 @@ function Criteria() {
             </React.Fragment>
           ))}
         </div>
-        <div className="w-1/2 p-5">
+        <div className="md:w-1/2 w-full md:p-5 p-2">
           {/* Display description and criteria for the selected heading */}
           {selectedHeading &&
             data.map((item, index) => (
@@ -180,14 +184,14 @@ function Criteria() {
                 {Object.keys(item).map((heading, index) =>
                   heading === selectedHeading ? (
                     <div key={index} className="text-white">
-                      <div className="mb-5 font-bold text-3xl text-[#ccff55]">
+                      <div className="mb-5 font-bold text-3xl text-[#ccff00]">
                         {heading}
                       </div>
                       <div className="mb-5  text-xl">
                         {item[heading].description}
                       </div>
                       <div className="mt-20">
-                        <div className="mb-5 font-bold text-3xl text-[#ccff55]">
+                        <div className="mb-5 font-bold text-3xl text-[#ccff00]">
                           Criteria
                         </div>
                         <ul className="list-disc pl-5  text-xl">

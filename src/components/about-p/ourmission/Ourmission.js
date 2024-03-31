@@ -50,20 +50,19 @@ function Ourmisson() {
       "
       >
         <div
-          style={{ transform: "rotate(-5deg)" }} // Rotate the text by -5 degrees
+          style={{ transform: "rotate(-2deg)" }} // Rotate the text by -5 degrees
           className="w-[120%] bg-black relative  left-[-10%] "
         >
           <Marquee
             gradient={false}
             speed={50}
-            className="self-stretch mt-32  shadow-2xl min-h-[99px] max-md:mt-10 "
+            className="self-stretch mt-32  shadow-2xl min-h-[59px] max-md:mt-10 "
             autoFill
           >
             <h2
-              className={`text-5xl text-center text-[#ccff00] ${anton.className} `}
+              className={`text-4xl text-center text-[#ccff00] ${anton.className} `}
             >
-              DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH
-              * MUMBAI * DUBAI *
+              &nbsp; DUBAI * RIYADH * MUMBAI *
             </h2>
           </Marquee>
         </div>

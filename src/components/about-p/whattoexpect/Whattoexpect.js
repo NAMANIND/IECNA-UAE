@@ -80,7 +80,7 @@ function Whattoexpect() {
         curated content, and invaluable insights:
       </motion.div>
 
-      <div className="m-10 w-full max-md:mt-10 max-md:max-w-full  p-10">
+      <div className=" w-full max-md:mt-10 max-md:max-w-full  p-20">
         <div className="flex flex-wrap gap-[4%] max-md:gap-0 rounded-[36px] ">
           {cardData.map((card, index) => (
             <motion.div

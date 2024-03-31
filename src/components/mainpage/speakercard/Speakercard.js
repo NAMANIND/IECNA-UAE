@@ -44,7 +44,7 @@ function SpeakerCard() {
 
   return (
     <section
-      className={`flex flex-col px-10 bg-white py-[200px] w-full   ${anton.className}`}
+      className={`flex flex-col px-20 bg-white py-[200px] w-full   ${anton.className}`}
     >
       <motion.h2
         initial={offscreen}
@@ -85,7 +85,7 @@ function SpeakerCard() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex gap-5 self-center mt-[200px] max-w-full text-2xl font-medium tracking-tighter uppercase leading-[90px] w-[688px] max-md:flex-wrap max-md:mt-10"
+        className="flex gap-5 self-center md:mt-56 mt-96 max-w-full text-2xl font-medium tracking-tighter uppercase leading-[90px] w-[688px] max-md:flex-wrap max-md:mt-10"
       >
         <Button href="./speakers" color="green" img="arrow">
           See All Speakers

@@ -93,14 +93,14 @@ function Whyattend() {
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
-        <div className="flex gap-y-5 px-[5%] gap-x-[4%] flex-wrap max-md:gap-0 ">
+        <div className="flex gap-y-5 px-[5%] gap-x-[6%] flex-wrap max-md:gap-0 ">
           {cardData.map((card, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`flex flex-col w-[48%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
+              className={`flex flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
@@ -108,7 +108,7 @@ function Whyattend() {
             >
               <div className="bg-black w-full h-full rounded-[36px] py-[60px]">
                 <div
-                  className={`text-7xl textaward text-white uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px] px-[40px] ${anton.className} `}
+                  className={`text-7xl textaward  text-white uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px] px-[40px] ${anton.className} break-words `}
                 >
                   {card.title}
                 </div>

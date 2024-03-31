@@ -84,7 +84,7 @@ export default function Faq() {
   };
   return (
     <div
-      className={`bg-white text-black w-full px-10 py-56 ${work_sans.className} `}
+      className={`bg-white text-black w-full h-full md:px-20 px-5 py-56 ${work_sans.className} `}
     >
       <motion.div
         initial={offscreen}
@@ -117,7 +117,7 @@ export default function Faq() {
               >
                 <div className="border-b-2 border-gray-200">
                   <div className="question-align">
-                    <h4 className="question-style  text-xl my-2 font-bold  ">
+                    <h4 className="question-style  md:text-xl text-sm my-2 font-bold  ">
                       Q. {item.question}
                     </h4>
                     <FiPlus
@@ -136,7 +136,7 @@ export default function Faq() {
                         : "answer pl-1"
                     }
                   >
-                    <p className="answer-style text-lg my-2">
+                    <p className="answer-style md:text-lg text-sm my-2">
                       A. {item.answer}
                     </p>
                   </div>

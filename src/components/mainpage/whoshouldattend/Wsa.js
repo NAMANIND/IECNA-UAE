@@ -45,7 +45,7 @@ function Wsa() {
     },
   };
   return (
-    <section className="flex flex-col px-10 py-20 bg-black max-md:px-5">
+    <section className="flex flex-col px-20 py-20 bg-black max-md:px-5">
       <motion.h2
         initial={offscreen}
         whileInView={onscreen}
@@ -57,44 +57,44 @@ function Wsa() {
       <div
         className={`mt-20 max-md:mt-10 max-md:max-w-full  flex justify-center  ${work_sans.className}`}
       >
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0 w-[100%] justify-center">
+        <div className="flex md:gap-5 gap-2 max-md:flex-col max-md:gap-0 w-[100%] justify-center">
           {attendees.slice(0, 3).map((attendee, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className="w-[33%]"
+              className="md:w-[33%] w-full"
             >
               <AttendeeCard title={attendee.title} isBold={attendee.isBold} />
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="mt-9 max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
+      <div className="md:mt-9 mt-0 max-md:max-w-full">
+        <div className="flex md:gap-5 gap-2 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
           {attendees.slice(3, 6).map((attendee, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className="w-[33%]"
+              className="md:w-[33%] w-full"
             >
               <AttendeeCard title={attendee.title} isBold={attendee.isBold} />
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="mt-9 max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
+      <div className="md:mt-9 mt-0 max-md:max-w-full">
+        <div className="flex md:gap-5 gap-2 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
           {attendees.slice(6).map((attendee, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className="w-[33%]"
+              className="md:w-[33%] w-full"
             >
               <AttendeeCard title={attendee.title} isBold={attendee.isBold} />
             </motion.div>

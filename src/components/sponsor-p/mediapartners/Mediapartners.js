@@ -52,7 +52,7 @@ function Mediapartners() {
 
   return (
     <div
-      className={`flex flex-col items-center p-10 pt-[150px] bg-white ${work_sans.className}`}
+      className={`flex flex-col items-center p-20 pt-[150px] bg-white ${work_sans.className}`}
     >
       <motion.div
         initial={offscreen}
@@ -71,12 +71,18 @@ function Mediapartners() {
               key={index}
               className="flex flex-wrap w-[32%] max-md:ml-0 max-md:w-full"
             >
-              <div className="flex flex-col grow pb-11 w-full text-2xl tracking-tighter leading-6 text-white bg-black rounded-[36px] max-md:mt-6">
-                <img
-                  loading="lazy"
-                  src={sponsor.imageUrl}
-                  className="w-full aspect-[2.38]"
-                />
+              <div
+                className="flex flex-col grow pb-11 w-full text-2xl tracking-tighter 
+              group
+               leading-6 text-white bg-black rounded-[36px] max-md:mt-6"
+              >
+                <div className="overflow-hidden rounded-t-[36px]">
+                  <img
+                    loading="lazy"
+                    src={sponsor.imageUrl}
+                    className="w-full aspect-[2.38] group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                  />
+                </div>
                 <motion.div
                   initial={offscreen}
                   whileInView={onscreen}
