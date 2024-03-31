@@ -107,7 +107,7 @@ function Mediapartners() {
         </div>
       </div>
       <div className="py-20">
-        <Button href="./sponsors" color="black">
+        <Button href="./sponsors" color="green" img="arrow">
           BECOME A PARTNER
         </Button>
       </div>

@@ -1,16 +1,37 @@
 import * as React from "react";
 import { anton } from "@/styles/fonts";
 import headimg from "../../../public/images/head/head.jpg";
+import awards from "../../../public/images/head/awards.jpg";
+import sponsors from "../../../public/images/head/sponsors.jpg";
+import speakers from "../../../public/images/head/speakers.jpg";
+import register from "../../../public/images/head/register.jpg";
 import Image from "next/image";
 
 function Head({ head }) {
+  const lower = head.toLowerCase();
+  let url = headimg;
+  if (lower === "awards") {
+    url = awards;
+  }
+  if (lower === "sponsors") {
+    url = sponsors;
+  }
+  if (lower === "speakers") {
+    url = speakers;
+  }
+  if (lower === "register") {
+    url = register;
+  }
+
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[40vh] md:min-h-[574px] text-white">
       <Image
         loading="lazy"
-        src={headimg}
+        src={url}
         className="object-cover absolute inset-0 w-full h-full"
-        alt=""
+        alt={head}
+        width={1920}
+        height={1080}
       />
       <h1
         className={`relative z-50 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}

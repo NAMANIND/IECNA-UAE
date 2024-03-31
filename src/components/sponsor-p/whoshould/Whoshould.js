@@ -2,62 +2,63 @@
 import * as React from "react";
 import { work_sans, anton } from "@/styles/fonts";
 import { motion } from "framer-motion";
+import img1 from "../../../../public/images/sponsors/1.jpg";
+import img2 from "../../../../public/images/sponsors/2.jpg";
+import img3 from "../../../../public/images/sponsors/3.jpg";
+import img4 from "../../../../public/images/sponsors/4.jpg";
+import img5 from "../../../../public/images/sponsors/5.jpg";
+import img6 from "../../../../public/images/sponsors/6.jpg";
+import img7 from "../../../../public/images/sponsors/7.jpg";
+import img8 from "../../../../public/images/sponsors/8.jpg";
+import Image from "next/image";
 
 function Whoshould() {
   // Define an array of objects representing each card's data
   const cardData = [
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img1,
       title: "SOCIAL MEDIA PLATFORMS",
       description:
         "Social media platforms are used by influencers to reach the target audiences.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img2,
       title: "INFLUENCER MARKETING AGENCIES ",
       description:
         "They act as the intermediaries in the influencer marketing process.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img3,
       title: "TECH AND DATA ANALYTICS PLATFORMS",
       description:
         "Provides full life cycle of influencer marketing campaigns.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img4,
       title: "E-COMMERCE PLATFORMS",
       description:
         "Influencers drive traffic to the e-commerce websites and influence purchasing decisions.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img5,
       title: "INFLUENCER MARKETING SOFTWARE PLATFORMS ",
       description:
         "They offer platforms to brands for collaboration with influencers.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img6,
       title: "DIGITAL MEDIA COMPANIES",
       description:
         "They provide content and distribution channels for influencer campaigns and help track results.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img7,
       title: "DIGITAL MARKETING PLATFORMS",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
     },
     {
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5779ca208416dcca9972733648b9f2e822b58e87df707e6b2dc66f129f2c39a3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: img8,
       title: "MARKETING AUTOMATION PLATFORMS",
       description:
         "They provide tools to identify prospective clients that are most likely to convert and help marketers to automate the campaigns and track results.",
@@ -105,7 +106,7 @@ function Whoshould() {
               >
                 <div className="flex flex-col grow max-md:mt-10 group">
                   <div className="overflow-hidden rounded-[42px]">
-                    <img
+                    <Image
                       loading="lazy"
                       src={card.imageUrl}
                       className="w-full aspect-square group-hover:scale-105 transition-transform duration-300 ease-in-out"
