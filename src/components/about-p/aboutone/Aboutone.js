@@ -4,6 +4,8 @@ import imgman from "../../../../public/images/DSC04857.png";
 import Image from "next/image";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
+import aboutimg1 from "../../../../public/images/about/about1.jpg";
+import aboutimg2 from "../../../../public/images/about/about2.jpg";
 
 function WhyInfluencerMarketing() {
   return (
@@ -205,7 +207,7 @@ function Aboutone() {
                     >
                       <Image
                         loading="lazy"
-                        src={imgman}
+                        src={aboutimg1}
                         alt="Influencer marketing "
                         className="shrink-0   max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
                         height="100%"
@@ -232,9 +234,9 @@ function Aboutone() {
             "linear-gradient(0deg, rgb(255 255 255 / 90%) 80%, #000 20%)",
         }}
       >
-        <img
+        <Image
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/594e60ecd26d1655acb9351cd0de5646ee3dbb4fd3b8ae111ec2766159a06140?apiKey=5e27b1defd60460eaa6dca842133145f&"
+          src={aboutimg2}
           alt=""
           className="object-cover absolute inset-0 size-full rounded-[82px] "
         />

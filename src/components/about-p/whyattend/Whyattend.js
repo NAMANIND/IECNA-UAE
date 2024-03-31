@@ -4,31 +4,32 @@ import { useState } from "react";
 
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import networking from "../../../../public/images/about/networking.jpg";
+import insights from "../../../../public/images/about/insights.jpg";
+import buiness from "../../../../public/images/about/business.jpg";
+import exclusive from "../../../../public/images/about/exclusive.jpg";
 
 function Whyattend() {
   const cardData = [
     {
       title: "Networking Opportunities",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: networking,
       text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
     },
     {
       title: "Cutting-Edge Insights",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: insights,
       text: "Gain access to top-notch insights and industry expertise from leading marketers, influencers, and technology contributors, staying ahead of the curve with innovative strategies and trends.",
     },
     {
       title: "Business Expansion",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: buiness,
       text: "Explore new business opportunities, expand your network, and collaborate with like-minded professionals, whether you're a brand seeking innovative strategies or an influencer looking to connect with brands.",
     },
     {
       title: "Exclusive Content",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/31804c17e2ff811cfb38749ffdd8c72c833ad64e8ec7fd70e447c3a9eea1787f?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: exclusive,
       text: "Immerse yourself in a curated program featuring keynote speeches, panel discussions, workshops, and networking sessions, ensuring every moment is packed with valuable content and meaningful interactions.",
     },
     // Add more card data objects here as needed
@@ -113,10 +114,12 @@ function Whyattend() {
                   {card.title}
                 </div>
                 <div className="flex flex-col self-stretch my-auto text-xl font-medium leading-6 text-white max-md:mt-10 max-md:max-w-full">
-                  <img
+                  <Image
                     loading="lazy"
                     src={card.imageUrl}
-                    className="w-full aspect-[2.38] max-md:max-w-full relative scale-[1.12]  my-10 imgaward"
+                    width={600}
+                    height={300}
+                    className="w-full aspect-[2.38] max-md:max-w-full rounded-[32px] relative scale-[1.12]  my-10 imgaward"
                   />
                   <div className="self-center mt-11 max-md:mt-10 px-[40px]">
                     {card.text}

@@ -4,11 +4,11 @@ import React from "react";
 import Image from "next/image";
 
 import ok from "../../../../public/ok.jpg";
-import aw1 from "../../../../public/images/DSC05184 copy.png";
-import aw2 from "../../../../public/images/DSC05180 copy.png";
-import aw3 from "../../../../public/images/DSC05163 copy.png";
-import aw4 from "../../../../public/images/DSC05143 copy.png";
-import aw5 from "../../../../public/images/DSC05203 copy.png";
+import aw1 from "../../../../public/images/home/award1.jpg";
+import aw2 from "../../../../public/images/home/award2.jpg";
+import aw3 from "../../../../public/images/home/award3.jpg";
+import aw4 from "../../../../public/images/home/award5.jpg";
+import aw5 from "../../../../public/images/home/award4.jpg";
 
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
@@ -87,7 +87,7 @@ const Awardnrec = () => {
             <Image
               loading="lazy"
               src={aw1}
-              className="shrink-0 max-w-full shadow-2xl aspect-[0.5] h-[100%]  w-[100%] max-md:mt-3 "
+              className="shrink-0 max-w-full aspect-[0.5] h-[100%]  w-[100%] max-md:mt-3 "
               alt=""
             />
           </motion.div>
@@ -112,7 +112,7 @@ const Awardnrec = () => {
                     </div>
                   </div>
                   <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-7 text-white shadow-2xl aspect-[1.01] max-md:mt-3">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-7 text-white  aspect-[1.01] max-md:mt-3">
                       <Image
                         loading="lazy"
                         src={ok}
@@ -129,7 +129,7 @@ const Awardnrec = () => {
                     </div>
                   </div>
                   <div className="flex flex-col ml-1 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow pt-6 shadow-2xl aspect-[1.02] max-md:mt-3">
+                    <div className="flex overflow-hidden relative flex-col grow pt-6 aspect-[1.02] max-md:mt-3">
                       <Image
                         loading="lazy"
                         src={aw3}
@@ -149,7 +149,7 @@ const Awardnrec = () => {
               >
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                   <div className="flex flex-col w-[67%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow justify-center py-0.5 shadow-2xl min-h-[287px] max-md:mt-3 max-md:max-w-full">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center py-0.5  min-h-[287px] max-md:mt-3 max-md:max-w-full">
                       <Image
                         loading="lazy"
                         src={aw5}
@@ -160,7 +160,7 @@ const Awardnrec = () => {
                     </div>
                   </div>
                   <div className="flex flex-col  w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow pt-5 shadow-2xl aspect-[1.02] max-md:mt-3">
+                    <div className="flex overflow-hidden relative flex-col grow pt-5  aspect-[1.02] max-md:mt-3">
                       <Image
                         loading="lazy"
                         src={aw4}

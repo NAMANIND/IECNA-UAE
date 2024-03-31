@@ -149,7 +149,7 @@ function Missing() {
                       alt={highlight.title}
                       width={300}
                       height={300}
-                      className="shadow-lg"
+                      className="shadow-lg rounded-[40px] "
                       style={{
                         width: "300px",
                         boxShadow: " 8px 15px 80px 0 rgba(81, 182, 255, 0.6)",

@@ -1,12 +1,14 @@
 import * as React from "react";
 import { anton } from "@/styles/fonts";
+import headimg from "../../../public/images/head/head.jpg";
+import Image from "next/image";
 
 function Head({ head }) {
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[40vh] md:min-h-[574px] text-white">
-      <img
+      <Image
         loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/063b8e8fe7eb40e3446e090b35f861bbf4fa8f4b8d7560523fc2deb330431dd3?apiKey=5e27b1defd60460eaa6dca842133145f&"
+        src={headimg}
         className="object-cover absolute inset-0 w-full h-full"
         alt=""
       />

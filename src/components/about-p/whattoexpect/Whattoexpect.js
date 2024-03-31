@@ -3,35 +3,36 @@ import * as React from "react";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
+import engaging from "../../../../public/images/about/engaging.jpg";
+import curated from "../../../../public/images/about/curated.jpg";
+import future from "../../../../public/images/about/future.jpg";
+import top from "../../../../public/images/about/top.jpg";
 
+import Image from "next/image";
 function Whattoexpect() {
   // Sample data for cards
   const cardData = [
     {
       title: "Engaging Interactions",
-      imgUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imgUrl: engaging,
       description:
         "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
     },
     {
       title: "Curated Program",
-      imgUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imgUrl: curated,
       description:
         "Dive into a carefully designed agenda featuring keynote speeches, interactive panel discussions, and hands-on workshops, providing actionable strategies and practical knowledge to drive success in influencer marketing.",
     },
     {
       title: "Top-Notch Insights",
-      imgUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imgUrl: top,
       description:
         "Rub shoulders with industry leaders and experts, gaining valuable insights and establishing significant relationships that transcend the event, empowering you to stay ahead of industry trends and developments.",
     },
     {
       title: "Future of Marketing",
-      imgUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/53a9391213ddc0738c4fa05c1b241e2fe741f6d50ac59fe6baa51499b6659059?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imgUrl: future,
       description:
         "Explore the latest trends and technologies in MarTech and AdTech, uncovering innovative approaches and cutting-edge solutions to reshape the future of marketing and influencer collaboration.",
     },
@@ -92,11 +93,11 @@ function Whattoexpect() {
             >
               <div
                 className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full 
-              
+                h-full
                 rounded-[36px]
                "
               >
-                <img
+                <Image
                   loading="lazy"
                   src={card.imgUrl}
                   alt={card.title}

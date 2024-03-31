@@ -328,6 +328,7 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
   color: #71717a !important;
 }
 
-.form-color::placeholder {
-  color: #71717a !important;
+.your-gradient-element {
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(0deg, #000, transparent);
 }

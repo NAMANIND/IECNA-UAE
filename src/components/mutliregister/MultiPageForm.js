@@ -259,8 +259,7 @@ const MultiPageForm = () => {
         autoFill={true}
         style={{ height: "300px", ...maskImageStyle }}
       >
-        &nbsp; REGISTER - REGISTER - REGISTER - REGISTER - REGISTER - REGISTER -
-        REGISTER -
+        &nbsp; REGISTER
       </Marquee>
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form

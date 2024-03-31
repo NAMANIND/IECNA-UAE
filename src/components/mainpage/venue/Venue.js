@@ -4,6 +4,7 @@ import Button from "@/components/button/Button";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
+import img2 from "../../../../public/images/Intersect2.png";
 
 function Venue() {
   const offscreen = {
@@ -40,7 +41,7 @@ function Venue() {
 
   return (
     <div
-      className={`flex w-full flex-col pt-[200px] md:px-20 px-0 max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
+      className={`flex w-full flex-col  md:px-20 px-0 max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
     >
       <div className="text-9xl relative top-20 -z-1 text-black w-full uppercase  max-md:max-w-full max-md:text-4xl ">
         <Marquee

@@ -36,11 +36,11 @@ function Well() {
         }}
       >
         <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-          <div className="md:absolute static left-7 bottom-4 sm:w-fit w-full   max-md:mt-10 max-md:max-w-full">
+          <div className="md:absolute static left-0 bottom-0 sm:w-fit w-full   max-md:mt-10 max-md:max-w-full">
             <Image
               loading="lazy"
               src={img}
-              className="w-[100%] h-[100%] md:scale-[1.1] scale-[1]  rounded-[36px] aspect-[1.61]"
+              className="w-[100%] h-[100%] md:scale-[1] scale-[1]  rounded-[36px] aspect-[1.61]"
             />
           </div>
         </div>
