@@ -10,18 +10,18 @@ import { motion } from "framer-motion";
 function Ig() {
   const [isMobileView, setIsMobileView] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 768); // Adjust breakpoint as needed
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobileView(window.innerWidth <= 768); // Adjust breakpoint as needed
+  //   };
 
-    handleResize(); // Call once on mount to set initial value
-    window.addEventListener("resize", handleResize); // Add event listener for window resize
+  //   handleResize(); // Call once on mount to set initial value
+  //   window.addEventListener("resize", handleResize); // Add event listener for window resize
 
-    return () => {
-      window.removeEventListener("resize", handleResize); // Clean up on unmount
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize); // Clean up on unmount
+  //   };
+  // }, []);
   const offscreen = {
     x: -100,
     opacity: 0,

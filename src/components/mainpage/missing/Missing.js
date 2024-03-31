@@ -62,7 +62,7 @@ const highlights = [
 
 function Missing() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   // useEffect(() => {
   //   const handleResize = () => {
