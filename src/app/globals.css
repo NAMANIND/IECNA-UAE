@@ -327,3 +327,7 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 .form-color {
   color: #71717a !important;
 }
+
+.form-color::placeholder {
+  color: #71717a !important;
+}
