@@ -10,12 +10,15 @@ function Herosection() {
       className="flex overflow-hidden relative z-10 flex-col  w-full text-white  h-full min-h-[100vh] max-md:max-w-full
     "
     >
-      <Image
-        src={headimg}
-        alt="Event background"
-        fill
-        className="object-cover absolute inset-0"
-      />
+      <div className="" style={{ paddingTop: "56.25%", pointerEvents: "none" }}>
+        <iframe
+          src="https://www.youtube.com/embed/rSuQHzr-TvI?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=rSuQHzr-TvI"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen="true"
+          className="absolute inset-0 w-full h-full"
+        ></iframe>
+      </div>
       <div
         className={`flex absolute w-full bottom-0 z-10 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
         
