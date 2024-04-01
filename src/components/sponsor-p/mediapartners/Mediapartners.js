@@ -3,6 +3,10 @@ import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import coin from "../../../../public/images/sponsors/coinpedia.png";
+import ply from "../../../../public/images/sponsors/deriveply.png";
+import gluf from "../../../../public/images/sponsors/gulf.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -13,8 +17,7 @@ function Mediapartners() {
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/2177b778065eb53456e9aae35c54027c06ae1da4769bc4ccee832d4b516451f3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      logoUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/8eb572c6bcb2e9d6d96173aae0cd6f58203c9b71b657ca18ae0ff64ac9201e72?apiKey=5e27b1def  d60460eaa6dca842133145f&",
+      logoUrl: gluf,
     },
     {
       name: "Coin Pedia",
@@ -22,8 +25,7 @@ function Mediapartners() {
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/33fb82163e184dc6552b9979bad2416cc4c21439f2e7c743300ba914b5848db5?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      logoUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/8eb572c6bcb2e9d6d96173aae0cd6f58203c9b71b657ca18ae0ff64ac9201e72?apiKey=5e27b1def  d60460eaa6dca842133145f&",
+      logoUrl: coin,
     },
     {
       name: "Drive Ply",
@@ -31,8 +33,7 @@ function Mediapartners() {
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/08f747f6e806c82cd97edd553d7e8d1d09cf3c52ce4db0accfa46dc521bc396b?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      logoUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/8eb572c6bcb2e9d6d96173aae0cd6f58203c9b71b657ca18ae0ff64ac9201e72?apiKey=5e27b1def  d60460eaa6dca842133145f&",
+      logoUrl: ply,
     },
   ];
 
@@ -95,7 +96,7 @@ function Mediapartners() {
                   <div className="mt-6 text-sm tracking-tight leading-5">
                     {sponsor.description}
                   </div>
-                  <img
+                  <Image
                     loading="lazy"
                     src={sponsor.logoUrl}
                     className="mt-20 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
