@@ -90,7 +90,7 @@ function SpeakerCard() {
         <Button href="./speakers" color="green" img="arrow">
           See All Speakers
         </Button>
-        <Button href="./speakers" color="black" img="mic">
+        <Button href="./register" color="black" img="mic">
           Become a Speaker
         </Button>
       </motion.div>
