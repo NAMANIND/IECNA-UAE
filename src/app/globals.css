@@ -221,7 +221,8 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 22rem;
+  max-width: 22rem;
+  width: 100%;
   z-index: 2;
   overflow: hidden;
 

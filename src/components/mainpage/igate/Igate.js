@@ -61,7 +61,6 @@ function Ig() {
             width={1000}
             height="auto"
             style={{
-              boxShadow: "0 20px 60px 0 rgba(0, 0, 0, 0.25)",
               transform: "rotate(-5deg)",
             }}
           />
@@ -75,7 +74,7 @@ function Ig() {
             className={`mt-7 text-5xl text-white leading-[90px] max-md:text-4xl ${anton.className}`}
             dateTime="2024-07-12"
           >
-            12<span className="text-white">TH</span> JULY 2024
+            12<sup className="text-white">TH</sup> JULY 2024
           </time>
           <p className="mt-5 text-[#ccff00] uppercase leading-[117%]  font-bold">
             MUMBAI

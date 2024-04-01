@@ -5,7 +5,10 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
-import img1 from "../../../../public/images/Intersect.png";
+import img1 from "../../../../public/images/og/networking.jpg";
+import img2 from "../../../../public/images/og/insights.jpg";
+import img3 from "../../../../public/images/og/business.jpg";
+import img4 from "../../../../public/images/og/interactions.jpg";
 import { anton, work_sans } from "@/styles/fonts";
 
 const SectionTitle = ({ children }) => (
@@ -39,24 +42,28 @@ const highlights = [
     content:
       "Meet under one roof with top-notch marketers and influencers from the region, gaining valuable insights and forging valuable relationships.",
     color: "text-blue-400",
+    img: img1,
   },
   {
     title: "Cutting-Edge Insights",
     content:
       "Discover the future of marketing with the latest trends and technologies in Martech and AdTech.",
     color: "text-blue-400",
+    img: img2,
   },
   {
     title: "Business Opportunities",
     content:
       "Whether you're a marketer seeking innovative strategies or an influencer looking to collaborate with brands, this event is the perfect platform to expand your network and explore new business opportunities.",
     color: "text-blue-400",
+    img: img3,
   },
   {
     title: "Engaging Interactions",
     content:
       "Immerse in a vibrant atmosphere where marketers and influencers converge to share ideas, insights, and business prospects.",
     color: "text-blue-400",
+    img: img4,
   },
 ];
 
@@ -145,7 +152,7 @@ function Missing() {
                     transition={{ duration: 0.3, delay: 0.2 }}
                   >
                     <Image
-                      src={img1}
+                      src={highlight.img}
                       alt={highlight.title}
                       width={300}
                       height={300}

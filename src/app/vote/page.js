@@ -150,40 +150,43 @@ const Voting = () => {
               {category}
             </h2>
             <div className="grid md:grid-cols-3 grid-flow-row md:gap-4 gap-10">
-              {nominees.map((nominee) => (
-                <div
-                  key={nominee.id}
-                  className={`relative border rounded-[32px] overflow-hidden shadow-md ${
-                    selectedNominees.some(
+              {nominees
+                .sort((a, b) => a.firstName.localeCompare(b.firstName))
+                .map((nominee) => (
+                  <div
+                    key={nominee.id}
+                    className={`relative border rounded-[32px] overflow-hidden shadow-md ${
+                      selectedNominees.some(
+                        (selectedNominee) =>
+                          selectedNominee.category === category &&
+                          selectedNominee.nomineeId === nominee.id
+                      )
+                        ? "border-blue-500  border-[4px] "
+                        : "border-gray-300  border-[4px]"
+                    }`}
+                    onClick={() => handleNomineeSelect(category, nominee.id)}
+                  >
+                    <img
+                      src={nominee.imageUrl}
+                      alt={nominee.firstName}
+                      className="w-full h-[400px] object-cover rounded-[20px]"
+                    />
+                    <div className="p-4">
+                      <p className="text-xl font-semibold mb-2">
+                        {nominee.firstName} {nominee.lastName}
+                      </p>
+                    </div>
+                    {selectedNominees.some(
                       (selectedNominee) =>
                         selectedNominee.category === category &&
                         selectedNominee.nomineeId === nominee.id
-                    )
-                      ? "border-blue-500  border-[4px] "
-                      : "border-gray-300  border-[4px]"
-                  }`}
-                  onClick={() => handleNomineeSelect(category, nominee.id)}
-                >
-                  <img
-                    src={nominee.imageUrl}
-                    alt={nominee.firstName}
-                    className="w-full h-[400px] object-cover rounded-[20px]"
-                  />
-                  <div className="p-4">
-                    <p className="text-xl font-semibold mb-2">
-                      {nominee.firstName} {nominee.lastName}
-                    </p>
+                    )}
                   </div>
-                  {selectedNominees.some(
-                    (selectedNominee) =>
-                      selectedNominee.category === category &&
-                      selectedNominee.nomineeId === nominee.id
-                  )}
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         ))}
+
         {selectedNominees.length !== 0 && (
           <div className="sticky bottom-10 w-full flex justify-center">
             <button onClick={handleVote} className="newsletterbtn w-1/2">

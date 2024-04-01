@@ -36,7 +36,7 @@ function Well() {
         }}
       >
         <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-          <div className="md:absolute static left-0 bottom-0 sm:w-fit w-full   max-md:mt-10 max-md:max-w-full">
+          <div className="md:absolute static left-0 bottom-0 w-[50%]   max-md:mt-10 max-md:max-w-full">
             <Image
               loading="lazy"
               src={img}
