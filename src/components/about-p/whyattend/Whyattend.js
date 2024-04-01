@@ -54,7 +54,7 @@ function Whyattend() {
 
   return (
     <div
-      className={`flex flex-col items-center md:px-10 px-5 py-10 bg-white ${work_sans.className} `}
+      className={`flex flex-col items-center px-10 py-10 bg-white ${work_sans.className} `}
     >
       <motion.div
         initial={offscreen}
@@ -68,7 +68,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="self-stretch mt-20 w-full md:text-4xl text-xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
+        className="self-stretch mt-20 w-full text-4xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
           INDIA, WE ARE BRINGING TOGETHER OVER{" "}
@@ -85,7 +85,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="mt-11 text-2xl md:px-10 px-0 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
+        className="mt-11 text-2xl px-10 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
       >
         Experience the future of marketing in the dynamic world of influencer
         marketing at the Influence
@@ -101,7 +101,7 @@ function Whyattend() {
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`flex flex-col md:w-[47%] w-[100%] max-md:ml-0 max-md:w-full my-[30px] md:px-[30px] px-[5px] ${
+              className={`flex flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}

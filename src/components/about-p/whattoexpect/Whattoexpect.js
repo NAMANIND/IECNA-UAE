@@ -64,7 +64,7 @@ function Whattoexpect() {
           gradient={false}
           speed={50}
           autoFill
-          className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full md:text-8xl"
+          className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full max-md:text-4xl"
         >
           <h2> &nbsp; EXPECT EVERYTHING UNEXPECTED!</h2>
         </Marquee>
@@ -74,14 +74,14 @@ function Whattoexpect() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-10 text-2xl  md:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-10 text-2xl  px-20 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At the Influence Exchange & Awards Confex India 2024, expect an
         unforgettable experience <br /> filled with engaging interactions,
         curated content, and invaluable insights:
       </motion.div>
 
-      <div className=" w-full max-md:mt-10 max-md:max-w-full  md:p-20 p-5">
+      <div className=" w-full max-md:mt-10 max-md:max-w-full  p-20">
         <div className="flex flex-wrap gap-[4%] max-md:gap-0 rounded-[36px] ">
           {cardData.map((card, index) => (
             <motion.div

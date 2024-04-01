@@ -102,7 +102,7 @@ function Missing() {
       className={`flex justify-center items-center px-20 py-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
       style={{
         background:
-          "background: linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%);",
+          "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
       <div className="flex flex-col mt-20 w-full max-w-[100%] pb-[200px] max-md:mt-10 max-md:max-w-full">

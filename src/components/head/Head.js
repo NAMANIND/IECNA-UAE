@@ -24,14 +24,14 @@ function Head({ head }) {
   }
 
   return (
-    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[40vh] md:min-h-[574px] text-white">
+    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[90vh] md:min-h-[574px] text-white">
       <Image
         loading="lazy"
         src={url}
         className="object-cover absolute inset-0 w-full h-full"
         alt={head}
         width={1920}
-        height={1080}
+        height={2080}
       />
       <h1
         className={`relative z-50 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}

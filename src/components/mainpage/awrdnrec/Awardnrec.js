@@ -87,7 +87,7 @@ const Awardnrec = () => {
             <Image
               loading="lazy"
               src={aw1}
-              className="shrink-0 max-w-full  h-[100%]  w-[100%] max-md:mt-3 "
+              className=" max-w-full size-full   object-cover h-[100%]  w-[100%] max-md:mt-3 "
               alt=""
             />
           </motion.div>
@@ -105,7 +105,7 @@ const Awardnrec = () => {
                       <Image
                         loading="lazy"
                         src={aw2}
-                        className="object-cover absolute inset-0 size-full w-[100%]  "
+                        className=" absolute inset-0 size-full w-[100%]  "
                         fill
                         alt=""
                       />

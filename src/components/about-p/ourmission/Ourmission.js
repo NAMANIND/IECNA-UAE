@@ -21,7 +21,7 @@ function Ourmisson() {
     },
   };
   return (
-    <section className="flex flex-col items-center  text-center text-black bg-white md:pt-44 pt-64">
+    <section className="flex flex-col items-center  text-center text-black bg-white pt-44">
       <motion.h1
         initial={offscreen}
         whileInView={onscreen}
@@ -34,7 +34,7 @@ function Ourmisson() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-20 md:px-60 px-5 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-20 px-60 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At Influence Exchange Confex and Awards, we are dedicated to fostering
         connections, inspiring creativity, and acknowledging the efforts of
@@ -43,10 +43,10 @@ function Ourmisson() {
       </motion.p>
 
       <div
-        className="overflow-hidden h-[400px]
+        className="overflow-hidden h-[500px]
       relative z-10
-
-     mt-20
+      py-20
+     
       "
       >
         <div
@@ -56,15 +56,13 @@ function Ourmisson() {
           <Marquee
             gradient={false}
             speed={50}
-            className="self-stretch mt-32  shadow-2xl min-h-[59px] max-md:mt-10 group"
+            className="self-stretch mt-32  shadow-2xl min-h-[59px] max-md:mt-10 "
             autoFill
-            pauseOnHover
           >
             <h2
               className={`text-4xl text-center text-[#ccff00] ${anton.className} `}
             >
-              &nbsp; DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI * DUBAI *
-              RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI *
+              &nbsp; DUBAI * RIYADH * MUMBAI *
             </h2>
           </Marquee>
         </div>

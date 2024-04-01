@@ -92,18 +92,18 @@ export default function Faq() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <h1
-          className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className} `}
+          className={`text-3xl  font-medium  mb-8 w-full text-center ${anton.className} `}
         >
           FAQ
         </h1>
 
         <p
-          className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
+          className={`text-xl  font-medium  mb-8 w-full text-center ${work_sans.className} `}
         >
           Frequently Asked Questions
         </p>
         <p
-          className={`text-xl font-semibold mb-8 w-full text-center ${work_sans.className} `}
+          className={`text-xl  font-medium  mb-8 w-full text-center ${work_sans.className} `}
         >
           Find answers to common queries about the event.
         </p>
@@ -117,7 +117,7 @@ export default function Faq() {
               >
                 <div className="border-b-2 border-gray-200">
                   <div className="question-align">
-                    <h4 className="question-style  md:text-xl text-sm my-2 font-bold  ">
+                    <h4 className="question-style  md:text-xl text-sm my-2 font-medium  ">
                       Q. {item.question}
                     </h4>
                     <FiPlus

@@ -10,7 +10,7 @@ import aboutimg2 from "../../../../public/images/about/about2.jpg";
 function WhyInfluencerMarketing() {
   return (
     <section className="flex flex-col w-[100%] max-md:ml-0 max-md:w-full">
-      <ul className="mt-24 md:text-xl text-medium text-justify tracking-tighter leading-7 text-white max-md:mt-10 max-md:max-w-full  list-disc   ">
+      <ul className="mt-24 text-xl text-justify tracking-tighter leading-7 text-white max-md:mt-10 max-md:max-w-full  list-disc   ">
         <li>
           Elevate search engine rankings by harnessing influencer collaborations
           to increase brand visibility and organic reach.
@@ -170,7 +170,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="md:text-2xl text-xl   md:px-64 px-5 font-medium  tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+          className="text-2xl  px-64 font-medium  tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
           The Influence Exchange Confex and Awards, a prestigious global
           platform uniting industry leaders, innovators, and influencers across
@@ -183,7 +183,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="md:px-20 px-5 md:pl-24 pl-5 mt-44 mb-32  max-md:max-w-full"
+          className="px-20 pl-24 mt-44 mb-32  max-md:max-w-full"
         >
           <h2
             className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
@@ -194,13 +194,13 @@ function Aboutone() {
             <div className="flex flex-row h-[100vh] ">
               <div className="col-span-5">
                 <div className="flex flex-col h-full">
-                  <div className="flex h-full md:flex-row flex-col ">
+                  <div className="flex h-full">
                     <WhyInfluencerMarketing />
                     <motion.div
                       initial={offscreen2}
                       whileInView={onscreen2}
                       viewport={{ once: true, amount: 0.3 }}
-                      className="w-full  md:pt-20 pt-5 md:relative static right-[-10px] z-10 rounded-[46px] flex justify-end md:ml-10 ml-0 "
+                      className="w-full  pt-20 relative right-[-10px] z-10 rounded-[46px] flex justify-end ml-10 "
                       style={{
                         boxShadow: "50px 0 100px 0 rgba(0, 0, 0, 0.95)",
                       }}
@@ -209,15 +209,15 @@ function Aboutone() {
                         loading="lazy"
                         src={aboutimg1}
                         alt="Influencer marketing "
-                        className="shrink-0 md:w-[30vw] w-[90vw]   max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
+                        className="shrink-0   max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
                         height="100%"
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover", width: "30vw" }}
                       />
                     </motion.div>
                   </div>
                 </div>
               </div>
-              <div className="h-full md:relative static">
+              <div className="h-full relative">
                 <InfluencerMarketingImage />
               </div>
             </div>
@@ -228,7 +228,7 @@ function Aboutone() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex overflow-hidden relative flex-col justify-center w-full shadow-2xl md:mt-0 mt-64 top-40 min-h-[400px] max-md:max-w-full "
+        className="flex overflow-hidden relative flex-col justify-center w-full shadow-2xl min-h-[400px] max-md:max-w-full "
         style={{
           backgroundImage:
             "linear-gradient(0deg, rgb(255 255 255 / 90%) 80%, #000 20%)",
