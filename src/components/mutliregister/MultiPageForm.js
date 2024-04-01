@@ -177,7 +177,7 @@ const MultiPageForm = () => {
     <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
     <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
     <p><strong>Youtube:</strong> ${formData.youtube}</p>
-    <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
+    <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
     <p><strong>Coupon:</strong> ${formData.coupon}</p>
 
  
@@ -244,7 +244,7 @@ const MultiPageForm = () => {
       <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
       <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
       <p><strong>Youtube:</strong> ${formData.youtube}</p>
-      <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
+      <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
       <p><strong>Coupon:</strong> ${formData.coupon}</p>
   
     
@@ -554,7 +554,7 @@ const MultiPageForm = () => {
                 <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
-                    label="Linkdin"
+                    label="Linkedin"
                     name="linkdin"
                     className=" w-full "
                     value={formData.linkdin}
@@ -568,7 +568,7 @@ const MultiPageForm = () => {
                 <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
-                    label="Linkdin"
+                    label="Linkedin"
                     name="linkdin"
                     className="md:w-1/2 w-full "
                     value={formData.linkdin}
