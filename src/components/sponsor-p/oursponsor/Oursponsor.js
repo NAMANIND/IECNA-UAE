@@ -3,7 +3,7 @@ import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
-import chef from "../../../../public/images/sponsors/instachef.png";
+import chef from "../../../../public/images/sponsors/insta.png";
 import fly from "../../../../public/images/sponsors/flybharti.png";
 import views from "../../../../public/images/sponsors/views.jpg";
 import Image from "next/image";
