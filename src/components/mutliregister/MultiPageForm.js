@@ -29,6 +29,7 @@ const MultiPageForm = () => {
   const [sent, setSent] = useState(false);
   const [industry, setIndustry] = useState("");
   const [field, setField] = useState("");
+  const [votelink, setvotelink] = useState("");
   const [formData, setFormData] = useState({
     category: "",
     field: "",
@@ -261,6 +262,8 @@ const MultiPageForm = () => {
 
     if (formData.category === "speaker" || formData.category === "delegate") {
       setSent(true);
+      const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+      setvotelink(vlink);
     }
     // Reset form and page state
     setSubmitted(false);

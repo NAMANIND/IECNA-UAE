@@ -262,6 +262,8 @@ const NewMultiPageForm = () => {
       });
     }
     setSent(true);
+    const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    setvotelink(vlink);
     alert("Form submitted successfully!");
 
     // Form submission logic goes here
@@ -755,6 +757,38 @@ const NewMultiPageForm = () => {
           )}
         </form>
       </div>
+      {sent && (
+        <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div
+            className="bg-white p-10 rounded-lg m-10 max-h-fit"
+            style={{ width: "800px" }}
+          >
+            <h1 className="text-2xl font-bold mb-10 text-center text-black">
+              Form submitted successfully!
+            </h1>
+            <div className="flex justify-center items-center w-full h-[400px]">
+              {poppage}
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <a
+                href={votelink}
+                target="_blank"
+                className="text-black underline pt-10 text-center w-full"
+              >
+                {votelink}
+              </a>
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <button
+                onClick={() => setSent(false)}
+                className="newsletterbtn w-6/12"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
