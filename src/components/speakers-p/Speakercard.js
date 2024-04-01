@@ -7,7 +7,7 @@ import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
 
 // Import Firebase Firestore and initialize Firebase app if not already done
-import { firestore } from "../../../../firbase/clientApp";
+import { firestore } from "../../../firbase/clientApp";
 
 function SpeakerCard() {
   const [speakers, setSpeakers] = React.useState([]); // State to store fetched speakers data

@@ -29,6 +29,7 @@ const NominateForm = () => {
   const [sent, setSent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [industry, setIndustry] = useState("");
+  const [votelink, setvotelink] = useState("");
 
   const [values, setValues] = useState(new Set([]));
 
@@ -226,6 +227,8 @@ const NominateForm = () => {
       imageUrl,
     });
     setSent(true);
+    const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    setvotelink(vlink);
     setSubmitted(false);
     alert("Nomination submitted successfully!");
     // Reset form to first step
@@ -612,7 +615,16 @@ const NominateForm = () => {
               Form submitted successfully!
             </h1>
             <div className="flex justify-center items-center w-full h-[400px]">
-              `{poppage}`
+              {poppage}
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <a
+                href={votelink}
+                target="_blank"
+                className="text-black underline pt-10 text-center w-full"
+              >
+                {votelink}
+              </a>
             </div>
             <div className="flex justify-center items-center w-full">
               <button
