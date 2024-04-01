@@ -109,7 +109,7 @@ function Whoshould() {
                     <Image
                       loading="lazy"
                       src={card.imageUrl}
-                      className="w-full aspect-square group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                      className="w-full object-cover h-[400px] group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
                   </div>
                   <div
