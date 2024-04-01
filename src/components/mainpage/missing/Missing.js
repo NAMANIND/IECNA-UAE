@@ -10,6 +10,7 @@ import img2 from "../../../../public/images/og/insights.jpg";
 import img3 from "../../../../public/images/og/business.jpg";
 import img4 from "../../../../public/images/og/interactions.jpg";
 import { anton, work_sans } from "@/styles/fonts";
+import Ig from "../igate/Igate";
 
 const SectionTitle = ({ children }) => (
   <h2 className="text-5xl text-center text-black uppercase leading-[61.92px] max-md:max-w-full max-md:text-4xl">
@@ -99,13 +100,14 @@ function Missing() {
 
   return (
     <section
-      className={`flex justify-center items-center px-20 py-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
+      className={`flex justify-center flex-col items-center mt-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
       style={{
         background:
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
-      <div className="flex flex-col mt-20 w-full max-w-[100%] pb-[200px] max-md:mt-10 max-md:max-w-full">
+      <Ig />
+      <div className="flex flex-col  w-full max-w-[100%] pb-[200px]  px-20 pt-10 max-md:mt-10 max-md:max-w-full">
         <motion.div
           initial={offscreen}
           whileInView={onscreen}

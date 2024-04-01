@@ -10,18 +10,6 @@ import { motion } from "framer-motion";
 function Ig() {
   const [isMobileView, setIsMobileView] = useState(false);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobileView(window.innerWidth <= 768); // Adjust breakpoint as needed
-  //   };
-
-  //   handleResize(); // Call once on mount to set initial value
-  //   window.addEventListener("resize", handleResize); // Add event listener for window resize
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize); // Clean up on unmount
-  //   };
-  // }, []);
   const offscreen = {
     x: -100,
     opacity: 0,
@@ -37,11 +25,7 @@ function Ig() {
   };
   return (
     <section
-      className={`  items-end   text-2xl text-right max-md:px-5 relativ   pt-[120px] align-middle font-bold  ${work_sans.className} `}
-      style={{
-        background:
-          "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
-      }}
+      className={`  items-end   text-2xl text-right max-md:px-5 relative -top-14 align-middle font-bold  ${work_sans.className} `}
     >
       <div
         className="flex md:flex-row  flex-col md:pr-8 pr-2 align-middle "

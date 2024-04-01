@@ -15,7 +15,7 @@ function Herosection() {
           src="https://www.youtube.com/embed/rSuQHzr-TvI?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=rSuQHzr-TvI"
           title="YouTube video player"
           frameborder="0"
-          allowfullscreen="true"
+          allowFullScreen
           className="absolute  inset-0 w-full h-full top-0 scale-125"
         ></iframe>
       </div>

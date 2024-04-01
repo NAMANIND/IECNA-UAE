@@ -22,7 +22,6 @@ export default function Home() {
       <Speakercard />
 
       <div className="bg-white w-full">
-        <Ig />
         <Missing />
       </div>
       <Wsa />
