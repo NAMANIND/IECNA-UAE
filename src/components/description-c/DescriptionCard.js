@@ -32,14 +32,15 @@ const DescriptionCard = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div>
+      <div className=" w-full h-full">
         <Image
           src={img}
           alt="Speaker Image"
-          width={300}
-          height={200}
-          className="rounded-[32px]"
+          width={400} // Add the width property
+          height={400} // Add the height property
           layout="responsive"
+          className="rounded-t-[32px] object-cover"
+          style={{ width: "100%", height: "500px" }}
         />
 
         <motion.div
