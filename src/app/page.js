@@ -20,8 +20,9 @@ export default function Home() {
       <Pastevents />
       <Influncers />
       <Speakercard />
-      <Ig />
+
       <div className="bg-white w-full">
+        <Ig />
         <Missing />
       </div>
       <Wsa />

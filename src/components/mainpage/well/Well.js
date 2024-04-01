@@ -22,7 +22,7 @@ function Well() {
     },
   };
   return (
-    <div className="bg-white py-28 md:px-10  px-5 relative w-full">
+    <div className="bg-white py-36 px-10  relative w-full">
       <div
         className="relative flex gap-5 mt-36 max-md:flex-col max-md:gap-0"
         style={{

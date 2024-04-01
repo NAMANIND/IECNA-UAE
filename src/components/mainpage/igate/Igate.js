@@ -37,7 +37,11 @@ function Ig() {
   };
   return (
     <section
-      className={`  items-end   text-2xl text-right max-md:px-5 relative bg-white   pt-[120px] align-middle font-bold  ${work_sans.className} `}
+      className={`  items-end   text-2xl text-right max-md:px-5 relativ   pt-[120px] align-middle font-bold  ${work_sans.className} `}
+      style={{
+        background:
+          "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
+      }}
     >
       <div
         className="flex md:flex-row  flex-col md:pr-8 pr-2 align-middle "
@@ -54,6 +58,7 @@ function Ig() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
+          className="relative left-10"
         >
           <Image
             src={got}

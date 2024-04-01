@@ -24,7 +24,7 @@ function Head({ head }) {
   }
 
   return (
-    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[90vh] md:min-h-[574px] text-white">
+    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
       <Image
         loading="lazy"
         src={url}

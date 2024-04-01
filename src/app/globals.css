@@ -190,13 +190,13 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 
 .hoveredaward .imgaward {
   transform: rotate(-10deg) scale(1.2);
+  box-shadow: 3px 5px 80px 0 rgba(81, 182, 255, 0.6);
 }
 .hoveredaward {
   transition: all 0.3s ease-in-out;
 }
 
 .imgaward {
-  box-shadow: 3px 5px 80px 0 rgba(81, 182, 255, 0.6);
   transition: transform 0.3s ease-in-out;
 }
 
