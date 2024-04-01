@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../public/logo.svg";
+import logo from "../../../public/logo.png";
 import footer from "../../../public/images/footer/footer.svg";
 import Image from "next/image";
 import { anton, work_sans } from "@/styles/fonts";
@@ -117,7 +117,7 @@ function Footer() {
             "
                 style={{ justifyContent: "flex-end" }}
               >
-                <Image src={logo} alt="IE&A Logo" className="w-full" />
+                <Image src={logo} alt="IE&A Logo" className=" w-[10vw]" />
                 <p className="text-sm">2024 - © ie&a</p>
               </div>
             </div>

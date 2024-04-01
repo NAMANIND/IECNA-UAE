@@ -154,7 +154,7 @@ function Criteria() {
       >
         <div className="flex flex-wrap md:w-1/2 w-full gap-[4%]">
           {data.map((item, index) => (
-            <React.Fragment key={index}>
+            <React.Fragment key={index} className="flex-grow">
               {Object.keys(item).map((heading, index) => (
                 <button
                   key={index}
@@ -166,7 +166,7 @@ function Criteria() {
                   onClick={() => handleHeadingClick(heading)}
                 >
                   <p
-                    className={`${work_sans.className} font-medium text-xl text-black `}
+                    className={`${work_sans.className} font-medium text-xl w-[90%] text-black `}
                   >
                     {" "}
                     {heading}

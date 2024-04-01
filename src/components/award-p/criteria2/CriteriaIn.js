@@ -240,7 +240,9 @@ function CriteriaIn() {
                   }`}
                   onClick={() => handleHeadingClick(heading)}
                 >
-                  <p className={`${work_sans.className} font-medium text-xl `}>
+                  <p
+                    className={`${work_sans.className} font-medium text-xl w-[90%] text-black `}
+                  >
                     {" "}
                     {heading}
                   </p>
@@ -330,7 +332,9 @@ function CriteriaIn() {
                   }`}
                   onClick={() => handleHeadingClick2(heading)}
                 >
-                  <p className={`${work_sans.className} font-medium text-xl `}>
+                  <p
+                    className={`${work_sans.className} font-medium text-xl w-[90%] text-black `}
+                  >
                     {" "}
                     {heading}
                   </p>

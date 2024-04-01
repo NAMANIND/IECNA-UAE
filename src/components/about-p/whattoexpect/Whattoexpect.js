@@ -81,44 +81,37 @@ function Whattoexpect() {
         curated content, and invaluable insights:
       </motion.div>
 
-      <div className=" w-full max-md:mt-10 max-md:max-w-full  p-20">
-        <div className="flex flex-wrap gap-[4%] max-md:gap-0 rounded-[36px] ">
+      <div className="w-full max-md:mt-10 max-md:max-w-full p-20">
+        <div className="grid grid-cols-2 gap-[4%] rounded-[36px] max-md:gap-0 max-md:grid-cols-1">
           {cardData.map((card, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className="flex flex-col w-[48%] h-full max-md:ml-0 max-md:w-full py-5 group"
+              className="flex flex-col w-full h-full max-md:ml-0 max-md:w-full py-5 group"
+              style={{ display: "flex" }}
             >
               <div
-                className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full 
-                h-full
-                rounded-[36px]
-               "
+                className="flex overflow-hidden relative flex-col pt-20 max-md:mt-10 max-md:max-w-full h-full rounded-[36px]"
+                style={{ flex: 1 }}
               >
                 <Image
                   loading="lazy"
                   src={card.imgUrl}
                   alt={card.title}
-                  className="object-cover absolute inset-0 size-full
-                  group-hover:scale-105 
-                  
-                  transition-transform duration-300 ease-in-out
-              
-                   rounded-[36px]"
+                  className="object-cover absolute inset-0 size-full group-hover:scale-105 transition-transform duration-300 ease-in-out rounded-[36px]"
                 />
                 <div
-                  className="flex relative flex-col overflow-hidden px-6 pt-20 pb-8 mt-40 rounded-[36px] max-md:px-5 max-md:mt-10 max-md:max-w-full
-                
-                "
+                  className="flex relative flex-col overflow-hidden px-6 pt-20 pb-8 mt-40 rounded-[36px] max-md:px-5 max-md:mt-10 max-md:max-w-full"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)  ",
+                      "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)",
+                    flex: 1,
                   }}
                 >
                   <div
-                    className={`mt-12 text-5xl text-[#ccff00] uppercase leading-[62px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[58px] ${anton.className} `}
+                    className={`mt-12 text-5xl text-[#ccff00] uppercase leading-[62px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[58px] ${anton.className}`}
                   >
                     {card.title}
                   </div>

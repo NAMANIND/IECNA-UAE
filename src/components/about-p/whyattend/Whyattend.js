@@ -13,22 +13,22 @@ import exclusive from "../../../../public/images/about/exclusive.jpg";
 function Whyattend() {
   const cardData = [
     {
-      title: "Networking\n Opportunities",
+      title: "Networking Opportunities",
       imageUrl: networking,
       text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
     },
     {
-      title: "Cutting-Edge\n Insights",
+      title: "Cutting-Edge Insights",
       imageUrl: insights,
       text: "Gain access to top-notch insights and industry expertise from leading marketers, influencers, and technology contributors, staying ahead of the curve with innovative strategies and trends.",
     },
     {
-      title: "Business\n Expansion",
+      title: "Business Expansion",
       imageUrl: buiness,
       text: "Explore new business opportunities, expand your network, and collaborate with like-minded professionals, whether you're a brand seeking innovative strategies or an influencer looking to connect with brands.",
     },
     {
-      title: "Exclusive\n Content",
+      title: "Exclusive Content",
       imageUrl: exclusive,
       text: "Immerse yourself in a curated program featuring keynote speeches, panel discussions, workshops, and networking sessions, ensuring every moment is packed with valuable content and meaningful interactions.",
     },
@@ -101,7 +101,7 @@ function Whyattend() {
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`flex flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
+              className={`flex flex-grow flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
