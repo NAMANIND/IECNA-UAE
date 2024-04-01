@@ -16,11 +16,11 @@ function Herosection() {
           title="YouTube video player"
           frameborder="0"
           allowfullscreen="true"
-          className="absolute  inset-0 w-full h-full -top-20"
+          className="absolute  inset-0 w-full h-full top-0 scale-125"
         ></iframe>
       </div>
       <div
-        className={`flex absolute w-full bottom-20 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
+        className={`flex absolute w-full bottom-0 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
       
          ${anton.className} `}
         style={{

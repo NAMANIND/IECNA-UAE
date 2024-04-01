@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import img from "../../../../public/images/well.png";
+import img from "../../../../public/images/charm.png";
 import Image from "next/image";
 import { anton } from "@/styles/fonts";
 import Button from "@/components/button/Button";
@@ -22,9 +22,9 @@ function Well() {
     },
   };
   return (
-    <div className="bg-white py-28 md:px-10 px-5 relative w-full">
+    <div className="bg-white py-28 md:px-10  px-5 relative w-full">
       <div
-        className="relative flex gap-5 max-md:flex-col max-md:gap-0"
+        className="relative flex gap-5 mt-36 max-md:flex-col max-md:gap-0"
         style={{
           backgroundImage:
             "linear-gradient(90deg, #000 0.41%, #000 34.07%, #000 64.85%, #000 96.58%)",
@@ -36,7 +36,7 @@ function Well() {
         }}
       >
         <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-          <div className="md:absolute static left-0 bottom-0 w-[50%]   max-md:mt-10 max-md:max-w-full">
+          <div className="md:absolute static -left-[0.4rem] bottom-2 w-[50%]   max-md:mt-10 max-md:max-w-full">
             <Image
               loading="lazy"
               src={img}

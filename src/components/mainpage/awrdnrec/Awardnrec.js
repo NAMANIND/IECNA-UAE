@@ -87,7 +87,7 @@ const Awardnrec = () => {
             <Image
               loading="lazy"
               src={aw1}
-              className="shrink-0 max-w-full aspect-[0.5] h-[100%]  w-[100%] max-md:mt-3 "
+              className="shrink-0 max-w-full  h-[100%]  w-[100%] max-md:mt-3 "
               alt=""
             />
           </motion.div>

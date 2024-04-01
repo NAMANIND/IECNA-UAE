@@ -18,7 +18,7 @@ const DescriptionCard = ({
   img,
   des,
   job,
-  linkedin,
+  linkdin,
   instagram,
   tiktok,
   snapchat,
@@ -32,15 +32,14 @@ const DescriptionCard = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className=" w-full h-full">
+      <div>
         <Image
           src={img}
           alt="Speaker Image"
           width={400} // Add the width property
-          height={400} // Add the height property
-          layout="responsive"
+          height={350} // Add the height property
           className="rounded-t-[32px] object-cover"
-          style={{ width: "100%", height: "500px" }}
+          style={{ width: "400px", height: "350px" }}
         />
 
         <motion.div
@@ -65,8 +64,8 @@ const DescriptionCard = ({
             </h2>
             <p className={` text-[16px] my-2 ${work_sans.className}`}>{job}</p>
             <div className="flex gap-5 h-[35px] ">
-              {linkedin && (
-                <a href={linkedin} target="_blank" rel="noopener noreferrer">
+              {linkdin && (
+                <a href={linkdin} target="_blank" rel="noopener noreferrer">
                   <FaLinkedin size={28} />
                 </a>
               )}

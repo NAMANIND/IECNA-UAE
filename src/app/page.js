@@ -10,6 +10,7 @@ import Wsa from "@/components/mainpage/whoshouldattend/Wsa";
 import Venue from "@/components/mainpage/venue/Venue";
 
 import Well from "@/components/mainpage/well/Well";
+import Sponsors from "@/components/mainpage/sponsors/Sponsors";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       <div className="bg-white w-full">
         <Awardnrec />
       </div>
-
+      <Sponsors />
       <Well />
       <Venue />
       <Faq />

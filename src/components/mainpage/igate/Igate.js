@@ -44,7 +44,7 @@ function Ig() {
         style={{
           backgroundImage:
             "linear-gradient(90deg, #00A4F1 0.41%, #51B6FF 34.07%, #A098DF 64.85%, #9B75EC 96.58%)",
-          backgroundSize: isMobileView ? "cover" : "100% 300px", // Different background sizes for mobile and desktop
+          backgroundSize: isMobileView ? "cover" : "100% 250px", // Different background sizes for mobile and desktop
           backgroundPositionY: "center", // Default background position
           backgroundRepeat: "no-repeat", // Ensure it doesn't repeat
           alignItems: "center",
@@ -62,6 +62,7 @@ function Ig() {
             height="auto"
             style={{
               transform: "rotate(-5deg)",
+              scale: 1.4,
             }}
           />
         </motion.div>

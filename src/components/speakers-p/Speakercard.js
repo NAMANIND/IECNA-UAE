@@ -70,7 +70,7 @@ function SpeakerCard() {
                 title={speaker.firstName + " " + speaker.lastName} // Full name
                 job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
                 des={speaker.details} // Speaker description
-                linkedin={speaker.linkedin} // LinkedIn URL
+                linkdin={speaker.linkdin} // LinkedIn URL
                 instagram={speaker.instagram} // Instagram URL
                 tiktok={speaker.tiktok} // TikTok URL
                 snapchat={speaker.snapchat} // Snapchat URL
