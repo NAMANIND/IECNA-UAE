@@ -26,6 +26,8 @@ const MultiPageForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [poppage, setPoppage] = useState("");
   const [sent, setSent] = useState(false);
+  const [industry, setIndustry] = useState("");
+  const [field, setField] = useState("");
   const [formData, setFormData] = useState({
     category: "",
     field: "",
@@ -477,15 +479,39 @@ const MultiPageForm = () => {
                     <SelectItem key={country.label}>{country.label}</SelectItem>
                   ))}
                 </Select>
-                <Input
-                  variant="underlined"
-                  label="Industry"
-                  name="industry"
-                  className="md:w-1/2 w-full "
-                  value={formData.industry}
-                  onChange={handleChange}
-                  isRequired
-                />
+                {industry === "Other" ? (
+                  <Input
+                    label="Industry"
+                    name="industry"
+                    value={formData.industry}
+                    placeholder="Enter other industry"
+                    onChange={handleChange}
+                    className="md:w-1/2 w-full "
+                    variant="underlined"
+                    isRequired
+                  />
+                ) : (
+                  <Select
+                    onChange={(key) => {
+                      key.target.value === "Other"
+                        ? setIndustry(key.target.value)
+                        : setFormData({
+                            ...formData,
+                            industry: key.target.value,
+                          });
+                    }}
+                    value={formData.industry}
+                    variant="underlined"
+                    label="Select Industry"
+                    className="md:w-1/2 w-full"
+                    isRequired
+                    errorMessage={errorMessage}
+                  >
+                    {IndustryCategories.map((category, index) => (
+                      <SelectItem key={category}>{category}</SelectItem>
+                    ))}
+                  </Select>
+                )}
               </div>
 
               {(formData.category === "sponsor" ||
@@ -652,5 +678,20 @@ const MultiPageForm = () => {
     </div>
   );
 };
+
+const IndustryCategories = [
+  "Airline",
+  "Retail",
+  "Real Estate",
+  "Education",
+  "Telecommunication",
+  "Banking/Finance",
+  "Tourism Hospitality",
+  "Consumer Electronics",
+  "Media",
+  "Entertainment",
+  "Logistic Supply Chain",
+  "Other",
+];
 
 export default MultiPageForm;

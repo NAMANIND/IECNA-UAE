@@ -110,6 +110,9 @@ const PersonalVote = ({ params }) => {
               alt={name}
               layout="fill"
               objectFit="cover"
+              width={300}
+              height={300}
+              className="object-cover rounded-lg"
             />
           </div>
           <h2 className="text-xl font-semibold mb-4">Categories:</h2>
@@ -151,7 +154,6 @@ const PersonalVote = ({ params }) => {
           {Object.values(selectedCategories).some((value) => value) && (
             <div className="sticky bottom-10 w-full flex justify-center">
               <button
-              
                 onClick={handleVote}
                 className="newsletterbtn w-1/2 mx-auto"
               >

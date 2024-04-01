@@ -15,7 +15,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const NewMultiPageForm = () => {
   const [page, setPage] = useState(1);
-  const [topics, setTopics] = useState(new Set([]));
+
   const [values, setValues] = useState(new Set([]));
   const [errorMessage, setErrorMessage] = useState("");
   const [field, setField] = useState("");
@@ -24,6 +24,9 @@ const NewMultiPageForm = () => {
   const [sent, setSent] = useState(false);
   const [poppage, setPoppage] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [topics, setTopics] = useState([]);
+  const [industry, setIndustry] = useState("");
+
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -67,6 +70,10 @@ const NewMultiPageForm = () => {
     setPage(page - 1);
   };
 
+  const handleFormDataChange = (e) => {
+    console.log(formData);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   useEffect(() => {
     fetch(
       "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code"
@@ -112,8 +119,12 @@ const NewMultiPageForm = () => {
     }
   };
 
-  const handletopicSelect = (e) => {
-    setTopics(new Set(e.target.value.split(",")));
+  const handletopicSelect = (category) => {
+    if (topics.includes(category)) {
+      setTopics(topics.filter((cat) => cat !== category));
+    } else {
+      setTopics([...topics, category]);
+    }
   };
 
   const handleFieldSelect = (key) => {
@@ -220,7 +231,7 @@ const NewMultiPageForm = () => {
         industry: formData.industry,
         recommendation1: formData.recommendation1,
         recommendation2: formData.recommendation2,
-        topics: Array.from(topics),
+        topics: { ...topics },
         imgu,
       });
     }
@@ -244,7 +255,7 @@ const NewMultiPageForm = () => {
       socialMedia: "",
     });
     setPage(1);
-    setTopics(new Set([]));
+    setTopics([]);
     setValues(new Set([]));
   };
 
@@ -355,31 +366,21 @@ const NewMultiPageForm = () => {
             (formData.registrationType === "delegate" ? (
               <div className="flex  flex-col md:flex-nowrap gap-4 ">
                 <h2 className={` text-black `}>Topics you are looking for*</h2>
-                <Select
-                  multiple
-                  // placeholder="Select categories"
-                  onChange={handletopicSelect}
-                  // value={selectedCategories}
-                  // onSelectionChange={setValues}
-                  selectedKeys={topics}
-                  variant="underlined"
-                  label="Topics you are looking for"
-                  className="w-full"
-                  selectionMode="multiple"
-                  isRequired
-                  errorMessage={errorMessage}
-                >
-                  {options.map((category, index) => (
-                    <SelectItem key={category} value={category}>
-                      {category}
-                    </SelectItem>
+
+                <div className="w-full">
+                  {options.map((topic, index) => (
+                    <div key={topic}>
+                      <Checkbox
+                        id={`topic-${index}`}
+                        checked={topics.includes(topic)}
+                        onChange={() => handletopicSelect(topic)}
+                        label={topic}
+                      >
+                        {topic}
+                      </Checkbox>
+                    </div>
                   ))}
-                </Select>
-                {topics.size > 0 && (
-                  <p className="text-small text-default-500">
-                    Selected: {Array.from(topics).join(", ")}
-                  </p>
-                )}
+                </div>
 
                 <h2 className={` text-black text-xl `}>
                   Would you like to recommend a colleague or peer to attend the
@@ -414,7 +415,7 @@ const NewMultiPageForm = () => {
                   </button>
                   <button
                     onClick={() => {
-                      if (topics.size > 0) {
+                      if (topics.length > 0) {
                         setErrorMessage("");
                         nextPage();
                       } else {
@@ -575,15 +576,39 @@ const NewMultiPageForm = () => {
                     <SelectItem key={country.label}>{country.label}</SelectItem>
                   ))}
                 </Select>
-                <Input
-                  label="Industry"
-                  name="industry"
-                  value={formData.industry}
-                  onChange={handleChange}
-                  className="w-1/2 "
-                  variant="underlined"
-                  isRequired
-                />
+                {industry === "Other" ? (
+                  <Input
+                    label="Industry"
+                    name="industry"
+                    value={formData.industry}
+                    placeholder="Enter other industry"
+                    onChange={handleChange}
+                    className="md:w-1/2 w-full "
+                    variant="underlined"
+                    isRequired
+                  />
+                ) : (
+                  <Select
+                    onChange={(key) => {
+                      key.target.value === "Other"
+                        ? setIndustry(key.target.value)
+                        : setFormData({
+                            ...formData,
+                            industry: key.target.value,
+                          });
+                    }}
+                    value={field}
+                    variant="underlined"
+                    label="Select Industry"
+                    className="md:w-1/2 w-full"
+                    isRequired
+                    errorMessage={errorMessage}
+                  >
+                    {IndustryCategories.map((category, index) => (
+                      <SelectItem key={category}>{category}</SelectItem>
+                    ))}
+                  </Select>
+                )}
               </div>
 
               {field === "influencer" ? (
@@ -739,6 +764,21 @@ const options = [
   "Connecting Brands and Influencers in Saudi Arabia: The Evolution of Influence Platforms.",
   "Digital Marketing Transformation in Saudi Arabia: Strategies for Influencing the Future.",
   "Saudi Arabian Digital Marketing Solutions: Driving Brand Success through Innovation.",
+];
+
+const IndustryCategories = [
+  "Airline",
+  "Retail",
+  "Real Estate",
+  "Education",
+  "Telecommunication",
+  "Banking/Finance",
+  "Tourism Hospitality",
+  "Consumer Electronics",
+  "Media",
+  "Entertainment",
+  "Logistic Supply Chain",
+  "Other",
 ];
 
 export default NewMultiPageForm;
