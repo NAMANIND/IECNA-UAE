@@ -54,7 +54,7 @@ function Whyattend() {
 
   return (
     <div
-      className={`flex flex-col items-center px-10 py-10 bg-white ${work_sans.className} `}
+      className={`flex flex-col items-center px-10 py-20 bg-white ${work_sans.className} `}
     >
       <motion.div
         initial={offscreen}
