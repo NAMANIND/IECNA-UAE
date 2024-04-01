@@ -71,7 +71,9 @@ function ImageDownloadPage({ imageData, title, text }) {
     flex flex-col w-[100%] max-w-[100%] justify-center items-center gap-4
     "
     >
-      <img src={transformedImageUrl} alt={title} width={200} height={200} />
+      {transformedImageUrl && (
+        <img src={transformedImageUrl} alt={title} width="80%" height={200} />
+      )}
 
       <button onClick={handleDownloadTransformed} className="newsletterbtn">
         Download Transformed Image

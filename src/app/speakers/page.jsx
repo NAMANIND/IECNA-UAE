@@ -1,5 +1,5 @@
 import Head from "@/components/head/Head";
-import SpeakerCard from "@/components/mainpage/speakercard/Speakercard";
+import SpeakerCard from "@/components/speakers-p/Speakercard";
 import React from "react";
 
 function Speakers() {

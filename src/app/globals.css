@@ -293,7 +293,7 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 
   background-color: black;
 
-  border-radius: 9999px;
+  border-radius: 9999px !important;
 
   color: white;
 
@@ -315,9 +315,9 @@ label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
 .newsletterbtn:hover {
   background-color: white;
 
-  color: black;
+  color: black !important;
 
-  border-color: black;
+  border-color: black !important;
 }
 
 .nav-p a {

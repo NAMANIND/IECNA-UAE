@@ -120,6 +120,20 @@ const NominateForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.email === "" &&
+      formData.phone === "" &&
+      formData.company === "" &&
+      formData.jobTitle === "" &&
+      formData.country === "" &&
+      formData.industry === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     e.preventDefault();
     // Prevent default form submission behavior
     e.stopPropagation();
@@ -265,7 +279,8 @@ const NominateForm = () => {
                 setErrorMessage("");
                 handleNextStep();
               } else {
-                setErrorMessage("*Please select a field*");
+                // setErrorMessage("*Please select a field*");
+                alert("Please select a field");
               }
             }}
             className="
@@ -322,7 +337,8 @@ const NominateForm = () => {
                   setErrorMessage("");
                   handleNextStep();
                 } else {
-                  setErrorMessage("*Please select at least one category*");
+                  // setErrorMessage("*Please select at least one category*");
+                  alert("Please select at least one category");
                 }
               }}
               className="newsletterbtn w-6/12 "
@@ -524,6 +540,7 @@ const NominateForm = () => {
                 tabIndex={-1}
                 startIcon={<CloudUploadIcon />}
                 style={{ color: "#71717a", border: "1px solid #71717a" }}
+                className="newsletterbtn"
               >
                 <VisuallyHiddenInput
                   type="file"

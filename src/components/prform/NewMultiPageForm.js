@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Select, SelectItem, Input } from "@nextui-org/react";
+import { Select, SelectItem, Input, Checkbox } from "@nextui-org/react";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 import { storage, firestore } from "../../../firbase/clientApp";
@@ -9,6 +9,10 @@ import "react-phone-input-2/lib/bootstrap.css";
 import { MuiPhone } from "../phone/MuiPhone";
 import Sendemail from "../../app/email/page";
 import ImageDownloadPage from "@/app/imagetransform/page";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
 const NewMultiPageForm = () => {
   const [page, setPage] = useState(1);
   const [topics, setTopics] = useState(new Set([]));
@@ -19,6 +23,19 @@ const NewMultiPageForm = () => {
   const [countries, setCountries] = useState([]);
   const [sent, setSent] = useState(false);
   const [poppage, setPoppage] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [imgu, setimgu] = useState("");
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  });
 
   const [formData, setFormData] = useState({
     registrationType: "",
@@ -85,8 +102,14 @@ const NewMultiPageForm = () => {
     setFormData({ ...formData, registrationType: key.target.value });
   };
 
-  const handleCategorySelect = (key) => {
-    setValues(new Set(key.target.value.split(",")));
+  const handleCategorySelect = (category) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== category)
+      );
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
   };
 
   const handletopicSelect = (e) => {
@@ -102,9 +125,26 @@ const NewMultiPageForm = () => {
     e.preventDefault(); // Prevent default form submission behavior
     console.log(formData); // For testing purposes
 
-    const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
-    await imageRef.put(formData.image);
-    const imageUrl = await imageRef.getDownloadURL();
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.email === "" &&
+      formData.phone === "" &&
+      formData.company === "" &&
+      formData.jobTitle === "" &&
+      formData.country === "" &&
+      formData.industry === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
+    if (formData.image) {
+      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+      await imageRef.put(formData.image);
+      const imageUrl = await imageRef.getDownloadURL();
+      setimgu(imageUrl);
+    }
 
     // Save form data to Firestore
     const nomineeRef = firestore.collection("nominees").doc();
@@ -149,8 +189,10 @@ const NewMultiPageForm = () => {
       <p>Topics: ${Array.from(topics)
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
-      <img src="${imageUrl}" alt="nominee-image" width="200" height="200" />
+   
     `;
+
+    // <img src="${imgu}" alt="nominee-image" width="200" height="200" />
 
     const to = ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"];
     const subject =
@@ -179,7 +221,7 @@ const NewMultiPageForm = () => {
         recommendation1: formData.recommendation1,
         recommendation2: formData.recommendation2,
         topics: Array.from(topics),
-        imageUrl,
+        imgu,
       });
     }
     setSent(true);
@@ -293,7 +335,16 @@ const NewMultiPageForm = () => {
                 <button onClick={prevPage} className="newsletterbtn w-6/12 ">
                   Previous
                 </button>
-                <button onClick={nextPage} className="newsletterbtn w-6/12 ">
+                <button
+                  onClick={() => {
+                    if (field !== "") {
+                      nextPage();
+                    } else {
+                      alert("Please select a field");
+                    }
+                  }}
+                  className="newsletterbtn w-6/12 "
+                >
                   Next
                 </button>
               </div>
@@ -367,9 +418,7 @@ const NewMultiPageForm = () => {
                         setErrorMessage("");
                         nextPage();
                       } else {
-                        setErrorMessage(
-                          "*Please select at least one category*"
-                        );
+                        setErrorMessage("*Please select at least one topic*");
                       }
                     }}
                     className="newsletterbtn w-6/12 "
@@ -381,50 +430,50 @@ const NewMultiPageForm = () => {
             ) : (
               <div className="flex  flex-col md:flex-nowrap gap-4 ">
                 <h2 className={` text-black `}>Select Award Categories</h2>
-                <Select
-                  multiple
-                  // placeholder="Select categories"
-                  onChange={handleCategorySelect}
-                  // value={selectedCategories}
-                  // onSelectionChange={setValues}
-                  selectedKeys={values}
-                  variant="underlined"
-                  label="Award Categories"
-                  className="max-w-md"
-                  selectionMode="multiple"
-                  isRequired
-                  errorMessage={errorMessage}
-                >
+                <div className="max-w-md">
                   {field === "influencer"
                     ? influencerCategories.map((category, index) => (
-                        <SelectItem key={category} value={category}>
-                          {category}
-                        </SelectItem>
+                        <div key={category}>
+                          <Checkbox
+                            id={`category-${index}`}
+                            checked={selectedCategories.includes(category)}
+                            onChange={() => handleCategorySelect(category)}
+                            label={category}
+                          >
+                            {category}
+                          </Checkbox>
+                        </div>
                       ))
                     : marketerCategories.map((category, index) => (
-                        <SelectItem key={category} value={category}>
-                          {category}
-                        </SelectItem>
+                        <div key={category}>
+                          <Checkbox
+                            id={`category-${index}`}
+                            checked={selectedCategories.includes(category)}
+                            onChange={() => handleCategorySelect(category)}
+                            label={category}
+                          >
+                            {category}
+                          </Checkbox>
+                        </div>
                       ))}
-                </Select>
-                {values.size > 0 && (
-                  <p className="text-small text-default-500">
-                    Selected: {Array.from(values).join(", ")}
-                  </p>
-                )}
+                </div>
+
                 <div className="flex flex-row justify-between w-full gap-4">
                   <button onClick={prevPage} className="newsletterbtn w-6/12 ">
                     Previous
                   </button>
                   <button
                     onClick={() => {
-                      if (values.size > 0) {
-                        setErrorMessage("");
+                      if (selectedCategories.length > 0) {
+                        console.log(selectedCategories.length);
+                        // setErrorMessage("");
                         nextPage();
                       } else {
-                        setErrorMessage(
-                          "*Please select at least one category*"
-                        );
+                        // setErrorMessage(
+                        //   "*Please select at least one category*"
+                        // );
+
+                        alert("Please select at least one category");
                       }
                     }}
                     className="newsletterbtn w-6/12 "
@@ -577,18 +626,27 @@ const NewMultiPageForm = () => {
                       variant="underlined"
                     />
                   </div>
-                  <div className="flex flex-row gap-4 w-full">
-                    <Input
+
+                  <label className="text-sm form-color ">Upload Image</label>
+                  <Button
+                    component="label"
+                    role={undefined}
+                    variant="outlined"
+                    tabIndex={-1}
+                    startIcon={<CloudUploadIcon />}
+                    className="newsletterbtn"
+                    style={{ color: "#71717a", border: "1px solid #71717a" }}
+                  >
+                    <VisuallyHiddenInput
                       type="file"
-                      label="Upload Image"
                       accept="image/*"
-                      placeholder="."
                       onChange={handleImageUpload}
-                      className="w-1/2 "
-                      variant="underlined"
-                      isRequired
+                      style={{ color: "#71717a" }}
                     />
-                  </div>
+                    {formData.image
+                      ? "Image Selected: " + formData.image.name
+                      : "Upload Image"}
+                  </Button>
                 </div>
               ) : (
                 <div className="flex flex-row gap-4 w-full">
@@ -597,20 +655,32 @@ const NewMultiPageForm = () => {
                     name="linkedin"
                     value={formData.linkedin}
                     onChange={handleChange}
-                    className="w-1/2 "
+                    className="w-full "
                     variant="underlined"
                     isRequired
                   />
-                  <Input
-                    type="file"
-                    label="Upload Image"
-                    accept="image/*"
-                    placeholder="."
-                    onChange={handleImageUpload}
-                    className="w-1/2 "
-                    variant="underlined"
-                    isRequired
-                  />
+                  <div className="flex md:flex-col flex-col gap-2 w-full">
+                    <label className="text-sm form-color ">Upload Image</label>
+                    <Button
+                      component="label"
+                      role={undefined}
+                      variant="outlined"
+                      tabIndex={-1}
+                      startIcon={<CloudUploadIcon />}
+                      className="newsletterbtn"
+                      style={{ color: "#71717a", border: "1px solid #71717a" }}
+                    >
+                      <VisuallyHiddenInput
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        style={{ color: "#71717a" }}
+                      />
+                      {formData.image
+                        ? "Image Selected: " + formData.image.name
+                        : "Upload Image"}
+                    </Button>
+                  </div>
                 </div>
               )}
 

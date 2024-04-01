@@ -13,6 +13,9 @@ import { anton, work_sans } from "@/styles/fonts";
 import { firestore, storage } from "../../../firbase/clientApp";
 import Sendemail from "../../app/email/page";
 import ImageDownloadPage from "../../app/imagetransform/page";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const MultiPageForm = () => {
   const [phone, setPhone] = useState("");
@@ -100,6 +103,21 @@ const MultiPageForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.email === "" &&
+      formData.phone === "" &&
+      formData.company === "" &&
+      formData.jobTitle === "" &&
+      formData.country === "" &&
+      formData.industry === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     console.log(formData); // For testing purposes
 
     // Send email with form details
@@ -132,9 +150,11 @@ const MultiPageForm = () => {
     <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
     <p><strong>Coupon:</strong> ${formData.coupon}</p>
 
-    <p><strong>Image:</strong></p>
-    <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
+ 
   `;
+
+      // <p><strong>Image:</strong></p>
+      // <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
 
       await Sendemail(to, subject, html);
     }
@@ -197,9 +217,11 @@ const MultiPageForm = () => {
       <p><strong>Linkdin:</strong> ${formData.linkdin}</p>
       <p><strong>Coupon:</strong> ${formData.coupon}</p>
   
-      <p><strong>Image:</strong></p>
-      <img src="${imageUrl}" alt="Uploaded Image" width="200" height="200"  />
+    
     `;
+
+      // <p><strong>Image:</strong></p>
+      // <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
 
       await Sendemail(to, subject, html);
 
@@ -231,6 +253,7 @@ const MultiPageForm = () => {
       image: null,
     });
     setPage(1);
+    setErrorMessage("");
   };
 
   const handleFormDataChange = (e) => {
@@ -247,6 +270,17 @@ const MultiPageForm = () => {
     WebkitMaskImage:
       "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)",
   };
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  });
   return (
     <div
       className={`md:p-20 sm:p-5 bg-white text-2xl ${work_sans.className} font-extralight`}
@@ -338,7 +372,7 @@ const MultiPageForm = () => {
                 </button>
                 <button
                   onClick={() => {
-                    if (formData.category) {
+                    if (formData.field !== "") {
                       nextPage();
                     } else {
                       setErrorMessage("*Please select a field*");
@@ -461,7 +495,7 @@ const MultiPageForm = () => {
                     variant="underlined"
                     label="Linkdin"
                     name="linkdin"
-                    className="md:w-1/2 w-full "
+                    className=" w-full "
                     value={formData.linkdin}
                     onChange={handleChange}
                     isRequired
@@ -539,9 +573,9 @@ const MultiPageForm = () => {
                 <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
-                    label="Details"
+                    label="Bio"
                     name="details"
-                    className="md:w-1/2 w-full "
+                    className=" w-full "
                     value={formData.details}
                     onChange={handleFormDataChange}
                     isRequired
@@ -552,17 +586,27 @@ const MultiPageForm = () => {
 
               {(formData.category === "speaker" ||
                 formData.category === "delegate") && (
-                <div className="flex md:flex-row flex-col gap-4 w-full">
-                  <Input
-                    type="file"
-                    label="Upload Image"
-                    accept="image/*"
-                    placeholder="."
-                    onChange={handleImageUpload}
-                    className="w-full "
-                    variant="underlined"
-                    isRequired
-                  />
+                <div className="flex md:flex-col flex-col gap-2 w-full">
+                  <label className="text-sm form-color ">Upload Image</label>
+                  <Button
+                    component="label"
+                    role={undefined}
+                    variant="outlined"
+                    tabIndex={-1}
+                    startIcon={<CloudUploadIcon />}
+                    className="newsletterbtn"
+                    style={{ color: "#71717a", border: "1px solid #71717a" }}
+                  >
+                    <VisuallyHiddenInput
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      style={{ color: "#71717a" }}
+                    />
+                    {formData.image
+                      ? "Image Selected: " + formData.image.name
+                      : "Upload Image"}
+                  </Button>
                 </div>
               )}
 
