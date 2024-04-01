@@ -226,7 +226,7 @@ const NewMultiPageForm = () => {
       <p>Topics: ${Array.from(topics)
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
-      <img src="${imageUrl}" alt="nominee-image" width="200" height="200" />
+     ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
    
     `;
 
@@ -768,15 +768,17 @@ const NewMultiPageForm = () => {
             <div className="flex justify-center items-center w-full h-[400px]">
               {poppage}
             </div>
-            <div className="flex justify-center items-center w-full">
-              <a
-                href={votelink}
-                target="_blank"
-                className="text-black underline pt-10 text-center w-full"
-              >
-                {votelink}
-              </a>
-            </div>
+            {formData.registrationType === "nomination" && (
+              <div className="flex justify-center items-center w-full">
+                <a
+                  href={votelink}
+                  target="_blank"
+                  className="text-black underline pt-10 text-center w-full"
+                >
+                  {votelink}
+                </a>
+              </div>
+            )}
             <div className="flex justify-center items-center w-full">
               <button
                 onClick={() => setSent(false)}
