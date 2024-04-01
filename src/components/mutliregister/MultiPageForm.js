@@ -19,6 +19,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const MultiPageForm = () => {
   const [phone, setPhone] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedImageurl, setSelectedImageurl] = useState("");
@@ -120,6 +121,32 @@ const MultiPageForm = () => {
       return;
     }
 
+    const notallowedemail = [
+      "gmail",
+      "yahoo",
+      "hotmail",
+      "outlook",
+      "rediffmail",
+      "aol",
+      "zoho",
+      "protonmail",
+      "icloud",
+      "yandex",
+      "gmx",
+      "mail",
+      "inbox",
+      "live",
+    ];
+    if (formData.field === "marketer") {
+      // check email is buissnes email or not
+
+      if (notallowedemail.some((el) => formData.email.includes(el))) {
+        alert("Please enter a valid email address");
+        return;
+      }
+    }
+
+    setSubmitted(true);
     console.log(formData); // For testing purposes
 
     // Send email with form details
@@ -236,6 +263,7 @@ const MultiPageForm = () => {
       setSent(true);
     }
     // Reset form and page state
+    setSubmitted(false);
     setFormData({
       category: "",
       field: "",
@@ -413,7 +441,11 @@ const MultiPageForm = () => {
               </div>
               <div className="flex md:flex-row flex-col align-bottom gap-4 w-full">
                 <Input
-                  label="Business Email"
+                  label={
+                    formData.field === "influencer"
+                      ? "Business Email"
+                      : "Business Email"
+                  }
                   name="email"
                   className="md:w-1/2 w-full "
                   value={formData.email}
@@ -641,8 +673,12 @@ const MultiPageForm = () => {
                 <button onClick={prevPage} className="newsletterbtn w-6/12">
                   Previous
                 </button>
-                <button type="submit" className="newsletterbtn w-6/12">
-                  Submit
+                <button
+                  type="submit"
+                  disabled={submitted}
+                  className="newsletterbtn w-6/12"
+                >
+                  {submitted ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </div>

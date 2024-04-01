@@ -15,7 +15,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const NewMultiPageForm = () => {
   const [page, setPage] = useState(1);
-
+  const [submitted, setSubmitted] = useState(false);
   const [values, setValues] = useState(new Set([]));
   const [errorMessage, setErrorMessage] = useState("");
   const [field, setField] = useState("");
@@ -150,6 +150,32 @@ const NewMultiPageForm = () => {
       return;
     }
 
+    const notallowedemail = [
+      "gmail",
+      "yahoo",
+      "hotmail",
+      "outlook",
+      "rediffmail",
+      "aol",
+      "zoho",
+      "protonmail",
+      "icloud",
+      "yandex",
+      "gmx",
+      "mail",
+      "inbox",
+      "live",
+    ];
+    if (formData.field === "marketer") {
+      // check email is buissnes email or not
+
+      if (notallowedemail.some((el) => formData.email.includes(el))) {
+        alert("Please enter a valid email address");
+        return;
+      }
+    }
+
+    setSubmitted(true);
     if (formData.image) {
       const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
       await imageRef.put(formData.image);
@@ -239,7 +265,7 @@ const NewMultiPageForm = () => {
     alert("Form submitted successfully!");
 
     // Form submission logic goes here
-
+    setSubmitted(false);
     // Reset form and page state
     setFormData({
       registrationType: "",
@@ -514,7 +540,11 @@ const NewMultiPageForm = () => {
               <div className="flex flex-row gap-4 w-full">
                 <Input
                   type="email"
-                  label="Email"
+                  label={
+                    formData.field === "influencer"
+                      ? "Business Email"
+                      : "Business Email"
+                  }
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -713,8 +743,12 @@ const NewMultiPageForm = () => {
                 <button onClick={prevPage} className="newsletterbtn w-6/12">
                   Previous
                 </button>
-                <button type="submit" className="newsletterbtn w-6/12">
-                  Submit
+                <button
+                  type="submit"
+                  disabled={submitted}
+                  className="newsletterbtn w-6/12"
+                >
+                  {submitted ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </div>

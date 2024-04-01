@@ -135,6 +135,31 @@ const NominateForm = () => {
       return;
     }
 
+    const notallowedemail = [
+      "gmail",
+      "yahoo",
+      "hotmail",
+      "outlook",
+      "rediffmail",
+      "aol",
+      "zoho",
+      "protonmail",
+      "icloud",
+      "yandex",
+      "gmx",
+      "mail",
+      "inbox",
+      "live",
+    ];
+    if (formData.field === "marketer") {
+      // check email is buissnes email or not
+
+      if (notallowedemail.some((el) => formData.email.includes(el))) {
+        alert("Please enter a valid email address");
+        return;
+      }
+    }
+
     e.preventDefault();
     // Prevent default form submission behavior
     e.stopPropagation();
@@ -382,7 +407,11 @@ const NominateForm = () => {
             <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
                 type="email"
-                label="Email"
+                label={
+                  formData.field === "influencer"
+                    ? "Business Email"
+                    : "Business Email"
+                }
                 name="email"
                 value={formData.email}
                 onChange={handleFormDataChange}
