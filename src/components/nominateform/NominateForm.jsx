@@ -383,7 +383,7 @@ const NominateForm = () => {
           <h2 className={` text-black `}>
             Fill in Personal Details and Upload Image
           </h2>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5">
             <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
                 label="First Name"
@@ -592,12 +592,13 @@ const NominateForm = () => {
               <button
                 type="submit"
                 disabled={submitted}
+                onClick={handleSubmit}
                 className="newsletterbtn w-6/12"
               >
                 {submitted ? "Submitting..." : "Submit"}
               </button>
             </div>
-          </form>
+          </div>
         </div>
       );
       break;
@@ -631,7 +632,7 @@ const NominateForm = () => {
             mixBlendMode: "normal",
           }}
         >
-          {stepComponent}
+          <div>{stepComponent}</div>
         </div>
       </div>
       {sent && (

@@ -26,6 +26,7 @@ const NewMultiPageForm = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [topics, setTopics] = useState([]);
   const [industry, setIndustry] = useState("");
+  const [votelink, setvotelink] = useState("");
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -176,12 +177,11 @@ const NewMultiPageForm = () => {
     }
 
     setSubmitted(true);
-    if (formData.image) {
-      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
-      await imageRef.put(formData.image);
-      const imageUrl = await imageRef.getDownloadURL();
-      setimgu(imageUrl);
-    }
+
+    const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+    await imageRef.put(formData.image);
+    const imageUrl = await imageRef.getDownloadURL();
+    setimgu(imageUrl);
 
     // Save form data to Firestore
     const nomineeRef = firestore.collection("nominees").doc();
@@ -226,10 +226,9 @@ const NewMultiPageForm = () => {
       <p>Topics: ${Array.from(topics)
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
+      <img src="${imageUrl}" alt="nominee-image" width="200" height="200" />
    
     `;
-
-    // <img src="${imgu}" alt="nominee-image" width="200" height="200" />
 
     const to = ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"];
     const subject =
