@@ -7,7 +7,7 @@ import { ephesis, anton } from "@/styles/fonts";
 function Herosection() {
   return (
     <section
-      className="flex overflow-hidden relative z-10 flex-col  w-full text-white  h-full min-h-[100vh] max-md:max-w-full
+      className="flex overflow-hidden relative z-10 flex-col  w-full text-white   bg-black h-full min-h-[100vh] max-md:max-w-full
     "
     >
       <div className="" style={{ paddingTop: "56.25%", pointerEvents: "none" }}>
@@ -16,13 +16,16 @@ function Herosection() {
           title="YouTube video player"
           frameborder="0"
           allowfullscreen="true"
-          className="absolute inset-0 w-full h-full"
+          className="absolute  inset-0 w-full h-full -top-20"
         ></iframe>
       </div>
       <div
-        className={`flex absolute w-full bottom-0 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
+        className={`flex absolute w-full bottom-20 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
       
          ${anton.className} `}
+        style={{
+          background: "linear-gradient(0deg, #000, transparent)",
+        }}
       >
         <div className="flex gap-5 relative z-50 items-end mt-44 text-4xl max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
           <div className="flex-auto mt-6 leading-[250%] text-left">
@@ -46,18 +49,6 @@ function Herosection() {
           </text>
         </svg>
       </div>
-      <div
-        className="
-      h-[50vh]
-      w-full
-      absolute
-      bottom-0
-      z-30
-      "
-        style={{
-          background: "linear-gradient(0deg, #000, transparent)",
-        }}
-      ></div>
     </section>
   );
 }
