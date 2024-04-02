@@ -244,8 +244,8 @@ const NewMultiPageForm = () => {
     if (formData.registrationType === "nomination") {
       await nomineeRef.set({
         nomineeId,
-        firstName: formData.firstName.toLowerCase(),
-        lastName: formData.lastName.toLowerCase(),
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
         field,
         categories: { ...categoriesData },
         email: formData.email,

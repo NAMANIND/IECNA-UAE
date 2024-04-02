@@ -240,8 +240,8 @@ const NominateForm = () => {
       id: nomineeId,
       field,
       categories: { ...categoriesData }, // Save categories and their votes
-      firstName: formData.firstName.toLowerCase(),
-      lastName: formData.lastName.toLowerCase(),
+      firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+      lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
       email: formData.email,
       phone: formData.phone,
       company: formData.company,
