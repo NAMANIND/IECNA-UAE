@@ -109,7 +109,7 @@ function Whyattend() {
             >
               <div className="bg-black w-full h-full rounded-[36px] py-[60px]">
                 <div
-                  className={`text-7xl textaward  text-white uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px] px-[40px] ${anton.className} break-words `}
+                  className={`text-7xl textaward  text-white uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px] px-[40px] ${anton.className} whitespace-pre-line `}
                 >
                   {card.title}
                 </div>

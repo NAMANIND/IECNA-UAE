@@ -34,7 +34,7 @@ function Head({ head }) {
         height={2080}
       />
       <h1
-        className={`relative z-50 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}
+        className={`relative z-50  top-32  sm:top-0 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}
         style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85)" }}
       >
         {head}

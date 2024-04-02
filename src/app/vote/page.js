@@ -186,7 +186,7 @@ const Voting = () => {
   return (
     <div>
       <Head head="Voting" />
-      <div className={`container mx-auto p-8 bg-white ${work_sans.className} `}>
+      <div className={` mx-auto p-8 bg-white ${work_sans.className} `}>
         <h1
           className={`text-4xl font-semibold my-20 w-full text-center ${anton.className} `}
         >

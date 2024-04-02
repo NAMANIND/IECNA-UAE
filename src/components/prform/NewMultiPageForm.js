@@ -304,7 +304,7 @@ const NewMultiPageForm = ({ to }) => {
 
   return (
     <div
-      className={`p-20 bg-white text-2xl ${work_sans.className} font-extralight`}
+      className={` sm:p-20 p-5 bg-white text-2xl ${work_sans.className} font-extralight`}
     >
       <Marquee
         direction="left"
@@ -319,7 +319,7 @@ const NewMultiPageForm = ({ to }) => {
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
-          className=" w-[60%]  p-16   rounded-[32px] "
+          className=" sm:w-[60%] w-[100%]  sm:p-16 p-8   rounded-[32px] "
           style={{
             boxShadow: "0px 0px 10px 0px #0000001a ",
             background: "rgba(255, 255, 255, 1.15) ",
@@ -431,10 +431,10 @@ const NewMultiPageForm = ({ to }) => {
                   title, Email and Phone)
                 </h2>
 
-                <div className="flex flex-row gap-4 w-full">
+                <div className="flex sm:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
-                    className="w-1/2 "
+                    className="sm:w-1/2 w-full "
                     label="Recommendation 1"
                     name="recommendation1"
                     value={formData.recommendation1}
@@ -443,7 +443,7 @@ const NewMultiPageForm = ({ to }) => {
                   />
                   <Input
                     variant="underlined"
-                    className="w-1/2 "
+                    className="sm:w-1/2 w-full "
                     label="Recommendation 2"
                     name="recommendation2"
                     value={formData.recommendation2}
@@ -535,13 +535,13 @@ const NewMultiPageForm = ({ to }) => {
                 Fill in Personal Details and Upload Image
               </h2>
 
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex sm:flex-row flex-col gap-4 w-full">
                 <Input
                   label="First Name"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                   variant="underlined"
                   isRequired
                 />
@@ -550,12 +550,12 @@ const NewMultiPageForm = ({ to }) => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                   variant="underlined"
                   isRequired
                 />
               </div>
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex sm:flex-row flex-col gap-4 w-full">
                 <Input
                   type="email"
                   label={
@@ -566,7 +566,7 @@ const NewMultiPageForm = ({ to }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                   variant="underlined"
                   isRequired
                 />
@@ -575,16 +575,16 @@ const NewMultiPageForm = ({ to }) => {
                   name="phone"
                   value={formData.phone}
                   onChange={(phone) => setFormData({ ...formData, phone })}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                 />
               </div>
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex sm:flex-row flex-col gap-4 w-full">
                 <Input
                   label="Company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                   variant="underlined"
                   isRequired
                 />
@@ -593,12 +593,12 @@ const NewMultiPageForm = ({ to }) => {
                   name="jobTitle"
                   value={formData.jobTitle}
                   onChange={handleChange}
-                  className="w-1/2 "
+                  className="sd:w-1/2 w-full "
                   variant="underlined"
                   isRequired
                 />
               </div>
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex sm:flex-row flex-col gap-4 w-full">
                 {/* <Input
                 label="Country"
                 name="country"
@@ -617,7 +617,7 @@ const NewMultiPageForm = ({ to }) => {
                     setFormData({ ...formData, country: e.target.value });
                     setSelectedCountry(e.target.value);
                   }}
-                  className="w-1/2"
+                  className="sd:w-1/2 w-full "
                   isRequired
                 >
                   {countries.map((country) => (
@@ -631,7 +631,7 @@ const NewMultiPageForm = ({ to }) => {
                     value={formData.industry}
                     placeholder="Enter other industry"
                     onChange={handleChange}
-                    className="md:w-1/2 w-full "
+                    className="sd:w-1/2 w-full "
                     variant="underlined"
                     isRequired
                   />
@@ -648,7 +648,7 @@ const NewMultiPageForm = ({ to }) => {
                     value={field}
                     variant="underlined"
                     label="Select Industry"
-                    className="md:w-1/2 w-full"
+                    className="sd:w-1/2 w-full"
                     isRequired
                     errorMessage={errorMessage}
                   >
@@ -661,13 +661,13 @@ const NewMultiPageForm = ({ to }) => {
 
               {field === "influencer" ? (
                 <div className="flex flex-col gap-4 w-full">
-                  <div className="flex flex-row gap-4 w-full">
+                  <div className="flex sm:flex-row flex-col gap-4 w-full">
                     <Input
                       label="Instagram"
                       name="instagram"
                       value={formData.instagram}
                       onChange={handleChange}
-                      className="w-1/2 "
+                      className="sd:w-1/2 w-full "
                       variant="underlined"
                       isRequired
                     />
@@ -676,17 +676,17 @@ const NewMultiPageForm = ({ to }) => {
                       name="youtube"
                       value={formData.youtube}
                       onChange={handleChange}
-                      className="w-1/2 "
+                      className="sd:w-1/2 w-full "
                       variant="underlined"
                     />
                   </div>
-                  <div className="flex flex-row gap-4 w-full">
+                  <div className="flex sm:flex-row flex-col gap-4 w-full">
                     <Input
                       label="Tiktok"
                       name="tiktok"
                       value={formData.tiktok}
                       onChange={handleChange}
-                      className="w-1/2 "
+                      className="sd:w-1/2 w-full "
                       variant="underlined"
                     />
 
@@ -695,7 +695,7 @@ const NewMultiPageForm = ({ to }) => {
                       name="snapchat"
                       value={formData.snapchat}
                       onChange={handleChange}
-                      className="w-1/2 "
+                      className="sd:w-1/2 w-full "
                       variant="underlined"
                     />
                   </div>
@@ -722,16 +722,18 @@ const NewMultiPageForm = ({ to }) => {
                   </Button>
                 </div>
               ) : (
-                <div className="flex flex-row gap-4 w-full">
-                  <Input
-                    label="LinkedIn"
-                    name="linkedin"
-                    value={formData.linkedin}
-                    onChange={handleChange}
-                    className="w-full "
-                    variant="underlined"
-                    isRequired
-                  />
+                <>
+                  <div className="flex sm:flex-row flex-col gap-4 w-full">
+                    <Input
+                      label="LinkedIn"
+                      name="linkedin"
+                      value={formData.linkedin}
+                      onChange={handleChange}
+                      className="w-full "
+                      variant="underlined"
+                      isRequired
+                    />
+                  </div>
                   <div className="flex md:flex-col flex-col gap-2 w-full">
                     <label className="text-sm form-color ">Upload Image</label>
                     <Button
@@ -754,7 +756,7 @@ const NewMultiPageForm = ({ to }) => {
                         : "Upload Image"}
                     </Button>
                   </div>
-                </div>
+                </>
               )}
 
               <div className="flex flex-row gap-4 w-full">

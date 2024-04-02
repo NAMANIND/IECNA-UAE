@@ -53,7 +53,7 @@ function Mediapartners() {
 
   return (
     <div
-      className={`flex flex-col items-center p-20 pt-[150px] bg-white ${work_sans.className}`}
+      className={`flex flex-col items-center sm:p-20 p-5 sm:pt-[150px] bg-white ${work_sans.className}`}
     >
       <motion.div
         initial={offscreen}

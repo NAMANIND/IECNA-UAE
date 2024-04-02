@@ -117,7 +117,11 @@ function Footer() {
             "
                 style={{ justifyContent: "flex-end" }}
               >
-                <Image src={logo} alt="IE&A Logo" className=" w-[10vw]" />
+                <Image
+                  src={logo}
+                  alt="IE&A Logo"
+                  className=" sm:w-[10vw] w-[60vw]"
+                />
                 <p className="text-sm">2024 - © ie&a</p>
               </div>
             </div>
