@@ -27,6 +27,7 @@ const NewMultiPageForm = ({ to }) => {
   const [topics, setTopics] = useState([]);
   const [industry, setIndustry] = useState("");
   const [votelink, setvotelink] = useState("");
+  const [rtype, setrtype] = useState("");
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -242,6 +243,16 @@ const NewMultiPageForm = ({ to }) => {
       formData.lastName;
     const html = htmlcontent;
 
+    if (formData.registrationType === "nomination") {
+      setrtype("nomination");
+    }
+    const vlink = `https://iena.vercel.app/vote/${formData.firstName
+      .toLowerCase()
+      .replace(/\s/g, "")}_${formData.lastName
+      .toLowerCase()
+      .replace(/\s/g, "")}`;
+    setvotelink(vlink);
+
     await Sendemail(to, subject, html);
 
     if (formData.registrationType === "nomination") {
@@ -263,15 +274,9 @@ const NewMultiPageForm = ({ to }) => {
         imageUrl,
       });
     }
-    setSent(true);
-    const vlink = `https://iena.vercel.app/vote/${formData.firstName
-      .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName
-      .toLowerCase()
-      .replace(/\s/g, "")}`;
-    setvotelink(vlink);
-    alert("Form submitted successfully!");
 
+    alert("Form submitted successfully!");
+    setSent(true);
     // Form submission logic goes here
     setSubmitted(false);
     // Reset form and page state
@@ -783,7 +788,7 @@ const NewMultiPageForm = ({ to }) => {
             <div className="flex justify-center items-center w-full h-[400px]">
               {poppage}
             </div>
-            {formData.registrationType === "nomination" && (
+            {rtype === "nomination" && (
               <div className="flex justify-center items-center w-full">
                 <a
                   href={votelink}
