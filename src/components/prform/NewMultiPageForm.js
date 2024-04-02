@@ -13,7 +13,8 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
-const NewMultiPageForm = () => {
+const NewMultiPageForm = ({ to }) => {
+  console.log(to);
   const [page, setPage] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [values, setValues] = useState(new Set([]));
@@ -137,6 +138,10 @@ const NewMultiPageForm = () => {
     e.preventDefault(); // Prevent default form submission behavior
     console.log(formData); // For testing purposes
 
+    if (page === 3) {
+      return;
+    }
+
     if (
       formData.firstName === "" &&
       formData.lastName === "" &&
@@ -230,7 +235,6 @@ const NewMultiPageForm = () => {
    
     `;
 
-    const to = ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"];
     const subject =
       field +
       " Nomination form submission by: " +
@@ -333,6 +337,7 @@ const NewMultiPageForm = () => {
                   formData.registrationType ? [formData.registrationType] : []
                 }
                 isRequired
+                errorMessage={errorMessage}
               >
                 <SelectItem key="delegate">Delegate Registration</SelectItem>
                 <SelectItem key="nomination">Nomination</SelectItem>
@@ -341,8 +346,10 @@ const NewMultiPageForm = () => {
               <button
                 onClick={() => {
                   if (formData.registrationType !== "") {
+                    setErrorMessage("");
                     nextPage();
                   } else {
+                    setErrorMessage("*Please select a registration type*");
                     alert("Please select a registration type");
                   }
                 }}
@@ -364,6 +371,7 @@ const NewMultiPageForm = () => {
                 variant="underlined"
                 defaultSelectedKeys={formData.field ? [formData.field] : []}
                 isRequired
+                errorMessage={errorMessage}
               >
                 <SelectItem key="influencer">Influencer</SelectItem>
                 <SelectItem key="marketer">Marketer</SelectItem>
@@ -376,8 +384,10 @@ const NewMultiPageForm = () => {
                 <button
                   onClick={() => {
                     if (field !== "") {
+                      setErrorMessage("");
                       nextPage();
                     } else {
+                      setErrorMessage("*Please select a field*");
                       alert("Please select a field");
                     }
                   }}
@@ -400,6 +410,7 @@ const NewMultiPageForm = () => {
                       <Checkbox
                         id={`topic-${index}`}
                         checked={topics.includes(topic)}
+                        defaultSelected={topics.includes(topic)}
                         onChange={() => handletopicSelect(topic)}
                         label={topic}
                       >
@@ -446,7 +457,8 @@ const NewMultiPageForm = () => {
                         setErrorMessage("");
                         nextPage();
                       } else {
-                        setErrorMessage("*Please select at least one topic*");
+                        // setErrorMessage("*Please select at least one topic*");
+                        alert("Please select at least one topic");
                       }
                     }}
                     className="newsletterbtn w-6/12 "

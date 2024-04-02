@@ -64,6 +64,7 @@ const MultiPageForm = () => {
 
   const nextPage = () => {
     console.log(formData.category);
+    setErrorMessage("");
     if (
       formData.category === "mediapartner" ||
       formData.category === "sponsor"
@@ -142,7 +143,7 @@ const MultiPageForm = () => {
       // check email is buissnes email or not
 
       if (notallowedemail.some((el) => formData.email.includes(el))) {
-        alert("Please enter a valid email address");
+        alert("Please enter a valid business email address");
         return;
       }
     }

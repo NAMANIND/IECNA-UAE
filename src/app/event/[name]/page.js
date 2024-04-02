@@ -11,10 +11,15 @@ function page({ params }) {
   const data = ["megha", "megha2"];
 
   if (data.includes(name)) {
+    const to =
+      name === "megha"
+        ? ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"]
+        : ["20bei033@ietdavv.edu.in"];
+
     return (
       <div>
         <Head head="Event" />
-        <NewMultiPageForm />
+        <NewMultiPageForm to={to} />
       </div>
     );
   } else {

@@ -76,6 +76,7 @@ const NominateForm = () => {
   }, []);
 
   const handleFieldSelect = (selectedField) => {
+    console.log(selectedField);
     setFormData({ ...formData, field: selectedField });
     setField(selectedField);
   };
@@ -290,10 +291,11 @@ const NominateForm = () => {
           <h2 className={` text-black `}>Select Field*</h2>
           <Select
             onChange={(key) => handleFieldSelect(key.target.value)}
-            value={field}
+            value={formData.field}
             variant="underlined"
             label="Select Field"
             className="max-w-md"
+            defaultSelectedKeys={formData.field ? [formData.field] : []}
             isRequired
             errorMessage={errorMessage}
           >
@@ -307,8 +309,8 @@ const NominateForm = () => {
                 setErrorMessage("");
                 handleNextStep();
               } else {
-                // setErrorMessage("*Please select a field*");
-                alert("Please select a field");
+                setErrorMessage("*Please select a field*");
+                // alert("Please select a field");
               }
             }}
             className="
@@ -331,6 +333,7 @@ const NominateForm = () => {
                       id={`category-${index}`}
                       checked={selectedCategories.includes(category)}
                       onChange={() => handleCategorySelect(category)}
+                      defaultSelected={selectedCategories.includes(category)}
                       label={category}
                     >
                       {category}
@@ -342,6 +345,7 @@ const NominateForm = () => {
                     <Checkbox
                       id={`category-${index}`}
                       checked={selectedCategories.includes(category)}
+                      defaultSelected={selectedCategories.includes(category)}
                       onChange={() => handleCategorySelect(category)}
                       label={category}
                     >
