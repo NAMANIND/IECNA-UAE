@@ -153,15 +153,15 @@ const PersonalVote = ({ params }) => {
           <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">
             {firstName} {lastName}
           </h1>
-          <div className="relative w-full flex justify-center h-64 mb-4 overflow-hidden rounded-lg">
+          <div className="relative w-full flex justify-center h-[400px] mb-4 overflow-hidden rounded-lg">
             <img
               src={nomineeData.imageUrl}
               alt={name}
               layout="fill"
               objectFit="cover"
               width={300}
-              height={300}
-              className="object-cover rounded-lg"
+              height={400}
+              className="object-cover object-top rounded-lg"
             />
           </div>
           <h2 className="text-xl font-semibold mb-4">Categories:</h2>
