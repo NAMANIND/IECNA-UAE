@@ -62,7 +62,7 @@ const DescriptionCard = ({
             <h2 className={`text-[24px] text-[#ccff00] ${anton.className}`}>
               {title}
             </h2>
-            <p className={` text-[16px] my-4  ${work_sans.className}`}>{job}</p>
+            <p className={` text-[13px] my-4  ${work_sans.className}`}>{job}</p>
             <div className="flex gap-5 h-[45px] relative bottom-0 ">
               {linkdin && (
                 <a href={linkdin} target="_blank" rel="noopener noreferrer">

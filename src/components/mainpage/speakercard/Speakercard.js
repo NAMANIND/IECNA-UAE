@@ -9,6 +9,218 @@ import { motion } from "framer-motion";
 // Import Firebase Firestore and initialize Firebase app if not already done
 import { firestore } from "../../../../firbase/clientApp";
 
+const speakersData = [
+  {
+    imageUrl: "/images/speakers/MOhannad.png",
+    firstName: "Mohanned",
+    lastName: "Abu Al-Majd",
+    company: "Saudi Tourism Authority",
+    jobTitle: "Executive Director",
+    details: "Executive Director, Saudi Tourism Authority",
+    linkdin: "https://www.linkedin.com/in/mohanned-abu-al-majd-3a553058/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Tracy Lanza.png",
+    firstName: "Tracy",
+    lastName: "Lanza",
+    company: "Red Sea Global",
+    jobTitle: "Group Head of Global Brand Development",
+    details: "Group Head of Global Brand Development, Red Sea Global",
+    linkdin: "https://www.linkedin.com/in/tracy-wirth-lanza-43a0ab9/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Mohammed Khoja.jpg",
+    firstName: "Mohammed",
+    lastName: "Khoja",
+    company: "Hindamme",
+    jobTitle: "Founder",
+    details: "Founder, Hindamme",
+    linkdin: "",
+    instagram: "https://www.instagram.com/moekhoja/?hl=en",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Saed Al Ali.jpg",
+    firstName: "Saed",
+    lastName: "AlAli",
+    company: "Tabib Group",
+    jobTitle: "Chief Marketing Officer",
+    details: "Chief Marketing Officer, Tabib Group",
+    linkdin: "https://www.linkedin.com/in/saedalali/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Hessa.jpg",
+    firstName: "Hessa",
+    lastName: "Al-Masoud",
+    company: "Confidential Government",
+    jobTitle: "Director of External Communications",
+    details: "Director of External Communications, Confidential Government",
+    linkdin: "https://www.linkedin.com/in/hessa-al-masoud-8b347920/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/Portrait_Placeholder.png",
+    firstName: "Faisal",
+    lastName: "Abdallah",
+    company: "Accor",
+    jobTitle: "Group Director of Communications & Business Development",
+    details: "Group Director of Communications & Business Development, Accor",
+    linkdin: "https://www.linkedin.com/in/faisal-abdallah-%E2%9C%94-89504723/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Mustafa.png",
+    firstName: "Mustafa",
+    lastName: "Zaatari",
+    company: "ToYou",
+    jobTitle: "Chief Brand Officer",
+    details: "Chief Brand Officer, ToYou",
+    linkdin: "https://www.linkedin.com/in/mustafa-zaatari-7777a973/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Aamir Allibhoy.jpeg",
+    firstName: "Aamir",
+    lastName: "Allibhoy",
+    company: "Tim Hortons",
+    jobTitle: "Chief Marketing Officer",
+    details: "Chief Marketing Officer, Tim Hortons",
+    linkdin: "https://www.linkedin.com/in/aamirallibhoy/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Ahad_pic.jpg",
+    firstName: "Ahad Hamza",
+    lastName: "Nihal",
+    company: "AOIC",
+    jobTitle: "Marketing Director",
+    details: "Marketing Director, AOIC",
+    linkdin: "https://www.linkedin.com/in/ahad-hamza-nihal-6282a3117/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Hisham Baesen.jpg",
+    firstName: "Hisham",
+    lastName: "Baeshen",
+    company: "",
+    jobTitle: "Content creator",
+    details: "Content creator",
+    linkdin: "",
+    instagram: "https://www.instagram.com/misho_baeshen/?hl=en",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/Portrait_Placeholder.png",
+    firstName: "Sofana",
+    lastName: "Dahlan",
+    company: "Mustanad",
+    jobTitle: "Founder",
+    details: "Founder, Mustanad",
+    linkdin: "https://www.linkedin.com/in/sofana-dahlan-b734801b/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Rajeh Ads.jpeg",
+    firstName: "Rajeh",
+    lastName: "Alharti",
+    company: "",
+    jobTitle: "Content Creator",
+    details: "Content Creator",
+    linkdin: "https://www.linkedin.com/in/rajeh-alharthi/?originalSubdomain=sa",
+    instagram: "https://www.instagram.com/rajeh_90/?hl=en",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Wydad.jpg",
+    firstName: "Wydad",
+    lastName: "Serri",
+    company: "",
+    jobTitle: "Content creator",
+    details: "Content creator",
+    linkdin: "",
+    instagram: "https://www.instagram.com/wydad_serri/",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/Portrait_Placeholder.png",
+    firstName: "Nathalie",
+    lastName: "Fanj",
+    company: "",
+    jobTitle: "Content creator",
+    details: "Content creator",
+    linkdin: "",
+    instagram: "https://www.instagram.com/nathaliefanj/?hl=en",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Firas.jpg",
+    firstName: "Firas",
+    lastName: "Kamal",
+    company: "Emaar, The Economic City",
+    jobTitle: "Senior Director - Marketing & Communications",
+    details:
+      "Senior Director - Marketing & Communications at Emaar, The Economic City",
+    linkdin: "https://www.linkedin.com/in/firas-kamal-3445b221/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+  {
+    imageUrl: "/images/speakers/Hatoon.jpg",
+    firstName: "Dr. Hatoon",
+    lastName: "Kadi",
+    company: "Jeddah College of Advertising",
+    jobTitle: "Dean",
+    details: "Dean of Jeddah College of Advertising",
+    linkdin: "https://www.linkedin.com/in/dr-hatoon-kadi-8713b14/",
+    instagram: "",
+    tiktok: "",
+    snapchat: "",
+    youtube: "",
+  },
+];
+
 function SpeakerCard() {
   const [speakers, setSpeakers] = React.useState([]); // State to store fetched speakers data
 
@@ -52,11 +264,11 @@ function SpeakerCard() {
         viewport={{ once: true, amount: 0.3 }}
         className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
       >
-        OUR ESTEEMED SPEAKERS
+        OUR PAST SPEAKERS
       </motion.h2>
       <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-          {speakers.slice(0, 8).map((speaker, index) => (
+          {speakersData.slice(0, 8).map((speaker, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
@@ -66,7 +278,7 @@ function SpeakerCard() {
               {/* Replace sample data with fetched speaker data */}
               <DescriptionCard
                 key={index}
-                img={speaker.imageUrl} // Speaker image URL
+                img={`https://www.theiecna.com/` + speaker.imageUrl} // Speaker image URL
                 title={speaker.firstName + " " + speaker.lastName} // Full name
                 job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
                 des={speaker.details} // Speaker description
