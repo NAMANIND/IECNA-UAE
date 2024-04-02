@@ -252,8 +252,6 @@ const NewMultiPageForm = ({ to }) => {
       .replace(/\s/g, "")}`;
     setvotelink(vlink);
 
-    await Sendemail(to, subject, html);
-
     if (rtype === "nomination") {
       await nomineeRef.set({
         nomineeId,
@@ -273,7 +271,7 @@ const NewMultiPageForm = ({ to }) => {
         imageUrl,
       });
     }
-
+    await Sendemail(to, subject, html);
     alert("Form submitted successfully!");
     setSent(true);
     // Form submission logic goes here
