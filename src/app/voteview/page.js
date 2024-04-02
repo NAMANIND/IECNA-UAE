@@ -103,7 +103,7 @@ const VoteViews = () => {
                   <img
                     src={nominee.imageUrl}
                     alt={`${nominee.firstName} ${nominee.lastName}`}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 object-cover object-top"
                   />
                   <div className="p-4">
                     <p className="text-xl font-semibold mb-2">
