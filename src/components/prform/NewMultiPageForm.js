@@ -188,7 +188,7 @@ const NewMultiPageForm = () => {
     const nomineeId = nomineeRef.id;
 
     const categoriesData = {};
-    values.forEach((category) => {
+    selectedCategories.forEach((category) => {
       console.log(category);
       const cat = category
         .toString()
@@ -257,7 +257,7 @@ const NewMultiPageForm = () => {
         recommendation1: formData.recommendation1,
         recommendation2: formData.recommendation2,
         topics: { ...topics },
-        imgu,
+        imageUrl,
       });
     }
     setSent(true);
