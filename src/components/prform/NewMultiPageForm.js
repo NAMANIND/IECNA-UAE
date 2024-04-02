@@ -14,7 +14,6 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const NewMultiPageForm = ({ to }) => {
-  console.log(to);
   const [page, setPage] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [values, setValues] = useState(new Set([]));
@@ -265,7 +264,11 @@ const NewMultiPageForm = ({ to }) => {
       });
     }
     setSent(true);
-    const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    const vlink = `https://iena.vercel.app/vote/${formData.firstName
+      .toLowerCase()
+      .replace(/\s/g, "")}_${formData.lastName
+      .toLowerCase()
+      .replace(/\s/g, "")}`;
     setvotelink(vlink);
     alert("Form submitted successfully!");
 
