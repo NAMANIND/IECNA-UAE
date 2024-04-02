@@ -56,6 +56,28 @@ const VoteViews = () => {
     fetchNominees();
   }, []);
 
+  const deleteNominee = async (nomineeId) => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this nominee?"
+    );
+    if (isConfirmed) {
+      try {
+        await firestore.collection("nominees").doc(nomineeId).delete();
+        // Refresh the nominees list after deletion
+        const updatedNominees = { ...nomineesByCategory };
+        for (const category in updatedNominees) {
+          updatedNominees[category] = updatedNominees[category].filter(
+            (nominee) => nominee.id !== nomineeId
+          );
+        }
+        setNomineesByCategory(updatedNominees);
+        console.log("Nominee deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting nominee:", error);
+      }
+    }
+  };
+
   return (
     <div>
       <Head head="Vote Views" />
@@ -76,7 +98,7 @@ const VoteViews = () => {
               {nominees.map((nominee) => (
                 <div
                   key={nominee.id}
-                  className="border rounded-lg overflow-hidden shadow-md"
+                  className="border rounded-lg overflow-hidden shadow-md relative"
                 >
                   <img
                     src={nominee.imageUrl}
@@ -91,6 +113,12 @@ const VoteViews = () => {
                       Votes: {nominee.vote}
                     </p>
                   </div>
+                  <button
+                    className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
+                    onClick={() => deleteNominee(nominee.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               ))}
             </div>

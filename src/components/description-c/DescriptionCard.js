@@ -37,15 +37,15 @@ const DescriptionCard = ({
           src={img}
           alt="Speaker Image"
           width={400} // Add the width property
-          height={350} // Add the height property
+          height={420} // Add the height property
           className="rounded-t-[32px] object-cover"
-          style={{ width: "400px", height: "350px" }}
+          style={{ width: "400px", height: "420px" }}
         />
 
         <motion.div
           className="bg-black/75 shadow-2xl overflow-hidden rounded-[32px]  py-5 absolute bottom-[-100px] w-full "
-          initial={{ y: 0, height: 200 }}
-          animate={isHovered ? { y: 0, height: 400 } : { y: 0, height: 150 }}
+          initial={{ y: 0, height: 180 }}
+          animate={isHovered ? { y: 0, height: 480 } : { y: 0, height: 180 }}
           transition={{ duration: 0.3 }}
         >
           {isHovered && (
@@ -58,12 +58,12 @@ const DescriptionCard = ({
               {des}
             </p>
           )}
-          <div className="absolute bottom-0 py-5 px-5  rounded-[32px]    bg-black w-full">
+          <div className="absolute bottom-0 py-5 px-5  rounded-[32px] h-[180px]    bg-black w-full">
             <h2 className={`text-[24px] text-[#ccff00] ${anton.className}`}>
               {title}
             </h2>
-            <p className={` text-[16px] my-2 ${work_sans.className}`}>{job}</p>
-            <div className="flex gap-5 h-[35px] ">
+            <p className={` text-[16px] my-4  ${work_sans.className}`}>{job}</p>
+            <div className="flex gap-5 h-[45px] relative bottom-0 ">
               {linkdin && (
                 <a href={linkdin} target="_blank" rel="noopener noreferrer">
                   <FaLinkedin size={28} />
