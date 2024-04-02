@@ -53,7 +53,6 @@ const NewMultiPageForm = ({ to }) => {
     jobTitle: "",
     country: "",
     industry: "",
-
     recommendation1: "",
     recommendation2: "",
     instagram: "",
@@ -255,7 +254,7 @@ const NewMultiPageForm = ({ to }) => {
 
     await Sendemail(to, subject, html);
 
-    if (formData.registrationType === "nomination") {
+    if (rtype === "nomination") {
       await nomineeRef.set({
         nomineeId,
         firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
