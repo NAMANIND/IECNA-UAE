@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { firestore } from "../../../../firbase/clientApp";
@@ -9,6 +8,8 @@ const PersonalVote = ({ params }) => {
   const { name } = params;
   const [nomineeData, setNomineeData] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState({});
+  const [email, setEmail] = useState("");
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
 
   useEffect(() => {
     const fetchNomineeData = async () => {
@@ -55,7 +56,39 @@ const PersonalVote = ({ params }) => {
   };
 
   const handleVote = async () => {
+    // Open the email input popup
+    setShowEmailPopup(true);
+  };
+
+  const confirmVote = async () => {
+    // Close the email input popup
+
+    // Perform email validation and check if the email already exists in Firebase
+    const isValidEmail = validateEmail(email);
+    if (!isValidEmail) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const emailExists = await checkEmailExists(email);
+    if (emailExists) {
+      alert("You have already voted with this email address.");
+      return;
+    }
+
+    setShowEmailPopup(false);
+    // If all checks pass, proceed with voting
     try {
+      const batch = firestore.batch();
+
+      const isNewEmail = await checkEmailExists(email);
+
+      if (!isNewEmail) {
+        // Add the email to the votes collection if it's a new email
+        const voteRef = firestore.collection("votes").doc();
+        batch.set(voteRef, { email: email });
+      }
+
       // Fetch the latest nominee data before voting
       const nomineeRef = firestore.collection("nominees").doc(nomineeData.id);
       const nomineeDoc = await nomineeRef.get();
@@ -66,8 +99,6 @@ const PersonalVote = ({ params }) => {
       }
 
       const updatedNomineeData = nomineeDoc.data();
-
-      const batch = firestore.batch();
 
       // Iterate over the selected categories and update their vote counts
       for (const [categoryKey, voteCount] of Object.entries(
@@ -87,11 +118,29 @@ const PersonalVote = ({ params }) => {
 
       // Clear selected categories after voting
       setSelectedCategories({});
-
+      setEmail("");
       // Show a popup alert
       window.alert("Thank you for voting!");
     } catch (error) {
       console.error("Error recording votes:", error);
+    }
+  };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const checkEmailExists = async (email) => {
+    try {
+      const query = await firestore
+        .collection("votes")
+        .where("email", "==", email)
+        .get();
+      return !query.empty;
+    } catch (error) {
+      console.error("Error checking email existence:", error);
+      return false;
     }
   };
 
@@ -116,23 +165,6 @@ const PersonalVote = ({ params }) => {
             />
           </div>
           <h2 className="text-xl font-semibold mb-4">Categories:</h2>
-          {/* <div className="grid grid-cols-2 gap-4">
-     {Object.entries(nomineeData.categories).map(
-       ([categoryKey, category]) => (
-         <div key={categoryKey} className="flex flex-col">
-           <label>
-             <input
-               type="checkbox"
-               checked={selectedCategories[categoryKey]}
-               onChange={() => handleCategorySelect(categoryKey)}
-             />
-             {category.og}
-           </label>
-         </div>
-       )
-     )}
-   </div> */}
-
           <div className="grid grid-cols-2 gap-4">
             {Object.entries(nomineeData.categories).map(
               ([categoryKey, category]) => (
@@ -161,6 +193,35 @@ const PersonalVote = ({ params }) => {
               </button>
             </div>
           )}
+        </div>
+      )}
+      {/* Email input popup/modal */}
+      {showEmailPopup && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-lg min-w-[50vw] shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Enter Your Email</h2>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4"
+              placeholder="Your email address"
+            />
+            <div className="flex justify-end">
+              <button
+                onClick={confirmVote}
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+              >
+                Confirm
+              </button>
+              <button
+                onClick={() => setShowEmailPopup(false)}
+                className="bg-gray-300 text-gray-700 ml-4 px-4 py-2 rounded-lg"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

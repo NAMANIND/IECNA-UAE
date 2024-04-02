@@ -8,6 +8,8 @@ const Voting = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState({});
   const [selectedNominees, setSelectedNominees] = useState([]);
   const [isAnyCategorySelected, setIsAnyCategorySelected] = useState(false);
+  const [email, setEmail] = useState("");
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
 
   useEffect(() => {
     const fetchNominees = async () => {
@@ -94,9 +96,38 @@ const Voting = () => {
   };
 
   const handleVote = async () => {
+    // Open the email input popup
+    setShowEmailPopup(true);
+  };
+
+  const confirmVote = async () => {
+    // Close the email input popup
+
+    // Perform email validation and check if the email already exists in Firebase
+    const isValidEmail = validateEmail(email);
+    if (!isValidEmail) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const emailExists = await checkEmailExists(email);
+    if (emailExists) {
+      alert("You have already voted with this email address.");
+      return;
+    }
+
+    setShowEmailPopup(false);
+    // If all checks pass, proceed with voting
     try {
       const batch = firestore.batch();
 
+      const isNewEmail = await checkEmailExists(email);
+
+      if (!isNewEmail) {
+        // Add the email to the votes collection if it's a new email
+        const voteRef = firestore.collection("votes").doc();
+        batch.set(voteRef, { email: email });
+      }
       for (const nomineeSelection of selectedNominees) {
         const { category, nomineeId } = nomineeSelection;
         const nomineeRef = firestore.collection("nominees").doc(nomineeId);
@@ -126,10 +157,29 @@ const Voting = () => {
       // Trigger popup after voting is done
       alert("Thank you for voting! Your vote has been recorded successfully.");
 
-      // Clear selected nominees
+      // Clear selected nominees and email input
       setSelectedNominees([]);
+      setEmail("");
     } catch (error) {
       console.error("Error recording votes:", error);
+    }
+  };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const checkEmailExists = async (email) => {
+    try {
+      const query = await firestore
+        .collection("votes")
+        .where("email", "==", email)
+        .get();
+      return !query.empty;
+    } catch (error) {
+      console.error("Error checking email existence:", error);
+      return false;
     }
   };
 
@@ -192,6 +242,36 @@ const Voting = () => {
             <button onClick={handleVote} className="newsletterbtn w-1/2">
               Vote
             </button>
+          </div>
+        )}
+
+        {/* Email input popup/modal */}
+        {showEmailPopup && (
+          <div className="fixed top-0 left-0 w-full  h-full bg-black bg-opacity-50 flex justify-center items-center">
+            <div className="bg-white p-8 rounded-lg shadow-md min-w-[50vw]">
+              <h2 className="text-xl font-semibold mb-4">Enter Your Email</h2>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
+                placeholder="Your email"
+              />
+              <div className="flex justify-end">
+                <button
+                  onClick={() => setShowEmailPopup(false)}
+                  className="mr-4 px-6 py-2 bg-gray-300 text-gray-800 rounded-md"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmVote}
+                  className="px-6 py-2 bg-blue-500 text-white rounded-md"
+                >
+                  Vote
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
