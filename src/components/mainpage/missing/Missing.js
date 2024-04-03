@@ -20,7 +20,7 @@ const SectionTitle = ({ children }) => (
 
 const HighlightedText = ({ children, color }) => (
   <div
-    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} md:w-[30%] w-full   group-hover:text-[#ccff00]
+    className={`text-7xl uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px]  ${color} md:w-[40%] w-full   group-hover:text-[#ccff00]
     transition-all duration-500
     
     `}

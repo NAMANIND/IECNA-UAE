@@ -76,7 +76,7 @@ function Venue() {
               <div className="my-5 text-7xl text-white leading-[120px] max-md:mt-10 max-md:text-4xl">
                 <span className="text-white ">12</span>
                 <sup className="text-white ">th</sup>
-                <span className="text-white "> JUL 2024</span>
+                <span className="text-white "> JULY 2024</span>
               </div>
               <div
                 className={`mt-0 tracking-tighter leading-[56px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px] ${work_sans.className}`}
