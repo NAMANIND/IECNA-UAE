@@ -188,23 +188,9 @@ const renderer = ({ hours, minutes, seconds, completed, days }) => {
   );
 };
 
-const customFutureDateTime = new Date(
-  "Fri July 12 2024 01:52:13 GMT+0530 (India Standard Time)"
-);
-const today = new Date(); // Get the current date
-
-// Calculate the difference in days between today and the custom future date
-const differenceInDays = Math.ceil(
-  (customFutureDateTime - today) / (1000 * 60 * 60 * 24)
-);
-
-// Create a new date object representing the future date
-const futureDate = new Date(today);
-futureDate.setDate(today.getDate() + differenceInDays);
-
 // alert(differenceInDays);
 
-function Countdown() {
+function Countdown({ futureDate }) {
   return (
     <div
       className={`flex justify-center items-center cbox ${anton.className} `}

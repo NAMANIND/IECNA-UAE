@@ -211,7 +211,7 @@ const NewMultiPageForm = ({ to }) => {
       <p>First Name: ${formData.firstName}</p>
       <p>Last Name: ${formData.lastName}</p>
       <p>Field: ${field}</p>
-      <p>Categories: ${Array.from(values)
+      <p>Categories: ${Array.from(selectedCategories)
         .map((category) => `<span>${category}</span>`)
         .join(", ")}</p>
       <p>Email: ${formData.email}</p>
@@ -252,25 +252,24 @@ const NewMultiPageForm = ({ to }) => {
       .replace(/\s/g, "")}`;
     setvotelink(vlink);
 
-    if (rtype === "nomination") {
-      await nomineeRef.set({
-        nomineeId,
-        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-        field,
-        categories: { ...categoriesData },
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        jobTitle: formData.jobTitle,
-        country: formData.country,
-        industry: formData.industry,
-        recommendation1: formData.recommendation1,
-        recommendation2: formData.recommendation2,
-        topics: { ...topics },
-        imageUrl,
-      });
-    }
+    await nomineeRef.set({
+      nomineeId,
+      firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+      lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+      field,
+      categories: { ...categoriesData },
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      jobTitle: formData.jobTitle,
+      country: formData.country,
+      industry: formData.industry,
+      recommendation1: formData.recommendation1,
+      recommendation2: formData.recommendation2,
+      topics: { ...topics },
+      imageUrl,
+    });
+
     await Sendemail(to, subject, html);
     alert("Form submitted successfully!");
     setSent(true);

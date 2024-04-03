@@ -6,6 +6,19 @@ import { ephesis, anton } from "@/styles/fonts";
 import Countdown from "@/components/countdown/Countdown";
 
 function Herosection() {
+  const customFutureDateTime = new Date(
+    "Fri July 12 2024 01:52:13 GMT+0530 (India Standard Time)"
+  );
+  const today = new Date(); // Get the current date
+
+  // Calculate the difference in days between today and the custom future date
+  const differenceInDays = Math.ceil(
+    (customFutureDateTime - today) / (1000 * 60 * 60 * 24)
+  );
+
+  // Create a new date object representing the future date
+  const futureDate = new Date(today);
+  futureDate.setDate(today.getDate() + differenceInDays);
   return (
     <section
       className="flex overflow-hidden relative z-10 flex-col  w-full text-white   bg-black h-full sm:min-h-[100vh] max-md:max-w-full
@@ -39,7 +52,7 @@ function Herosection() {
             className={`flex-auto self-stretch text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
-            {/* <Countdown /> */}
+            {/* <Countdown futureDate={futureDate} /> */}
             Aamchi Mumbai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
