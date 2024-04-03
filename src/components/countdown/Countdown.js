@@ -193,7 +193,7 @@ const renderer = ({ hours, minutes, seconds, completed, days }) => {
 function Countdown({ futureDate }) {
   return (
     <div
-      className={`flex justify-center items-center cbox ${anton.className} `}
+      className={`flex justify-center items-center cbox sm:mb-3 m-5 ${anton.className} `}
     >
       <ReactCountdown date={futureDate} renderer={renderer} />
     </div>

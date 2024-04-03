@@ -49,10 +49,10 @@ function Herosection() {
             3<sup className="text-white">rd</sup> EDITION
           </div>
           <div
-            className={`flex-auto self-stretch text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
+            className={`flex-auto self-stretch sm:mb-10 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
-            {/* <Countdown futureDate={futureDate} /> */}
+            <Countdown futureDate={futureDate} />
             Aamchi Mumbai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
