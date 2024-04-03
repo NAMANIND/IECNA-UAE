@@ -25,15 +25,14 @@ function Ig() {
   };
   return (
     <section
-      className={`  items-end   text-2xl text-right max-md:px-5 relative -top-14 align-middle font-bold  ${work_sans.className} `}
+      className={`  items-end   text-2xl text-right sm:overflow-visible overflow-hidden  relative -top-14 align-middle font-bold  ${work_sans.className} `}
     >
       <div
-        className="flex md:flex-row  flex-col md:pr-8 pr-2 align-middle "
+        className="flex md:flex-row  flex-col md:pr-8 pr-2 align-middle  sm:bg-center bg-bottom "
         style={{
           backgroundImage:
             "linear-gradient(90deg, #00A4F1 0.41%, #51B6FF 34.07%, #A098DF 64.85%, #9B75EC 96.58%)",
-          backgroundSize: isMobileView ? "cover" : "100% 250px", // Different background sizes for mobile and desktop
-          backgroundPositionY: "center", // Default background position
+          backgroundSize: "100% 250px",
           backgroundRepeat: "no-repeat", // Ensure it doesn't repeat
           alignItems: "center",
         }}
@@ -42,21 +41,22 @@ function Ig() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="relative left-10"
+          className="relative sm:top-auto top-5 sm:left-10 left-5"
         >
           <Image
             src={got}
             alt="Igate"
             width={1000}
             height="auto"
+            className="sm:scale-[1.4] scale-[1.4] scl "
             style={{
               transform: "rotate(-5deg)",
-              scale: 1.4,
+              scale: "1.4",
             }}
           />
         </motion.div>
         <div className="md:mt-0 mt-5">
-          <h1 className="leading-7 text-black uppercase max-md:max-w-full  font-bold">
+          <h1 className="leading-7 text-black uppercase  sm:text-2xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
             The D-day for Brands and Marketing Tech in the World of Influencer
             Marketing is here!
           </h1>
@@ -66,7 +66,7 @@ function Ig() {
           >
             12<sup className="text-white">TH</sup> JULY 2024
           </time>
-          <p className="mt-5 text-[#ccff00] uppercase leading-[117%]  font-bold">
+          <p className="mt-5 text-[#ccff00] uppercase leading-[117%]  sm:mb-0 mb-4  font-bold">
             MUMBAI
           </p>
         </div>

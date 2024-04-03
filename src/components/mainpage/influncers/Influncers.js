@@ -72,7 +72,8 @@ function Influncers() {
         autoFill={true}
         style={{ height: "80px" }}
       >
-        &nbsp; DUBAI * RIYADH * MUMBAI *
+        &nbsp; DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI * DUBAI *
+        RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI *
       </Marquee>
       <Marquee
         pauseOnHover

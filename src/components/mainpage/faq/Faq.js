@@ -84,7 +84,7 @@ export default function Faq() {
   };
   return (
     <div
-      className={`bg-white text-black w-full h-full md:px-20 px-5 py-56 ${work_sans.className} `}
+      className={`bg-white text-black w-full h-full md:px-20 px-5 sm:py-56 py-20 ${work_sans.className} `}
     >
       <motion.div
         initial={offscreen}

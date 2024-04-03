@@ -22,7 +22,7 @@ function Well() {
     },
   };
   return (
-    <div className="bg-white py-36 px-10  relative w-full">
+    <div className="bg-white py-36 sm:px-10 px-5  relative w-full">
       <div
         className="relative flex gap-5 mt-36 max-md:flex-col max-md:gap-0"
         style={{
@@ -36,7 +36,7 @@ function Well() {
         }}
       >
         <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-          <div className="md:absolute static -left-[0.4rem] bottom-2 w-[50%]   max-md:mt-10 max-md:max-w-full">
+          <div className="sm:absolute static -left-[0.4rem] bottom-2 sm:w-[50%] w-[100%]   max-md:max-w-full">
             <Image
               loading="lazy"
               src={img}

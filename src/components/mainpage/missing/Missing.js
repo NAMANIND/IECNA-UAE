@@ -100,20 +100,20 @@ function Missing() {
 
   return (
     <section
-      className={`flex justify-center flex-col items-center mt-20  max-md:px-5 transition-all duration-[0.25s]  ${anton.className} `}
+      className={`flex justify-center flex-col items-center mt-20  transition-all duration-[0.25s]  ${anton.className} `}
       style={{
         background:
           "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
       }}
     >
       <Ig />
-      <div className="flex flex-col  w-full max-w-[100%] pb-[200px]  px-20 pt-10 max-md:mt-10 max-md:max-w-full">
+      <div className="flex flex-col  w-full max-w-[100%] pb-[200px]  sm:px-20 px-5 pt-10 max-md:mt-10 max-md:max-w-full">
         <motion.div
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
           className={` ${anton.className} 
-         text-5xl text-center text-black uppercase  pt-[200px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
+         text-5xl text-center text-black uppercase  sm:pt-[200px] pt-[100px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
          
               `}
         >

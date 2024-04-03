@@ -34,7 +34,7 @@ function Ourmisson() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-20 px-60 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-20 sm:px-60 px-5 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At Influence Exchange Confex and Awards, we are dedicated to fostering
         connections, inspiring creativity, and acknowledging the efforts of
@@ -62,7 +62,8 @@ function Ourmisson() {
             <h2
               className={`text-4xl text-center text-[#ccff00] ${anton.className} `}
             >
-              &nbsp; DUBAI * RIYADH * MUMBAI *
+              &nbsp; DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI * DUBAI *
+              DUBAI * RIYADH
             </h2>
           </Marquee>
         </div>

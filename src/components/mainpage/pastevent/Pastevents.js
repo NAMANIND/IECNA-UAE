@@ -76,7 +76,7 @@ function Pastevents() {
   };
   return (
     <div
-      className={`self-stretch md:pt-56 p-0  bg-black max-md:max-w-full md:px-20 px-5 ${anton.className} `}
+      className={`self-stretch sm:pt-56 p-32  bg-black max-md:max-w-full sm:px-20 px-5 ${anton.className} `}
     >
       <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">
         <motion.div
@@ -99,7 +99,7 @@ function Pastevents() {
             initial={{ bottom: "40%" }} // Initial state
             whileInView={imganimation} // Target state when in view
             viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]"
+            className="relative bottom-[20%]  sm:top-auto -top-40"
           >
             <Image
               loading="lazy"
@@ -133,7 +133,7 @@ function Pastevents() {
             initial={{ bottom: "40%" }} // Initial state
             whileInView={imganimation2} // Target state when in view
             viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]"
+            className="relative bottom-[20%]  sm:top-auto -top-40"
           >
             <Image
               loading="lazy"
@@ -168,7 +168,7 @@ function Pastevents() {
             initial={{ bottom: "40%" }} // Initial state
             whileInView={imganimation3} // Target state when in view
             viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]"
+            className="relative bottom-[20%]  sm:top-auto -top-40"
           >
             <Image
               loading="lazy"
@@ -189,14 +189,14 @@ function Pastevents() {
           direction="left"
           gradient={false}
           speed={40}
-          className="mt-10 z-10 text-[36px] w-full "
+          className="mt-10 z-10 text-[36px] w-full  "
           autoFill={true}
           style={{ height: "500px", ...maskImageStyle }}
         >
           <Image
             src={logo}
             alt="Hero image"
-            className=" shadow-2xl bg-cover bg-no-repeat bg-lightgray relative z-10 mx-40  "
+            className=" shadow-2xl bg-cover sm:w-auto w-1/3 bg-no-repeat bg-lightgray relative z-10 mx-40  "
             width="auto"
             height="auto"
           />

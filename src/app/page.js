@@ -11,6 +11,7 @@ import Venue from "@/components/mainpage/venue/Venue";
 
 import Well from "@/components/mainpage/well/Well";
 import Sponsors from "@/components/mainpage/sponsors/Sponsors";
+import Countdown from "@/components/countdown/Countdown";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
 
       <Pastevents />
       <Influncers />
+
       <Speakercard />
 
       <div className="bg-white w-full">

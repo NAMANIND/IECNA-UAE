@@ -54,7 +54,7 @@ function Whyattend() {
 
   return (
     <div
-      className={`flex flex-col items-center px-10 py-20 bg-white ${work_sans.className} `}
+      className={`flex flex-col items-center sm:px-10 px-5 sm:py-20 py-5 bg-white ${work_sans.className} `}
     >
       <motion.div
         initial={offscreen}
@@ -68,7 +68,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="self-stretch mt-20 w-full text-4xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
+        className="self-stretch mt-20 w-full sm:text-4xl text-xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
           INDIA, WE ARE BRINGING TOGETHER OVER{" "}
@@ -85,7 +85,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="mt-11 text-2xl px-10 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
+        className="mt-11 text-2xl sm:px-10 px-0 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
       >
         Experience the future of marketing in the dynamic world of influencer
         marketing at the Influence
@@ -94,14 +94,14 @@ function Whyattend() {
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
-        <div className="flex gap-y-5 px-[5%] gap-x-[6%] flex-wrap max-md:gap-0 ">
+        <div className="flex gap-y-5 sm:px-[5%] px-[0%] gap-x-[6%] flex-wrap max-md:gap-0 ">
           {cardData.map((card, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`flex flex-grow flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] px-[30px] ${
+              className={`flex flex-grow flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] sm:px-[30px] px-[10px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
