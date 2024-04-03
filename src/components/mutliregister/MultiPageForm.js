@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Select, SelectItem, Input } from "@nextui-org/react";
+import {
+  Select,
+  SelectItem,
+  Input,
+  Autocomplete,
+  AutocompleteItem,
+} from "@nextui-org/react";
 import Image from "next/image";
 import img1 from "../../../public/images/Intersect.png";
 import PhoneInput from "react-phone-input-2";
@@ -499,22 +505,25 @@ const MultiPageForm = () => {
                   value={formData.country}
                   onChange={handleChange}
                 /> */}
-
-                <Select
+                <Autocomplete
                   variant="underlined"
                   className="md:w-1/2 w-full "
                   label="Select Country"
                   value={selectedCountry}
-                  onChange={(e) => {
-                    setFormData({ ...formData, country: e.target.value });
-                    setSelectedCountry(e.target.value);
+                  onSelectionChange={(value) => {
+                    console.log(value);
+                    setFormData({ ...formData, country: value });
+                    setSelectedCountry(value);
                   }}
                   isRequired
                 >
                   {countries.map((country) => (
-                    <SelectItem key={country.label}>{country.label}</SelectItem>
+                    <AutocompleteItem key={country.label} value={country.label}>
+                      {country.label}
+                    </AutocompleteItem>
                   ))}
-                </Select>
+                </Autocomplete>
+
                 {industry === "Other" ? (
                   <Input
                     label="Industry"

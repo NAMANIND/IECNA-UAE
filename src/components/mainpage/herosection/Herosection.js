@@ -46,7 +46,7 @@ function Herosection() {
       >
         <div className="flex sm:gap-5 gap-0 relative z-50 items-end mt-44 text-4xl max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
           <div className="flex-auto mt-6 leading-[250%] sm:text-left text-center">
-            3<sup className="text-white">RD</sup> EDITION
+            3<sup className="text-white">rd</sup> EDITION
           </div>
           <div
             className={`flex-auto self-stretch text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
@@ -56,7 +56,7 @@ function Herosection() {
             Aamchi Mumbai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
-            12<sup className="text-white">TH</sup> JULY 2024
+            12<sup className="text-white">th</sup> JULY 2024
           </div>
         </div>
         {/* <h1 className="mt-5 text-8xl text-center leading-[89.68px] max-md:max-w-full max-md:text-4xl font-anton">

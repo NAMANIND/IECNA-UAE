@@ -29,7 +29,7 @@ function Influncers() {
   const onscreen2 = {
     y: 0,
     opacity: 1,
-    top: "4rem",
+    top: "0rem",
 
     transition: {
       delay: 0.8,
@@ -42,7 +42,7 @@ function Influncers() {
         initial={offscreen2}
         whileInView={onscreen2}
         viewport={{ once: true, amount: 1 }}
-        className="text-7xl text-center uppercase leading-[89.7px] text-white text-opacity-90 max-md:text-4xl relative top-5 z-0 "
+        className="text-7xl text-center uppercase leading-[89.7px] text-white text-opacity-90 max-md:text-4xl relative top-0 z-0 "
       >
         The Forces of Influence are with you!
       </motion.h1>

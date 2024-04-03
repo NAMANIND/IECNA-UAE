@@ -4,7 +4,14 @@ import { motion } from "framer-motion";
 import { storage, firestore } from "../../../firbase/clientApp";
 import Marquee from "react-fast-marquee";
 import { work_sans } from "@/styles/fonts";
-import { Select, SelectItem, Input, Checkbox } from "@nextui-org/react";
+import {
+  Select,
+  SelectItem,
+  Input,
+  Checkbox,
+  Autocomplete,
+  AutocompleteItem,
+} from "@nextui-org/react";
 import Image from "next/image";
 import img1 from "../../../public/images/Intersect.png";
 import PhoneInput from "react-phone-input-2";
@@ -461,21 +468,24 @@ const NominateForm = () => {
                 isRequired
               /> */}
 
-              <Select
+              <Autocomplete
                 variant="underlined"
+                className="md:w-1/2 w-full "
                 label="Select Country"
                 value={selectedCountry}
-                onChange={(e) => {
-                  setFormData({ ...formData, country: e.target.value });
-                  setSelectedCountry(e.target.value);
+                onSelectionChange={(value) => {
+                  console.log(value);
+                  setFormData({ ...formData, country: value });
+                  setSelectedCountry(value);
                 }}
-                className="md:w-1/2 w-full "
                 isRequired
               >
                 {countries.map((country) => (
-                  <SelectItem key={country.label}>{country.label}</SelectItem>
+                  <AutocompleteItem key={country.label} value={country.label}>
+                    {country.label}
+                  </AutocompleteItem>
                 ))}
-              </Select>
+              </Autocomplete>
 
               {industry === "Other" ? (
                 <Input

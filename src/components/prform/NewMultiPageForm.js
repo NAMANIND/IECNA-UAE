@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Select, SelectItem, Input, Checkbox } from "@nextui-org/react";
+import {
+  Select,
+  SelectItem,
+  Input,
+  Checkbox,
+  Autocomplete,
+  AutocompleteItem,
+} from "@nextui-org/react";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 import { storage, firestore } from "../../../firbase/clientApp";
@@ -608,21 +615,24 @@ const NewMultiPageForm = ({ to }) => {
                 isRequired
               /> */}
 
-                <Select
+                <Autocomplete
                   variant="underlined"
+                  className="md:w-1/2 w-full "
                   label="Select Country"
                   value={selectedCountry}
-                  onChange={(e) => {
-                    setFormData({ ...formData, country: e.target.value });
-                    setSelectedCountry(e.target.value);
+                  onSelectionChange={(value) => {
+                    console.log(value);
+                    setFormData({ ...formData, country: value });
+                    setSelectedCountry(value);
                   }}
-                  className="sd:w-1/2 w-full "
                   isRequired
                 >
                   {countries.map((country) => (
-                    <SelectItem key={country.label}>{country.label}</SelectItem>
+                    <AutocompleteItem key={country.label} value={country.label}>
+                      {country.label}
+                    </AutocompleteItem>
                   ))}
-                </Select>
+                </Autocomplete>
                 {industry === "Other" ? (
                   <Input
                     label="Industry"
