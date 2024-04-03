@@ -39,7 +39,7 @@ function Herosection() {
             className={`flex-auto self-stretch text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
-            <Countdown />
+            {/* <Countdown /> */}
             Aamchi Mumbai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
