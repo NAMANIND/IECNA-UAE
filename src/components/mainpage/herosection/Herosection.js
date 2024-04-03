@@ -49,7 +49,7 @@ function Herosection() {
             3<sup className="text-white">rd</sup> EDITION
           </div>
           <div
-            className={`flex-auto self-stretch sm:mb-10 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
+            className={`flex-auto self-stretch sm:mb-14 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
             <Countdown futureDate={futureDate} />
