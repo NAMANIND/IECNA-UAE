@@ -7,12 +7,12 @@ const data = [
   {
     question: "When and where will the event take place?",
     answer:
-      "The event is scheduled for 21st June in India. Please refer to the event details for more information.",
+      "The event is scheduled for the 12th July in India. Please refer to the event details for more information.",
   },
   {
     question: "How can I register for the event?",
     answer:
-      "You can register for the event by visiting our registration page on the event website. Early bird registration is available for a limited time, so be sure to secure your spot early.",
+      "You can register for the event by visiting our registration page on the event website.",
   },
   {
     question: "What topics and sessions will be covered during the event?",
@@ -32,7 +32,7 @@ const data = [
   {
     question: "How can I become a sponsor or exhibitor at the event?",
     answer:
-      "If you are interested in becoming a sponsor or exhibitor, please contact our sponsorship team via email at [Suhel Email Address]. They will provide you with all the details you need.",
+      "If you are interested in becoming a sponsor or exhibitor, please contact our sponsorship team via email at mohamed.suhel@influenceexchangegroup.com. They will provide you with all the details you need.",
   },
   {
     question: "Will there be food and refreshments provided?",

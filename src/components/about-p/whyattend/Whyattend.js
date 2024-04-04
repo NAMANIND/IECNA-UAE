@@ -74,11 +74,11 @@ function Whyattend() {
           INDIA, WE ARE BRINGING TOGETHER OVER{" "}
         </span>
         <span className="font-semibold italic text-[#51B6FF]">
-          100 MARKETERS
+          100+ Marketers
         </span>
-        <span className="font-semibold italic"> AND </span>
+        <span className="font-semibold italic"> & </span>
         <span className="font-semibold italic text-[#51B6FF]">
-          100 INFLUENCERS!
+          100+ Influencers!
         </span>
       </motion.div>
       <motion.div
@@ -89,8 +89,8 @@ function Whyattend() {
       >
         Experience the future of marketing in the dynamic world of influencer
         marketing at the Influence
-        <br /> Exchange & Awards Confex India 2024. Here are some reasons why
-        you shouldn't miss this event:
+        <br /> Influence Exchange Confex & Awards Series 2024. Here are some
+        reasons why you shouldn't miss this event:
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">

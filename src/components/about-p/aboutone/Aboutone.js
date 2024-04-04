@@ -170,14 +170,26 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-2xl  sm:px-64 px-5 font-medium  tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+          className="text-2xl  sm:px-64 px-5 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
-          The Influence Exchange Confex and Awards, a prestigious global
-          platform uniting industry leaders, innovators, and influencers across
-          diverse sectors for insightful discussions and the celebration of
-          remarkable achievements. Building on the success of past editions, we
-          are delighted to announce the upcoming India edition scheduled for
-          July 12, 2024.
+          The Influence Exchange Confex and Awards in India presents a fantastic
+          opportunity to bring together industry leaders, innovators, marketers
+          and influencers from various sectors to exchange insights, ideas, and
+          celebrate outstanding achievements. With India's dynamic and rapidly
+          growing economy, there's undoubtedly a wealth of talent and
+          innovation. <br />
+          <br /> The India edition of the Influence Exchange Confex and Awards
+          has the potential to foster collaboration, inspire new ideas, and
+          strengthen connections within the global influencer community. It
+          could also serve as a platform to highlight India's contributions to
+          innovation and progress on the world stage.
+          <br /> <br /> The event would feature keynote speeches, panel
+          discussions, and networking sessions focused on pertinent topics
+          shaping the landscape of influence and marketing in India.
+          <br /> <br /> Join us on the 12th July 2024 for the 3rd Edition of
+          India Exchange Confex & Awards Series and get the chance to be part of
+          an event that's shaping the future of influence and innovation in
+          India and beyond.
         </motion.p>
         <motion.div
           initial={offscreen}

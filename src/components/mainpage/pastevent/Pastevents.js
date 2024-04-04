@@ -5,6 +5,7 @@ import ok from "../../../../public/ok.jpg";
 import img1 from "../../../../public/images/Intersect.png";
 import img2 from "../../../../public/images/Intersect2.png";
 import img3 from "../../../../public/images/Intersect3.png";
+import img4 from "../../../../public/images/indonesia.jpg";
 import logo from "../../../../public/images/bg-logo.png";
 import { anton, work_sans } from "@/styles/fonts";
 import Marquee from "react-fast-marquee";
@@ -78,6 +79,15 @@ function Pastevents() {
     <div
       className={`self-stretch sm:pt-56 p-32  bg-black max-md:max-w-full sm:px-20 px-5 ${anton.className} `}
     >
+      <motion.h1
+        initial={offscreen} // Initial state
+        whileInView={onscreen} // Target state when in view
+        viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+        className={`text-7xl text-center uppercase mb-20 text-white `}
+      >
+        Past Events
+      </motion.h1>
+
       <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">
         <motion.div
           initial={offscreen} // Initial state
@@ -91,7 +101,7 @@ function Pastevents() {
               <h2
                 className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
               >
-                September 2023
+                20<sup>th</sup> September 2023
               </h2>
             </div>
           </div>
@@ -125,7 +135,7 @@ function Pastevents() {
               <h2
                 className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
               >
-                July 2024{" "}
+                12<sup>th</sup> July 2024{" "}
               </h2>
             </div>
           </div>
@@ -156,11 +166,11 @@ function Pastevents() {
         >
           <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
             <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
-              <h1 className="text-4xl ">DUBAI</h1>
+              <h1 className="text-4xl uppercase"> Indonesia </h1>
               <h2
                 className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
               >
-                2024. To be announced!
+                15<sup>th</sup> November 2024
               </h2>
             </div>
           </div>
@@ -172,7 +182,7 @@ function Pastevents() {
           >
             <Image
               loading="lazy"
-              src={img3}
+              src={img4}
               className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
               style={{
                 backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
@@ -188,7 +198,7 @@ function Pastevents() {
         <Marquee
           direction="left"
           gradient={false}
-          speed={40}
+          speed={60}
           className="mt-10 z-10 text-[36px] w-full  "
           autoFill={true}
           style={{ height: "500px", ...maskImageStyle }}

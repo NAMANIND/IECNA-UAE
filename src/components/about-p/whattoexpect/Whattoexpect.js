@@ -76,7 +76,7 @@ function Whattoexpect() {
         viewport={{ once: true, amount: 0.3 }}
         className={`mt-10 text-2xl  px-20 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        At the Influence Exchange & Awards Confex India 2024, expect an
+        At the to Influence Exchange Confex & Awards Series 2024, expect an
         unforgettable experience <br /> filled with engaging interactions,
         curated content, and invaluable insights:
       </motion.div>

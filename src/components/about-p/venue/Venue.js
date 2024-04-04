@@ -22,7 +22,7 @@ function EventDetails() {
       <p
         className={`text-md   text-white font-light  max-md:text-2xl max-md:leading-[52px] ${work_sans.className}`}
       >
-        The Influence Exchange & Awards Confex India 2024 will take place at a
+        Influence Exchange Confex & Awards Series 2024 will take place at a
         prestigious venue in India, providing a luxurious and conducive
         environment for networking, learning, and collaboration. Stay tuned for
         more details on the venue, and get ready to experience an event like no

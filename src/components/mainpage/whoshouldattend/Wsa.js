@@ -28,6 +28,10 @@ const attendees = [
   { title: "CMO", isBold: true },
   { title: "CDO", isBold: true },
   { title: "Influencer Marketing Specialists", isBold: true },
+
+  { title: "Ad Tech Managers", isBold: true },
+  { title: "Mar Tech Managers", isBold: true },
+  { title: "Customer Experience Officers", isBold: true },
 ];
 
 function Wsa() {
@@ -88,7 +92,22 @@ function Wsa() {
       </div>
       <div className="md:mt-9 mt-0 max-md:max-w-full">
         <div className="flex md:gap-5 gap-2 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
-          {attendees.slice(6).map((attendee, index) => (
+          {attendees.slice(6, 9).map((attendee, index) => (
+            <motion.div
+              initial={offscreen}
+              whileInView={onscreen}
+              viewport={{ once: true, amount: 0.3 }}
+              key={index}
+              className="md:w-[33%] w-full"
+            >
+              <AttendeeCard title={attendee.title} isBold={attendee.isBold} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      <div className="md:mt-9 mt-0 max-md:max-w-full">
+        <div className="flex md:gap-5 gap-2 max-md:flex-col max-md:gap-0  w-[100%]  justify-center">
+          {attendees.slice(9).map((attendee, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
