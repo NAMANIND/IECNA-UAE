@@ -85,7 +85,7 @@ function Pastevents() {
         viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
         className={`text-7xl text-center uppercase mb-20 text-white `}
       >
-        Past Events
+        Upcoming events
       </motion.h1>
 
       <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">

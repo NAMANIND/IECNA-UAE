@@ -12,6 +12,9 @@ import Venue from "@/components/mainpage/venue/Venue";
 import Well from "@/components/mainpage/well/Well";
 import Sponsors from "@/components/mainpage/sponsors/Sponsors";
 import Countdown from "@/components/countdown/Countdown";
+import { VideoCarousel } from "@/components/mainpage/videocarousel/VideoCarousel";
+
+import { anton } from "@/styles/fonts";
 
 export default function Home() {
   return (
@@ -29,6 +32,12 @@ export default function Home() {
       <Wsa />
       <div className="bg-white w-full">
         <Awardnrec />
+        {/* <div
+          className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
+        >
+          AWARDS AND RECOGNITION
+        </div> */}
+        {/* <VideoCarousel /> */}
       </div>
       <Sponsors />
       <Well />
