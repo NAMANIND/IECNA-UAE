@@ -108,7 +108,13 @@ const NewMultiPageForm = ({ to }) => {
     setFormData({ ...formData, image: imageFile });
 
     const popup = (
-      <ImageDownloadPage imageData={imageFile} title="IECNA" text="IECNA" />
+      <ImageDownloadPage
+        imageData={imageFile}
+        title={formData.firstName + " " + formData.lastName}
+        company={formData.jobTitle + " | " + formData.company}
+        category={formData.registrationType}
+        field={formData.field}
+      />
     );
     setPoppage(popup);
   };
@@ -214,7 +220,8 @@ const NewMultiPageForm = ({ to }) => {
 
     console.log(categoriesData);
 
-    const htmlcontent = `
+    if (formData.registrationType === "nomination") {
+      const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
       <p>Last Name: ${formData.lastName}</p>
       <p>Field: ${field}</p>
@@ -238,67 +245,130 @@ const NewMultiPageForm = ({ to }) => {
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
      ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
-   
     `;
 
-    const subject =
-      field +
-      " Nomination form submission by: " +
-      formData.firstName +
-      " " +
-      formData.lastName;
-    const html = htmlcontent;
-
-    if (formData.registrationType === "nomination") {
       setrtype("nomination");
+
+      const subject =
+        field +
+        " Nomination form submission by: " +
+        formData.firstName +
+        " " +
+        formData.lastName;
+      const html = htmlcontent;
+      const vlink = `https://iena.vercel.app/vote/${formData.firstName
+        .toLowerCase()
+        .replace(/\s/g, "")}_${formData.lastName
+        .toLowerCase()
+        .replace(/\s/g, "")}`;
+      setvotelink(vlink);
+
+      await nomineeRef.set({
+        nomineeId,
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+        field,
+        categories: { ...categoriesData },
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        recommendation1: formData.recommendation1,
+        recommendation2: formData.recommendation2,
+        topics: { ...topics },
+        imageUrl,
+      });
+
+      await Sendemail(to, subject, html);
+      alert("Form submitted successfully!");
+      setSent(true);
+      // Form submission logic goes here
+      setSubmitted(false);
+
+      // Reset form and page state
+      setFormData({
+        registrationType: "",
+        category: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        jobTitle: "",
+        country: "",
+        industry: "",
+        socialMedia: "",
+      });
+      setPage(1);
+      setTopics([]);
+      setValues(new Set([]));
+    } else {
+      const htmlcontent = `
+      <p>First Name: ${formData.firstName}</p>
+      <p>Last Name: ${formData.lastName}</p>
+      <p>Field: ${field}</p>
+    
+      <p>Email: ${formData.email}</p>
+      <p>Phone: ${formData.phone}</p>
+      <p>Company: ${formData.company}</p>
+      <p>Job Title: ${formData.jobTitle}</p>
+      <p>Country: ${formData.country}</p>
+      <p>Industry: ${formData.industry}</p>
+      <p>LinkedIn: ${formData.linkedin}</p>
+      <p>Instagram: ${formData.instagram}</p>
+      <p>Youtube: ${formData.youtube}</p>
+      <p>Tiktok: ${formData.tiktok}</p>
+      <p>Snapchat: ${formData.snapchat}</p>
+      <p>Recommendation 1: ${formData.recommendation1}</p>
+      <p>Recommendation 2: ${formData.recommendation2}</p>
+      <p>Topics: ${Array.from(topics)
+        .map((topic) => `<span>${topic}</span>`)
+        .join(", ")}</p>
+     ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
+   
+    `;
+      setrtype("nomination");
+
+      const subject =
+        field +
+        " Nomination form submission by: " +
+        formData.firstName +
+        " " +
+        formData.lastName;
+      const html = htmlcontent;
+      const vlink = `https://iena.vercel.app/vote/${formData.firstName
+        .toLowerCase()
+        .replace(/\s/g, "")}_${formData.lastName
+        .toLowerCase()
+        .replace(/\s/g, "")}`;
+      setvotelink(vlink);
+
+      await Sendemail(to, subject, html);
+      alert("Form submitted successfully!");
+      setSent(true);
+      // Form submission logic goes here
+      setSubmitted(false);
+
+      // Reset form and page state
+      setFormData({
+        registrationType: "",
+        category: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        jobTitle: "",
+        country: "",
+        industry: "",
+        socialMedia: "",
+      });
+      setPage(1);
+      setTopics([]);
+      setValues(new Set([]));
     }
-    const vlink = `https://iena.vercel.app/vote/${formData.firstName
-      .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName
-      .toLowerCase()
-      .replace(/\s/g, "")}`;
-    setvotelink(vlink);
-
-    await nomineeRef.set({
-      nomineeId,
-      firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-      lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-      field,
-      categories: { ...categoriesData },
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      jobTitle: formData.jobTitle,
-      country: formData.country,
-      industry: formData.industry,
-      recommendation1: formData.recommendation1,
-      recommendation2: formData.recommendation2,
-      topics: { ...topics },
-      imageUrl,
-    });
-
-    await Sendemail(to, subject, html);
-    alert("Form submitted successfully!");
-    setSent(true);
-    // Form submission logic goes here
-    setSubmitted(false);
-    // Reset form and page state
-    setFormData({
-      registrationType: "",
-      category: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      company: "",
-      jobTitle: "",
-      country: "",
-      industry: "",
-      socialMedia: "",
-    });
-    setPage(1);
-    setTopics([]);
-    setValues(new Set([]));
   };
 
   const maskImageStyle = {
@@ -617,7 +687,7 @@ const NewMultiPageForm = ({ to }) => {
 
                 <Autocomplete
                   variant="underlined"
-                  className="md:w-1/2 w-full "
+                  className=" w-full "
                   label="Select Country"
                   value={selectedCountry}
                   onSelectionChange={(value) => {

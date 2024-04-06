@@ -8,13 +8,17 @@ import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
 function page({ params }) {
   const { name } = params;
 
-  const data = ["megha", "megha2"];
+  const data = ["megha", "navya"];
 
   if (data.includes(name)) {
     const to =
       name === "megha"
-        ? ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"]
-        : ["20bei033@ietdavv.edu.in"];
+        ? ["20bei033@ietdavv.edu.in", "megha.salian@influenceexchangegroup.com"]
+        : [
+            "20bei033@ietdavv.edu.in",
+            "megha.salian@influenceexchangegroup.com",
+            "navya.kotian@influenceexchangegroup.com",
+          ];
 
     return (
       <div>

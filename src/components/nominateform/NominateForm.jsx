@@ -123,7 +123,13 @@ const NominateForm = () => {
     setFormData({ ...formData, image: imageFile });
 
     const popup = (
-      <ImageDownloadPage imageData={imageFile} title="IECNA" text="IECNA" />
+      <ImageDownloadPage
+        imageData={imageFile}
+        title={formData.firstName + " " + formData.lastName}
+        company={formData.jobTitle + " | " + formData.company}
+        category="nomination"
+        field={formData.field}
+      />
     );
     setPoppage(popup);
   };
@@ -228,7 +234,11 @@ const NominateForm = () => {
 
     <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
     `;
-    const to = ["20bei033@ietdavv.edu.in", "namanrai309@gmail.com"];
+    const to = [
+      "20bei033@ietdavv.edu.in",
+      "megha.salian@influenceexchangegroup.com",
+      "mohamed.suhel@influenceexchangegroup.com ",
+    ];
     const subject =
       field +
       " Nomination form submission by: " +

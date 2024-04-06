@@ -107,7 +107,13 @@ const MultiPageForm = () => {
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
     const popup = (
-      <ImageDownloadPage imageData={imageFile} title="IECNA" text="IECNA" />
+      <ImageDownloadPage
+        imageData={imageFile}
+        title={formData.firstName + " " + formData.lastName}
+        company={formData.jobTitle + " | " + formData.company}
+        category={formData.category}
+        field={formData.field}
+      />
     );
     setPoppage(popup);
   };
@@ -159,7 +165,11 @@ const MultiPageForm = () => {
 
     // Send email with form details
     if (formData.category !== "speaker") {
-      const to = "20bei033@ietdavv.edu.in";
+      const to = [
+        "20bei033@ietdavv.edu.in",
+        "mohamed.suhel@influenceexchangegroup.com ",
+        "Sonu.chauhan@influenceexchangegroup.com",
+      ];
       const subject =
         formData.category +
         " Registration Form Submission by " +
@@ -226,15 +236,20 @@ const MultiPageForm = () => {
         details: formData.details,
       });
 
-      const to = "20bei033@ietdavv.edu.in";
-      const subject =
-        formData.category +
-        " Registration Form Submission by " +
-        formData.firstName +
-        " " +
-        formData.lastName;
+      if (formData.category === "delegate") {
+        const to = [
+          "20bei033@ietdavv.edu.in",
+          "mohamed.suhel@influenceexchangegroup.com",
+          "megha.salian@influenceexchangegroup.com",
+        ];
+        const subject =
+          formData.category +
+          " Registration Form Submission by " +
+          formData.firstName +
+          " " +
+          formData.lastName;
 
-      const html = `
+        const html = `
       <h1>Registration Form Submission</h1>
       <p><strong>First Name:</strong> ${formData.firstName}</p>
       <p><strong>Last Name:</strong> ${formData.lastName}</p>
@@ -257,10 +272,44 @@ const MultiPageForm = () => {
     
     `;
 
-      // <p><strong>Image:</strong></p>
-      // <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
+        await Sendemail(to, subject, html);
+      } else {
+        const to = [
+          "20bei033@ietdavv.edu.in",
+          "mohamed.suhel@influenceexchangegroup.com",
+        ];
+        const subject =
+          formData.category +
+          " Registration Form Submission by " +
+          formData.firstName +
+          " " +
+          formData.lastName;
 
-      await Sendemail(to, subject, html);
+        const html = `
+      <h1>Registration Form Submission</h1>
+      <p><strong>First Name:</strong> ${formData.firstName}</p>
+      <p><strong>Last Name:</strong> ${formData.lastName}</p>
+      <p><strong>Category:</strong> ${formData.category}</p>
+      <p><strong>Field:</strong> ${formData.field}</p>
+      <p><strong>Details:</strong> ${formData.details}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Phone:</strong> ${formData.phone}</p>
+      <p><strong>Company:</strong> ${formData.company}</p>
+      <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
+      <p><strong>Country:</strong> ${formData.country}</p>
+      <p><strong>Industry:</strong> ${formData.industry}</p>
+      <p><strong>Instagram:</strong> ${formData.instagram}</p>
+      <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
+      <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
+      <p><strong>Youtube:</strong> ${formData.youtube}</p>
+      <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+      <p><strong>Coupon:</strong> ${formData.coupon}</p>
+  
+    
+    `;
+
+        await Sendemail(to, subject, html);
+      }
 
       alert("Speaker details submitted successfully!");
     } else {
