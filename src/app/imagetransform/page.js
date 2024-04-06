@@ -131,7 +131,13 @@ function ImageDownloadPage({ imageData, title, company, category, field }) {
     "
     >
       {transformedImageUrl && (
-        <img src={transformedImageUrl} alt={title} width="80%" height={200} />
+        <img
+          src={transformedImageUrl}
+          alt={title}
+          width={300}
+          height={200}
+          className="object-contain"
+        />
       )}
 
       <button onClick={handleDownloadTransformed} className="newsletterbtn">

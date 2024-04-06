@@ -168,7 +168,6 @@ const MultiPageForm = () => {
       const to = [
         "20bei033@ietdavv.edu.in",
         "mohamed.suhel@influenceexchangegroup.com ",
-        "Sonu.chauhan@influenceexchangegroup.com",
       ];
       const subject =
         formData.category +
@@ -234,6 +233,7 @@ const MultiPageForm = () => {
         youtube: formData.youtube,
         linkdin: formData.linkdin ? formData.linkdin : "",
         details: formData.details,
+        approved: false,
       });
 
       if (formData.category === "delegate") {
