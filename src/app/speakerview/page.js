@@ -49,6 +49,24 @@ const SpeakerViews = () => {
     }
   };
 
+  const toggleApproval = async (speakerId, currentApprovedStatus) => {
+    try {
+      await firestore.collection("speakers").doc(speakerId).update({
+        approved: !currentApprovedStatus,
+      });
+      // Refresh the speakers list after updating approval status
+      const updatedSpeakers = speakers.map((speaker) =>
+        speaker.id === speakerId
+          ? { ...speaker, approved: !currentApprovedStatus }
+          : speaker
+      );
+      setSpeakers(updatedSpeakers);
+      console.log("Speaker approval status updated successfully!");
+    } catch (error) {
+      console.error("Error updating speaker approval status:", error);
+    }
+  };
+
   return (
     <div>
       <Head head="Speaker Views" />
@@ -77,6 +95,14 @@ const SpeakerViews = () => {
                   Job Title: {speaker.jobTitle}
                 </p>
               </div>
+              <button
+                className={`absolute top-2 right-20 ${
+                  speaker.approved ? "bg-green-500" : "bg-gray-500"
+                } text-white px-2 py-1 rounded-md`}
+                onClick={() => toggleApproval(speaker.id, speaker.approved)}
+              >
+                {speaker.approved ? "Approved" : "Not Approved"}
+              </button>
               <button
                 className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
                 onClick={() => deleteSpeaker(speaker.id)}

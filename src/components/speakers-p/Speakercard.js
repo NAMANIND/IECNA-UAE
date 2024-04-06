@@ -424,7 +424,10 @@ function SpeakerCard() {
     // Function to fetch speakers data from Firestore
     const fetchSpeakers = async () => {
       try {
-        const speakersCollection = await firestore.collection("speakers").get();
+        const speakersCollection = await firestore
+          .collection("speakers")
+          .where("approved", "==", true) // Filter speakers where approved is true
+          .get();
         const speakersData = speakersCollection.docs.map((doc) => doc.data());
         setSpeakers(speakersData);
       } catch (error) {
@@ -533,39 +536,38 @@ function SpeakerCard() {
         className={`flex flex-col md:px-20 px-5 bg-white py-[100px] w-full   ${anton.className}`}
       >
         {/* <motion.h2
-        initial={offscreen}
-        whileInView={onscreen}
-        viewport={{ once: true, amount: 0.3 }}
-        className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
-      >
-        OUR ESTEEMED SPEAKERS
-      </motion.h2>
-      <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-          {speakers.map((speaker, index) => (
-            <motion.div
-              initial={offscreen}
-              whileInView={onscreen}
-              viewport={{ once: true, amount: 0.3 }}
-              key={index}
-            >
-  
-              <DescriptionCard
+          initial={offscreen}
+          whileInView={onscreen}
+          viewport={{ once: true, amount: 0.3 }}
+          className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+        >
+          OUR ESTEEMED SPEAKERS
+        </motion.h2>
+        <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
+            {speakers.map((speaker, index) => (
+              <motion.div
+                initial={offscreen}
+                whileInView={onscreen}
+                viewport={{ once: true, amount: 0.3 }}
                 key={index}
-                img={speaker.imageUrl} // Speaker image URL
-                title={speaker.firstName + " " + speaker.lastName} // Full name
-                job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
-                des={speaker.details} // Speaker description
-                linkdin={speaker.linkdin} // LinkedIn URL
-                instagram={speaker.instagram} // Instagram URL
-                tiktok={speaker.tiktok} // TikTok URL
-                snapchat={speaker.snapchat} // Snapchat URL
-                youtube={speaker.youtube} // YouTube URL
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div> */}
+              >
+                <DescriptionCard
+                  key={index}
+                  img={speaker.imageUrl} // Speaker image URL
+                  title={speaker.firstName + " " + speaker.lastName} // Full name
+                  job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
+                  des={speaker.details} // Speaker description
+                  linkdin={speaker.linkdin} // LinkedIn URL
+                  instagram={speaker.instagram} // Instagram URL
+                  tiktok={speaker.tiktok} // TikTok URL
+                  snapchat={speaker.snapchat} // Snapchat URL
+                  youtube={speaker.youtube} // YouTube URL
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div> */}
 
         <motion.div
           initial={offscreen}
