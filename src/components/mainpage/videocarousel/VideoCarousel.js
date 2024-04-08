@@ -9,7 +9,7 @@ import {
   useMotionValueEvent,
   AnimatePresence,
 } from "framer-motion";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Marquee from "react-fast-marquee";
 export const VideoCarousel = () => {
@@ -55,6 +55,18 @@ export const VideoCarousel = () => {
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // useEffect(() => {
+  //   // Start the interval to move the carousel every 2 seconds
+  //   const intervalId = setInterval(() => {
+  //     handleClick(1); // Move the carousel to the next slide
+  //   }, 5000);
+
+  //   // Clean up the interval on component unmount
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, []);
 
   const [[activeIndex, direction], setActiveIndex] = useState([0, 0]);
   const indexInArrayScope =
