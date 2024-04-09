@@ -6,13 +6,11 @@ const Sendemail = async (to, subject, html) => {
 
   try {
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "iena@namanrai.tech",
       to: to,
       subject: subject,
       html: html, // Changed 'react' to 'html'
     });
-
-    alert("Email sent!");
   } catch (error) {
     console.error("Error sending email:", error);
   }

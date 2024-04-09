@@ -195,32 +195,13 @@ const NewMultiPageForm = ({ to }) => {
 
     setSubmitted(true);
 
-    const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
-    await imageRef.put(formData.image);
-    const imageUrl = await imageRef.getDownloadURL();
-    setimgu(imageUrl);
-
-    // Save form data to Firestore
-    const nomineeRef = firestore.collection("nominees").doc();
-    const nomineeId = nomineeRef.id;
-
-    const categoriesData = {};
-    selectedCategories.forEach((category) => {
-      console.log(category);
-      const cat = category
-        .toString()
-        .replace(/\s/g, "")
-        .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
-      const og = category;
-      categoriesData[cat] = {
-        og,
-        vote: 0,
-      };
-    });
-
-    console.log(categoriesData);
-
     if (formData.registrationType === "nomination") {
+      setrtype("nomination");
+      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+      await imageRef.put(formData.image);
+      const imageUrl = await imageRef.getDownloadURL();
+      setimgu(imageUrl);
+
       const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
       <p>Last Name: ${formData.lastName}</p>
@@ -263,8 +244,30 @@ const NewMultiPageForm = ({ to }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
+      const nomineeRef = firestore.collection("nominees").doc();
+      const nomineeId = nomineeRef.id;
+
+      const categoriesData = {};
+      selectedCategories.forEach((category) => {
+        const cat = category
+          .toString()
+          .replace(/\s/g, "")
+          .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
+        const og = category;
+        categoriesData[cat] = {
+          og,
+          vote: 0,
+        };
+      });
+
+      console.log(categoriesData);
+
+      if (Object.keys(categoriesData).length === 0) {
+        setErrorMessage("*Please select at least one category*");
+        return;
+      }
       await nomineeRef.set({
-        nomineeId,
+        id: nomineeId,
         firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
         lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
         field,
@@ -282,7 +285,7 @@ const NewMultiPageForm = ({ to }) => {
       });
 
       await Sendemail(to, subject, html);
-      alert("Form submitted successfully!");
+      alert("Nomination Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
@@ -326,27 +329,20 @@ const NewMultiPageForm = ({ to }) => {
       <p>Topics: ${Array.from(topics)
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
-     ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
+  
    
     `;
-      setrtype("nomination");
 
       const subject =
         field +
-        " Nomination form submission by: " +
+        " delegate form submission by: " +
         formData.firstName +
         " " +
         formData.lastName;
       const html = htmlcontent;
-      const vlink = `https://iena.vercel.app/vote/${formData.firstName
-        .toLowerCase()
-        .replace(/\s/g, "")}_${formData.lastName
-        .toLowerCase()
-        .replace(/\s/g, "")}`;
-      setvotelink(vlink);
 
       await Sendemail(to, subject, html);
-      alert("Form submitted successfully!");
+      alert("Delegate Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
@@ -635,9 +631,7 @@ const NewMultiPageForm = ({ to }) => {
                 <Input
                   type="email"
                   label={
-                    formData.field === "influencer"
-                      ? "Business Email"
-                      : "Business Email"
+                    formData.field === "influencer" ? "Email" : "Business Email"
                   }
                   name="email"
                   value={formData.email}

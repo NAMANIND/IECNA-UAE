@@ -109,23 +109,25 @@ const MultiPageForm = () => {
       return;
     }
 
-    if (imageFile.width !== 800 && imageFile.height !== 800) {
+    if (imageFile.width <= 800 && imageFile.height <= 800) {
       alert("Image should be in 800px x 800px");
       return;
     }
 
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
-    // const popup = (
-    //   <ImageDownloadPage
-    //     imageData={imageFile}
-    //     title={formData.firstName + " " + formData.lastName}
-    //     company={formData.jobTitle + " | " + formData.company}
-    //     category={formData.category}
-    //     field={formData.field}
-    //   />
-    // );
-    // setPoppage(popup);
+    // if (formData.category === "delegate") {
+    //   const popup = (
+    //     <ImageDownloadPage
+    //       imageData={imageFile}
+    //       title={formData.firstName + " " + formData.lastName}
+    //       company={formData.jobTitle + " | " + formData.company}
+    //       category={formData.category}
+    //       field={formData.field}
+    //     />
+    //   );
+    //   setPoppage(popup);
+    // }
   };
 
   const handleSubmit = async (e) => {
@@ -170,14 +172,15 @@ const MultiPageForm = () => {
       }
     }
 
-    setSubmitted(true);
     console.log(formData); // For testing purposes
+    setSubmitted(true);
 
-    // Send email with form details
-    if (formData.category !== "speaker") {
+    if (formData.category === "delegate") {
+      console.log("sending email to delegates");
       const to = [
         "20bei033@ietdavv.edu.in",
         "mohamed.suhel@influenceexchangegroup.com ",
+        "megha.salian@influenceexchangegroup.com",
       ];
       const subject =
         formData.category +
@@ -206,51 +209,72 @@ const MultiPageForm = () => {
     <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
     <p><strong>Coupon:</strong> ${formData.coupon}</p>
 
- 
+  
   `;
 
-      // <p><strong>Image:</strong></p>
-      // <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
-
+      console.log(to);
       await Sendemail(to, subject, html);
-    }
+      alert("Delegate details submitted successfully!");
+      setSent(true);
 
-    if (formData.category === "speaker") {
-      // Upload image to Firebase storage
-      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
-      await imageRef.put(formData.image);
-      const imageUrl = await imageRef.getDownloadURL();
-      setSelectedImageurl(imageUrl);
-
-      const nomineeRef = firestore.collection("speakers").doc();
-      const nomineeId = nomineeRef.id;
-
-      // Save speaker details to Firestore
-      await nomineeRef.set({
-        id: nomineeId,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        jobTitle: formData.jobTitle,
-        country: formData.country,
-        industry: formData.industry,
-        imageUrl: imageUrl,
-        instagram: formData.instagram,
-        tiktok: formData.tiktok,
-        snapchat: formData.snapchat,
-        youtube: formData.youtube,
-        linkdin: formData.linkdin ? formData.linkdin : "",
-        details: formData.details,
-        approved: false,
+      // Reset form and page state
+      setSubmitted(false);
+      setFormData({
+        category: "",
+        field: "",
+        details: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        jobTitle: "",
+        country: "",
+        industry: "",
+        instagram: "",
+        tiktok: "",
+        snapchat: "",
+        youtube: "",
+        image: null,
       });
+      setPage(1);
+      setErrorMessage("");
+    } else {
+      if (formData.category === "speaker") {
+        // Upload image to Firebase storage
+        const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+        await imageRef.put(formData.image);
+        const imageUrl = await imageRef.getDownloadURL();
+        setSelectedImageurl(imageUrl);
 
-      if (formData.category === "delegate") {
+        const nomineeRef = firestore.collection("speakers").doc();
+        const nomineeId = nomineeRef.id;
+
+        // Save speaker details to Firestore
+        await nomineeRef.set({
+          id: nomineeId,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          jobTitle: formData.jobTitle,
+          country: formData.country,
+          industry: formData.industry,
+          imageUrl: imageUrl,
+          instagram: formData.instagram,
+          tiktok: formData.tiktok,
+          snapchat: formData.snapchat,
+          youtube: formData.youtube,
+          linkdin: formData.linkdin ? formData.linkdin : "",
+          details: formData.details,
+          approved: false,
+        });
+
         const to = [
           "20bei033@ietdavv.edu.in",
           "mohamed.suhel@influenceexchangegroup.com",
-          "megha.salian@influenceexchangegroup.com",
+          "sonu.chauhan@influenceexchangegroup.com",
         ];
         const subject =
           formData.category +
@@ -260,33 +284,59 @@ const MultiPageForm = () => {
           formData.lastName;
 
         const html = `
-      <h1>Registration Form Submission</h1>
-      <p><strong>First Name:</strong> ${formData.firstName}</p>
-      <p><strong>Last Name:</strong> ${formData.lastName}</p>
-      <p><strong>Category:</strong> ${formData.category}</p>
-      <p><strong>Field:</strong> ${formData.field}</p>
-      <p><strong>Details:</strong> ${formData.details}</p>
-      <p><strong>Email:</strong> ${formData.email}</p>
-      <p><strong>Phone:</strong> ${formData.phone}</p>
-      <p><strong>Company:</strong> ${formData.company}</p>
-      <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
-      <p><strong>Country:</strong> ${formData.country}</p>
-      <p><strong>Industry:</strong> ${formData.industry}</p>
-      <p><strong>Instagram:</strong> ${formData.instagram}</p>
-      <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
-      <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
-      <p><strong>Youtube:</strong> ${formData.youtube}</p>
-      <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
-      <p><strong>Coupon:</strong> ${formData.coupon}</p>
-  
-    
-    `;
+        <h1>Registration Form Submission</h1>
+        <p><strong>First Name:</strong> ${formData.firstName}</p>
+        <p><strong>Last Name:</strong> ${formData.lastName}</p>
+        <p><strong>Category:</strong> ${formData.category}</p>
+        <p><strong>Field:</strong> ${formData.field}</p>
+        <p><strong>Details:</strong> ${formData.details}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Phone:</strong> ${formData.phone}</p>
+        <p><strong>Company:</strong> ${formData.company}</p>
+        <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
+        <p><strong>Country:</strong> ${formData.country}</p>
+        <p><strong>Industry:</strong> ${formData.industry}</p>
+        <p><strong>Instagram:</strong> ${formData.instagram}</p>
+        <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
+        <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
+        <p><strong>Youtube:</strong> ${formData.youtube}</p>
+        <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+        <p><strong>Coupon:</strong> ${formData.coupon}</p>
+        <p><strong>Image:</strong></p>
+        <img src="${imageUrl}" alt="Uploaded Image" width="200" height="200"  />
+      
+      `;
 
         await Sendemail(to, subject, html);
+
+        alert("Speaker details submitted successfully!");
+
+        // Reset form and page state
+        setSubmitted(false);
+        setFormData({
+          category: "",
+          field: "",
+          details: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          jobTitle: "",
+          country: "",
+          industry: "",
+          instagram: "",
+          tiktok: "",
+          snapchat: "",
+          youtube: "",
+          image: null,
+        });
+        setPage(1);
+        setErrorMessage("");
       } else {
         const to = [
           "20bei033@ietdavv.edu.in",
-          "mohamed.suhel@influenceexchangegroup.com",
+          "mohamed.suhel@influenceexchangegroup.com ",
         ];
         const subject =
           formData.category +
@@ -296,63 +346,61 @@ const MultiPageForm = () => {
           formData.lastName;
 
         const html = `
-      <h1>Registration Form Submission</h1>
-      <p><strong>First Name:</strong> ${formData.firstName}</p>
-      <p><strong>Last Name:</strong> ${formData.lastName}</p>
-      <p><strong>Category:</strong> ${formData.category}</p>
-      <p><strong>Field:</strong> ${formData.field}</p>
-      <p><strong>Details:</strong> ${formData.details}</p>
-      <p><strong>Email:</strong> ${formData.email}</p>
-      <p><strong>Phone:</strong> ${formData.phone}</p>
-      <p><strong>Company:</strong> ${formData.company}</p>
-      <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
-      <p><strong>Country:</strong> ${formData.country}</p>
-      <p><strong>Industry:</strong> ${formData.industry}</p>
-      <p><strong>Instagram:</strong> ${formData.instagram}</p>
-      <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
-      <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
-      <p><strong>Youtube:</strong> ${formData.youtube}</p>
-      <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
-      <p><strong>Coupon:</strong> ${formData.coupon}</p>
-  
+        <h1>Registration Form Submission</h1>
+        <p><strong>First Name:</strong> ${formData.firstName}</p>
+        <p><strong>Last Name:</strong> ${formData.lastName}</p>
+        <p><strong>Category:</strong> ${formData.category}</p>
+        <p><strong>Field:</strong> ${formData.field}</p>
+        <p><strong>Details:</strong> ${formData.details}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Phone:</strong> ${formData.phone}</p>
+        <p><strong>Company:</strong> ${formData.company}</p>
+        <p><strong>Job Title:</strong> ${formData.jobTitle}</p>
+        <p><strong>Country:</strong> ${formData.country}</p>
+        <p><strong>Industry:</strong> ${formData.industry}</p>
+        <p><strong>Instagram:</strong> ${formData.instagram}</p>
+        <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
+        <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
+        <p><strong>Youtube:</strong> ${formData.youtube}</p>
+        <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+        <p><strong>Coupon:</strong> ${formData.coupon}</p>
     
-    `;
+     
+      `;
+
+        // <p><strong>Image:</strong></p>
+        // <img src="${selectedImageurl}" alt="Uploaded Image" width="200" height="200"  />
 
         await Sendemail(to, subject, html);
+        setSubmitted(true);
+
+        alert("Details submitted successfully!");
+
+        // Reset form and page state
+        setSubmitted(false);
+        setFormData({
+          category: "",
+          field: "",
+          details: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          jobTitle: "",
+          country: "",
+          industry: "",
+          instagram: "",
+          tiktok: "",
+          snapchat: "",
+          youtube: "",
+          image: null,
+        });
+        setPage(1);
+        setErrorMessage("");
       }
-
-      alert("Speaker details submitted successfully!");
-    } else {
-      alert("Form submitted successfully!"); // For other categories
     }
-
-    if (formData.category === "speaker" || formData.category === "delegate") {
-      setSent(true);
-      const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
-      setvotelink(vlink);
-    }
-    // Reset form and page state
-    setSubmitted(false);
-    setFormData({
-      category: "",
-      field: "",
-      details: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      company: "",
-      jobTitle: "",
-      country: "",
-      industry: "",
-      instagram: "",
-      tiktok: "",
-      snapchat: "",
-      youtube: "",
-      image: null,
-    });
-    setPage(1);
-    setErrorMessage("");
+    // Send email with form details
   };
 
   const handleFormDataChange = (e) => {
@@ -714,8 +762,7 @@ const MultiPageForm = () => {
                 </div>
               )}
 
-              {(formData.category === "speaker" ||
-                formData.category === "delegate") && (
+              {formData.category === "speaker" && (
                 <div className="flex md:flex-col flex-col gap-2 w-full">
                   <label className="text-sm form-color ">
                     Upload Image (800px x 800px){" "}
