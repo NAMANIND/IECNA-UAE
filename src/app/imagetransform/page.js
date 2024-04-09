@@ -4,7 +4,14 @@ import React, { useEffect, useState } from "react";
 import fileDownload from "js-file-download";
 import axios from "axios";
 
-function ImageDownloadPage({ imageData, title, company, category, field }) {
+function ImageDownloadPage({
+  imageData,
+  title,
+  company,
+  category,
+  field,
+  marco,
+}) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
 
   useEffect(() => {
@@ -87,7 +94,9 @@ function ImageDownloadPage({ imageData, title, company, category, field }) {
             title
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_160/ibukv8ikxfokaafak5s4.jpg`;
+          )}/fl_layer_apply,x_315,y_160/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+            marco
+          )}/fl_layer_apply,x_315,y_200/ibukv8ikxfokaafak5s4.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
@@ -134,9 +143,10 @@ function ImageDownloadPage({ imageData, title, company, category, field }) {
         <img
           src={transformedImageUrl}
           alt={title}
-          width={300}
           height={200}
-          className="object-contain"
+          className={`object-contain  w-[${
+            category === "nomination" ? "50%" : "80%"
+          }] `}
         />
       )}
 

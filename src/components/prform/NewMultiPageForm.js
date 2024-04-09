@@ -104,6 +104,15 @@ const NewMultiPageForm = ({ to }) => {
 
   const handleImageUpload = (e) => {
     const imageFile = e.target.files[0];
+    if (imageFile.size > 1000000) {
+      alert("Image size should be less than 1MB");
+      return;
+    }
+
+    if (imageFile.width <= 800 && imageFile.height <= 800) {
+      alert("Image should be in 800px x 800px");
+      return;
+    }
     console.log(imageFile);
     setFormData({ ...formData, image: imageFile });
 
@@ -111,11 +120,8 @@ const NewMultiPageForm = ({ to }) => {
       <ImageDownloadPage
         imageData={imageFile}
         title={formData.firstName + " " + formData.lastName}
-        company={
-          formData.field === "influencer"
-            ? formData.jobTitle
-            : formData.jobTitle + " | " + formData.company
-        }
+        marco={formData.company}
+        company={formData.jobTitle}
         category={formData.registrationType}
         field={formData.field}
       />
@@ -282,9 +288,6 @@ const NewMultiPageForm = ({ to }) => {
         jobTitle: formData.jobTitle,
         country: formData.country,
         industry: formData.industry,
-        recommendation1: formData.recommendation1,
-        recommendation2: formData.recommendation2,
-        topics: { ...topics },
         imageUrl,
       });
 
@@ -499,33 +502,6 @@ const NewMultiPageForm = ({ to }) => {
                       </Checkbox>
                     </div>
                   ))}
-                </div>
-
-                <h2 className={` text-black text-xl `}>
-                  Would you like to recommend a colleague or peer to attend the
-                  event? If yes, please provide his/her details(Full name, Job
-                  title, Email and Phone)
-                </h2>
-
-                <div className="flex sm:flex-row flex-col gap-4 w-full">
-                  <Input
-                    variant="underlined"
-                    className="sm:w-1/2 w-full "
-                    label="Recommendation 1"
-                    name="recommendation1"
-                    value={formData.recommendation1}
-                    onChange={handleChange}
-                    size="lg"
-                  />
-                  <Input
-                    variant="underlined"
-                    className="sm:w-1/2 w-full "
-                    label="Recommendation 2"
-                    name="recommendation2"
-                    value={formData.recommendation2}
-                    onChange={handleChange}
-                    size="lg"
-                  />
                 </div>
 
                 <div className="flex flex-row justify-between w-full gap-4">
@@ -777,7 +753,9 @@ const NewMultiPageForm = ({ to }) => {
                     />
                   </div>
 
-                  <label className="text-sm form-color ">Upload Image</label>
+                  <label className="text-sm form-color ">
+                    Upload Image (800px x 800px){" "}
+                  </label>
                   <Button
                     component="label"
                     role={undefined}
@@ -811,8 +789,11 @@ const NewMultiPageForm = ({ to }) => {
                       isRequired
                     />
                   </div>
+
                   <div className="flex md:flex-col flex-col gap-2 w-full">
-                    <label className="text-sm form-color ">Upload Image</label>
+                    <label className="text-sm form-color ">
+                      Upload Image (800px x 800px){" "}
+                    </label>
                     <Button
                       component="label"
                       role={undefined}
@@ -832,6 +813,37 @@ const NewMultiPageForm = ({ to }) => {
                         ? "Image Selected: " + formData.image.name
                         : "Upload Image"}
                     </Button>
+                  </div>
+                </>
+              )}
+
+              {formData.registrationType === "delegate" && (
+                <>
+                  <h2 className={` text-black text-xl `}>
+                    Would you like to recommend a colleague or peer to attend
+                    the event? If yes, please provide his/her details(Full name,
+                    Job title, Email and Phone)
+                  </h2>
+
+                  <div className="flex sm:flex-row flex-col gap-4 w-full">
+                    <Input
+                      variant="underlined"
+                      className="sm:w-1/2 w-full "
+                      label="Recommendation 1"
+                      name="recommendation1"
+                      value={formData.recommendation1}
+                      onChange={handleChange}
+                      size="lg"
+                    />
+                    <Input
+                      variant="underlined"
+                      className="sm:w-1/2 w-full "
+                      label="Recommendation 2"
+                      name="recommendation2"
+                      value={formData.recommendation2}
+                      onChange={handleChange}
+                      size="lg"
+                    />
                   </div>
                 </>
               )}

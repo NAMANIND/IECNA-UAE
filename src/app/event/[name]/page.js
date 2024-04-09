@@ -23,7 +23,7 @@ function page({ params }) {
 
     return (
       <div>
-        <Head head="Event" />
+        <Head head="Event Registration" />
         {name === "sonu" ? <Spkrform /> : <NewMultiPageForm to={to} />}
       </div>
     );
