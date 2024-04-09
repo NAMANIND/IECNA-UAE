@@ -111,7 +111,11 @@ const NewMultiPageForm = ({ to }) => {
       <ImageDownloadPage
         imageData={imageFile}
         title={formData.firstName + " " + formData.lastName}
-        company={formData.jobTitle + " | " + formData.company}
+        company={
+          formData.field === "influencer"
+            ? formData.jobTitle
+            : formData.jobTitle + " | " + formData.company
+        }
         category={formData.registrationType}
         field={formData.field}
       />
@@ -237,7 +241,7 @@ const NewMultiPageForm = ({ to }) => {
         " " +
         formData.lastName;
       const html = htmlcontent;
-      const vlink = `https://iena.vercel.app/vote/${formData.firstName
+      const vlink = `https://india.theiena.com/vote/${formData.firstName
         .toLowerCase()
         .replace(/\s/g, "")}_${formData.lastName
         .toLowerCase()

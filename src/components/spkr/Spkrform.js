@@ -111,23 +111,23 @@ const Spkrform = () => {
       return;
     }
 
-    if (imageFile.width !== 800 && imageFile.height !== 800) {
+    if (imageFile.width <= 800 && imageFile.height <= 800) {
       alert("Image should be in 800px x 800px");
       return;
     }
 
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
-    // const popup = (
-    //   <ImageDownloadPage
-    //     imageData={imageFile}
-    //     title={formData.firstName + " " + formData.lastName}
-    //     company={formData.jobTitle + " | " + formData.company}
-    //     category={formData.category}
-    //     field={formData.field}
-    //   />
-    // );
-    // setPoppage(popup);
+    const popup = (
+      <ImageDownloadPage
+        imageData={imageFile}
+        title={formData.firstName + " " + formData.lastName}
+        company={formData.jobTitle + " | " + formData.company}
+        category={formData.category}
+        field={formData.field}
+      />
+    );
+    setPoppage(popup);
   };
 
   const handleSubmit = async (e) => {
@@ -239,6 +239,11 @@ const Spkrform = () => {
       <p><strong>Youtube:</strong> ${formData.youtube}</p>
       <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
       <p><strong>Coupon:</strong> ${formData.coupon}</p>
+
+      <p><strong>Image:</strong> </p>
+      <img src="${imageUrl}" alt="Speaker Image" width="200" height="200" / >
+      
+      >
   
     
     `;
@@ -252,7 +257,7 @@ const Spkrform = () => {
 
     if (formData.category === "speaker" || formData.category === "delegate") {
       setSent(true);
-      const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+      const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
       setvotelink(vlink);
     }
     // Reset form and page state
@@ -648,7 +653,7 @@ const Spkrform = () => {
 
       {/* popup */}
 
-      {/* {sent && (
+      {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div
             className="bg-white p-10 rounded-lg m-10 max-h-fit"
@@ -658,7 +663,7 @@ const Spkrform = () => {
               Form submitted successfully!
             </h1>
             <div className="flex justify-center items-center w-full h-[400px]">
-              `{poppage}`
+              {poppage}
             </div>
             <div className="flex justify-center items-center w-full">
               <button
@@ -670,7 +675,7 @@ const Spkrform = () => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

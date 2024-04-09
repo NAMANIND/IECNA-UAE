@@ -269,7 +269,7 @@ const NominateForm = () => {
     });
     await Sendemail(to, subject, html);
     setSent(true);
-    const vlink = `https://iena.vercel.app/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
     setvotelink(vlink);
     setSubmitted(false);
     alert("Nomination submitted successfully!");
