@@ -118,16 +118,16 @@ const Spkrform = () => {
 
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
-    const popup = (
-      <ImageDownloadPage
-        imageData={imageFile}
-        title={formData.firstName + " " + formData.lastName}
-        company={formData.jobTitle + " | " + formData.company}
-        category={formData.category}
-        field={formData.field}
-      />
-    );
-    setPoppage(popup);
+    // const popup = (
+    //   <ImageDownloadPage
+    //     imageData={imageFile}
+    //     title={formData.firstName + " " + formData.lastName}
+    //     company={formData.jobTitle + " | " + formData.company}
+    //     category={formData.category}
+    //     field={formData.field}
+    //   />
+    // );
+    // setPoppage(popup);
   };
 
   const handleSubmit = async (e) => {
@@ -255,11 +255,11 @@ const Spkrform = () => {
       alert("Form submitted successfully!"); // For other categories
     }
 
-    if (formData.category === "speaker" || formData.category === "delegate") {
-      setSent(true);
-      const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
-      setvotelink(vlink);
-    }
+    // if (formData.category === "speaker" || formData.category === "delegate") {
+    //   setSent(true);
+    //   const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    //   setvotelink(vlink);
+    // }
     // Reset form and page state
     setSubmitted(false);
     setFormData({
@@ -653,7 +653,7 @@ const Spkrform = () => {
 
       {/* popup */}
 
-      {sent && (
+      {/* {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div
             className="bg-white p-10 rounded-lg m-10 max-h-fit"
@@ -675,7 +675,7 @@ const Spkrform = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
