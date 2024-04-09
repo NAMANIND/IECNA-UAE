@@ -4,11 +4,12 @@ import NominateForm from "@/components/nominateform/NominateForm";
 import React from "react";
 import { notFound } from "next/navigation";
 import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
+import Spkrform from "@/components/spkr/Spkrform";
 
 function page({ params }) {
   const { name } = params;
 
-  const data = ["megha", "navya"];
+  const data = ["megha", "navya", "sonu"];
 
   if (data.includes(name)) {
     const to =
@@ -23,7 +24,7 @@ function page({ params }) {
     return (
       <div>
         <Head head="Event" />
-        <NewMultiPageForm to={to} />
+        {name === "sonu" ? <Spkrform /> : <NewMultiPageForm to={to} />}
       </div>
     );
   } else {

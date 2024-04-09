@@ -104,18 +104,28 @@ const MultiPageForm = () => {
 
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
+    if (imageFile.size > 1000000) {
+      alert("Image size should be less than 1MB");
+      return;
+    }
+
+    if (imageFile.width !== 800 && imageFile.height !== 800) {
+      alert("Image should be in 800px x 800px");
+      return;
+    }
+
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
-    const popup = (
-      <ImageDownloadPage
-        imageData={imageFile}
-        title={formData.firstName + " " + formData.lastName}
-        company={formData.jobTitle + " | " + formData.company}
-        category={formData.category}
-        field={formData.field}
-      />
-    );
-    setPoppage(popup);
+    // const popup = (
+    //   <ImageDownloadPage
+    //     imageData={imageFile}
+    //     title={formData.firstName + " " + formData.lastName}
+    //     company={formData.jobTitle + " | " + formData.company}
+    //     category={formData.category}
+    //     field={formData.field}
+    //   />
+    // );
+    // setPoppage(popup);
   };
 
   const handleSubmit = async (e) => {
@@ -693,7 +703,7 @@ const MultiPageForm = () => {
                 <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     variant="underlined"
-                    label="Bio"
+                    label="Bio (Max 335 characters)"
                     name="details"
                     className=" w-full "
                     value={formData.details}
@@ -707,7 +717,9 @@ const MultiPageForm = () => {
               {(formData.category === "speaker" ||
                 formData.category === "delegate") && (
                 <div className="flex md:flex-col flex-col gap-2 w-full">
-                  <label className="text-sm form-color ">Upload Image</label>
+                  <label className="text-sm form-color ">
+                    Upload Image (800px x 800px){" "}
+                  </label>
                   <Button
                     component="label"
                     role={undefined}
@@ -750,7 +762,7 @@ const MultiPageForm = () => {
 
       {/* popup */}
 
-      {sent && (
+      {/* {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div
             className="bg-white p-10 rounded-lg m-10 max-h-fit"
@@ -772,7 +784,7 @@ const MultiPageForm = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
