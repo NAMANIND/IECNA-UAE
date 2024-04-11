@@ -14,7 +14,9 @@ const Voting = () => {
   useEffect(() => {
     const fetchNominees = async () => {
       try {
-        const nomineesSnapshot = await firestore.collection("nominees").get();
+        const nomineesSnapshot = await firestore
+          .collection("inida-nominees")
+          .get();
         const nomineesData = nomineesSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -125,12 +127,14 @@ const Voting = () => {
 
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email
-        const voteRef = firestore.collection("votes").doc();
+        const voteRef = firestore.collection("india-votes").doc();
         batch.set(voteRef, { email: email });
       }
       for (const nomineeSelection of selectedNominees) {
         const { category, nomineeId } = nomineeSelection;
-        const nomineeRef = firestore.collection("nominees").doc(nomineeId);
+        const nomineeRef = firestore
+          .collection("india-nominees")
+          .doc(nomineeId);
         const nomineeSnapshot = await nomineeRef.get();
 
         if (nomineeSnapshot.exists) {
@@ -173,7 +177,7 @@ const Voting = () => {
   const checkEmailExists = async (email) => {
     try {
       const query = await firestore
-        .collection("votes")
+        .collection("india-votes")
         .where("email", "==", email)
         .get();
       return !query.empty;

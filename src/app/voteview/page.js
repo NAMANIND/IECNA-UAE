@@ -10,7 +10,9 @@ const VoteViews = () => {
   useEffect(() => {
     const fetchNominees = async () => {
       try {
-        const nomineesSnapshot = await firestore.collection("nominees").get();
+        const nomineesSnapshot = await firestore
+          .collection("india-nominees")
+          .get();
         const nomineesData = nomineesSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -62,7 +64,7 @@ const VoteViews = () => {
     );
     if (isConfirmed) {
       try {
-        await firestore.collection("nominees").doc(nomineeId).delete();
+        await firestore.collection("india-nominees").doc(nomineeId).delete();
         // Refresh the nominees list after deletion
         const updatedNominees = { ...nomineesByCategory };
         for (const category in updatedNominees) {

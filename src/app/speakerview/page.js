@@ -10,7 +10,9 @@ const SpeakerViews = () => {
   useEffect(() => {
     const fetchSpeakers = async () => {
       try {
-        const speakersSnapshot = await firestore.collection("speakers").get();
+        const speakersSnapshot = await firestore
+          .collection("india-speakers")
+          .get();
         const speakersData = speakersSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -36,7 +38,7 @@ const SpeakerViews = () => {
     );
     if (isConfirmed) {
       try {
-        await firestore.collection("speakers").doc(speakerId).delete();
+        await firestore.collection("india-speakers").doc(speakerId).delete();
         // Refresh the speakers list after deletion
         const updatedSpeakers = speakers.filter(
           (speaker) => speaker.id !== speakerId
@@ -51,7 +53,7 @@ const SpeakerViews = () => {
 
   const toggleApproval = async (speakerId, currentApprovedStatus) => {
     try {
-      await firestore.collection("speakers").doc(speakerId).update({
+      await firestore.collection("india-speakers").doc(speakerId).update({
         approved: !currentApprovedStatus,
       });
       // Refresh the speakers list after updating approval status

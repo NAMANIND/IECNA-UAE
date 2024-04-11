@@ -18,7 +18,7 @@ const DescriptionCard = ({
   img,
   des,
   job,
-  linkdin,
+  linkedin,
   instagram,
   tiktok,
   snapchat,
@@ -64,8 +64,8 @@ const DescriptionCard = ({
             </h2>
             <p className={` text-[13px] my-4  ${work_sans.className}`}>{job}</p>
             <div className="flex gap-5 h-[45px] relative bottom-0 ">
-              {linkdin && (
-                <a href={linkdin} target="_blank" rel="noopener noreferrer">
+              {linkedin && (
+                <a href={linkedin} target="_blank" rel="noopener noreferrer">
                   <FaLinkedin size={28} />
                 </a>
               )}

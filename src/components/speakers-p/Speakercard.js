@@ -17,7 +17,7 @@ const speakersData = [
     company: "Saudi Tourism Authority",
     jobTitle: "Executive Director",
     details: "Executive Director, Saudi Tourism Authority",
-    linkdin: "https://www.linkedin.com/in/mohanned-abu-al-majd-3a553058/",
+    linkedin: "https://www.linkedin.com/in/mohanned-abu-al-majd-3a553058/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -30,7 +30,7 @@ const speakersData = [
     company: "Red Sea Global",
     jobTitle: "Group Head of Global Brand Development",
     details: "Group Head of Global Brand Development, Red Sea Global",
-    linkdin: "https://www.linkedin.com/in/tracy-wirth-lanza-43a0ab9/",
+    linkedin: "https://www.linkedin.com/in/tracy-wirth-lanza-43a0ab9/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -43,7 +43,7 @@ const speakersData = [
     company: "Hindamme",
     jobTitle: "Founder",
     details: "Founder, Hindamme",
-    linkdin: "",
+    linkedin: "",
     instagram: "https://www.instagram.com/moekhoja/?hl=en",
     tiktok: "",
     snapchat: "",
@@ -56,7 +56,7 @@ const speakersData = [
     company: "Tabib Group",
     jobTitle: "Chief Marketing Officer",
     details: "Chief Marketing Officer, Tabib Group",
-    linkdin: "https://www.linkedin.com/in/saedalali/",
+    linkedin: "https://www.linkedin.com/in/saedalali/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -69,7 +69,7 @@ const speakersData = [
     company: "Confidential Government",
     jobTitle: "Director of External Communications",
     details: "Director of External Communications, Confidential Government",
-    linkdin: "https://www.linkedin.com/in/hessa-al-masoud-8b347920/",
+    linkedin: "https://www.linkedin.com/in/hessa-al-masoud-8b347920/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -82,7 +82,7 @@ const speakersData = [
     company: "Accor",
     jobTitle: "Group Director of Communications & Business Development",
     details: "Group Director of Communications & Business Development, Accor",
-    linkdin: "https://www.linkedin.com/in/faisal-abdallah-%E2%9C%94-89504723/",
+    linkedin: "https://www.linkedin.com/in/faisal-abdallah-%E2%9C%94-89504723/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -95,7 +95,7 @@ const speakersData = [
     company: "ToYou",
     jobTitle: "Chief Brand Officer",
     details: "Chief Brand Officer, ToYou",
-    linkdin: "https://www.linkedin.com/in/mustafa-zaatari-7777a973/",
+    linkedin: "https://www.linkedin.com/in/mustafa-zaatari-7777a973/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -108,7 +108,7 @@ const speakersData = [
     company: "Tim Hortons",
     jobTitle: "Chief Marketing Officer",
     details: "Chief Marketing Officer, Tim Hortons",
-    linkdin: "https://www.linkedin.com/in/aamirallibhoy/",
+    linkedin: "https://www.linkedin.com/in/aamirallibhoy/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -121,7 +121,7 @@ const speakersData = [
     company: "AOIC",
     jobTitle: "Marketing Director",
     details: "Marketing Director, AOIC",
-    linkdin: "https://www.linkedin.com/in/ahad-hamza-nihal-6282a3117/",
+    linkedin: "https://www.linkedin.com/in/ahad-hamza-nihal-6282a3117/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -134,7 +134,7 @@ const speakersData = [
     company: "",
     jobTitle: "Content creator",
     details: "Content creator",
-    linkdin: "",
+    linkedin: "",
     instagram: "https://www.instagram.com/misho_baeshen/?hl=en",
     tiktok: "",
     snapchat: "",
@@ -147,7 +147,7 @@ const speakersData = [
     company: "Mustanad",
     jobTitle: "Founder",
     details: "Founder, Mustanad",
-    linkdin: "https://www.linkedin.com/in/sofana-dahlan-b734801b/",
+    linkedin: "https://www.linkedin.com/in/sofana-dahlan-b734801b/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -160,7 +160,8 @@ const speakersData = [
     company: "",
     jobTitle: "Content Creator",
     details: "Content Creator",
-    linkdin: "https://www.linkedin.com/in/rajeh-alharthi/?originalSubdomain=sa",
+    linkedin:
+      "https://www.linkedin.com/in/rajeh-alharthi/?originalSubdomain=sa",
     instagram: "https://www.instagram.com/rajeh_90/?hl=en",
     tiktok: "",
     snapchat: "",
@@ -173,7 +174,7 @@ const speakersData = [
     company: "",
     jobTitle: "Content creator",
     details: "Content creator",
-    linkdin: "",
+    linkedin: "",
     instagram: "https://www.instagram.com/wydad_serri/",
     tiktok: "",
     snapchat: "",
@@ -186,7 +187,7 @@ const speakersData = [
     company: "",
     jobTitle: "Content creator",
     details: "Content creator",
-    linkdin: "",
+    linkedin: "",
     instagram: "https://www.instagram.com/nathaliefanj/?hl=en",
     tiktok: "",
     snapchat: "",
@@ -200,7 +201,7 @@ const speakersData = [
     jobTitle: "Senior Director - Marketing & Communications",
     details:
       "Senior Director - Marketing & Communications at Emaar, The Economic City",
-    linkdin: "https://www.linkedin.com/in/firas-kamal-3445b221/",
+    linkedin: "https://www.linkedin.com/in/firas-kamal-3445b221/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -213,7 +214,7 @@ const speakersData = [
     company: "Jeddah College of Advertising",
     jobTitle: "Dean",
     details: "Dean of Jeddah College of Advertising",
-    linkdin: "https://www.linkedin.com/in/dr-hatoon-kadi-8713b14/",
+    linkedin: "https://www.linkedin.com/in/dr-hatoon-kadi-8713b14/",
     instagram: "",
     tiktok: "",
     snapchat: "",
@@ -425,7 +426,7 @@ function SpeakerCard() {
     const fetchSpeakers = async () => {
       try {
         const speakersCollection = await firestore
-          .collection("speakers")
+          .collection("india-speakers")
           .where("approved", "==", true) // Filter speakers where approved is true
           .get();
         const speakersData = speakersCollection.docs.map((doc) => doc.data());
@@ -482,7 +483,7 @@ function SpeakerCard() {
                   title={speaker.firstName + " " + speaker.lastName} // Full name
                   job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
                   des={speaker.details} // Speaker description
-                  linkdin={speaker.linkdin} // LinkedIn URL
+                  linkedin={speaker.linkedin} // LinkedIn URL
                   instagram={speaker.instagram} // Instagram URL
                   tiktok={speaker.tiktok} // TikTok URL
                   snapchat={speaker.snapchat} // Snapchat URL
@@ -520,7 +521,7 @@ function SpeakerCard() {
                   title={speaker.name} // Full name
                   job={speaker.details} // Job profile and company
                   des={speaker.details} // Speaker description
-                  linkdin={speaker.linkedin} // LinkedIn URL
+                  linkedin={speaker.linkedin} // LinkedIn URL
                   instagram={speaker.instagram} // Instagram URL
                   tiktok={speaker.tiktok} // TikTok URL
                   snapchat={speaker.snapchat} // Snapchat URL
@@ -558,7 +559,7 @@ function SpeakerCard() {
                   title={speaker.firstName + " " + speaker.lastName} // Full name
                   job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
                   des={speaker.details} // Speaker description
-                  linkdin={speaker.linkdin} // LinkedIn URL
+                  linkedin={speaker.linkedin} // LinkedIn URL
                   instagram={speaker.instagram} // Instagram URL
                   tiktok={speaker.tiktok} // TikTok URL
                   snapchat={speaker.snapchat} // Snapchat URL

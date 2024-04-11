@@ -52,7 +52,7 @@ const MultiPageForm = () => {
     tiktok: "",
     snapchat: "",
     youtube: "",
-    linkdin: "",
+    linkedin: "",
     coupon: "",
     image: null,
   });
@@ -206,7 +206,7 @@ const MultiPageForm = () => {
     <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
     <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
     <p><strong>Youtube:</strong> ${formData.youtube}</p>
-    <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+    <p><strong>Linkedin:</strong> ${formData.linkedin}</p>
     <p><strong>Coupon:</strong> ${formData.coupon}</p>
 
   
@@ -242,12 +242,14 @@ const MultiPageForm = () => {
     } else {
       if (formData.category === "speaker") {
         // Upload image to Firebase storage
-        const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+        const imageRef = storage
+          .ref()
+          .child(`india-speakers-image/${formData.image.name}`);
         await imageRef.put(formData.image);
         const imageUrl = await imageRef.getDownloadURL();
         setSelectedImageurl(imageUrl);
 
-        const nomineeRef = firestore.collection("speakers").doc();
+        const nomineeRef = firestore.collection("india-speakers").doc();
         const nomineeId = nomineeRef.id;
 
         // Save speaker details to Firestore
@@ -266,7 +268,7 @@ const MultiPageForm = () => {
           tiktok: formData.tiktok,
           snapchat: formData.snapchat,
           youtube: formData.youtube,
-          linkdin: formData.linkdin ? formData.linkdin : "",
+          linkedin: formData.linkedin ? formData.linkedin : "",
           details: formData.details,
           approved: false,
         });
@@ -300,7 +302,7 @@ const MultiPageForm = () => {
         <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
         <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
         <p><strong>Youtube:</strong> ${formData.youtube}</p>
-        <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+        <p><strong>Linkedin:</strong> ${formData.linkedin}</p>
         <p><strong>Coupon:</strong> ${formData.coupon}</p>
         <p><strong>Image:</strong></p>
         <img src="${imageUrl}" alt="Uploaded Image" width="200" height="200"  />
@@ -362,7 +364,7 @@ const MultiPageForm = () => {
         <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
         <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
         <p><strong>Youtube:</strong> ${formData.youtube}</p>
-        <p><strong>Linkedin:</strong> ${formData.linkdin}</p>
+        <p><strong>Linkedin:</strong> ${formData.linkedin}</p>
         <p><strong>Coupon:</strong> ${formData.coupon}</p>
     
      
@@ -672,9 +674,9 @@ const MultiPageForm = () => {
                   <Input
                     variant="underlined"
                     label="Linkedin"
-                    name="linkdin"
+                    name="linkedin"
                     className=" w-full "
-                    value={formData.linkdin}
+                    value={formData.linkedin}
                     onChange={handleChange}
                     isRequired
                   />
@@ -686,9 +688,9 @@ const MultiPageForm = () => {
                   <Input
                     variant="underlined"
                     label="Linkedin"
-                    name="linkdin"
+                    name="linkedin"
                     className="md:w-1/2 w-full "
-                    value={formData.linkdin}
+                    value={formData.linkedin}
                     onChange={handleFormDataChange}
                     isRequired
                   />

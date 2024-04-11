@@ -207,7 +207,9 @@ const NewMultiPageForm = ({ to }) => {
 
     if (formData.registrationType === "nomination") {
       setrtype("nomination");
-      const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+      const imageRef = storage
+        .ref()
+        .child(`india-nomination-image/${formData.image.name}`);
       await imageRef.put(formData.image);
       const imageUrl = await imageRef.getDownloadURL();
       setimgu(imageUrl);
@@ -254,7 +256,7 @@ const NewMultiPageForm = ({ to }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
-      const nomineeRef = firestore.collection("nominees").doc();
+      const nomineeRef = firestore.collection("india-nominees").doc();
       const nomineeId = nomineeRef.id;
 
       const categoriesData = {};

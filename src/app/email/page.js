@@ -2,11 +2,11 @@
 import { Resend } from "resend";
 
 const Sendemail = async (to, subject, html) => {
-  const resend = new Resend("re_brvYxEKv_oX8bHFYuVGozFSzRU95VfV7u");
+  const resend = new Resend("re_39pwxCko_H6jU6QouHSEgRYLF4czWCzuZ");
 
   try {
     await resend.emails.send({
-      from: "iena@namanrai.tech",
+      from: "india@theiena.com",
       to: to,
       subject: subject,
       html: html, // Changed 'react' to 'html'

@@ -191,12 +191,14 @@ const NominateForm = () => {
     }
 
     // Upload image to Firebase storage
-    const imageRef = storage.ref().child(`nominate/${formData.image.name}`);
+    const imageRef = storage
+      .ref()
+      .child(`india-nominations-image/${formData.image.name}`);
     await imageRef.put(formData.image);
     const imageUrl = await imageRef.getDownloadURL();
 
     // Save form data to Firestore
-    const nomineeRef = firestore.collection("nominees").doc();
+    const nomineeRef = firestore.collection("india-nominees").doc();
     const nomineeId = nomineeRef.id;
 
     const categoriesData = {};
