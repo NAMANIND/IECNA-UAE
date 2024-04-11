@@ -34,7 +34,7 @@ function Sponsors() {
         {Object.keys(images).map((imageName, index) => (
           <Image
             key={index}
-            className="object-contain grayscale hover:grayscale-0 transition duration-500 ease-in-out cursor-pointer"
+            className="object-contain  transition duration-500 ease-in-out cursor-pointer"
             src={images[imageName].default} // Use the 'default' property for ES6 modules
             width={120}
             height={120}

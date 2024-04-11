@@ -11,14 +11,14 @@ import gluf from "../../../../public/images/sponsors/gulf.png";
 function Mediapartners() {
   // Define data for sponsors
   const sponsors = [
-    {
-      name: "Gulf Moments",
-      description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/2177b778065eb53456e9aae35c54027c06ae1da4769bc4ccee832d4b516451f3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-      logoUrl: gluf,
-    },
+    // {
+    //   name: "Gulf Moments",
+    //   description:
+    //     "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+    //   imageUrl:
+    //     "https://cdn.builder.io/api/v1/image/assets/TEMP/2177b778065eb53456e9aae35c54027c06ae1da4769bc4ccee832d4b516451f3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+    //   logoUrl: gluf,
+    // },
     {
       name: "Coin Pedia",
       description:

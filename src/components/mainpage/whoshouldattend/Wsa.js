@@ -29,8 +29,8 @@ const attendees = [
   { title: "CDO", isBold: true },
   { title: "Influencer Marketing Specialists", isBold: true },
 
-  { title: "Ad Tech Managers", isBold: true },
-  { title: "Mar Tech Managers", isBold: true },
+  { title: "Adtech companies", isBold: true },
+  { title: "Martech companies", isBold: true },
   { title: "Customer Experience Officers", isBold: true },
 ];
 
