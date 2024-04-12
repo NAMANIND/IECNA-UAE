@@ -223,7 +223,7 @@ const Voting = () => {
                     <img
                       src={nominee.imageUrl}
                       alt={nominee.firstName}
-                      className="w-full h-[400px] object-cover rounded-[20px]"
+                      className="w-full h-[400px] object-cover object-top rounded-[20px]"
                     />
                     <div className="p-4">
                       <p className="text-xl font-semibold mb-2">
