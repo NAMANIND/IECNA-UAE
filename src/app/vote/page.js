@@ -15,7 +15,7 @@ const Voting = () => {
     const fetchNominees = async () => {
       try {
         const nomineesSnapshot = await firestore
-          .collection("inida-nominees")
+          .collection("india-nominees")
           .get();
         const nomineesData = nomineesSnapshot.docs.map((doc) => ({
           id: doc.id,
