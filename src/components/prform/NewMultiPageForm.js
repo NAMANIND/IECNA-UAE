@@ -20,7 +20,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
-const NewMultiPageForm = ({ to }) => {
+const NewMultiPageForm = ({ to, name }) => {
   const [page, setPage] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [values, setValues] = useState(new Set([]));
@@ -243,6 +243,8 @@ const NewMultiPageForm = ({ to }) => {
       setrtype("nomination");
 
       const subject =
+        name +
+        " " +
         field +
         " Nomination form submission by: " +
         formData.firstName +
@@ -343,6 +345,8 @@ const NewMultiPageForm = ({ to }) => {
     `;
 
       const subject =
+        name +
+        " " +
         field +
         " delegate form submission by: " +
         formData.firstName +

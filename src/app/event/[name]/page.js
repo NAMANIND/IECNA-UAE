@@ -24,7 +24,11 @@ function page({ params }) {
     return (
       <div>
         <Head head="Event Registration" />
-        {name === "sonu" ? <Spkrform /> : <NewMultiPageForm to={to} />}
+        {name === "sonu" ? (
+          <Spkrform />
+        ) : (
+          <NewMultiPageForm to={to} name={name} />
+        )}
       </div>
     );
   } else {

@@ -216,6 +216,8 @@ const Spkrform = () => {
         "sonu.chauhan@influenceexchangegroup.com",
       ];
       const subject =
+        "Sonu's " +
+        " " +
         formData.category +
         " Registration Form Submission by " +
         formData.firstName +
