@@ -111,8 +111,8 @@ const Spkrform = () => {
       return;
     }
 
-    if (imageFile.width <= 800 && imageFile.height <= 800) {
-      alert("Image should be in 800px x 800px");
+    if (imageFile.width !== imageFile.heigh) {
+      alert("Image should be in 800px x 800px or Square format");
       return;
     }
 
