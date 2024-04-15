@@ -231,6 +231,7 @@ function SpeakerCard() {
       try {
         const speakersCollection = await firestore
           .collection("india-speakers")
+          .where("approved", "==", true) // Filter speakers where approved is true
           .get();
         const speakersData = speakersCollection.docs.map((doc) => doc.data());
         setSpeakers(speakersData);
@@ -267,11 +268,46 @@ function SpeakerCard() {
         viewport={{ once: true, amount: 0.3 }}
         className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
       >
+        OUR ESTEEMED SPEAKERS
+      </motion.h2>
+      <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
+          {speakers.slice(0, 8).map((speaker, index) => (
+            <motion.div
+              initial={offscreen}
+              whileInView={onscreen}
+              viewport={{ once: true, amount: 0.3 }}
+              key={index}
+            >
+              {/* Replace sample data with fetched speaker data */}
+              <DescriptionCard
+                key={index}
+                img={speaker.imageUrl} // Speaker image URL
+                title={speaker.firstName + " " + speaker.lastName} // Full name
+                job={speaker.jobTitle + ", " + speaker.company} // Job profile and company
+                des={speaker.details} // Speaker description
+                linkedin={speaker.linkedin} // LinkedIn URL
+                instagram={speaker.instagram} // Instagram URL
+                tiktok={speaker.tiktok} // TikTok URL
+                snapchat={speaker.snapchat} // Snapchat URL
+                youtube={speaker.youtube} // YouTube URL
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <motion.h2
+        initial={offscreen}
+        whileInView={onscreen}
+        viewport={{ once: true, amount: 0.3 }}
+        className="self-center text-5xl mt-52 text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+      >
         OUR PAST SPEAKERS
       </motion.h2>
       <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-          {speakersData.slice(0, 8).map((speaker, index) => (
+          {speakersData.slice(0, 4).map((speaker, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
@@ -283,7 +319,7 @@ function SpeakerCard() {
                 key={index}
                 img={`https://www.theiecna.com/` + speaker.imageUrl} // Speaker image URL
                 title={speaker.firstName + " " + speaker.lastName} // Full name
-                job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
+                job={speaker.jobTitle + ", " + speaker.company} // Job profile and company
                 des={speaker.details} // Speaker description
                 linkedin={speaker.linkedin} // LinkedIn URL
                 instagram={speaker.instagram} // Instagram URL
