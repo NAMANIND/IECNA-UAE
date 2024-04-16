@@ -227,6 +227,11 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>Job Title: ${formData.jobTitle}</p>
       <p>Country: ${formData.country}</p>
       <p>Industry: ${formData.industry}</p>
+      <p>Vote Link: ${`
+    https://india.theiena.com/vote/${formData.firstName
+      .toLowerCase()
+      .replace(/\s/g, "")}_${formData.lastName.toLowerCase().replace(/\s/g, "")}
+`}</p>
       <p>LinkedIn: ${formData.linkedin}</p>
       <p>Instagram: ${formData.instagram}</p>
       <p>Youtube: ${formData.youtube}</p>
@@ -237,6 +242,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>Topics: ${Array.from(topics)
         .map((topic) => `<span>${topic}</span>`)
         .join(", ")}</p>
+
      ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
     `;
 
