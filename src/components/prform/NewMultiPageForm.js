@@ -305,6 +305,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setFormData({
         registrationType: "",
         category: "",
+        field: "",
         firstName: "",
         lastName: "",
         email: "",
@@ -364,6 +365,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setFormData({
         registrationType: "",
         category: "",
+        field: "",
         firstName: "",
         lastName: "",
         email: "",
