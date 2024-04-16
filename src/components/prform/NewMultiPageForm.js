@@ -8,6 +8,7 @@ import {
   Checkbox,
   Autocomplete,
   AutocompleteItem,
+  Snippet,
 } from "@nextui-org/react";
 import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
@@ -19,6 +20,8 @@ import ImageDownloadPage from "@/app/imagetransform/page";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloseIcon from "@mui/icons-material/Close";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const NewMultiPageForm = ({ to, name }) => {
   const [page, setPage] = useState(1);
@@ -239,9 +242,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>Snapchat: ${formData.snapchat}</p>
       <p>Recommendation 1: ${formData.recommendation1}</p>
       <p>Recommendation 2: ${formData.recommendation2}</p>
-      <p>Topics: ${Array.from(topics)
-        .map((topic) => `<span>${topic}</span>`)
-        .join(", ")}</p>
+  
 
      ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
     `;
@@ -325,6 +326,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setPage(1);
       setTopics([]);
       setValues(new Set([]));
+      selectedCategories([]);
     } else {
       const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
@@ -344,9 +346,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>Snapchat: ${formData.snapchat}</p>
       <p>Recommendation 1: ${formData.recommendation1}</p>
       <p>Recommendation 2: ${formData.recommendation2}</p>
-      <p>Topics: ${Array.from(topics)
-        .map((topic) => `<span>${topic}</span>`)
-        .join(", ")}</p>
+    
   
    
     `;
@@ -385,6 +385,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setPage(1);
       setTopics([]);
       setValues(new Set([]));
+      selectedCategories([]);
     }
   };
 
@@ -483,7 +484,11 @@ const NewMultiPageForm = ({ to, name }) => {
                   onClick={() => {
                     if (field !== "") {
                       setErrorMessage("");
-                      nextPage();
+                      if (formData.registrationType === "delegate") {
+                        setPage(page + 2);
+                      } else {
+                        nextPage();
+                      }
                     } else {
                       setErrorMessage("*Please select a field*");
                       alert("Please select a field");
@@ -550,6 +555,9 @@ const NewMultiPageForm = ({ to, name }) => {
                             checked={selectedCategories.includes(category)}
                             onChange={() => handleCategorySelect(category)}
                             label={category}
+                            defaultSelected={selectedCategories.includes(
+                              category
+                            )}
                           >
                             {category}
                           </Checkbox>
@@ -561,6 +569,9 @@ const NewMultiPageForm = ({ to, name }) => {
                             id={`category-${index}`}
                             checked={selectedCategories.includes(category)}
                             onChange={() => handleCategorySelect(category)}
+                            defaultSelected={selectedCategories.includes(
+                              category
+                            )}
                             label={category}
                           >
                             {category}
@@ -863,7 +874,16 @@ const NewMultiPageForm = ({ to, name }) => {
               )}
 
               <div className="flex flex-row gap-4 w-full">
-                <button onClick={prevPage} className="newsletterbtn w-6/12">
+                <button
+                  onClick={() => {
+                    if (formData.registrationType === "delegate") {
+                      setPage(page - 2);
+                    } else {
+                      prevPage();
+                    }
+                  }}
+                  className="newsletterbtn w-6/12"
+                >
                   Previous
                 </button>
                 <button
@@ -878,7 +898,68 @@ const NewMultiPageForm = ({ to, name }) => {
           )}
         </form>
       </div>
+
       {sent && (
+        <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
+            <div className="relative w-full">
+              <h1 className="text-2xl font-bold mb-10 text-center w-full text-black">
+                Form submitted successfully!
+              </h1>
+
+              <button
+                onClick={() => setSent(false)}
+                className={`absolute right-0 top-0  
+                bg-black text-white w-fit h-fit rounded-3xl 
+            px-3 py-1
+                 
+                 right-[${rtype === "nomination" ? 0 : -8}] top-[${
+                  rtype === "nomination" ? 0 : -8
+                }]
+                
+                `}
+              >
+                <CloseIcon />
+              </button>
+            </div>
+            <div className="flex justify-center gap-5 items-center w-full">
+              <div
+                className={`flex justify-center items-center w-[${
+                  rtype === "nomination" ? "100%" : "50%"
+                }]`}
+              >
+                {poppage}
+              </div>
+              {rtype === "nomination" && (
+                <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
+                  <div className="  w-full">
+                    Vote link:
+                    <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      <Snippet
+                        symbol="#"
+                        variant="flat"
+                        color="default"
+                        className="bg-transparent"
+                      >
+                        {votelink}
+                      </Snippet>
+                      <a
+                        href={votelink}
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div
             className="bg-white p-10 rounded-lg m-10 max-h-fit"
@@ -911,7 +992,7 @@ const NewMultiPageForm = ({ to, name }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

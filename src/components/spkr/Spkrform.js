@@ -23,6 +23,9 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
+import CloseIcon from "@mui/icons-material/Close";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+
 const Spkrform = () => {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -118,16 +121,17 @@ const Spkrform = () => {
 
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
-    // const popup = (
-    //   <ImageDownloadPage
-    //     imageData={imageFile}
-    //     title={formData.firstName + " " + formData.lastName}
-    //     company={formData.jobTitle + " | " + formData.company}
-    //     category={formData.category}
-    //     field={formData.field}
-    //   />
-    // );
-    // setPoppage(popup);
+    const popup = (
+      <ImageDownloadPage
+        imageData={imageFile}
+        title={formData.firstName + " " + formData.lastName}
+        marco={formData.company}
+        company={formData.jobTitle}
+        category={formData.category}
+        field={formData.field}
+      />
+    );
+    setPoppage(popup);
   };
 
   const handleSubmit = async (e) => {
@@ -259,6 +263,7 @@ const Spkrform = () => {
       alert("Form submitted successfully!"); // For other categories
     }
 
+    setSent(true);
     // if (formData.category === "speaker" || formData.category === "delegate") {
     //   setSent(true);
     //   const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
@@ -657,29 +662,33 @@ const Spkrform = () => {
 
       {/* popup */}
 
-      {/* {sent && (
+      {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div
-            className="bg-white p-10 rounded-lg m-10 max-h-fit"
-            style={{ width: "800px" }}
-          >
-            <h1 className="text-2xl font-bold mb-10 text-center text-black">
-              Form submitted successfully!
-            </h1>
-            <div className="flex justify-center items-center w-full h-[400px]">
-              {poppage}
-            </div>
-            <div className="flex justify-center items-center w-full">
+          <div className="bg-white p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
+            <div className="relative w-full">
+              <h1 className="text-2xl font-bold mb-10 text-center w-full text-black">
+                Form submitted successfully!
+              </h1>
+
               <button
                 onClick={() => setSent(false)}
-                className="newsletterbtn w-6/12"
+                className="absolute -right-8 -top-8 
+                bg-black text-white w-fit h-fit rounded-3xl 
+            px-3 py-1
+                
+                "
               >
-                Close
+                <CloseIcon />
               </button>
+            </div>
+            <div className="flex justify-center gap-5 items-center w-full">
+              <div className="flex justify-center items-center w-full">
+                {poppage}
+              </div>
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

@@ -70,7 +70,9 @@ function ImageDownloadPage({
             title
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_200/wcrcs6s5lhxhblavydiv.jpg`;
+          )}/fl_layer_apply,x_315,y_195/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+            marco
+          )}/fl_layer_apply,x_315,y_225/wcrcs6s5lhxhblavydiv.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
@@ -80,7 +82,7 @@ function ImageDownloadPage({
             title
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_200/v3009svglfx5ca3zcgkt.jpg`;
+          )}/fl_layer_apply,x_315,y_195/v3009svglfx5ca3zcgkt.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }

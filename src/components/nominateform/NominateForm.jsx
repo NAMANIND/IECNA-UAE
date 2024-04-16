@@ -682,7 +682,7 @@ const NominateForm = () => {
                 
                 "
               >
-                close
+                <CloseIcon />
               </button>
             </div>
             <div className="flex justify-center gap-5 items-center w-full">
