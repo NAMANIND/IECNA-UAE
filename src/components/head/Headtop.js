@@ -1,0 +1,52 @@
+import * as React from "react";
+import { anton } from "@/styles/fonts";
+import headimg from "../../../public/images/head/head.jpg";
+import awards from "../../../public/images/head/awards.jpg";
+import sponsors from "../../../public/images/head/sponsors.jpg";
+import speakers from "../../../public/images/head/speakers.jpg";
+import register from "../../../public/images/head/register.jpg";
+import Image from "next/image";
+
+function Headtop({ head }) {
+  const lower = head.toLowerCase();
+  let url = headimg;
+  if (lower === "awards") {
+    url = awards;
+  }
+  if (lower === "sponsors") {
+    url = sponsors;
+  }
+  if (lower === "speakers") {
+    url = speakers;
+  }
+  if (lower === "register") {
+    url = register;
+  }
+
+  return (
+    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
+      <Image
+        loading="lazy"
+        src={url}
+        className="object-cover absolute inset-0 w-full h-full"
+        alt={head}
+        width={1920}
+        height={2080}
+      />
+      <h1
+        className={`relative z-50  top-32  sm:top-0 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}
+        style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85)" }}
+      >
+        {head}
+      </h1>
+      <section
+        className="absolute bottom-0 w-full md:min-h-[25%] h-[50%] max-md:min-h-auto"
+        style={{
+          background: "linear-gradient(0deg, #000, transparent)",
+        }}
+      />
+    </main>
+  );
+}
+
+export default Headtop;

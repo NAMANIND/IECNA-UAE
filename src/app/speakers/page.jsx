@@ -1,11 +1,11 @@
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import SpeakerCard from "@/components/speakers-p/Speakercard";
 import React from "react";
 
 function Speakers() {
   return (
     <div>
-      <Head head="Speakers" />
+      <Headtop head="Speakers" />
       <SpeakerCard />
     </div>
   );

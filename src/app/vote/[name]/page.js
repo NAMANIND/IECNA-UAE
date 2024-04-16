@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { firestore } from "../../../../firbase/clientApp";
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import Head from "next/head";
 
 const PersonalVote = ({ params }) => {
@@ -173,7 +173,7 @@ const PersonalVote = ({ params }) => {
         />
         <meta name="twitter:image" content={nomineeData.imageUrl} />
       </Head>
-      <Head head="Vote for me" />
+      <Headtop head="Vote for me" />
       {nomineeData && (
         <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
           <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">

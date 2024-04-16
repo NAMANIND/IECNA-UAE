@@ -1,6 +1,6 @@
 "use client";
 
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import MultiPageForm from "@/components/mutliregister/MultiPageForm";
 import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
@@ -9,7 +9,7 @@ function Register() {
   return (
     <NextUIProvider>
       <div>
-        <Head head="Register" />
+        <Headtop head="Register" />
         <MultiPageForm />
       </div>
     </NextUIProvider>

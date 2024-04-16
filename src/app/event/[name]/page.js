@@ -1,4 +1,4 @@
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import MultiPageForm from "@/components/mutliregister/MultiPageForm";
 import NominateForm from "@/components/nominateform/NominateForm";
 import React from "react";
@@ -28,7 +28,7 @@ function page({ params }) {
 
     return (
       <div>
-        <Head head="Event Registration" />
+        <Headtop head="Event Registration" />
         {name === "sonu" ? (
           <Spkrform />
         ) : (

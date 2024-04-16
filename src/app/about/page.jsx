@@ -4,13 +4,13 @@ import Venue from "@/components/about-p/venue/Venue";
 import Whattoexcept from "@/components/about-p/whattoexpect/Whattoexpect";
 import Whyattend from "@/components/about-p/whyattend/Whyattend";
 
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import React from "react";
 
 function About() {
   return (
     <div>
-      <Head head="About" />
+      <Headtop head="About" />
 
       <Aboutone />
       <Ourmisson />

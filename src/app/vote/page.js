@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../../firbase/clientApp";
-import Head from "@/components/head/Head";
+import Headtop from "@/components/head/Headtop";
 import { anton, work_sans } from "@/styles/fonts";
 
 const Voting = () => {
@@ -189,7 +189,7 @@ const Voting = () => {
 
   return (
     <div>
-      <Head head="Voting" />
+      <Headtop head="Voting" />
       <div className={` mx-auto p-8 bg-white ${work_sans.className} `}>
         <h1
           className={`text-4xl font-semibold my-20 w-full text-center ${anton.className} `}
