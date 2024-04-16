@@ -134,24 +134,21 @@ function ImageDownloadPage({
   };
 
   return (
-    <div
-      className="
-    flex flex-col w-[100%] max-w-[100%] justify-center items-center gap-4
-    "
-    >
+    <div className=" relative w-[100%] h-fit max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
       {transformedImageUrl && (
         <img
           src={transformedImageUrl}
           alt={title}
-          height={200}
-          className={`object-contain  w-[${
-            category === "nomination" ? "50%" : "80%"
-          }] `}
+          className={`object-contain w-[100%] h-[60vh] max-h-[60vh]`}
         />
       )}
 
-      <button onClick={handleDownloadTransformed} className="newsletterbtn">
-        Download Transformed Image
+      <button
+        onClick={handleDownloadTransformed}
+        className=" newsletterbtn w-full
+      absolute -bottom-2 left-1/2   -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+      >
+        Download Poster
       </button>
     </div>
   );

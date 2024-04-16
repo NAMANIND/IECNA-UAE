@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { firestore } from "../../../../firbase/clientApp";
 import Head from "@/components/head/Head";
+import Head from "next/head";
 
 const PersonalVote = ({ params }) => {
   const { name } = params;
@@ -149,6 +150,29 @@ const PersonalVote = ({ params }) => {
   const [firstName, lastName] = name.toLowerCase().split("_");
   return (
     <div>
+      <Head>
+        <title>{`${firstName} ${lastName} - Vote for Me`}</title>
+        <meta
+          property="og:title"
+          content={`${firstName} ${lastName} - Vote for Me`}
+        />
+        <meta
+          property="og:description"
+          content={`Vote for ${firstName} ${lastName} in the India Nominees`}
+        />
+        <meta property="og:image" content={nomineeData.imageUrl} />
+        <meta property="og:url" content={`URL_TO_YOUR_PAGE/${name}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${firstName} ${lastName} - Vote for Me`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Vote for ${firstName} ${lastName} in the India Nominees`}
+        />
+        <meta name="twitter:image" content={nomineeData.imageUrl} />
+      </Head>
       <Head head="Vote for me" />
       {nomineeData && (
         <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">

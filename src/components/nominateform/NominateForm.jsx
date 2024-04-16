@@ -11,6 +11,7 @@ import {
   Checkbox,
   Autocomplete,
   AutocompleteItem,
+  Snippet,
 } from "@nextui-org/react";
 import Image from "next/image";
 import img1 from "../../../public/images/Intersect.png";
@@ -23,6 +24,8 @@ import ImageDownloadPage from "../../app/imagetransform/page";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloseIcon from "@mui/icons-material/Close";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const NominateForm = () => {
   const [step, setStep] = useState(1);
@@ -435,9 +438,7 @@ const NominateForm = () => {
               <Input
                 type="email"
                 label={
-                  formData.field === "influencer"
-                    ? "Business Email"
-                    : "Business Email"
+                  formData.field === "influencer" ? "Email" : "Business Email"
                 }
                 name="email"
                 value={formData.email}
@@ -667,32 +668,50 @@ const NominateForm = () => {
       </div>
       {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div
-            className="bg-white p-10 rounded-lg m-10 max-h-fit"
-            style={{ width: "800px" }}
-          >
-            <h1 className="text-2xl font-bold mb-10 text-center text-black">
-              Form submitted successfully!
-            </h1>
-            <div className="flex justify-center items-center w-full h-[400px]">
-              {poppage}
-            </div>
-            <div className="flex justify-center items-center w-full">
-              <a
-                href={votelink}
-                target="_blank"
-                className="text-black underline pt-10 text-center w-full"
-              >
-                {votelink}
-              </a>
-            </div>
-            <div className="flex justify-center items-center w-full">
+          <div className="bg-white p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
+            <div className="relative w-full">
+              <h1 className="text-2xl font-bold mb-10 text-center w-full text-black">
+                Form submitted successfully!
+              </h1>
+
               <button
                 onClick={() => setSent(false)}
-                className="newsletterbtn w-6/12"
+                className="absolute right-0 top-0  
+                bg-black text-white w-fit h-fit rounded-3xl 
+            px-3 py-1
+                
+                "
               >
-                Close
+                close
               </button>
+            </div>
+            <div className="flex justify-center gap-5 items-center w-full">
+              <div className="flex justify-center items-center w-1/2">
+                {poppage}
+              </div>
+              <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
+                <div className="  w-full">
+                  Vote link:
+                  <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                    <Snippet
+                      symbol="#"
+                      variant="flat"
+                      color="default"
+                      className="bg-transparent"
+                    >
+                      {votelink}
+                    </Snippet>
+                    <a
+                      href={votelink}
+                      target="_blank"
+                      aria-label="Open in new tab"
+                      title="Open in new tab"
+                    >
+                      <OpenInNewIcon width={20} height={20} />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
