@@ -4,6 +4,7 @@ import Image from "next/image";
 import { firestore } from "../../../../firbase/clientApp";
 import Headtop from "@/components/head/Headtop";
 import Head from "next/head";
+import img1 from "../../../../public/images/well.png";
 
 const PersonalVote = ({ params }) => {
   const { name } = params;
@@ -150,79 +151,76 @@ const PersonalVote = ({ params }) => {
   const [firstName, lastName] = name.toLowerCase().split("_");
   return (
     <div>
+      <Head>
+        <title>{`${firstName} ${lastName} - Vote for Me`}</title>
+        <meta
+          property="og:title"
+          content={`${firstName} ${lastName} - Vote for Me`}
+        />
+        <meta
+          property="og:description"
+          content={`Vote for ${firstName} ${lastName} in the India Nominees`}
+        />
+        <meta property="og:image" content={img1} />
+        <meta property="og:url" content={`URL_TO_YOUR_PAGE/${name}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${firstName} ${lastName} - Vote for Me`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Vote for ${firstName} ${lastName} in the India Nominees`}
+        />
+        <meta name="twitter:image" content={img1} />
+      </Head>
       <Headtop head="Vote for me" />
       {nomineeData && (
-        <>
-          <Head>
-            <title>{`${firstName} ${lastName} - Vote for Me`}</title>
-            <meta
-              property="og:title"
-              content={`${firstName} ${lastName} - Vote for Me`}
+        <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">
+            {firstName} {lastName}
+          </h1>
+          <div className="relative w-full flex justify-center h-[400px] mb-4 overflow-hidden rounded-lg">
+            <img
+              src={nomineeData.imageUrl}
+              alt={name}
+              layout="fill"
+              objectFit="cover"
+              width={300}
+              height={400}
+              className="object-cover object-top rounded-lg"
             />
-            <meta
-              property="og:description"
-              content={`Vote for ${firstName} ${lastName} in the India Nominees`}
-            />
-            <meta property="og:image" content={nomineeData.imageUrl} />
-            <meta property="og:url" content={`URL_TO_YOUR_PAGE/${name}`} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="twitter:title"
-              content={`${firstName} ${lastName} - Vote for Me`}
-            />
-            <meta
-              name="twitter:description"
-              content={`Vote for ${firstName} ${lastName} in the India Nominees`}
-            />
-            <meta name="twitter:image" content={nomineeData.imageUrl} />
-          </Head>
-
-          <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
-            <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">
-              {firstName} {lastName}
-            </h1>
-            <div className="relative w-full flex justify-center h-[400px] mb-4 overflow-hidden rounded-lg">
-              <img
-                src={nomineeData.imageUrl}
-                alt={name}
-                layout="fill"
-                objectFit="cover"
-                width={300}
-                height={400}
-                className="object-cover object-top rounded-lg"
-              />
-            </div>
-            <h2 className="text-xl font-semibold mb-4">Categories:</h2>
-            <div className="grid grid-cols-2 gap-4">
-              {Object.entries(nomineeData.categories).map(
-                ([categoryKey, category]) => (
-                  <button
-                    key={categoryKey}
-                    className={`bg-gray-200 p-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white ${
-                      selectedCategories[categoryKey]
-                        ? "bg-gray-800 text-white"
-                        : ""
-                    }`}
-                    onClick={() => handleCategorySelect(categoryKey)}
-                    onChange={() => handleCategorySelect(categoryKey)}
-                  >
-                    {category.og}
-                  </button>
-                )
-              )}
-            </div>
-            {Object.values(selectedCategories).some((value) => value) && (
-              <div className="sticky bottom-10 w-full flex justify-center">
+          </div>
+          <h2 className="text-xl font-semibold mb-4">Categories:</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {Object.entries(nomineeData.categories).map(
+              ([categoryKey, category]) => (
                 <button
-                  onClick={handleVote}
-                  className="newsletterbtn w-1/2 mx-auto"
+                  key={categoryKey}
+                  className={`bg-gray-200 p-4 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white ${
+                    selectedCategories[categoryKey]
+                      ? "bg-gray-800 text-white"
+                      : ""
+                  }`}
+                  onClick={() => handleCategorySelect(categoryKey)}
+                  onChange={() => handleCategorySelect(categoryKey)}
                 >
-                  Vote
+                  {category.og}
                 </button>
-              </div>
+              )
             )}
           </div>
-        </>
+          {Object.values(selectedCategories).some((value) => value) && (
+            <div className="sticky bottom-10 w-full flex justify-center">
+              <button
+                onClick={handleVote}
+                className="newsletterbtn w-1/2 mx-auto"
+              >
+                Vote
+              </button>
+            </div>
+          )}
+        </div>
       )}
       {/* Email input popup/modal */}
       {showEmailPopup && (
