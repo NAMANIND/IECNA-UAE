@@ -14,11 +14,16 @@ function page({ params }) {
   if (data.includes(name)) {
     const to =
       name === "megha"
-        ? ["20bei033@ietdavv.edu.in", "megha.salian@influenceexchangegroup.com"]
+        ? [
+            "20bei033@ietdavv.edu.in",
+            "megha.salian@influenceexchangegroup.com",
+            "mohamed.suhel@influenceexchangegroup.com",
+          ]
         : [
             "20bei033@ietdavv.edu.in",
             "megha.salian@influenceexchangegroup.com",
             "navya.kotian@influenceexchangegroup.com",
+            "mohamed.suhel@influenceexchangegroup.com",
           ];
 
     return (
