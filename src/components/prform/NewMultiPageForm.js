@@ -172,7 +172,6 @@ const NewMultiPageForm = ({ to, name }) => {
       formData.lastName === "" &&
       formData.email === "" &&
       formData.phone === "" &&
-      formData.company === "" &&
       formData.jobTitle === "" &&
       formData.country === "" &&
       formData.industry === ""
@@ -654,15 +653,26 @@ const NewMultiPageForm = ({ to, name }) => {
                 />
               </div>
               <div className="flex sm:flex-row flex-col gap-4 w-full">
-                <Input
-                  label="Company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="sd:w-1/2 w-full "
-                  variant="underlined"
-                  isRequired
-                />
+                {formData.field === "influencer" ? (
+                  <Input
+                    label="Company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="sd:w-1/2 w-full "
+                    variant="underlined"
+                  />
+                ) : (
+                  <Input
+                    label="Company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="sd:w-1/2 w-full "
+                    variant="underlined"
+                    isRequired
+                  />
+                )}
                 <Input
                   label="Job Title"
                   name="jobTitle"
