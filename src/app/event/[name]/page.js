@@ -47,8 +47,15 @@ export function generateMetadata({ params }) {
   return {
     openGraph: {
       title: "Event Registration",
-      description: "Register for the event",
-      image: "https://www.theiecna.com/images/ksa.png",
+      description: "IECNA",
+      images: [
+        {
+          url: "https://www.theiecna.com/images/ksa.png",
+          width: 1200,
+          height: 630,
+          alt: "IEG Logo",
+        },
+      ],
     },
   };
 }
