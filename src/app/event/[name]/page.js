@@ -46,7 +46,7 @@ export default page;
 export function generateMetadata({ params }) {
   return {
     openGraph: {
-      image: "./lop.jpg",
+      image: "/lop.jpg",
     },
   };
 }
