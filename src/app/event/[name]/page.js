@@ -45,11 +45,10 @@ export default page;
 
 export function generateMetadata({ params }) {
   return {
-    meta: [
-      {
-        property: "og:image",
-        content: "https://www.theiecna.com/images/ksa.png",
-      },
-    ],
+    openGraph: {
+      title: "Event Registration",
+      description: "Register for the event",
+      image: "https://www.theiecna.com/images/ksa.png",
+    },
   };
 }
