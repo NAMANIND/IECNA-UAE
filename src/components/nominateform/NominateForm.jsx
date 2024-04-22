@@ -121,7 +121,25 @@ const NominateForm = () => {
   };
 
   const handleImageUpload = (e) => {
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.jobTitle === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     const imageFile = e.target.files[0];
+    if (imageFile.size > 1000000) {
+      alert("Image size should be less than 1MB");
+      return;
+    }
+
+    if (imageFile.width <= 800 && imageFile.height <= 800) {
+      alert("Image should be in 800px x 800px");
+      return;
+    }
     console.log(imageFile);
     setFormData({ ...formData, image: imageFile });
 

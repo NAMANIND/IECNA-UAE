@@ -107,6 +107,14 @@ const NewMultiPageForm = ({ to, name }) => {
 
   const handleImageUpload = (e) => {
     const imageFile = e.target.files[0];
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.jobTitle === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
     if (imageFile.size > 1000000) {
       alert("Image size should be less than 1MB");
       return;
@@ -325,7 +333,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setPage(1);
       setTopics([]);
       setValues(new Set([]));
-      selectedCategories([]);
+      setSelectedCategories([]);
     } else {
       const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
@@ -383,8 +391,8 @@ const NewMultiPageForm = ({ to, name }) => {
       });
       setPage(1);
       setTopics([]);
+      setSelectedCategories([]);
       setValues(new Set([]));
-      selectedCategories([]);
     }
   };
 
@@ -935,7 +943,7 @@ const NewMultiPageForm = ({ to, name }) => {
             <div className="flex justify-center gap-5 items-center w-full">
               <div
                 className={`flex justify-center items-center w-[${
-                  rtype === "nomination" ? "100%" : "50%"
+                  rtype === "nomination" ? "100%" : "100%"
                 }]`}
               >
                 {poppage}

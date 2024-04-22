@@ -104,6 +104,14 @@ const MultiPageForm = () => {
 
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
+    if (
+      formData.firstName === "" &&
+      formData.lastName === "" &&
+      formData.jobTitle === ""
+    ) {
+      alert("Please fill all the fields");
+      return;
+    }
     if (imageFile.size > 1000000) {
       alert("Image size should be less than 1MB");
       return;
