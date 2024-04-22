@@ -45,8 +45,11 @@ export default page;
 
 export function generateMetadata({ params }) {
   return {
-    openGraph: {
-      image: "/lop.jpg",
-    },
+    meta: [
+      {
+        property: "og:image",
+        content: "https://www.theiecna.com/images/ksa.png",
+      },
+    ],
   };
 }
