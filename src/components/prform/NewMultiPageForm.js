@@ -446,7 +446,7 @@ const NewMultiPageForm = ({ to, name }) => {
                 errorMessage={errorMessage}
               >
                 <SelectItem key="delegate">Delegate Registration</SelectItem>
-                <SelectItem key="nomination">Nomination</SelectItem>
+                <SelectItem key="nomination">Award Nomination</SelectItem>
               </Select>
 
               <button

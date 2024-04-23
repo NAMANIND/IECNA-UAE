@@ -82,12 +82,12 @@ const VoteViews = () => {
 
   return (
     <div>
-      <Headtop head="Vote Views" />
+      <Headtop head="Vote View" />
       <div className={`container mx-auto p-8 bg-white ${work_sans.className}`}>
         <h1
           className={`text-3xl font-semibold mb-8 w-full text-center ${anton.className}`}
         >
-          Vote Views
+          Vote View
         </h1>
         {Object.entries(nomineesByCategory).map(([category, nominees]) => (
           <div key={category} className="mb-8">
