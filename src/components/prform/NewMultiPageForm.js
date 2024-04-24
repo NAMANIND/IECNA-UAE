@@ -225,36 +225,34 @@ const NewMultiPageForm = ({ to, name }) => {
       setimgu(imageUrl);
 
       const htmlcontent = `
-      <p>First Name: ${formData.firstName}</p>
-      <p>Last Name: ${formData.lastName}</p>
-      <p>Field: ${field}</p>
-      <p>Categories: ${Array.from(selectedCategories)
-        .map((category) => `<span>${category}</span>`)
-        .join(", ")}</p>
-      <p>Email: ${formData.email}</p>
-      <p>Phone: ${formData.phone}</p>
-      <p>Company: ${formData.company}</p>
-      <p>Job Title: ${formData.jobTitle}</p>
-      <p>Country: ${formData.country}</p>
-      <p>Industry: ${formData.industry}</p>
-      <p>Vote Link: ${`
-    https://india.theiena.com/vote/${formData.firstName
-      .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName.toLowerCase().replace(/\s/g, "")}
-`}</p>
-      <p>LinkedIn: ${formData.linkedin}</p>
-      <p>Instagram: ${formData.instagram}</p>
-      <p>Youtube: ${formData.youtube}</p>
- 
-      <p>Snapchat: ${formData.snapchat}</p>
-      <p>Recommendation 1: ${formData.recommendation1}</p>
-      <p>Recommendation 2: ${formData.recommendation2}</p>
-  
-
-     ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
-    `;
-
-      setrtype("nomination");
+        <p>First Name: ${formData.firstName}</p>
+        <p>Last Name: ${formData.lastName}</p>
+        <p>Field: ${field}</p>
+        <p>Categories: ${Array.from(selectedCategories)
+          .map((category) => `<span>${category}</span>`)
+          .join(", ")}</p>
+        <p>Email: ${formData.email}</p>
+        <p>Phone: ${formData.phone}</p>
+        <p>Company: ${formData.company}</p>
+        <p>Job Title: ${formData.jobTitle}</p>
+        <p>Country: ${formData.country}</p>
+        <p>Industry: ${formData.industry}</p>
+        <p>Vote Link: ${`
+      https://india.theiena.com/vote/${formData.firstName
+        .toLowerCase()
+        .replace(/\s/g, "")}_${formData.lastName
+          .toLowerCase()
+          .replace(/\s/g, "")}
+      `}</p>
+        <p>LinkedIn: ${formData.linkedin}</p>
+        <p>Instagram: ${formData.instagram}</p>
+        <p>Youtube: ${formData.youtube}</p>
+        <p>Snapchat: ${formData.snapchat}</p>
+        <p>Recommendation 1: ${formData.recommendation1}</p>
+        <p>Recommendation 2: ${formData.recommendation2}</p>
+    
+        ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
+      `;
 
       const subject =
         name +
@@ -272,42 +270,85 @@ const NewMultiPageForm = ({ to, name }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
-      const nomineeRef = firestore.collection("india-nominees").doc();
+      const nomineeRef = firestore.collection("india-nominees");
       const nomineeId = nomineeRef.id;
+      const nomineeQuery = nomineeRef
+        .where(
+          "firstName",
+          "==",
+          formData.firstName.toLowerCase().replace(/\s/g, "")
+        )
+        .where(
+          "lastName",
+          "==",
+          formData.lastName.toLowerCase().replace(/\s/g, "")
+        )
+        .where("email", "==", formData.email);
 
-      const categoriesData = {};
-      selectedCategories.forEach((category) => {
-        const cat = category
-          .toString()
-          .replace(/\s/g, "")
-          .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
-        const og = category;
-        categoriesData[cat] = {
-          og,
-          vote: 0,
-        };
-      });
+      const nomineeSnapshot = await nomineeQuery.get();
 
-      console.log(categoriesData);
+      if (!nomineeSnapshot.empty) {
+        // Nominee already exists, update their categories
+        nomineeSnapshot.forEach(async (doc) => {
+          const nomineeId = doc.id;
+          const existingCategories = doc.data().categories;
+          const updatedCategories = { ...existingCategories };
 
-      if (Object.keys(categoriesData).length === 0) {
-        setErrorMessage("*Please select at least one category*");
-        return;
+          selectedCategories.forEach((category) => {
+            const cat = category
+              .toString()
+              .replace(/\s/g, "")
+              .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
+            const og = category;
+
+            // Only add new categories
+            if (!existingCategories.hasOwnProperty(cat)) {
+              updatedCategories[cat] = {
+                og,
+                vote: 0,
+              };
+            }
+          });
+
+          await nomineeRef.doc(nomineeId).update({
+            categories: { ...updatedCategories },
+          });
+        });
+      } else {
+        // Nominee does not exist, create a new document for them
+        const categoriesData = {};
+        selectedCategories.forEach((category) => {
+          const cat = category
+            .toString()
+            .replace(/\s/g, "")
+            .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
+          const og = category;
+          categoriesData[cat] = {
+            og,
+            vote: 0,
+          };
+        });
+
+        if (Object.keys(categoriesData).length === 0) {
+          setErrorMessage("*Please select at least one category*");
+          return;
+        }
+
+        await nomineeRef.add({
+          id: nomineeId,
+          firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+          lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+          field,
+          categories: { ...categoriesData },
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          jobTitle: formData.jobTitle,
+          country: formData.country,
+          industry: formData.industry,
+          imageUrl,
+        });
       }
-      await nomineeRef.set({
-        id: nomineeId,
-        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-        field,
-        categories: { ...categoriesData },
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        jobTitle: formData.jobTitle,
-        country: formData.country,
-        industry: formData.industry,
-        imageUrl,
-      });
 
       await Sendemail(to, subject, html);
       alert("Nomination Form submitted successfully!");
