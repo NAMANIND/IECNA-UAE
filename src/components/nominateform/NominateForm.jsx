@@ -256,7 +256,7 @@ const NominateForm = () => {
     <p>LinkedIn: ${formData.linkedin}</p>
     <p>Instagram: ${formData.instagram}</p>
     <p>Youtube: ${formData.youtube}</p>
-    <p>Tiktok: ${formData.tiktok}</p>
+   
     <p>Snapchat: ${formData.snapchat}</p>
 
 
@@ -580,15 +580,6 @@ const NominateForm = () => {
                   />
                 </div>
                 <div className="flex md:flex-row flex-col gap-4 w-full">
-                  <Input
-                    label="Tiktok"
-                    name="tiktok"
-                    value={formData.tiktok}
-                    onChange={handleFormDataChange}
-                    className="md:w-1/2 w-full "
-                    variant="underlined"
-                  />
-
                   <Input
                     label="Snapchat"
                     name="snapchat"

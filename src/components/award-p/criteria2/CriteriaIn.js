@@ -8,104 +8,123 @@ import { motion } from "framer-motion";
 function CriteriaIn() {
   // Define state to manage which heading's criteria to display
   const [selectedHeading, setSelectedHeading] = useState(
-    "Mega/Celeb Influencer of the Year"
+    "Mega/Celeb-Influencer of the Year"
   );
 
   const [selectedHeading2, setSelectedHeading2] = useState(
-    "Best Fashion and Style Influencer of the Year"
+    "Best Tech Influencer"
   );
 
   // Define data structure to store headings, descriptions, and criteria
+
   const data = [
     {
-      "Mega/Celeb Influencer of the Year": {
+      "Mega/Celeb-Influencer of the Year": {
         description:
-          "Recognizes a marketing professional who has demonstrated exceptional leadership skills and achieved remarkable results in driving successful marketing strategies.",
+          "Honoring the most prominent and influential figures in the world of social media and content creation.",
         criteria: [
-          "Resume/CV showcasing leadership experience in marketing roles.",
-          "A summary of major marketing achievements and outcomes.",
-          "Two professional references who can vouch for their marketing leadership skills.",
+          "Prominence and influence in social media and content creation.",
+          "Engagement and impact on audiences.",
+          "Recognition and accolades within the industry.",
         ],
       },
+    },
+    {
       "Macro-Influencer of the Year": {
         description:
-          "Honors brands that have excelled in creating and maintaining a strong brand identity, positioning, and recognition in the market.",
+          "Recognizing influencers with a broader reach who have consistently delivered compelling content to engaged followers.",
         criteria: [
-          "Evidence of consistent brand messaging and visual identity.",
-          "Examples of successful brand campaigns and initiatives.",
-          "Metrics demonstrating brand awareness and perception.",
+          "Large follower base and reach.",
+          "Consistent delivery of compelling content.",
+          "Engagement and interaction with followers.",
         ],
       },
+    },
+    {
       "Micro-Influencer of the Year": {
         description:
-          "Celebrates individuals or teams that have demonstrated creativity and innovation in digital marketing strategies and campaigns.",
+          "Celebrating the impact of micro-influencers who have forged genuine connections with their niche audiences.",
         criteria: [
-          "Examples of innovative digital marketing campaigns or initiatives.",
-          "Metrics showcasing the effectiveness and impact of digital marketing efforts.",
-          "Evidence of using cutting-edge technologies or techniques in digital marketing.",
+          "Authentic engagement with niche audiences.",
+          "Growth and influence within a specific niche.",
+          "Community building and genuine connections.",
         ],
       },
+    },
+    {
       "Nano Influencer of the year": {
         description:
-          "Recognizes brands or agencies that have developed and executed effective influencer marketing strategies to reach and engage target audiences.",
+          "Honoring influencers who have established themselves as budding influencers.",
         criteria: [
-          "Case studies demonstrating successful influencer marketing campaigns.",
-          "Metrics on campaign performance, including reach, engagement, and ROI.",
-          "Evidence of strategic planning and execution in influencer partnerships.",
+          "Emerging presence and potential as an influencer.",
+          "Engagement and interaction with early followers.",
+          "Quality and consistency of content.",
         ],
       },
-      "Collaborative Content Creator": {
-        description:
-          "Honours individuals or brands that have excelled in engaging their audience on social media platforms through compelling content and interactions.",
-        criteria: [
-          "Metrics demonstrating high levels of social media engagement, including likes, shares, comments, and followers.",
-          "Examples of engaging social media content and campaigns.",
-          "Evidence of community building and fostering meaningful interactions on social media.",
-        ],
-      },
-      "Influencer Campaign of the Year": {
-        description:
-          "Celebrates organizations that prioritize and excel in delivering exceptional customer experiences across all touchpoints.",
-        criteria: [
-          "Evidence of customer-centric initiatives and strategies.",
-          "Metrics demonstrating high levels of customer satisfaction and loyalty.",
-          "Examples of innovative approaches to improving the customer experience.",
-        ],
-      },
-      "Engaging Storyteller of the year": {
-        description:
-          "Recognizes organizations that leverage data and analytics to drive informed marketing decisions and achieve measurable results.",
-        criteria: [
-          "Examples of data-driven marketing campaigns or initiatives.",
-          "Metrics demonstrating the impact of data-driven marketing efforts on business outcomes.",
-          "Evidence of using data analytics tools and methodologies to optimize marketing strategies.",
-        ],
-      },
+    },
+    {
       "Creative Visual Content Creator": {
         description:
-          "Honors brands that have demonstrated creativity and innovation in activating their brand across various channels and touchpoints.",
+          "Recognizing influencers with a talent for crafting visually stunning and engaging content.",
         criteria: [
-          "Examples of innovative brand activation campaigns or initiatives.",
-          "Metrics demonstrating the effectiveness and impact of brand activation efforts.",
-          "Evidence of using creative approaches and techniques to connect with target audiences.",
+          "Quality and creativity of visual content.",
+          "Engagement and impact on audiences.",
+          "Innovative approaches to visual storytelling.",
         ],
       },
-      "Social Impact Advocate": {
-        description:
-          "Celebrates organizations that have successfully embraced digital transformation to adapt to changing market dynamics and customer preferences.",
-        criteria: [
-          "Evidence of digital transformation initiatives and strategies.",
-          "Examples of successful digital transformation projects and their impact on business outcomes.",
-          "Metrics demonstrating the effectiveness of digital transformation efforts in achieving organizational goals.",
-        ],
-      },
+    },
+    {
       "Social Media Engagement Champion": {
         description:
-          "Recognizes individuals or organizations that have excelled in building and nurturing relationships with influencers to drive successful partnerships and collaborations.",
+          "Celebrating influencers who excel in fostering meaningful engagement and interactions with their followers on social media platforms.",
         criteria: [
-          "Examples of successful influencer partnerships and collaborations.",
-          "Testimonials from influencers highlighting positive experiences working with the nominee.",
-          "Evidence of strategic relationship-building efforts and long-term partnerships with influencers.",
+          "High levels of engagement and interaction.",
+          "Authentic connections with followers.",
+          "Positive impact on community engagement.",
+        ],
+      },
+    },
+    {
+      "Best Fashion and Style Influencer of the Year": {
+        description:
+          "Recognizing the influencer who sets trends and inspires audiences with their fashion-forward content and style expertise.",
+        criteria: [
+          "Trendsetting fashion content.",
+          "Inspiration and influence in the fashion industry.",
+          "Expertise and knowledge of fashion trends and styles.",
+        ],
+      },
+    },
+    {
+      "Best Travel Influencer of the Year": {
+        description:
+          "Honouring the influencer who captivates audiences with their travel adventures, inspiring wanderlust, and exploration.",
+        criteria: [
+          "Compelling travel content and storytelling.",
+          "Inspiration and influence in travel experiences.",
+          "Engagement and interaction with travel enthusiasts.",
+        ],
+      },
+    },
+    {
+      "Best Beauty Influencer of the Year": {
+        description:
+          "Celebrating the influencer who shares beauty tips, tutorials, and product recommendations, inspiring confidence, and creativity.",
+        criteria: [
+          "Expertise in beauty-related topics.",
+          "Influence and impact on beauty enthusiasts.",
+          "Engagement and interaction with beauty communities.",
+        ],
+      },
+    },
+    {
+      "Best Health & Wellbeing Influencer of the Year": {
+        description:
+          "Recognizing the influencer who promotes physical and mental wellbeing, sharing insights, tips, and motivation for a healthier lifestyle.",
+        criteria: [
+          "Promotion of physical and mental wellbeing.",
+          "Inspiration and motivation for healthier lifestyles.",
+          "Engagement and interaction with health and wellness communities.",
         ],
       },
     },
@@ -113,76 +132,112 @@ function CriteriaIn() {
 
   const data2 = [
     {
-      "Best Fashion and Style Influencer of the Year": {
-        description:
-          "Recognizes a marketing professional who has demonstrated exceptional leadership skills and achieved remarkable results in driving successful marketing strategies.",
-        criteria: [
-          "Resume/CV showcasing leadership experience in marketing roles.",
-          "A summary of major marketing achievements and outcomes.",
-          "Two professional references who can vouch for their marketing leadership skills.",
-        ],
-      },
-      "Best Health & Wellbeing Influencer of the Year": {
-        description:
-          "Honors brands that have excelled in creating and maintaining a strong brand identity, positioning, and recognition in the market.",
-        criteria: [
-          "Evidence of consistent brand messaging and visual identity.",
-          "Examples of successful brand campaigns and initiatives.",
-          "Metrics demonstrating brand awareness and perception.",
-        ],
-      },
-      "Best Beauty Influencer of the Year": {
-        description:
-          "Celebrates individuals or teams that have demonstrated creativity and innovation in digital marketing strategies and campaigns.",
-        criteria: [
-          "Examples of innovative digital marketing campaigns or initiatives.",
-          "Metrics showcasing the effectiveness and impact of digital marketing efforts.",
-          "Evidence of using cutting-edge technologies or techniques in digital marketing.",
-        ],
-      },
-      "Best Travel Influencer of the Year": {
-        description:
-          "Recognizes brands or agencies that have developed and executed effective influencer marketing strategies to reach and engage target audiences.",
-        criteria: [
-          "Case studies demonstrating successful influencer marketing campaigns.",
-          "Metrics on campaign performance, including reach, engagement, and ROI.",
-          "Evidence of strategic planning and execution in influencer partnerships.",
-        ],
-      },
       "Best Tech Influencer": {
         description:
-          "Honours individuals or brands that have excelled in engaging their audience on social media platforms through compelling content and interactions.",
+          "Honouring the influencer who educates and entertains audiences with insights into the latest technology trends, gadgets, and innovations.",
         criteria: [
-          "Metrics demonstrating high levels of social media engagement, including likes, shares, comments, and followers.",
-          "Examples of engaging social media content and campaigns.",
-          "Evidence of community building and fostering meaningful interactions on social media.",
+          "Expertise in technology-related topics.",
+          "Insights and analysis of technology trends.",
+          "Engagement and interaction with tech enthusiasts.",
         ],
       },
+    },
+    {
       "Best Financial Influencer Award": {
         description:
-          "Celebrates organizations that prioritize and excel in delivering exceptional customer experiences across all touchpoints.",
+          "Celebrating the influencer who provides valuable financial advice, tips, and strategies for managing money, investing, and achieving financial goals.",
         criteria: [
-          "Evidence of customer-centric initiatives and strategies.",
-          "Metrics demonstrating high levels of customer satisfaction and loyalty.",
-          "Examples of innovative approaches to improving the customer experience.",
+          "Expertise in financial topics.",
+          "Useful and actionable financial advice.",
+          "Engagement and interaction with finance communities.",
         ],
       },
+    },
+    {
       "Gaming Influencer of the Year": {
         description:
-          "Recognizes organizations that leverage data and analytics to drive informed marketing decisions and achieve measurable results.",
+          "Recognizing the influencer who entertains and engages audiences with gaming content, showcasing gameplay, reviews, and insights into the gaming world.",
         criteria: [
-          "Examples of data-driven marketing campaigns or initiatives.",
-          "Metrics demonstrating the impact of data-driven marketing efforts on business outcomes.",
-          "Evidence of using data analytics tools and methodologies to optimize marketing strategies.",
+          "Entertaining gaming content.",
+          "Insights and analysis of gaming trends.",
+          "Engagement and interaction with gaming communities.",
         ],
       },
-      "Most viral content creator of the year": {
+    },
+    {
+      "Blogger of the year": {
         description:
-          "Honors brands that have demonstrated creativity and innovation in activating their brand across various channels and touchpoints.",
+          "Acknowledging influencers who have made significant contributions to their respective niches, amassed a large and engaged audience, and maintained a high level of quality and consistency in their content.",
         criteria: [
-          "Examples of innovative brand activation campaigns or initiatives.",
-          "Metrics demonstrating the effectiveness and impact of brand activation efforts.",
-          "Evidence of using creative approaches and techniques to connect with target audiences.",
+          "Quality and consistency of content.",
+          "Audience engagement and impact.",
+          "Contribution to their niche community.",
+        ],
+      },
+    },
+    {
+      "Mom Influencer of the year": {
+        description:
+          "Celebrating mothers who have leveraged their platforms to inspire, educate, and empower other parents. Having a strong online presence, engaging with their audience authentically and providing valuable insights into the joys and challenges of motherhood.",
+        criteria: [
+          "Inspiration and empowerment for other parents.",
+          "Authentic engagement with their audience.",
+          "Insights into the joys and challenges of motherhood.",
+        ],
+      },
+    },
+    {
+      "Youtuber of the year": {
+        description:
+          "Recognizing content creators for their ability to entertain, inform & inspire viewers, as well as their innovation in video production, storytelling & engaging with their audience.",
+        criteria: [
+          "Entertainment, information, and inspiration in video content.",
+          "Innovation in video production and storytelling.",
+          "Engagement and interaction with their audience.",
+        ],
+      },
+    },
+    {
+      "Entertainment Maven of the Year": {
+        description:
+          "Honouring influencers who have a deep understanding of their craft, whether it be acting, directing, producing, or any other aspect to entertain their audience, leaving a lasting impact on the cultural landscape.",
+        criteria: [
+          "Contribution to the entertainment industry.",
+          "Impact on cultural landscape.",
+          "Recognition and accolades within the industry.",
+        ],
+      },
+    },
+    {
+      "Food/Culinary Influencer of the Year": {
+        description:
+          "Celebrating content creators who have cultivated a devoted following and have demonstrated exceptional skill in sharing their passion for food, cooking, and culinary culture.",
+        criteria: [
+          "Passion for food, cooking, and culinary culture.",
+          "Engagement and impact on food enthusiasts.",
+          "Quality and creativity of culinary content.",
+        ],
+      },
+    },
+    {
+      "Educational Content Creator of the Year": {
+        description:
+          "Recognizing influencers for their expertise and creativity to create engaging and informative materials that empower learners of all ages and backgrounds to expand their knowledge and skills.",
+        criteria: [
+          "Expertise in educational topics.",
+          "Engagement and impact on learners.",
+          "Quality and creativity of educational content.",
+        ],
+      },
+    },
+    {
+      "Best Art & Photography Influencer": {
+        description:
+          "Sharing their beautiful and inspiring artwork and photography with the world.",
+        criteria: [
+          "Quality and creativity of artwork and photography.",
+          "Inspiration and impact on art and photography enthusiasts.",
+          "Engagement and interaction with their audience.",
         ],
       },
     },

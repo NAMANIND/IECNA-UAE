@@ -16,92 +16,110 @@ function Criteria() {
     {
       "Marketing Leader of the Year": {
         description:
-          "Recognizes a marketing professional who has demonstrated exceptional leadership skills and achieved remarkable results in driving successful marketing strategies.",
+          "This award celebrates a top marketing leader who has guided their team to success through innovative strategies and strong leadership.",
         criteria: [
-          "Resume/CV showcasing leadership experience in marketing roles.",
-          "A summary of major marketing achievements and outcomes.",
-          "Two professional references who can vouch for their marketing leadership skills.",
+          "Demonstrated leadership skills in marketing roles.",
+          "Innovative marketing strategies.",
+          "Achievement of measurable results.",
         ],
       },
+    },
+    {
       "Branding Leader of the Year": {
         description:
-          "Honors brands that have excelled in creating and maintaining a strong brand identity, positioning, and recognition in the market.",
+          "Recognizing a marketer who excels in creating and maintaining strong brands that connect with audiences.",
         criteria: [
-          "Evidence of consistent brand messaging and visual identity.",
-          "Examples of successful brand campaigns and initiatives.",
+          "Consistent brand messaging and visual identity.",
+          "Successful brand campaigns and initiatives.",
           "Metrics demonstrating brand awareness and perception.",
         ],
       },
+    },
+    {
       "Digital Marketeer of the Year": {
         description:
-          "Celebrates individuals or teams that have demonstrated creativity and innovation in digital marketing strategies and campaigns.",
+          "This award honours someone skilled in digital marketing, using online channels effectively to engage audiences and achieve measurable results.",
         criteria: [
-          "Examples of innovative digital marketing campaigns or initiatives.",
-          "Metrics showcasing the effectiveness and impact of digital marketing efforts.",
-          "Evidence of using cutting-edge technologies or techniques in digital marketing.",
+          "Innovative digital marketing campaigns or initiatives.",
+          "Effectiveness and impact of digital marketing efforts.",
+          "Utilization of cutting-edge technologies or techniques.",
         ],
       },
+    },
+    {
       "Influencer Marketeer of the Year": {
         description:
-          "Recognizes brands or agencies that have developed and executed effective influencer marketing strategies to reach and engage target audiences.",
+          "Recognizing a marketer who achieves great results by collaborating with influencers to promote their brand.",
         criteria: [
-          "Case studies demonstrating successful influencer marketing campaigns.",
-          "Metrics on campaign performance, including reach, engagement, and ROI.",
-          "Evidence of strategic planning and execution in influencer partnerships.",
+          "Successful influencer marketing campaigns.",
+          "Metrics on campaign performance and ROI.",
+          "Strategic planning and execution in influencer partnerships.",
         ],
       },
-      "Customer Experience Advocate": {
-        description:
-          "Honours individuals or brands that have excelled in engaging their audience on social media platforms through compelling content and interactions.",
-        criteria: [
-          "Metrics demonstrating high levels of social media engagement, including likes, shares, comments, and followers.",
-          "Examples of engaging social media content and campaigns.",
-          "Evidence of community building and fostering meaningful interactions on social media.",
-        ],
-      },
-      "Data-Driven Marketer of the Year": {
-        description:
-          "Celebrates organizations that prioritize and excel in delivering exceptional customer experiences across all touchpoints.",
-        criteria: [
-          "Evidence of customer-centric initiatives and strategies.",
-          "Metrics demonstrating high levels of customer satisfaction and loyalty.",
-          "Examples of innovative approaches to improving the customer experience.",
-        ],
-      },
-      "Brand Activation Strategist of the Year": {
-        description:
-          "Recognizes organizations that leverage data and analytics to drive informed marketing decisions and achieve measurable results.",
-        criteria: [
-          "Examples of data-driven marketing campaigns or initiatives.",
-          "Metrics demonstrating the impact of data-driven marketing efforts on business outcomes.",
-          "Evidence of using data analytics tools and methodologies to optimize marketing strategies.",
-        ],
-      },
+    },
+    {
       "Social Media Marketeer of the Year": {
         description:
-          "Honors brands that have demonstrated creativity and innovation in activating their brand across various channels and touchpoints.",
+          "Honouring a marketer who effectively uses social media to engage customers and build brand awareness.",
         criteria: [
-          "Examples of innovative brand activation campaigns or initiatives.",
-          "Metrics demonstrating the effectiveness and impact of brand activation efforts.",
-          "Evidence of using creative approaches and techniques to connect with target audiences.",
+          "Innovative brand activation campaigns.",
+          "Effectiveness and impact of brand activation efforts.",
+          "Creative approaches and techniques in connecting with target audiences.",
         ],
       },
+    },
+    {
+      "Data-Driven Marketer of the Year": {
+        description:
+          "This award celebrates a marketer who uses data to make smart decisions and optimize marketing strategies.",
+        criteria: [
+          "Evidence of customer-centric initiatives.",
+          "High levels of customer satisfaction and loyalty.",
+          "Innovative approaches to improving the customer experience.",
+        ],
+      },
+    },
+    {
+      "Brand Activation Strategist of the Year": {
+        description:
+          "Recognizing creative approaches to brand promotion that capture attention and leave a lasting impression.",
+        criteria: [
+          "Data-driven marketing campaigns or initiatives.",
+          "Impact of data-driven marketing efforts on business outcomes.",
+          "Utilization of data analytics tools and methodologies.",
+        ],
+      },
+    },
+    {
+      "Customer Experience Advocate": {
+        description:
+          "This award celebrates a marketer who prioritizes delivering exceptional customer experiences.",
+        criteria: [
+          "High levels of social media engagement.",
+          "Engaging social media content and campaigns.",
+          "Community building and meaningful interactions on social media.",
+        ],
+      },
+    },
+    {
       "Digital Transformation Leader of the Year": {
         description:
-          "Celebrates organizations that have successfully embraced digital transformation to adapt to changing market dynamics and customer preferences.",
+          "Honouring a marketer who leads successful digital transformations within their organization.",
         criteria: [
           "Evidence of digital transformation initiatives and strategies.",
-          "Examples of successful digital transformation projects and their impact on business outcomes.",
-          "Metrics demonstrating the effectiveness of digital transformation efforts in achieving organizational goals.",
+          "Successful digital transformation projects and impact on business outcomes.",
+          "Effectiveness of digital transformation efforts in achieving organizational goals.",
         ],
       },
+    },
+    {
       "PR and Communication Strategist of the Year": {
         description:
-          "Recognizes individuals or organizations that have excelled in building and nurturing relationships with influencers to drive successful partnerships and collaborations.",
+          "Recognizing excellence in managing corporate reputation and communication strategies to achieve organizational goals.",
         criteria: [
-          "Examples of successful influencer partnerships and collaborations.",
-          "Testimonials from influencers highlighting positive experiences working with the nominee.",
-          "Evidence of strategic relationship-building efforts and long-term partnerships with influencers.",
+          "Successful influencer partnerships and collaborations.",
+          "Positive experiences working with influencers.",
+          "Strategic relationship-building efforts with influencers.",
         ],
       },
     },
