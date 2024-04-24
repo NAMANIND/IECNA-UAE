@@ -5,10 +5,47 @@ import Headtop from "@/components/head/Headtop";
 import { anton, work_sans } from "@/styles/fonts";
 
 const Voting = () => {
+  const influencerCategories = [
+    "Mega/Celeb-Influencer of the Year",
+    "Macro-Influencer of the Year",
+    "Micro-Influencer of the Year",
+    "Nano Influencer of the year",
+    "Creative Visual Content Creator",
+    "Social Media Engagement Champion",
+    "Best Fashion and Style Influencer of the Year",
+    "Best Travel Influencer of the Year",
+    "Best Beauty Influencer of the Year",
+    "Best Health & Wellbeing Influencer of the Year",
+    "Best Tech Influencer",
+    "Best Financial Influencer Award",
+    "Gaming Influencer of the Year",
+    "Blogger of the year",
+    "Mom Influencer of the year",
+    "Youtuber of the year",
+    "Entertainment Maven of the Year",
+    "Food/Culinary Influencer of the Year",
+    "Educational Content Creator of the Year",
+    "Best Art & Photography Influencer",
+  ];
+
+  const marketerCategories = [
+    "Marketing Leader of the Year",
+    "Branding Leader of the Year",
+    "Digital Marketeer of the Year",
+    "Influencer Marketeer of the Year",
+    "Social Media Marketeer of the Year",
+    "Data-Driven Marketer of the Year",
+    "Brand Activation Strategist of the Year",
+    "Customer Experience Advocate",
+    "Digital Transformation Leader of the Year",
+    "PR and Communication Strategist of the Year",
+  ];
+
   const [nomineesByCategory, setNomineesByCategory] = useState({});
   const [selectedNominees, setSelectedNominees] = useState([]);
   const [isAnyCategorySelected, setIsAnyCategorySelected] = useState(false);
   const [email, setEmail] = useState("");
+  const [social, setsocial] = useState("");
   const [showEmailPopup, setShowEmailPopup] = useState(false);
 
   useEffect(() => {
@@ -43,7 +80,22 @@ const Voting = () => {
           }
         });
 
-        setNomineesByCategory(nomineesByCategoryObj);
+        // Sort nominees by category according to influencerCategories and marketerCategories
+        const sortedNomineesByCategory = {};
+        marketerCategories.forEach((category) => {
+          if (nomineesByCategoryObj[category]) {
+            sortedNomineesByCategory[category] =
+              nomineesByCategoryObj[category];
+          }
+        });
+        influencerCategories.forEach((category) => {
+          if (nomineesByCategoryObj[category]) {
+            sortedNomineesByCategory[category] =
+              nomineesByCategoryObj[category];
+          }
+        });
+
+        setNomineesByCategory(sortedNomineesByCategory);
       } catch (error) {
         console.error("Error fetching nominees:", error);
       }
@@ -52,6 +104,7 @@ const Voting = () => {
     fetchNominees();
   }, []);
 
+  // Handle nominee selection, vote, email validation, and email existence check functions...
   const handleNomineeSelect = (category, nomineeId) => {
     setSelectedNominees((prevSelectedNominees) => {
       const isCategorySelected = prevSelectedNominees.some(
@@ -128,7 +181,7 @@ const Voting = () => {
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email
         const voteRef = firestore.collection("india-votes").doc();
-        batch.set(voteRef, { email: email });
+        batch.set(voteRef, { email: email, social: social }); // Include social media handle
       }
       for (const nomineeSelection of selectedNominees) {
         const { category, nomineeId } = nomineeSelection;
@@ -196,51 +249,16 @@ const Voting = () => {
         >
           Vote for Nominees
         </h1>
+        {/* Render nominees */}
         {Object.entries(nomineesByCategory).map(([category, nominees]) => (
-          <div key={category} className="mb-8">
-            <h2
-              className={`text-3xl font-semibold my-10 w-full text-center ${work_sans.className} `}
-            >
-              {category}
-            </h2>
-            <div className="grid md:grid-cols-3 grid-flow-row md:gap-4 gap-10">
-              {nominees
-                .sort((a, b) => a.firstName.localeCompare(b.firstName))
-                .map((nominee) => (
-                  <div
-                    key={nominee.id}
-                    className={`relative border rounded-[32px] overflow-hidden shadow-md ${
-                      selectedNominees.some(
-                        (selectedNominee) =>
-                          selectedNominee.category === category &&
-                          selectedNominee.nomineeId === nominee.id
-                      )
-                        ? "border-blue-500  border-[4px] "
-                        : "border-gray-300  border-[4px]"
-                    }`}
-                    onClick={() => handleNomineeSelect(category, nominee.id)}
-                  >
-                    <img
-                      src={nominee.imageUrl}
-                      alt={nominee.firstName}
-                      className="w-full h-[400px] object-cover object-top rounded-[20px]"
-                    />
-                    <div className="p-4">
-                      <p className="text-xl font-semibold mb-2">
-                        {nominee.firstName} {nominee.lastName}
-                      </p>
-                    </div>
-                    {selectedNominees.some(
-                      (selectedNominee) =>
-                        selectedNominee.category === category &&
-                        selectedNominee.nomineeId === nominee.id
-                    )}
-                  </div>
-                ))}
-            </div>
-          </div>
+          <CategoryNominees
+            key={category}
+            category={category}
+            nominees={nominees}
+            handleNomineeSelect={handleNomineeSelect}
+            selectedNominees={selectedNominees}
+          />
         ))}
-
         {selectedNominees.length !== 0 && (
           <div className="sticky bottom-10 w-full flex justify-center">
             <button onClick={handleVote} className="newsletterbtn w-1/2">
@@ -253,7 +271,10 @@ const Voting = () => {
         {showEmailPopup && (
           <div className="fixed top-0 left-0 w-full  h-full bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-8 rounded-lg shadow-md min-w-[50vw]">
-              <h2 className="text-xl font-semibold mb-4">Enter Your Email</h2>
+              <h2 className="text-xl font-semibold mb-4">
+                Enter Your Email<spam className="text-red-500">*</spam>
+              </h2>
+
               <input
                 type="email"
                 value={email}
@@ -261,6 +282,15 @@ const Voting = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
                 placeholder="Your email"
               />
+              <h2 className="text-xl font-semibold mb-4">Social</h2>
+              <input
+                type="text"
+                value={social}
+                onChange={(e) => setsocial(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
+                placeholder="Socials"
+              />
+
               <div className="flex justify-end">
                 <button
                   onClick={() => setShowEmailPopup(false)}
@@ -278,6 +308,58 @@ const Voting = () => {
             </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+};
+
+const CategoryNominees = ({
+  category,
+  nominees,
+  handleNomineeSelect,
+  selectedNominees,
+}) => {
+  return (
+    <div key={category} className="mb-8">
+      <h2
+        className={`text-3xl font-semibold my-10 w-full text-center ${work_sans.className} `}
+      >
+        {category}
+      </h2>
+      <div className="grid md:grid-cols-3 grid-flow-row md:gap-4 gap-10">
+        {nominees
+          .sort((a, b) => a.firstName.localeCompare(b.firstName))
+          .map((nominee) => (
+            <div
+              key={nominee.id}
+              className={`relative border rounded-[32px] overflow-hidden shadow-md ${
+                selectedNominees.some(
+                  (selectedNominee) =>
+                    selectedNominee.category === category &&
+                    selectedNominee.nomineeId === nominee.id
+                )
+                  ? "border-blue-500  border-[4px] "
+                  : "border-gray-300  border-[4px]"
+              }`}
+              onClick={() => handleNomineeSelect(category, nominee.id)}
+            >
+              <img
+                src={nominee.imageUrl}
+                alt={nominee.firstName}
+                className="w-full max-h-80 p-4 object-contain object-top rounded-[20px]"
+              />
+              <div className="p-4">
+                <p className="text-xl font-semibold uppercase mb-2 text-center">
+                  {nominee.firstName} {nominee.lastName}
+                </p>
+              </div>
+              {selectedNominees.some(
+                (selectedNominee) =>
+                  selectedNominee.category === category &&
+                  selectedNominee.nomineeId === nominee.id
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );
