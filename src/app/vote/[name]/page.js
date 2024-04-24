@@ -9,6 +9,7 @@ const PersonalVote = ({ params }) => {
   const [nomineeData, setNomineeData] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState({});
   const [email, setEmail] = useState("");
+  const [social, setsocial] = useState("");
   const [showEmailPopup, setShowEmailPopup] = useState(false);
 
   useEffect(() => {
@@ -86,7 +87,7 @@ const PersonalVote = ({ params }) => {
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email
         const voteRef = firestore.collection("india-votes").doc();
-        batch.set(voteRef, { email: email });
+        batch.set(voteRef, { email: email, social: social }); // Include social media handle
       }
 
       // Fetch the latest nominee data before voting
@@ -103,11 +104,10 @@ const PersonalVote = ({ params }) => {
       const updatedNomineeData = nomineeDoc.data();
 
       // Iterate over the selected categories and update their vote counts
-      for (const [categoryKey, voteCount] of Object.entries(
+      for (const [categoryKey, isSelected] of Object.entries(
         selectedCategories
       )) {
-        if (voteCount !== null) {
-          // Check if the category was selected for voting
+        if (isSelected) {
           batch.update(nomineeRef, {
             [`categories.${categoryKey}.vote`]:
               updatedNomineeData.categories[categoryKey].vote + 1,
@@ -201,13 +201,24 @@ const PersonalVote = ({ params }) => {
       {showEmailPopup && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg min-w-[50vw] shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Enter Your Email</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              Enter Your Email<spam className="text-red-500">*</spam>
+            </h2>
+
             <input
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4"
-              placeholder="Your email address"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
+              placeholder="Your email"
+            />
+            <h2 className="text-xl font-semibold mb-4">Social</h2>
+            <input
+              type="text"
+              value={social}
+              onChange={(e) => setsocial(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
+              placeholder="Socials"
             />
             <div className="flex justify-end">
               <button
