@@ -245,7 +245,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>LinkedIn: ${formData.linkedin}</p>
       <p>Instagram: ${formData.instagram}</p>
       <p>Youtube: ${formData.youtube}</p>
-      <p>Tiktok: ${formData.tiktok}</p>
+ 
       <p>Snapchat: ${formData.snapchat}</p>
       <p>Recommendation 1: ${formData.recommendation1}</p>
       <p>Recommendation 2: ${formData.recommendation2}</p>
@@ -349,7 +349,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>LinkedIn: ${formData.linkedin}</p>
       <p>Instagram: ${formData.instagram}</p>
       <p>Youtube: ${formData.youtube}</p>
-      <p>Tiktok: ${formData.tiktok}</p>
+   
       <p>Snapchat: ${formData.snapchat}</p>
       <p>Recommendation 1: ${formData.recommendation1}</p>
       <p>Recommendation 2: ${formData.recommendation2}</p>
@@ -777,15 +777,6 @@ const NewMultiPageForm = ({ to, name }) => {
                     />
                   </div>
                   <div className="flex sm:flex-row flex-col gap-4 w-full">
-                    <Input
-                      label="Tiktok"
-                      name="tiktok"
-                      value={formData.tiktok}
-                      onChange={handleChange}
-                      className="sd:w-1/2 w-full "
-                      variant="underlined"
-                    />
-
                     <Input
                       label="Snapchat"
                       name="snapchat"

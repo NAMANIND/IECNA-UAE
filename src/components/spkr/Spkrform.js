@@ -215,7 +215,6 @@ const Spkrform = () => {
         industry: formData.industry,
         imageUrl: imageUrl,
         instagram: formData.instagram,
-        tiktok: formData.tiktok,
         snapchat: formData.snapchat,
         youtube: formData.youtube,
         linkedin: formData.linkedin ? formData.linkedin : "",
@@ -251,7 +250,6 @@ const Spkrform = () => {
       <p><strong>Country:</strong> ${formData.country}</p>
       <p><strong>Industry:</strong> ${formData.industry}</p>
       <p><strong>Instagram:</strong> ${formData.instagram}</p>
-      <p><strong>Tiktok:</strong> ${formData.tiktok}</p>
       <p><strong>Snapchat:</strong> ${formData.snapchat}</p>
       <p><strong>Youtube:</strong> ${formData.youtube}</p>
       <p><strong>Linkedin:</strong> ${formData.linkedin}</p>
@@ -534,10 +532,18 @@ const Spkrform = () => {
                     variant="underlined"
                     label="Linkedin"
                     name="linkedin"
-                    className=" w-full "
+                    className="md:w-1/2 w-full "
                     value={formData.linkedin}
                     onChange={handleChange}
                     isRequired
+                  />
+                  <Input
+                    variant="underlined"
+                    label="Instagram"
+                    name="instagram"
+                    className="md:w-1/2 w-full "
+                    value={formData.instagram}
+                    onChange={handleFormDataChange}
                   />
                 </div>
               )}
@@ -576,6 +582,20 @@ const Spkrform = () => {
                     onChange={handleFormDataChange}
                     isRequired
                   />
+
+                  <Input
+                    variant="underlined"
+                    label="Linkedin"
+                    name="linkedin"
+                    className="md:w-1/2 w-full "
+                    value={formData.linkedin}
+                    onChange={handleFormDataChange}
+                  />
+                </div>
+              )}
+
+              {formData.field === "influencer" && (
+                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     label="Youtube"
                     name="youtube"
@@ -584,19 +604,7 @@ const Spkrform = () => {
                     onChange={handleFormDataChange}
                     variant="underlined"
                   />
-                </div>
-              )}
 
-              {formData.field === "influencer" && (
-                <div className="flex md:flex-row flex-col gap-4 w-full">
-                  <Input
-                    variant="underlined"
-                    label="Tiktok"
-                    name="tiktok"
-                    className="md:w-1/2 w-full "
-                    value={formData.tiktok}
-                    onChange={handleFormDataChange}
-                  />
                   <Input
                     variant="underlined"
                     label="Snapchat"
