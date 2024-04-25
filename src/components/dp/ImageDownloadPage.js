@@ -1,9 +1,8 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import fileDownload from "js-file-download";
 import axios from "axios";
-import { firestore } from "../../../firbase/clientApp";
 
 function ImageDownloadPage({
   imageData,
@@ -12,21 +11,8 @@ function ImageDownloadPage({
   category,
   field,
   marco,
-  rem,
 }) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
-
-  useEffect(() => {
-    const trfRef = firestore.collection("transformed-images").doc();
-    const trfId = trfRef.id;
-    console.log(trfId);
-    trfRef.set({
-      id: trfId,
-      name: title,
-      url: transformedImageUrl,
-      trf: rem,
-    });
-  }, [transformedImageUrl]);
 
   useEffect(() => {
     const uploadImage = async () => {
@@ -149,7 +135,7 @@ function ImageDownloadPage({
     }
   };
 
-  return (
+  const component = (
     <div className=" relative w-[100%] h-fit max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
       {transformedImageUrl && (
         <img
@@ -162,12 +148,14 @@ function ImageDownloadPage({
       <button
         onClick={handleDownloadTransformed}
         className=" newsletterbtn w-full
-      absolute -bottom-2 left-1/2   -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+  absolute -bottom-2 left-1/2   -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
       >
         Download Poster
       </button>
     </div>
   );
+
+  return [component, transformedImageUrl];
 }
 
 export default ImageDownloadPage;

@@ -5,23 +5,58 @@ import React from "react";
 import { notFound } from "next/navigation";
 import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
 import Spkrform from "@/components/spkr/Spkrform";
+import { firestore } from "../../../../firbase/clientApp";
 
 // put meta image
-export const metadata = {
-  title: "IEC&A Registration",
-  description: "Influence Exchange Confex and Awards Registration",
-  openGraph: {
-    title: "Register for the event",
-    description: "Influence Exchange Confex and Awards Registration",
 
-    images: [
-      {
-        url: "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/india-nomination-image%2F414703364_906521701176023_6721006003139314478_n.jpg?alt=media&token=ff3a157a-173e-4f68-8662-5a2115b82ad3",
-        alt: "Description of the image",
-      },
-    ],
-  },
-};
+export async function generateMetadata({ params }) {
+  const { name } = params;
+  const nameArr = name.split("_");
+
+  // load data from firebase search using trf:nameArr[1]
+
+  if (nameArr > 1) {
+    const nomineeSnapshot = await firestore
+      .collection("transformed-images")
+      .where("trf", "==", nameArr[1])
+      .get();
+
+    if (!nomineeSnapshot.empty) {
+      const nominee = nomineeSnapshot.docs[0].data();
+      return {
+        title: "IEC&A Registration",
+        description: "Influence Exchange Confex and Awards Registration",
+        openGraph: {
+          title: "Register for the event",
+          description: "Influence Exchange Confex and Awards Registration",
+
+          images: [
+            {
+              url: nominee.url,
+              alt: "Register for the event",
+            },
+          ],
+        },
+      };
+    }
+  }
+
+  return {
+    title: "IEC&A Registration",
+    description: "Influence Exchange Confex and Awards Registration",
+    openGraph: {
+      title: "Register for the event",
+      description: "Influence Exchange Confex and Awards Registration",
+
+      images: [
+        {
+          url: "https://india.theiena.com/lop.jpg",
+          alt: "Register for the event",
+        },
+      ],
+    },
+  };
+}
 
 function page({ params }) {
   const { name } = params;

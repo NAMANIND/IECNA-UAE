@@ -40,6 +40,7 @@ const NewMultiPageForm = ({ to, name }) => {
   const [votelink, setvotelink] = useState("");
   const [rtype, setrtype] = useState("");
   const [so, setso] = useState(null);
+  const [rmstring, setrmstring] = useState("");
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -129,6 +130,12 @@ const NewMultiPageForm = ({ to, name }) => {
     console.log(imageFile);
     setFormData({ ...formData, image: imageFile });
 
+    // gerate a random string of lenght 7
+
+    const randomString = Math.random().toString(36).substring(7);
+    console.log(randomString);
+    setrmstring(randomString);
+
     const popup = (
       <ImageDownloadPage
         imageData={imageFile}
@@ -137,10 +144,13 @@ const NewMultiPageForm = ({ to, name }) => {
         company={formData.jobTitle}
         category={formData.registrationType}
         field={formData.field}
+        rem={randomString}
       />
     );
 
     setPoppage(popup);
+
+    // save new data in transformed image on firebase with random string as id and popup.trf as url
 
     console.log(formData.registrationType);
     console.log(formData.field);
@@ -151,6 +161,7 @@ const NewMultiPageForm = ({ to, name }) => {
         field={formData.registrationType}
         category={formData.field}
         pr={name}
+        rem={randomString}
       />
     );
     setso(socials);
@@ -287,7 +298,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setvotelink(vlink);
 
       const nomineeRef = firestore.collection("india-nominees");
-      const nomineeId = nomineeRef.id;
+      const nomineeId = nomineeRef.doc().id;
       const nomineeQuery = nomineeRef
         .where(
           "firstName",

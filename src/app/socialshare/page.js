@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { Snippet } from "@nextui-org/react";
 
-function generateText(field, category, pr) {
-  const link = "https://india.theiena.com/event/" + pr;
+function generateText(field, category, pr, rem) {
+  const link = "https://india.theiena.com/event/" + pr + "_" + rem;
 
   let text = "";
 
@@ -82,11 +82,11 @@ function Socialshare({ text }) {
   );
 }
 
-export default function SharedSocials({ field, category, pr }) {
+export default function SharedSocials({ field, category, pr, rem }) {
   const [text, setText] = useState(null);
 
   useEffect(() => {
-    const textGenerated = generateText(field, category, pr);
+    const textGenerated = generateText(field, category, pr, rem);
     setText(textGenerated);
   }, [field, category, pr]);
 
