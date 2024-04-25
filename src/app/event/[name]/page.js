@@ -72,8 +72,8 @@ function page({ params }) {
       nameArr[0] === "megha"
         ? [
             "20bei033@ietdavv.edu.in",
-            // "megha.salian@influenceexchangegroup.com",
-            // "mohamed.suhel@influenceexchangegroup.com",
+            "megha.salian@influenceexchangegroup.com",
+            "mohamed.suhel@influenceexchangegroup.com",
           ]
         : [
             "20bei033@ietdavv.edu.in",

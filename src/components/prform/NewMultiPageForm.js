@@ -297,9 +297,10 @@ const NewMultiPageForm = ({ to, name }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
-      const nomineeRef = firestore.collection("india-nominees");
-      const nomineeId = nomineeRef.doc().id;
-      const nomineeQuery = nomineeRef
+      const nomineeRef = firestore.collection("india-nominees").doc();
+      const nomineeId = nomineeRef.id;
+      const nomineeQuery = firestore
+        .collection("india-nominees")
         .where(
           "firstName",
           "==",
@@ -317,7 +318,7 @@ const NewMultiPageForm = ({ to, name }) => {
       if (!nomineeSnapshot.empty) {
         // Nominee already exists, update their categories
         nomineeSnapshot.forEach(async (doc) => {
-          const nomineeId = doc.id;
+          const nomineeId2 = doc.id;
           const existingCategories = doc.data().categories;
           const updatedCategories = { ...existingCategories };
 
@@ -337,9 +338,12 @@ const NewMultiPageForm = ({ to, name }) => {
             }
           });
 
-          await nomineeRef.doc(nomineeId).update({
-            categories: { ...updatedCategories },
-          });
+          await firestore
+            .collection("india-nominees")
+            .doc(nomineeId2)
+            .update({
+              categories: { ...updatedCategories },
+            });
         });
       } else {
         // Nominee does not exist, create a new document for them
@@ -361,7 +365,7 @@ const NewMultiPageForm = ({ to, name }) => {
           return;
         }
 
-        await nomineeRef.add({
+        await nomineeRef.set({
           id: nomineeId,
           firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
           lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
@@ -985,7 +989,10 @@ const NewMultiPageForm = ({ to, name }) => {
               </h1>
 
               <button
-                onClick={() => setSent(false)}
+                onClick={() => {
+                  setSent(false);
+                  setrtype("");
+                }}
                 className={`absolute right-0 top-0  
                 bg-black text-white w-fit h-fit rounded-3xl 
             px-3 py-1
@@ -1007,35 +1014,37 @@ const NewMultiPageForm = ({ to, name }) => {
               >
                 {poppage}
               </div>
-              {rtype === "nomination" && (
-                <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
-                  <div className="  w-full">
-                    Vote link:
-                    <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                      <Snippet
-                        symbol="#"
-                        variant="flat"
-                        color="default"
-                        className="bg-transparent"
-                      >
-                        {votelink}
-                      </Snippet>
-                      <a
-                        href={votelink}
-                        target="_blank"
-                        aria-label="Open in new tab"
-                        title="Open in new tab"
-                      >
-                        <OpenInNewIcon width={20} height={20} />
-                      </a>
+              <div className="flex flex-col justify-start flex-col gap-4 align-top h-[70vh] ">
+                {rtype === "nomination" && (
+                  <div className="w-1/2 flex">
+                    <div className="  w-full">
+                      Vote link:
+                      <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                        <Snippet
+                          symbol="#"
+                          variant="flat"
+                          color="default"
+                          className="bg-transparent"
+                        >
+                          {votelink}
+                        </Snippet>
+                        <a
+                          href={votelink}
+                          target="_blank"
+                          aria-label="Open in new tab"
+                          title="Open in new tab"
+                        >
+                          <OpenInNewIcon width={20} height={20} />
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-              <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
-                <div className="  w-full">
-                  Social Share:
-                  {so}
+                )}
+                <div className="w-1/2 flex ">
+                  <div className="  w-full">
+                    Social Share:
+                    {so}
+                  </div>
                 </div>
               </div>
             </div>

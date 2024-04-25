@@ -16,17 +16,9 @@ function ImageDownloadPage({
 }) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
 
-  useEffect(() => {
-    const trfRef = firestore.collection("transformed-images").doc();
-    const trfId = trfRef.id;
-    console.log(trfId);
-    trfRef.set({
-      id: trfId,
-      name: title,
-      url: transformedImageUrl,
-      trf: rem,
-    });
-  }, [transformedImageUrl]);
+  // useEffect(() => {
+
+  // }, [transformedImageUrl]);
 
   useEffect(() => {
     const uploadImage = async () => {
@@ -149,6 +141,38 @@ function ImageDownloadPage({
     }
   };
 
+  const handleImageLoad = () => {
+    // Call your function here after the image has loaded
+    console.log("Transformed image loaded!");
+    if (transformedImageUrl !== null) {
+      const trfRef = firestore.collection("transformed-images");
+      trfRef
+        .where("trf", "==", rem)
+        .get()
+        .then((querySnapshot) => {
+          if (querySnapshot.empty) {
+            // Check if no documents with the same trf value exist
+            const newTrfRef = trfRef.doc(); // Generate a new document reference
+            const trfId = newTrfRef.id;
+            console.log(trfId);
+            newTrfRef
+              .set({
+                id: trfId,
+                name: title,
+                url: transformedImageUrl,
+                trf: rem,
+              })
+              .catch((error) => {
+                console.error("Error setting document:", error);
+              });
+          }
+        })
+        .catch((error) => {
+          console.error("Error checking documents:", error);
+        });
+    }
+  };
+
   return (
     <div className=" relative w-[100%] h-fit max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
       {transformedImageUrl && (
@@ -156,13 +180,13 @@ function ImageDownloadPage({
           src={transformedImageUrl}
           alt={title}
           className={`object-contain w-[100%] h-[60vh] max-h-[60vh]`}
+          onLoad={handleImageLoad} // Call handleImageLoad function when the image is loaded
         />
       )}
 
       <button
         onClick={handleDownloadTransformed}
-        className=" newsletterbtn w-full
-      absolute -bottom-2 left-1/2   -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+        className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
       >
         Download Poster
       </button>
