@@ -214,7 +214,7 @@ const NominateForm = () => {
     // Upload image to Firebase storage
     const imageRef = storage
       .ref()
-      .child(`india-nominations-image/${formData.image.name}`);
+      .child(`india-nomination-image/${formData.image.name}`);
     await imageRef.put(formData.image);
     const imageUrl = await imageRef.getDownloadURL();
 
