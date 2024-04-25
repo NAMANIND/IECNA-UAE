@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
 
   // load data from firebase search using trf:nameArr[1]
 
-  if (nameArr > 1) {
+  if (nameArr.length > 1) {
     const nomineeSnapshot = await firestore
       .collection("transformed-images")
       .where("trf", "==", nameArr[1])
