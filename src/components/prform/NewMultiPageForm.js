@@ -22,6 +22,7 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Socialshare from "@/app/socialshare/page";
 
 const NewMultiPageForm = ({ to, name }) => {
   const [page, setPage] = useState(1);
@@ -38,6 +39,7 @@ const NewMultiPageForm = ({ to, name }) => {
   const [industry, setIndustry] = useState("");
   const [votelink, setvotelink] = useState("");
   const [rtype, setrtype] = useState("");
+  const [so, setso] = useState(null);
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -137,7 +139,21 @@ const NewMultiPageForm = ({ to, name }) => {
         field={formData.field}
       />
     );
+
     setPoppage(popup);
+
+    console.log(formData.registrationType);
+    console.log(formData.field);
+    console.log(name);
+
+    const socials = (
+      <Socialshare
+        field={formData.registrationType}
+        category={formData.field}
+        pr={name}
+      />
+    );
+    setso(socials);
   };
 
   const handleselect = (key) => {
@@ -975,7 +991,7 @@ const NewMultiPageForm = ({ to, name }) => {
             <div className="flex justify-center gap-5 items-center w-full">
               <div
                 className={`flex justify-center items-center w-[${
-                  rtype === "nomination" ? "100%" : "100%"
+                  rtype === "nomination" ? "50%" : "50%"
                 }]`}
               >
                 {poppage}
@@ -1005,6 +1021,12 @@ const NewMultiPageForm = ({ to, name }) => {
                   </div>
                 </div>
               )}
+              <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
+                <div className="  w-full">
+                  Social Share:
+                  {so}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1114,3 +1136,5 @@ const IndustryCategories = [
 ];
 
 export default NewMultiPageForm;
+
+// meta data for image

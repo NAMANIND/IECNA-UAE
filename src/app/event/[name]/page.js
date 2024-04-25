@@ -6,6 +6,24 @@ import { notFound } from "next/navigation";
 import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
 import Spkrform from "@/components/spkr/Spkrform";
 
+// put meta image
+export const metadata = {
+  title: "Multi Page Form",
+  description: "Multi page form with validation and image upload",
+  openGraph: {
+    title: "Multi Page Form",
+    description: "Multi page form with validation and image upload",
+    images: [
+      {
+        url: "https://india.theiena.com/lop.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Description of the image",
+      },
+    ],
+  },
+};
+
 function page({ params }) {
   const { name } = params;
 
@@ -16,8 +34,8 @@ function page({ params }) {
       name === "megha"
         ? [
             "20bei033@ietdavv.edu.in",
-            "megha.salian@influenceexchangegroup.com",
-            "mohamed.suhel@influenceexchangegroup.com",
+            // "megha.salian@influenceexchangegroup.com",
+            // "mohamed.suhel@influenceexchangegroup.com",
           ]
         : [
             "20bei033@ietdavv.edu.in",
