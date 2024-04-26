@@ -86,12 +86,19 @@ const VoteViews = () => {
         } else {
           // More than one category, remove only the specified category
           const updatedCategories = { ...nomineeData.categories };
+          console.log(updatedCategories);
 
           // Convert the category name to its original format
           const formattedCategoryToDelete = Object.keys(updatedCategories).find(
             (key) =>
-              key.toLowerCase().replace(/\s/g, "") ===
-              categoryToDelete.toLowerCase().replace(/\s/g, "")
+              key
+                .toLowerCase()
+                .replace(/\s/g, "")
+                .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_") ===
+              categoryToDelete
+                .toLowerCase()
+                .replace(/\s/g, "")
+                .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_")
           );
 
           if (!formattedCategoryToDelete) {
