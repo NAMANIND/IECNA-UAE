@@ -25,6 +25,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Socialshare from "@/app/socialshare/page";
 
 const Spkrform = () => {
   const [phone, setPhone] = useState("");
@@ -39,6 +40,8 @@ const Spkrform = () => {
   const [industry, setIndustry] = useState("");
   const [field, setField] = useState("");
   const [votelink, setvotelink] = useState("");
+  const [so, setso] = useState("");
+  const [rmstring, setrmstring] = useState("");
   const [formData, setFormData] = useState({
     category: "speaker",
     field: "",
@@ -130,6 +133,9 @@ const Spkrform = () => {
 
     setFormData({ ...formData, image: imageFile });
     console.log(imageFile);
+    const randomString = Math.random().toString(36).substring(7);
+    console.log(randomString);
+    setrmstring(randomString);
     const popup = (
       <ImageDownloadPage
         imageData={imageFile}
@@ -138,9 +144,20 @@ const Spkrform = () => {
         company={formData.jobTitle}
         category={formData.category}
         field={formData.field}
+        rem={randomString}
       />
     );
     setPoppage(popup);
+
+    const socials = (
+      <Socialshare
+        field={formData.category}
+        category={formData.field}
+        pr="sonu"
+        rem={randomString}
+      />
+    );
+    setso(socials);
   };
 
   const handleSubmit = async (e) => {
@@ -224,8 +241,8 @@ const Spkrform = () => {
 
       const to = [
         "20bei033@ietdavv.edu.in",
-        "mohamed.suhel@influenceexchangegroup.com",
-        "sonu.chauhan@influenceexchangegroup.com",
+        // "mohamed.suhel@influenceexchangegroup.com",
+        // "sonu.chauhan@influenceexchangegroup.com",
       ];
       const subject =
         "Sonu's " +
@@ -702,6 +719,14 @@ const Spkrform = () => {
               <div className="flex justify-center items-center w-full">
                 {poppage}
               </div>
+              {/* <div className="flex  justify-start flex-col gap-4 align-top h-[70vh] ">
+                <div className="w-1/2 flex ">
+                  <div className="  w-full">
+                    Social Share:
+                    {so}
+                  </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>
