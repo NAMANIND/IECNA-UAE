@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { firestore } from "../../../firbase/clientApp";
 import Headtop from "@/components/head/Headtop";
 import { anton, work_sans } from "@/styles/fonts";
+import { Snippet } from "@nextui-org/react";
 
 const VoteViews = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState([]);
@@ -156,6 +157,21 @@ const VoteViews = () => {
                       <p className="text-lg font-medium mb-2">
                         Votes: {nominee.vote}
                       </p>
+
+                      <Snippet
+                        codeString={`https://india.theiena.com/vote/${nominee.firstName
+                          .toLowerCase()
+                          .replace(/\s/g, "")}_${nominee.lastName
+                          .toLowerCase()
+                          .replace(/\s/g, "")}`}
+                        symbol={`https://india.theiena.com/vote/${nominee.firstName
+                          .toLowerCase()
+                          .replace(/\s/g, "")}_${nominee.lastName
+                          .toLowerCase()
+                          .replace(/\s/g, "")}`}
+                        variant="flat"
+                        color="default"
+                      />
                     </div>
                     <button
                       className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
