@@ -145,6 +145,7 @@ const Spkrform = () => {
         category={formData.category}
         field={formData.field}
         rem={randomString}
+        email={formData.email}
       />
     );
     setPoppage(popup);

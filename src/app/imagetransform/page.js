@@ -13,6 +13,7 @@ function ImageDownloadPage({
   field,
   marco,
   rem,
+  email,
 }) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
 
@@ -161,6 +162,7 @@ function ImageDownloadPage({
                 name: title,
                 url: transformedImageUrl,
                 trf: rem,
+                email: email,
               })
               .catch((error) => {
                 console.error("Error setting document:", error);

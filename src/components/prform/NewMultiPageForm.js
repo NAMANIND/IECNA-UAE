@@ -145,6 +145,7 @@ const NewMultiPageForm = ({ to, name }) => {
         category={formData.registrationType}
         field={formData.field}
         rem={randomString}
+        email={formData.email}
       />
     );
 
