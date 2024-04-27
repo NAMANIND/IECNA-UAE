@@ -26,6 +26,7 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Socialshare from "../../app/socialshare/page";
 
 const NominateForm = () => {
   const [step, setStep] = useState(1);
@@ -35,11 +36,13 @@ const NominateForm = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [poppage, setPoppage] = useState("");
+  const [poppage, setPoppage] = useState(null);
   const [sent, setSent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [industry, setIndustry] = useState("");
   const [votelink, setvotelink] = useState("");
+  const [so, setso] = useState(null);
+  const [rmstring, setrmstring] = useState("");
 
   const [values, setValues] = useState(new Set([]));
 
@@ -143,16 +146,32 @@ const NominateForm = () => {
     console.log(imageFile);
     setFormData({ ...formData, image: imageFile });
 
+    const randomString = Math.random().toString(36).substring(7);
+    console.log(randomString);
+    setrmstring(randomString);
     const popup = (
       <ImageDownloadPage
         imageData={imageFile}
         title={formData.firstName + " " + formData.lastName}
-        company={formData.jobTitle + " | " + formData.company}
         category="nomination"
+        marco={formData.company}
+        company={formData.jobTitle}
         field={formData.field}
+        rem={randomString}
+        email={formData.email}
       />
     );
     setPoppage(popup);
+
+    const socials = (
+      <Socialshare
+        category={formData.field}
+        field="nomination"
+        pr="megha"
+        rem={randomString}
+      />
+    );
+    setso(socials);
   };
 
   const handleSubmit = async (e) => {
@@ -161,7 +180,6 @@ const NominateForm = () => {
       formData.lastName === "" &&
       formData.email === "" &&
       formData.phone === "" &&
-      formData.company === "" &&
       formData.jobTitle === "" &&
       formData.country === "" &&
       formData.industry === ""
@@ -473,16 +491,27 @@ const NominateForm = () => {
                 className="md:w-1/2 w-full "
               />
             </div>
-            <div className="flex md:flex-row flex-col gap-4 w-full">
-              <Input
-                label="Company"
-                name="company"
-                value={formData.company}
-                onChange={handleFormDataChange}
-                className="md:w-1/2 w-full "
-                variant="underlined"
-                isRequired
-              />
+            <div className="flex sm:flex-row flex-col gap-4 w-full">
+              {formData.field === "influencer" ? (
+                <Input
+                  label="Company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleFormDataChange}
+                  className="md:w-1/2 w-full "
+                  variant="underlined"
+                />
+              ) : (
+                <Input
+                  label="Company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleFormDataChange}
+                  className="md:w-1/2 w-full "
+                  variant="underlined"
+                  isRequired
+                />
+              )}
               <Input
                 label="Job Title"
                 name="jobTitle"
@@ -571,6 +600,16 @@ const NominateForm = () => {
                     isRequired
                   />
                   <Input
+                    label="LinkedIn"
+                    name="linkedin"
+                    value={formData.linkedin}
+                    onChange={handleFormDataChange}
+                    className="md:w-1/2 w-full "
+                    variant="underlined"
+                  />
+                </div>
+                <div className="flex md:flex-row flex-col gap-4 w-full">
+                  <Input
                     label="Youtube"
                     name="youtube"
                     value={formData.youtube}
@@ -578,8 +617,6 @@ const NominateForm = () => {
                     className="md:w-1/2 w-full "
                     variant="underlined"
                   />
-                </div>
-                <div className="flex md:flex-row flex-col gap-4 w-full">
                   <Input
                     label="Snapchat"
                     name="snapchat"
@@ -597,9 +634,17 @@ const NominateForm = () => {
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={handleFormDataChange}
-                  className=" w-full "
+                  className="md:w-1/2 w-full "
                   variant="underlined"
                   isRequired
+                />
+                <Input
+                  label="Instagram"
+                  name="instagram"
+                  value={formData.instagram}
+                  onChange={handleFormDataChange}
+                  className="md:w-1/2 w-full "
+                  variant="underlined"
                 />
               </div>
             )}
@@ -699,25 +744,33 @@ const NominateForm = () => {
                 {poppage}
               </div>
               <div className="w-1/2 flex justify-start flex-col gap-4 align-top h-[70vh]">
-                <div className="  w-full">
-                  Vote link:
-                  <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                    <Snippet
-                      symbol="#"
-                      variant="flat"
-                      color="default"
-                      className="bg-transparent"
-                    >
-                      {votelink}
-                    </Snippet>
-                    <a
-                      href={votelink}
-                      target="_blank"
-                      aria-label="Open in new tab"
-                      title="Open in new tab"
-                    >
-                      <OpenInNewIcon width={20} height={20} />
-                    </a>
+                <div className="w-1/2 flex">
+                  <div className="  w-full">
+                    Vote link:
+                    <div className="inline-flex items-center justify-between   px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      <Snippet
+                        symbol="#"
+                        variant="flat"
+                        color="default"
+                        className="bg-transparent"
+                      >
+                        {votelink}
+                      </Snippet>
+                      <a
+                        href={votelink}
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-1/2 flex ">
+                  <div className="  w-full">
+                    Social Share:
+                    {so}
                   </div>
                 </div>
               </div>
