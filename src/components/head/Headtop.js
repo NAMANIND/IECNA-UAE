@@ -5,11 +5,14 @@ import awards from "../../../public/images/head/awards.jpg";
 import sponsors from "../../../public/images/head/sponsors.jpg";
 import speakers from "../../../public/images/head/speakers.jpg";
 import register from "../../../public/images/head/register.jpg";
+import register2 from "../../../public/images/head/register.png";
+import votee from "../../../public/images/head/vote2.png";
 import Image from "next/image";
 
 function Headtop({ head }) {
   const lower = head.toLowerCase();
   let url = headimg;
+
   if (lower === "awards") {
     url = awards;
   }
@@ -22,13 +25,21 @@ function Headtop({ head }) {
   if (lower === "register") {
     url = register;
   }
+  if (lower === "voting") {
+    url = votee;
+  }
+  if (lower === "event registration") {
+    url = register2;
+  }
 
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
       <Image
         loading="lazy"
         src={url}
-        className="object-cover absolute inset-0 w-full h-full"
+        className={`object-cover  absolute inset-0 w-full h-full  object-${
+          lower === "event registration" ? "top" : "center"
+        }  `}
         alt={head}
         width={1920}
         height={2080}
