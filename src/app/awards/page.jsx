@@ -13,6 +13,10 @@ function Awards() {
 
       <Criteria />
       <CriteriaIn />
+      <h1 className="redal bg-white pt-20 text-center">
+        *Free Delegate pass is not applicable to Technology providers,
+        Consultants, Agencies, MarTech and AdTech Companies*
+      </h1>
       <NominateForm />
     </NextUIProvider>
   );

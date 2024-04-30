@@ -85,6 +85,10 @@ function page({ params }) {
     return (
       <div>
         <Headtop head="Event Registration" />
+        <h1 className="redal bg-white pt-20 text-center">
+          *Free Delegate pass is not applicable to Technology providers,
+          Consultants, Agencies, MarTech and AdTech Companies*
+        </h1>
         {nameArr[0] === "sonu" ? (
           <Spkrform />
         ) : (

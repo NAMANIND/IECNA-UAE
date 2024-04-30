@@ -10,6 +10,10 @@ function Register() {
     <NextUIProvider>
       <div>
         <Headtop head="Register" />
+        <h1 className="redal bg-white pt-20 text-center">
+          *Free Delegate pass is not applicable to Technology providers,
+          Consultants, Agencies, MarTech and AdTech Companies*
+        </h1>
         <MultiPageForm />
       </div>
     </NextUIProvider>

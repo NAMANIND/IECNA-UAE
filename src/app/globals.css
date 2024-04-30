@@ -175,6 +175,9 @@ body {
 .css-wgai2y-MuiFormLabel-asterisk {
   color: hsl(339 90% 51% / 1) !important;
 }
+.redal {
+  color: hsl(339 90% 51% / 1) !important;
+}
 label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
   margin-top: 8px !important;
   justify-content: flex-end !important;
