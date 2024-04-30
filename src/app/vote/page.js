@@ -326,38 +326,41 @@ const CategoryNominees = ({
       >
         {category}
       </h2>
-      <div className="grid md:grid-cols-3 grid-flow-row md:gap-4 gap-10">
+      <div className="flex flex-wrap gap-10 justify-center items-center px-40 ">
         {nominees
           .sort((a, b) => a.firstName.localeCompare(b.firstName))
           .map((nominee) => (
-            <div
-              key={nominee.id}
-              className={`relative border rounded-[32px] overflow-hidden shadow-md ${
-                selectedNominees.some(
+            <div className="flex flex-col items-center w-1/4 h-[300px]">
+              <div
+                key={nominee.id}
+                className={`relative border  w-[200px] h-[200px] bg-black overflow-hidden shadow-md ${
+                  selectedNominees.some(
+                    (selectedNominee) =>
+                      selectedNominee.category === category &&
+                      selectedNominee.nomineeId === nominee.id
+                  )
+                    ? "border-blue-500  border-[4px] "
+                    : "border-gray-100  border-[4px]"
+                }`}
+                onClick={() => handleNomineeSelect(category, nominee.id)}
+              >
+                <img
+                  src={nominee.imageUrl}
+                  alt={nominee.firstName}
+                  className="w-[200px] max-h-80 h-full  object-contain object-top "
+                />
+
+                {selectedNominees.some(
                   (selectedNominee) =>
                     selectedNominee.category === category &&
                     selectedNominee.nomineeId === nominee.id
-                )
-                  ? "border-blue-500  border-[4px] "
-                  : "border-gray-300  border-[4px]"
-              }`}
-              onClick={() => handleNomineeSelect(category, nominee.id)}
-            >
-              <img
-                src={nominee.imageUrl}
-                alt={nominee.firstName}
-                className="w-full max-h-80 p-4 object-contain object-top rounded-[20px]"
-              />
+                )}
+              </div>
               <div className="p-4">
                 <p className="text-xl font-semibold uppercase mb-2 text-center">
                   {nominee.firstName} {nominee.lastName}
                 </p>
               </div>
-              {selectedNominees.some(
-                (selectedNominee) =>
-                  selectedNominee.category === category &&
-                  selectedNominee.nomineeId === nominee.id
-              )}
             </div>
           ))}
       </div>

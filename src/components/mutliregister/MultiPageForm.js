@@ -140,7 +140,10 @@ const MultiPageForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (formData.phone.length < 10) {
+      alert("Please fill complete phone number");
+      return;
+    }
     if (
       formData.firstName === "" &&
       formData.lastName === "" &&
