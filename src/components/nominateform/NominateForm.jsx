@@ -773,6 +773,27 @@ const NominateForm = () => {
                     {so}
                   </div>
                 </div>
+                {/* follow this page */}
+                <div className="flex">
+                  <div className="w-full">
+                    <h1 className="mb-5">
+                      Stay tuned for more updates
+                      <br />
+                      Follow our social media page
+                    </h1>
+                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      Linkedin: &nbsp;
+                      <a
+                        href="https://www.linkedin.com/company/the-influence-exchange-confex-awards"
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
