@@ -242,8 +242,8 @@ const Spkrform = () => {
 
       const to = [
         "20bei033@ietdavv.edu.in",
-        // "mohamed.suhel@influenceexchangegroup.com",
-        // "sonu.chauhan@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+        "sonu.chauhan@influenceexchangegroup.com",
       ];
       const subject =
         "Sonu's " +
