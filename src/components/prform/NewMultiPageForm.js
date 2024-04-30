@@ -163,6 +163,11 @@ const NewMultiPageForm = ({ to, name }) => {
         category={formData.field}
         pr={name}
         rem={randomString}
+        vote={
+          formData.firstName.toLowerCase().replace(/\s/g, "") +
+          "_" +
+          formData.lastName.toLowerCase().replace(/\s/g, "")
+        }
       />
     );
     setso(socials);

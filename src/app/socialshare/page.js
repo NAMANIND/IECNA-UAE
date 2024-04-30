@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { Snippet } from "@nextui-org/react";
 
-function generateText(field, category, pr, rem) {
+function generateText(field, category, pr, rem, vote) {
   const link = "https://india.theiena.com/event/" + pr + "_" + rem;
 
   let text = "";
@@ -17,9 +17,11 @@ function generateText(field, category, pr, rem) {
     }
   } else if (field === "nomination") {
     if (category === "influencer") {
-      text = `🎉 Thrilled and Grateful! 🏆\n\nI am absolutely thrilled to share that I've been nominated for Influencer Award categories #iecna happening on July 12th 2024 in Mumbai, India🎉\n\nIt's an incredible honor to be recognized among so many talented influencers. I am beyond excited for the opportunity to continue inspiring and connecting with all of you. Let's celebrate this journey together and stand a chance to win the award! 🥳💫\n\nGet ready to applaud for the best and brightest achievements of influencers and creators from the social media community who have made a significant impact in their respective fields. Mark your calendars and let's make memories together! See you there! 🌟\n\nNominate Now: ${link}\n\n#InfluencerAward #Nominated #InfluenceExchange #InfluenceExchangeConfex #influencerevent #influencermarketing #martech #adtech #Marketing #Influencer #Networking #Influencer #india`;
+      text = `🎉 Thrilled and Grateful! 🏆\n\nI am absolutely thrilled to share that I've been nominated for Influencer Award categories #iecna happening on July 12th 2024 in Mumbai, India🎉\n\nIt's an incredible honor to be recognized among so many talented influencers. I am beyond excited for the opportunity to continue inspiring and connecting with all of you. Let's celebrate this journey together and stand a chance to win the award! 🥳💫\n\nGet ready to applaud for the best and brightest achievements of influencers and creators from the social media community who have made a significant impact in their respective fields. Mark your calendars and let's make memories together! See you there! 🌟 \n\n Vote for me : ${vote} \n\nNominate Now: ${link}\n\n#InfluencerAward #Nominated #InfluenceExchange #InfluenceExchangeConfex #influencerevent #influencermarketing #martech #adtech #Marketing #Influencer #Networking #Influencer #india`;
     } else {
-      text = `🎉 Thrilled and Grateful! 🏆\n\nI am absolutely thrilled to share that I've been nominated for Marketeer Award categories #iecna happening on July 12th 2024 in Mumbai, India🎉\n\nIt's an incredible honor to be recognized in Marketing Community.  I am beyond excited for the opportunity to continue inspiring and connecting with all of you. Let's celebrate this journey together and stand a chance to win the award! 🥳💫\n\nGet ready to applaud for the best and brightest achievements of marketing industry leaders who have made a significant impact in their respective fields. Mark your calendars and let's make memories together! See you there! 🌟\n\nNominate Now: : ${link}\n\n#InfluencerAward #Nominated #InfluenceExchange #InfluenceExchangeConfex #influencerevent #influencermarketing #martech #adtech #Marketing #Influencer #Networking #Influencerawards #india`;
+      text = `🎉 Thrilled and Grateful! 🏆\n\nI am absolutely thrilled to share that I've been nominated for Marketeer Award categories #iecna happening on July 12th 2024 in Mumbai, India🎉\n\nIt's an incredible honor to be recognized in Marketing Community.  I am beyond excited for the opportunity to continue inspiring and connecting with all of you. Let's celebrate this journey together and stand a chance to win the award! 🥳💫\n\nGet ready to applaud for the best and brightest achievements of marketing industry leaders who have made a significant impact in their respective fields. Mark your calendars and let's make memories together! See you there! 🌟
+      \n\n Vote for me : ${vote} \n\n
+      Nominate Now: : ${link}\n\n#InfluencerAward #Nominated #InfluenceExchange #InfluenceExchangeConfex #influencerevent #influencermarketing #martech #adtech #Marketing #Influencer #Networking #Influencerawards #india`;
     }
   }
 
@@ -82,11 +84,11 @@ function Socialshare({ text }) {
   );
 }
 
-export default function SharedSocials({ field, category, pr, rem }) {
+export default function SharedSocials({ field, category, pr, rem, vote }) {
   const [text, setText] = useState(null);
 
   useEffect(() => {
-    const textGenerated = generateText(field, category, pr, rem);
+    const textGenerated = generateText(field, category, pr, rem, vote);
     setText(textGenerated);
   }, [field, category, pr]);
 

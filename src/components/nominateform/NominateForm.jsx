@@ -169,6 +169,13 @@ const NominateForm = () => {
         field="nomination"
         pr="megha"
         rem={randomString}
+        firstName={formData.firstName}
+        vote={
+          "https://india.theiena.com/vote/" +
+          formData.firstName.toLowerCase().replace(/\s/g, "") +
+          "_" +
+          formData.lastName.toLowerCase().replace(/\s/g, "")
+        }
       />
     );
     setso(socials);
