@@ -285,6 +285,7 @@ const NewMultiPageForm = ({ to, name }) => {
         <p>Recommendation 2: ${formData.recommendation2}</p>
     
         ${imageRef ? `<img src="${imageUrl}" alt="nominee image" />` : ""}
+        ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
       `;
 
       const subject =

@@ -285,6 +285,7 @@ const NominateForm = () => {
 
 
     <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
+    ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
     `;
     const to = [
       "20bei033@ietdavv.edu.in",

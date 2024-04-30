@@ -275,6 +275,7 @@ const Spkrform = () => {
 
       <p><strong>Image:</strong> </p>
       <img src="${imageUrl}" alt="Speaker Image" width="200" height="200" / >
+      ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
       
       
   
