@@ -171,7 +171,6 @@ const NominateForm = () => {
         rem={randomString}
         firstName={formData.firstName}
         vote={
-          "https://india.theiena.com/vote/" +
           formData.firstName.toLowerCase().replace(/\s/g, "") +
           "_" +
           formData.lastName.toLowerCase().replace(/\s/g, "")
