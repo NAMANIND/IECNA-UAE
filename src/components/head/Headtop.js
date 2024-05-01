@@ -7,6 +7,7 @@ import speakers from "../../../public/images/head/speakers.jpg";
 import register from "../../../public/images/head/register.jpg";
 import register2 from "../../../public/images/head/register.png";
 import votee from "../../../public/images/head/vote2.png";
+import voteb from "../../../public/images/head/voteb.png";
 import Image from "next/image";
 
 function Headtop({ head }) {
@@ -31,7 +32,9 @@ function Headtop({ head }) {
   if (lower === "event registration") {
     url = register2;
   }
-
+  if (lower === "vote for me") {
+    url = voteb;
+  }
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
       <Image
