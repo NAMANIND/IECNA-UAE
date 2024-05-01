@@ -104,7 +104,7 @@ function Whoshould() {
                 key={index}
                 className="flex flex-col w-[30%] max-md:ml-0 my-10 max-md:w-full"
               >
-                <div className="flex flex-col grow max-md:mt-10 group">
+                <div className="flex flex-col max-md:mt-10 group">
                   <div className="overflow-hidden rounded-[42px]">
                     <Image
                       loading="lazy"
@@ -119,7 +119,7 @@ function Whoshould() {
                   `}
                   />
                 </div>
-                <div className="text-xl font-medium tracking-tighter leading-7 text-white uppercase max-md:mt-10">
+                <div className="text-xl font-medium tracking-tighter leading-7 text-white flex flex-col justify-between max-md:mt-10">
                   <span className="text-3xl font-bold text-[#ccff00] uppercase">
                     {card.title}
                   </span>

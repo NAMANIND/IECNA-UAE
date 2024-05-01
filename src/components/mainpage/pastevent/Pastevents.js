@@ -97,40 +97,6 @@ function Pastevents() {
         >
           <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
             <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
-              <h1 className="text-4xl ">DUBAI</h1>
-              <h2
-                className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
-              >
-                20<sup>th</sup> September 2024
-              </h2>
-            </div>
-          </div>
-          <motion.div
-            initial={{ bottom: "40%" }} // Initial state
-            whileInView={imganimation} // Target state when in view
-            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]  sm:top-auto -top-40"
-          >
-            <Image
-              loading="lazy"
-              src={img1}
-              className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
-              style={{
-                backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
-                boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
-              }}
-              alt=""
-            />
-          </motion.div>
-        </motion.div>
-        <motion.div
-          initial={offscreen} // Initial state
-          whileInView={onscreen2} // Target state when in view
-          viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-          className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
-        >
-          <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
-            <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
               <h1 className="text-4xl ">MUMBAI</h1>
               <h2
                 className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
@@ -148,6 +114,40 @@ function Pastevents() {
             <Image
               loading="lazy"
               src={img2}
+              className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
+              style={{
+                backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
+                boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
+              }}
+              alt=""
+            />
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial={offscreen} // Initial state
+          whileInView={onscreen2} // Target state when in view
+          viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+          className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+        >
+          <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
+            <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
+              <h1 className="text-4xl ">DUBAI</h1>
+              <h2
+                className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
+              >
+                20<sup>th</sup> September 2024
+              </h2>
+            </div>
+          </div>
+          <motion.div
+            initial={{ bottom: "40%" }} // Initial state
+            whileInView={imganimation} // Target state when in view
+            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+            className="relative bottom-[20%]  sm:top-auto -top-40"
+          >
+            <Image
+              loading="lazy"
+              src={img1}
               className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
               style={{
                 backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
