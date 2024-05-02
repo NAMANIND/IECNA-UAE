@@ -10,7 +10,7 @@ import votee from "../../../public/images/head/vote2.png";
 import voteb from "../../../public/images/head/voteb.png";
 import Image from "next/image";
 
-function Headtop({ head }) {
+function Headtop({ head, opacity }) {
   const lower = head.toLowerCase();
   let url = headimg;
 
@@ -48,7 +48,12 @@ function Headtop({ head }) {
         height={2080}
       />
       <h1
-        className={`relative z-50  top-32  sm:top-0 md:mt-36 mt-14 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${anton.className} `}
+        className={`relative z-50  top-[40%]  -translate-y-1/2 sm:top-1/2 md:mt-0 mt-0 w-full max-md:max-w-full text-6xl md:text-9xl uppercase  ${
+          anton.className
+        }
+        ${opacity ? "opacity-0" : "opacity-100"}
+        
+         `}
         style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85)" }}
       >
         {head}

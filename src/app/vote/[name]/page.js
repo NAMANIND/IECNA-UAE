@@ -149,7 +149,7 @@ const PersonalVote = ({ params }) => {
   const [firstName, lastName] = name.toLowerCase().split("_");
   return (
     <div>
-      <Headtop head="Vote for me" />
+      <Headtop head="Vote for me" opacity={true} />
       {nomineeData && (
         <div className=" mx-auto p-8 bg-white rounded-lg shadow-lg">
           <h1 className="text-3xl font-semibold uppercase mb-8 text-center ">
