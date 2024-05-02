@@ -657,7 +657,7 @@ const Spkrform = () => {
                 formData.category === "delegate") && (
                 <div className="flex md:flex-col flex-col gap-2 w-full">
                   <label className="text-sm form-color ">
-                    Upload Image (800px x 800px)
+                    Upload Image<span className="redal">*</span> (800px x 800px)
                   </label>
                   <Button
                     component="label"
