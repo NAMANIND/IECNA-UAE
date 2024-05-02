@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import NewMultiPageForm from "@/components/prform/NewMultiPageForm";
 import Spkrform from "@/components/spkr/Spkrform";
 import { firestore } from "../../../../firbase/clientApp";
+import Ipvote from "@/components/ipvote/Ipvote";
 
 // put meta image
 
@@ -97,7 +98,7 @@ function page({ params }) {
       </div>
     );
   } else {
-    return notFound();
+    return <Ipvote name={name} />;
   }
 }
 
