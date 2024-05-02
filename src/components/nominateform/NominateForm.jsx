@@ -169,7 +169,6 @@ const NominateForm = () => {
         field="nomination"
         pr="megha"
         rem={randomString}
-        firstName={formData.firstName}
         vote={
           formData.firstName.toLowerCase().replace(/\s/g, "") +
           "_" +
@@ -796,6 +795,39 @@ const NominateForm = () => {
                       Linkedin: &nbsp;
                       <a
                         href="https://www.linkedin.com/company/the-influence-exchange-confex-awards"
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      Twitter: &nbsp;
+                      <a
+                        href="https://twitter.com/IXG2024"
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      Instagram: &nbsp;
+                      <a
+                        href="https://www.instagram.com/influenceexchange2024/"
+                        target="_blank"
+                        aria-label="Open in new tab"
+                        title="Open in new tab"
+                      >
+                        <OpenInNewIcon width={20} height={20} />
+                      </a>
+                    </div>
+                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                      Facebook : &nbsp;
+                      <a
+                        href="https://www.facebook.com/people/Influence-Exchange-Group/61555949403854/?mibextid=YMEMSu"
                         target="_blank"
                         aria-label="Open in new tab"
                         title="Open in new tab"
