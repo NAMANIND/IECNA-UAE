@@ -7,7 +7,8 @@ import { Snippet } from "@nextui-org/react";
 
 const VoteViews = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery1, setSearchQuery1] = useState("");
+  const [searchQuery2, setSearchQuery2] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [activeSection, setActiveSection] = useState("ranking");
 
@@ -132,11 +133,24 @@ const VoteViews = () => {
 
   const handleSearch = () => {
     const results = [];
+
+    // Assuming searchQuery1 and searchQuery2 are state variables
+    // declared and updated elsewhere in your component
+    // If not, you may need to adjust this part
+    const query1 = searchQuery1.trim().toLowerCase();
+    const query2 = searchQuery2.trim().toLowerCase();
+
+    if (query2 === "") {
+      alert("Please enter a search query");
+      setSearchResults([]); // Assuming setSearchResults is a state setter function
+      return;
+    }
+
     for (const category in nomineesByCategory) {
       const categoryResults = nomineesByCategory[category].filter(
         (nominee) =>
-          nominee.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          nominee.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+          nominee.firstName.toLowerCase().includes(query1) &&
+          nominee.lastName.toLowerCase().includes(query2)
       );
       if (categoryResults.length > 0) {
         results.push({
@@ -145,7 +159,7 @@ const VoteViews = () => {
         });
       }
     }
-    setSearchResults(results);
+    setSearchResults(results); // Assuming setSearchResults is a state setter function
   };
 
   return (
@@ -243,11 +257,20 @@ const VoteViews = () => {
               <div className="flex justify-center my-10">
                 <input
                   type="text"
-                  placeholder="Search by First Name or Last Name"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="First Name"
+                  value={searchQuery1}
+                  onChange={(e) => setSearchQuery1(e.target.value)}
                   className="mr-4 px-4 py-2 border border-gray-300 rounded-md"
                 />
+
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={searchQuery2}
+                  onChange={(e) => setSearchQuery2(e.target.value)}
+                  className="mr-4 px-4 py-2 border border-gray-300 rounded-md"
+                />
+
                 <button
                   onClick={handleSearch}
                   className="px-4 py-2 bg-blue-500 text-white rounded-md"
