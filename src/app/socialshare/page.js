@@ -34,40 +34,44 @@ function Socialshare({ text }) {
   };
 
   return (
-    <div className="flex flex-row gap-4 p-4">
+    <div className="flex flex-row flex-wrap gap-4 p-4">
       {text && (
         <>
-          <button
-            onClick={() =>
-              handleShare(
-                `https://www.linkedin.com/shareArticle?mini=true&text=${encodeURIComponent(
-                  text
-                )}`
-              )
-            }
-          >
-            <FaLinkedin size={32} />
-          </button>
-          <button
-            onClick={() =>
-              handleShare(
-                `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                  text
-                )}`
-              )
-            }
-          >
-            <FaTwitter size={32} />
-          </button>
-          <button
-            onClick={() =>
-              handleShare(
-                `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`
-              )
-            }
-          >
-            <FaWhatsapp size={32} />
-          </button>
+          <div className="flex-row flex gap-4">
+            <button
+              onClick={() =>
+                handleShare(
+                  `https://www.linkedin.com/shareArticle?mini=true&text=${encodeURIComponent(
+                    text
+                  )}`
+                )
+              }
+            >
+              <FaLinkedin size={32} />
+            </button>
+            <button
+              onClick={() =>
+                handleShare(
+                  `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                    text
+                  )}`
+                )
+              }
+            >
+              <FaTwitter size={32} />
+            </button>
+            <button
+              onClick={() =>
+                handleShare(
+                  `https://api.whatsapp.com/send?text=${encodeURIComponent(
+                    text
+                  )}`
+                )
+              }
+            >
+              <FaWhatsapp size={32} />
+            </button>
+          </div>
           {/* add a button to copy the text */}
 
           <Snippet

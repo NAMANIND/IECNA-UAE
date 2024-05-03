@@ -12,6 +12,48 @@ const VoteViews = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [activeSection, setActiveSection] = useState("ranking");
 
+  const [fetchedImages, setFetchedImages] = useState([]);
+  const [searchResults2, setSearchResults2] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const fetchTransformedImages = async () => {
+      try {
+        const imagesSnapshot = await firestore
+          .collection("transformed-images")
+          .get();
+        const imagesData = imagesSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setFetchedImages(imagesData);
+      } catch (error) {
+        console.error("Error fetching transformed images:", error);
+      }
+    };
+
+    fetchTransformedImages();
+  }, []);
+
+  const handleSearch2 = () => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (query === "") {
+      alert("Please enter a search query");
+      setSearchResults([]); // Clear the search results
+      return;
+    }
+
+    const filteredImages = fetchedImages.filter(
+      (image) =>
+        image.name.toLowerCase().includes(query) ||
+        image.trf.toLowerCase().includes(query) ||
+        image.url.toLowerCase().includes(query)
+    );
+
+    setSearchResults2(filteredImages);
+  };
+
   useEffect(() => {
     const fetchNominees = async () => {
       try {
@@ -192,6 +234,16 @@ const VoteViews = () => {
             >
               Vote Count
             </button>
+
+            {/* banner data */}
+            <button
+              className={`mx-4 px-4 py-2 ${
+                activeSection === "banner" ? "bg-gray-200 font-bold" : ""
+              }`}
+              onClick={() => setActiveSection("banner")}
+            >
+              Banner
+            </button>
           </div>
 
           {activeSection === "ranking" ? (
@@ -252,7 +304,7 @@ const VoteViews = () => {
                 )
               )}
             </>
-          ) : (
+          ) : activeSection === "voteCount" ? (
             <>
               <div className="flex justify-center my-10">
                 <input
@@ -315,6 +367,55 @@ const VoteViews = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="w-full h-full bg-white">
+                {/* Search input */}
+                <div className="flex justify-center my-10">
+                  <input
+                    type="text"
+                    placeholder="Search by Name"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="mr-4 px-4 py-2 border border-gray-300 rounded-md"
+                  />
+                  <button
+                    onClick={handleSearch2}
+                    className="px-4 py-2 bg-blue-500 text-white rounded-md"
+                  >
+                    Search
+                  </button>
+                </div>
+                {/* Display transformed images */}
+                <div className="flex-wrap justify-center flex gap-5">
+                  {(searchResults2.length > 0
+                    ? searchResults2
+                    : fetchedImages
+                  ).map((image) => (
+                    <div
+                      key={image.id}
+                      className="p-4 w-[45%] border rounded-lg shadow-md"
+                    >
+                      <p className="text-xl font-semibold mb-2">
+                        Name: {image.name}
+                      </p>
+                      <p className="text-sm font-medium mb-2">
+                        TRF: {image.trf}
+                      </p>
+                      <p className="text-sm font-medium mb-2 break-words">
+                        URL: {image.url}
+                      </p>
+                      <img
+                        src={image.url}
+                        alt={image.name}
+                        className="w-full h-56 object-contain object-top"
+                      />
+                      {/* <p className="text-lg font-medium mb-2">Values: {JSON.stringify(image.values)}</p> */}
+                    </div>
+                  ))}
+                </div>
               </div>
             </>
           )}

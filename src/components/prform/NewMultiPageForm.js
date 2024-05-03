@@ -995,9 +995,9 @@ const NewMultiPageForm = ({ to, name }) => {
 
       {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
+          <div className="bg-white sm:w-full w-[90%] p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
             <div className="relative w-full">
-              <h1 className="text-2xl font-bold mb-10 text-center w-full text-black">
+              <h1 className="text-2xl font-bold sm:mb-10 mb-0 sm:text-center text-left w-full text-black">
                 Form submitted successfully!
               </h1>
 
@@ -1019,15 +1019,15 @@ const NewMultiPageForm = ({ to, name }) => {
                 <CloseIcon />
               </button>
             </div>
-            <div className="flex justify-center gap-5 items-center w-full">
+            <div className="flex-row justify-center sm:flex-col gap-5 items-center w-full">
               <div
-                className={`flex justify-center items-center w-[${
+                className={`flex justify-center items-center w-full sm:w-[${
                   rtype === "nomination" ? "50%" : "50%"
                 }]`}
               >
                 {poppage}
               </div>
-              <div className="flex flex-col justify-start flex-col gap-4 align-top h-[70vh] ">
+              <div className="flex flex-col justify-start sm:text-2xl text-medium sm:mt-0 mt-5 flex-col gap-4 align-top h-1/2 sm:h-[70vh] ">
                 {rtype === "nomination" && (
                   <div className="w-1/2 flex">
                     <div className="  w-full">
@@ -1066,49 +1066,51 @@ const NewMultiPageForm = ({ to, name }) => {
                       <br />
                       Follow our social media page
                     </h1>
-                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                      Linkedin: &nbsp;
-                      <a
-                        href="https://www.linkedin.com/company/the-influence-exchange-confex-awards"
-                        target="_blank"
-                        aria-label="Open in new tab"
-                        title="Open in new tab"
-                      >
-                        <OpenInNewIcon width={20} height={20} />
-                      </a>
-                    </div>
-                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                      Twitter: &nbsp;
-                      <a
-                        href="https://twitter.com/IXG2024"
-                        target="_blank"
-                        aria-label="Open in new tab"
-                        title="Open in new tab"
-                      >
-                        <OpenInNewIcon width={20} height={20} />
-                      </a>
-                    </div>
-                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                      Instagram: &nbsp;
-                      <a
-                        href="https://www.instagram.com/influenceexchange2024/"
-                        target="_blank"
-                        aria-label="Open in new tab"
-                        title="Open in new tab"
-                      >
-                        <OpenInNewIcon width={20} height={20} />
-                      </a>
-                    </div>
-                    <div className="inline-flex items-center justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
-                      Facebook : &nbsp;
-                      <a
-                        href="https://www.facebook.com/people/Influence-Exchange-Group/61555949403854/?mibextid=YMEMSu"
-                        target="_blank"
-                        aria-label="Open in new tab"
-                        title="Open in new tab"
-                      >
-                        <OpenInNewIcon width={20} height={20} />
-                      </a>
+                    <div className=" flex sm:flex-col flex-row flex-wrap gap-5 ">
+                      <div className="inline-flex items-center sm:w-1/3 w-[40%] justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                        Linkedin: &nbsp;
+                        <a
+                          href="https://www.linkedin.com/company/the-influence-exchange-confex-awards"
+                          target="_blank"
+                          aria-label="Open in new tab"
+                          title="Open in new tab"
+                        >
+                          <OpenInNewIcon width={20} height={20} />
+                        </a>
+                      </div>
+                      <div className="inline-flex items-center sm:w-1/3 w-[40%]  justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                        Twitter: &nbsp;
+                        <a
+                          href="https://twitter.com/IXG2024"
+                          target="_blank"
+                          aria-label="Open in new tab"
+                          title="Open in new tab"
+                        >
+                          <OpenInNewIcon width={20} height={20} />
+                        </a>
+                      </div>
+                      <div className="inline-flex items-center sm:w-1/3 w-[40%]  justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                        Instagram: &nbsp;
+                        <a
+                          href="https://www.instagram.com/influenceexchange2024/"
+                          target="_blank"
+                          aria-label="Open in new tab"
+                          title="Open in new tab"
+                        >
+                          <OpenInNewIcon width={20} height={20} />
+                        </a>
+                      </div>
+                      <div className="inline-flex items-center sm:w-1/3 w-[40%]  justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
+                        Facebook : &nbsp;
+                        <a
+                          href="https://www.facebook.com/people/Influence-Exchange-Group/61555949403854/?mibextid=YMEMSu"
+                          target="_blank"
+                          aria-label="Open in new tab"
+                          title="Open in new tab"
+                        >
+                          <OpenInNewIcon width={20} height={20} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

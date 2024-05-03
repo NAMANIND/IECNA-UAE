@@ -176,12 +176,12 @@ function ImageDownloadPage({
   };
 
   return (
-    <div className=" relative w-[100%] h-fit max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
+    <div className=" relative w-[100%] h-fit  max-h-[30vh] sm:max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
       {transformedImageUrl && (
         <img
           src={transformedImageUrl}
           alt={title}
-          className={`object-contain w-[100%] h-[60vh] max-h-[60vh]`}
+          className={`object-contain w-[100%] max-h-[25vh] h-[60vh] sm:max-h-[60vh]`}
           onLoad={handleImageLoad} // Call handleImageLoad function when the image is loaded
         />
       )}
