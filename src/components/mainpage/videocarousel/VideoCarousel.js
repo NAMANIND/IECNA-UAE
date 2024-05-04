@@ -181,7 +181,7 @@ export const VideoCarousel = () => {
                           animate={carouselVariant}
                           className="absolute bottom-0 left-0 flex w-full flex-col items-center gap-4 p-5 text-lg text-white md:flex-row md:justify-between md:gap-0"
                         >
-                          <p className="mt-10 text-2xl ">
+                          <p className="mt-10 text-2xl font-medium ">
                             Celebrate excellence with us as we honor outstanding
                             contributions across various domains.
                           </p>
@@ -218,7 +218,7 @@ export const VideoCarousel = () => {
 
                 return (
                   <motion.div
-                    key={movie.name}
+                    key={movie.id}
                     className="h-full w-full"
                     layout
                     custom={{
