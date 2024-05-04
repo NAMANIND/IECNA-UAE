@@ -31,13 +31,13 @@ export default function Home() {
       </div>
       <Wsa />
       <div className="bg-white w-full">
-        <Awardnrec />
-        {/* <div
+        {/* <Awardnrec /> */}
+        <div
           className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
         >
           AWARDS AND RECOGNITION
-        </div> */}
-        {/* <VideoCarousel /> */}
+        </div>
+        <VideoCarousel />
       </div>
       <Sponsors />
       <Well />

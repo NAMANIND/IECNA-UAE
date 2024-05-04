@@ -67,20 +67,6 @@ export const VideoCarousel = () => {
   //     clearInterval(intervalId);
   //   };
   // }, []);
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    if (ok) {
-      const intervalId = setInterval(() => {
-        handleClick(1); // Move the carousel to the next slide
-      }, 3000);
-
-      // Clean up the interval on component unmount
-      return () => {
-        clearInterval(intervalId);
-      };
-    }
-  }, [ok]);
 
   const [[activeIndex, direction], setActiveIndex] = useState([0, 0]);
   const indexInArrayScope =
@@ -130,11 +116,7 @@ export const VideoCarousel = () => {
         ref={carouselWrapperRef}
         className="mt-[-100vh] h-[300vh] overflow-clip"
       >
-        <motion.div
-          onHoverStart={() => setOk(false)}
-          onHoverEnd={() => carouselVariant === "active" && setOk(true)}
-          className="sticky top-0 flex h-screen items-center"
-        >
+        <div className="sticky top-0 flex h-screen items-center">
           <div className="relative left-1/2 mb-5 flex -translate-x-1/2 gap-5">
             <AnimatePresence
               initial={false}
@@ -168,10 +150,6 @@ export const VideoCarousel = () => {
                         key={index}
                         style={{ scale }}
                         className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
-                        onHoverStart={() => setOk(false)}
-                        onHoverEnd={() =>
-                          carouselVariant === "active" && setOk(true)
-                        }
                       >
                         <img
                           className="h-full w-full object-cover"
@@ -186,15 +164,10 @@ export const VideoCarousel = () => {
                           animate={carouselVariant}
                           className="absolute bottom-0 left-0 flex w-full flex-col items-center gap-4 p-5 text-lg text-white md:flex-row md:justify-between md:gap-0"
                         >
-                          <p className="mt-10 text-2xl ">
-                            Celebrate excellence with us as we honor outstanding
-                            contributions across various domains.
-                          </p>
-                          <div>
-                            <Button color="green" img="arrow" href="/awards">
-                              Nominate
-                            </Button>
-                          </div>
+                          <p className="mt-10">Best video title ever</p>
+                          <Button color="green" img="arrow" href="/awards">
+                            Nominate
+                          </Button>
                         </motion.div>
                       </motion.div>
                     );
@@ -253,8 +226,6 @@ export const VideoCarousel = () => {
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXLeft }}
               className="aspect-[9/16] w-[300px] z-[900] shrink-0 absolute left-0  flex justify-end overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
-              onHoverStart={() => setOk(false)}
-              onHoverEnd={() => carouselVariant === "active" && setOk(true)}
             >
               <button
                 onClick={() => handleClick(-1)}
@@ -267,8 +238,6 @@ export const VideoCarousel = () => {
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXRight }}
               className="aspect-[9/16] w-[300px] shrink-0 z-[900]  absolute right-0  flex justify-start overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
-              onHoverStart={() => setOk(false)}
-              onHoverEnd={() => carouselVariant === "active" && setOk(true)}
             >
               <button
                 onClick={() => handleClick(1)}
@@ -278,7 +247,7 @@ export const VideoCarousel = () => {
               </button>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <motion.div

@@ -23,16 +23,14 @@ function Mediapartners() {
       name: "Coin Pedia",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/33fb82163e184dc6552b9979bad2416cc4c21439f2e7c743300ba914b5848db5?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: "/images/sponsors/coinpedia-og.jpg",
       logoUrl: coin,
     },
     {
       name: "Drive Ply",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/08f747f6e806c82cd97edd553d7e8d1d09cf3c52ce4db0accfa46dc521bc396b?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
       logoUrl: ply,
     },
   ];

@@ -303,7 +303,7 @@ function CriteriaIn() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col md:flex-row justify-center gap-20  sm:p-10 p-5"
+        className="flex flex-col md:flex-row justify-center gap-20  sm:p-10 p-5  mb-20"
       >
         <div className="flex flex-wrap w-full md:w-1/2 gap-[4%]">
           {data.map((item, index) => (
@@ -361,7 +361,7 @@ function CriteriaIn() {
         </div>
       </motion.div>
 
-      <motion.div className="flex flex-col md:flex-row justify-center gap-20  sm:p-10 p-5">
+      <motion.div className="flex flex-col md:flex-row justify-center gap-20  sm:p-10 p-5  mb-20">
         <div className="md:w-1/2 w-full md:p-5 p-2">
           {/* Display description and criteria for the selected heading */}
           {selectedHeading2 &&

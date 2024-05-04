@@ -170,7 +170,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-2xl  sm:px-64 px-5 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+          className="text-2xl  sm:px-20 px-5 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
           The Influence Exchange Confex and Awards in India presents a fantastic
           opportunity to bring together industry leaders, innovators, marketers

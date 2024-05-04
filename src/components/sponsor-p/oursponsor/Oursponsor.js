@@ -16,8 +16,7 @@ function Oursponsor() {
       name: "Insta Chef",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/2177b778065eb53456e9aae35c54027c06ae1da4769bc4ccee832d4b516451f3?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: "/images/sponsors/instachef-og.jpg",
       logoUrl: chef,
     },
     {
@@ -25,8 +24,7 @@ function Oursponsor() {
       name: "Fly Bharathi",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/33fb82163e184dc6552b9979bad2416cc4c21439f2e7c743300ba914b5848db5?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: "/images/sponsors/flybharathi-og.jpg",
       logoUrl: fly,
     },
     {
@@ -34,8 +32,7 @@ function Oursponsor() {
       name: "Views",
       description:
         "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/08f747f6e806c82cd97edd553d7e8d1d09cf3c52ce4db0accfa46dc521bc396b?apiKey=5e27b1defd60460eaa6dca842133145f&",
+      imageUrl: "/images/sponsors/views-og.jpg",
       logoUrl: views,
     },
   ];

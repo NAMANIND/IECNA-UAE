@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { work_sans, anton } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
+import Awardnrec from "@/components/mainpage/awrdnrec/Awardnrec";
 
 function Criteria() {
   // Define state to manage which heading's criteria to display
@@ -155,11 +156,14 @@ function Criteria() {
         organizations for their achievements and innovation in marketing and
         influencer engagement.
       </motion.div>
+      <div className=" bg-black w-full">
+        <Awardnrec />
+      </div>
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-44 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
+        className={`mt-24 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         MARKETING AWARD CATEGORIES AND CRITERIA
       </motion.div>
@@ -168,7 +172,7 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col md:flex-row justify-center gap-20  md:p-10 p-5"
+        className="flex flex-col md:flex-row justify-center gap-20  md:p-10 p-5 mb-20"
       >
         <div className="flex flex-wrap md:w-1/2 w-full gap-[4%]">
           {data.map((item, index) => (
@@ -230,7 +234,7 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex justify-center mt-10"
+        className="flex justify-center mt-10 "
       >
         <Button color="black" img="trophy" href="/awards">
           Nominate

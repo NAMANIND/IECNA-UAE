@@ -60,14 +60,14 @@ const Awardnrec = () => {
 
   return (
     <div
-      className="flex flex-col px-20 py-20 w-full  max-md:px-5 max-md:max-w-full"
-      style={{
-        background:
-          "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
-      }}
+      className="flex flex-col bg-black px-20 py-20 w-full  max-md:px-5 max-md:max-w-full"
+      // style={{
+      //   background:
+      //     "linear-gradient(192deg, rgba(255, 255, 255, 0.15) 0%, rgba(81, 182, 255, 0.15) 14.5%, rgba(81, 182, 255, 0.15) 76%, rgba(255, 255, 255, 0.15) 100%)",
+      // }}
     >
       <motion.div
-        className={`self-center mt-52 text-6xl text-center text-black leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
+        className={`self-center mt-20 text-6xl text-center text-white leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
       >
         AWARDS AND RECOGNITION
       </motion.div>
@@ -177,7 +177,7 @@ const Awardnrec = () => {
         </div>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         initial={offscreen3}
         whileInView={onscreen3}
         viewport={{ once: true, amount: 0.3 }}
@@ -186,7 +186,7 @@ const Awardnrec = () => {
         <Button href="/awards" color="black" img="trophy">
           Nominate
         </Button>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
