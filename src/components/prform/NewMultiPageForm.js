@@ -14,7 +14,7 @@ import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 import { storage, firestore } from "../../../firbase/clientApp";
 import "react-phone-input-2/lib/bootstrap.css";
-import { MuiPhone } from "../phone/MuiPhone";
+
 import Sendemail from "../../app/email/page";
 import ImageDownloadPage from "@/app/imagetransform/page";
 import { styled } from "@mui/material/styles";
@@ -23,6 +23,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Socialshare from "@/app/socialshare/page";
+import { MuiPhone } from "../phone/MuiPhone";
 
 const NewMultiPageForm = ({ to, name }) => {
   const [page, setPage] = useState(1);

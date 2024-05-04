@@ -153,41 +153,45 @@ body {
 .Mui-focused {
   color: gray !important;
 }
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+.MuiFormControl-root,
+.MuiTextField-root {
   padding-top: 8px !important;
   justify-content: flex-end !important;
 }
 
 @media (max-width: 600px) {
-  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  .MuiFormControl-root,
+  .MuiTextField-root {
     padding-top: 24px !important;
     justify-content: flex-end !important;
   }
 }
 
-.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+.MuiFormLabel-root,
+.MuiInputLabel-root {
   line-height: 52px !important;
   font-size: 17px !important;
   font-weight: 400 !important;
   font-family: var(--work-sans-font) !important;
   color: #52525b !important;
 }
-.css-wgai2y-MuiFormLabel-asterisk {
+.MuiFormLabel-asterisk {
   color: hsl(339 90% 51% / 1) !important;
 }
 .redal {
   color: hsl(339 90% 51% / 1) !important;
 }
-label + .css-1eed5fa-MuiInputBase-root-MuiInput-root {
+label + .MuiInputBase-root,
+.MuiInput-root {
   margin-top: 8px !important;
   justify-content: flex-end !important;
 }
 
-.css-1eed5fa-MuiInputBase-root-MuiInput-root::before {
+.MuiInput-root::before {
   border-bottom: 2px solid rgb(226, 223, 223) !important;
 }
 
-.css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+.MuiInput-root::after {
   border-bottom: 3px solid #333 !important;
 }
 
