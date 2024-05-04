@@ -26,6 +26,8 @@ const Voting = () => {
     "Food/Culinary Influencer of the Year",
     "Educational Content Creator of the Year",
     "Best Art & Photography Influencer",
+    "Most Promising Influencer of the Year",
+    "Best Marketing and Hospitality Influencer of the Year",
   ];
 
   const marketerCategories = [
