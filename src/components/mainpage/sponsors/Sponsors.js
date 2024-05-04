@@ -6,7 +6,7 @@ function Sponsors() {
   function importAll(r) {
     let images = {};
     r.keys().map((item, index) => {
-      images[item.replace("./", "")] = r(item);
+      images[item.replace("./", "")] = r(item).default;
     });
     return images;
   }
@@ -32,15 +32,15 @@ function Sponsors() {
       {/* Mapping through the logo files and creating <img> elements */}
       <div className="flex flex-wrap gap-10 justify-center">
         {Object.keys(images).map((imageName, index) => (
-          <Image
-            key={index}
-            className="object-contain  transition duration-500 ease-in-out cursor-pointer"
-            src={images[imageName].default} // Use the 'default' property for ES6 modules
-            width={120}
-            height={120}
-            alt={`Album ${index + 1}`}
-            objectFit="cover"
-          />
+          <div key={index} className="relative">
+            <Image
+              className="object-contain"
+              src={images[imageName]} // Use the 'default' property for ES6 modules
+              width={120}
+              height={120}
+              alt={`Album ${index + 1}`}
+            />
+          </div>
         ))}
       </div>
     </div>

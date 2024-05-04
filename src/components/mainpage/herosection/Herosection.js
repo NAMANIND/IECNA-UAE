@@ -31,7 +31,6 @@ function Herosection() {
         <iframe
           src="https://www.youtube.com/embed/rSuQHzr-TvI?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=rSuQHzr-TvI"
           title="YouTube video player"
-          frameborder="0"
           allowFullScreen
           className="absolute  inset-0 w-full h-full top-0 sm:scale-125 scale-[2.5]"
         ></iframe>
