@@ -751,7 +751,7 @@ const NominateForm = () => {
                 <CloseIcon />
               </button>
             </div>
-            <div className="flex justify-center gap-5 items-center w-full">
+            <div className="flex-col justify-center sm:flex-row flex gap-5 items-center w-full">
               <div className="flex justify-center items-center w-1/2">
                 {poppage}
               </div>
