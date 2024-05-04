@@ -12,6 +12,7 @@ import {
 import { useMemo, useRef, useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Marquee from "react-fast-marquee";
+
 export const VideoCarousel = () => {
   const { width, height } = useWindowSize();
   const carouselWrapperRef = useRef(null);
@@ -53,21 +54,9 @@ export const VideoCarousel = () => {
       setCarouselVariant("inactive");
     }
   });
+  const [ok, setOk] = useState(false);
 
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // useEffect(() => {
-  //   // Start the interval to move the carousel every 2 seconds
-  //   const intervalId = setInterval(() => {
-  //     handleClick(1); // Move the carousel to the next slide
-  //   }, 5000);
-
-  //   // Clean up the interval on component unmount
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
-  const [ok, setOk] = useState(false);
 
   useEffect(() => {
     if (ok) {
@@ -165,6 +154,7 @@ export const VideoCarousel = () => {
                   case 1:
                     itemComponent = (
                       <motion.div
+                        id="mak"
                         key={index}
                         style={{ scale }}
                         className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
@@ -172,6 +162,11 @@ export const VideoCarousel = () => {
                         onHoverEnd={() =>
                           carouselVariant === "active" && setOk(true)
                         }
+                        variants={{
+                          active: { opacity: 1, y: 0 },
+                          inactive: { opacity: 0, y: 20 },
+                        }}
+                        transition={{ duration: 0.4 }}
                       >
                         <img
                           className="h-full w-full object-cover"
