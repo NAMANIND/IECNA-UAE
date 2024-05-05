@@ -66,7 +66,7 @@ function page({ params }) {
 
   const nameArr = name.split("_");
 
-  const data = ["megha", "navya", "sonu"];
+  const data = ["megha", "navya", "sonu", "ginny"];
 
   if (data.includes(nameArr[0])) {
     const to =
@@ -76,13 +76,18 @@ function page({ params }) {
             "megha.salian@influenceexchangegroup.com",
             "mohamed.suhel@influenceexchangegroup.com",
           ]
-        : [
+        : nameArr[0] === "navya"
+        ? [
             "20bei033@ietdavv.edu.in",
             "megha.salian@influenceexchangegroup.com",
             "navya.kotian@influenceexchangegroup.com",
             "mohamed.suhel@influenceexchangegroup.com",
+          ]
+        : [
+            "20bei033@ietdavv.edu.in",
+            "glamoglitzz@gmail.com",
+            "mohamed.suhel@influenceexchangegroup.com",
           ];
-
     return (
       <div>
         <Headtop head="Event Registration" />
@@ -98,6 +103,10 @@ function page({ params }) {
       </div>
     );
   } else {
+    if (!name.includes("_")) {
+      return notFound();
+    }
+
     return <Ipvote name={name} />;
   }
 }

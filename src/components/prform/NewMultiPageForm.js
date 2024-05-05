@@ -1020,7 +1020,7 @@ const NewMultiPageForm = ({ to, name }) => {
                 <CloseIcon />
               </button>
             </div>
-            <div className="flex-col justify-center sm:flex-row flex gap-5 items-center w-full">
+            <div className="flex-col justify-center sm:justify-around sm:flex-row flex gap-5 items-center w-full">
               <div
                 className={`flex justify-center items-center w-full sm:w-[${
                   rtype === "nomination" ? "50%" : "50%"
