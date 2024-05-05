@@ -174,8 +174,7 @@ const Spkrform = () => {
       formData.phone === "" &&
       formData.company === "" &&
       formData.jobTitle === "" &&
-      formData.country === "" &&
-      formData.industry === ""
+      formData.country === ""
     ) {
       alert("Please fill all the fields");
       return;
@@ -537,7 +536,7 @@ const Spkrform = () => {
                     variant="underlined"
                     label="Select Industry"
                     className="md:w-1/2 w-full"
-                    isRequired
+                    isRequired={formData.field === "marketer" ? true : false}
                     errorMessage={errorMessage}
                   >
                     {IndustryCategories.map((category, index) => (

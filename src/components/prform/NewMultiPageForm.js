@@ -220,8 +220,7 @@ const NewMultiPageForm = ({ to, name }) => {
       formData.email === "" &&
       formData.phone === "" &&
       formData.jobTitle === "" &&
-      formData.country === "" &&
-      formData.industry === ""
+      formData.country === ""
     ) {
       alert("Please fill all the fields");
       return;
@@ -830,7 +829,7 @@ const NewMultiPageForm = ({ to, name }) => {
                     variant="underlined"
                     label="Select Industry"
                     className="sd:w-1/2 w-full"
-                    isRequired
+                    isRequired={formData.field === "marketer" ? true : false}
                     errorMessage={errorMessage}
                   >
                     {IndustryCategories.map((category, index) => (
@@ -1038,10 +1037,19 @@ const NewMultiPageForm = ({ to, name }) => {
                           symbol="#"
                           variant="flat"
                           color="default"
-                          className="bg-transparent"
+                          className="bg-transparent  hidden sm:inline-flex "
                         >
                           {votelink}
                         </Snippet>
+
+                        <Snippet
+                          symbol="Copy"
+                          variant="flat"
+                          color="default"
+                          className="bg-transparent sm:hidden inline-flex "
+                          codeString={votelink}
+                          content="Vote link"
+                        />
                         <a
                           href={votelink}
                           target="_blank"
@@ -1067,7 +1075,7 @@ const NewMultiPageForm = ({ to, name }) => {
                       <br />
                       Follow our social media page
                     </h1>
-                    <div className=" flex sm:flex-col flex-row flex-wrap gap-5 ">
+                    <div className=" flex sm:flex-row flex-row flex-wrap gap-5 ">
                       <div className="inline-flex items-center sm:w-1/3 w-[40%] justify-between px-3 py-1.5 text-small rounded-medium bg-default/40 text-default-foreground">
                         Linkedin: &nbsp;
                         <a

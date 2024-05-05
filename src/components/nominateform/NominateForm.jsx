@@ -190,8 +190,7 @@ const NominateForm = () => {
       formData.email === "" &&
       formData.phone === "" &&
       formData.jobTitle === "" &&
-      formData.country === "" &&
-      formData.industry === ""
+      formData.country === ""
     ) {
       alert("Please fill all the fields");
       return;
@@ -587,7 +586,7 @@ const NominateForm = () => {
                   variant="underlined"
                   label="Select Industry"
                   className="md:w-1/2 w-full"
-                  isRequired
+                  isRequired={formData.field === "marketer" ? true : false}
                   errorMessage={errorMessage}
                 >
                   {IndustryCategories.map((category, index) => (
