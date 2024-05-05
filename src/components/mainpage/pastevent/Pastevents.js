@@ -199,14 +199,14 @@ function Pastevents() {
           direction="left"
           gradient={false}
           speed={60}
-          className="mt-10 z-10 text-[36px] w-full  "
+          className="mt-10 z-10 text-[36px] w-full  sm:h-[500px] h-[200px]  "
           autoFill={true}
-          style={{ height: "500px", ...maskImageStyle }}
+          style={{ ...maskImageStyle }}
         >
           <Image
             src={logo}
             alt="Hero image"
-            className=" shadow-2xl bg-cover sm:w-auto w-1/3 bg-no-repeat bg-lightgray relative z-10 mx-40  "
+            className=" shadow-2xl bg-cover sm:w-auto w-1/2 bg-no-repeat bg-lightgray relative z-10 mx-40  "
             width="auto"
             height="auto"
           />

@@ -75,7 +75,7 @@ const Awardnrec = () => {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1"
+        className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1   sm:block hidden    "
       >
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <motion.div
@@ -176,6 +176,92 @@ const Awardnrec = () => {
           </div>
         </div>
       </motion.div>
+
+      <div className="mt-28 mb-12 max-md:my-10 max-md:max-w-full linear-1   sm:hidden block    ">
+        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+          <div className="flex flex-col w-[24%] max-md:ml-0 max-md:w-full ">
+            <Image
+              loading="lazy"
+              src={aw1}
+              className=" max-w-full size-full   object-cover h-[100%]  w-[100%] max-md:mt-3 "
+              alt=""
+            />
+          </div>
+          <div className="flex flex-col ml-5 w-[76%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col grow max-md:mt-3 max-md:max-w-full">
+              <div className="max-md:max-w-full ">
+                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                  <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+                    <div className="flex overflow-hidden relative flex-col grow pt-6 shadow-2xl aspect-[1.01] max-md:mt-3">
+                      <Image
+                        loading="lazy"
+                        src={aw2}
+                        className=" absolute inset-0 size-full w-[100%]  "
+                        fill
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-7 text-white  aspect-[1.01] max-md:mt-3">
+                      <Image
+                        loading="lazy"
+                        src={ok}
+                        className="object-cover absolute inset-0 size-full w-[100%]"
+                        fill
+                        alt=""
+                      />
+                      <div
+                        className={`relative justify-center flex items-center px-8 aspect-square bg-black bg-opacity-40 rounded-[32px] max-md:px-5  ${work_sans.className} `}
+                      >
+                        Celebrate excellence with us as we honor outstanding
+                        contributions across various domains.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-1 w-[33%] max-md:ml-0 max-md:w-full">
+                    <div className="flex overflow-hidden relative flex-col grow pt-6 aspect-[1.02] max-md:mt-3">
+                      <Image
+                        loading="lazy"
+                        src={aw3}
+                        className="object-cover absolute inset-0 size-fullw-[100%] "
+                        fill
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-3.5 max-md:max-w-full">
+                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                  <div className="flex flex-col w-[67%] max-md:ml-0 max-md:w-full">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center py-0.5  min-h-[287px] max-md:mt-3 max-md:max-w-full">
+                      <Image
+                        loading="lazy"
+                        src={aw5}
+                        className="object-cover absolute inset-0 size-full w-[100%]"
+                        fill
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col  w-[33%] max-md:ml-0 max-md:w-full">
+                    <div className="flex overflow-hidden relative flex-col grow pt-5  aspect-[1.02] max-md:mt-3">
+                      <Image
+                        loading="lazy"
+                        src={aw4}
+                        className="object-cover absolute inset-0 size-full w-[100%]"
+                        fill
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* <motion.div
         initial={offscreen3}

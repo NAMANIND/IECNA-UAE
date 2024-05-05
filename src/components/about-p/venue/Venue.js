@@ -19,9 +19,7 @@ function RegisterNowButton() {
 function EventDetails() {
   return (
     <>
-      <p
-        className={`text-md   text-white font-light  max-md:text-2xl max-md:leading-[52px] ${work_sans.className}`}
-      >
+      <p className={`text-md   text-white font-light   ${work_sans.className}`}>
         Influence Exchange Confex & Awards Series 2024 will take place at a
         prestigious venue in India, providing a luxurious and conducive
         environment for networking, learning, and collaboration. Stay tuned for
@@ -38,7 +36,7 @@ function EventDetails() {
           </sup>
           <span className="text-white"> JULY 2024</span>
         </time>
-        <div className="self-end mt-12 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px]">
+        <div className="self-end sm:mt-12 my-5 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px]">
           VENUE
           <br />
           MUMBAI
@@ -80,7 +78,7 @@ function Venue() {
   return (
     <div className="flex flex-col items-center bg-white">
       <div
-        className="overflow-hidden h-[400px]
+        className="overflow-hidden sm:h-[400px] h-[200px]
       relative z-10
 
      mt-20
@@ -107,7 +105,7 @@ function Venue() {
         </div>
       </div>
 
-      <div className={`w-full bg-white ${work_sans.className}  p-20 `}>
+      <div className={`w-full bg-white ${work_sans.className}  sm:p-20 p-5 `}>
         <motion.h1
           initial={offscreen}
           whileInView={onscreen}
@@ -129,7 +127,7 @@ function Venue() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full"
           >
-            <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px] max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-[36px] ">
+            <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px]  max-md:mt-0 max-md:max-w-full rounded-[36px] ">
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/1f437b9ee47c5ec45b677804bf3ebcb7e7116cf67ea2bc8d3f00f64bde1e7e28?apiKey=5e27b1defd60460eaa6dca842133145f&"
@@ -138,7 +136,7 @@ function Venue() {
               />
               {/* <RegisterNowButton /> */}
               <div
-                className={`relative justify-center items-center px-16 py-5 mt-72 max-w-full shadow-2xl  max-md:px-5 max-md:mt-10 ${work_sans.className} `}
+                className={`sm:relative absolute bottom-0 px-16 justify-center items-center  sm:py-5 py-0 sm:mt-72 sm:max-w-full   shadow-2xl  max-md:px-5 max-md:mt-10 ${work_sans.className} `}
               >
                 <Button color="green" href="./register" img="arrow">
                   Register

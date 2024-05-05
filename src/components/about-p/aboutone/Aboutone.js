@@ -170,7 +170,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-2xl  sm:px-20 px-5 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+          className="sm:text-2xl text-lg  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
           The Influence Exchange Confex and Awards in India presents a fantastic
           opportunity to bring together industry leaders, innovators, marketers
@@ -195,7 +195,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="px-20 pl-24 mt-44 mb-32  max-md:max-w-full"
+          className="sm:px-20 px-0 sm:pl-24 pl-5 sm:mt-44 mt-20 mb-32  max-md:max-w-full"
         >
           <h2
             className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
@@ -203,16 +203,16 @@ function Aboutone() {
             WHY INFLUENCER MARKETING?
           </h2>
           <div className="flex bg-black">
-            <div className="flex flex-row h-[100vh] ">
+            <div className="flex sm:flex-row flex-col-reverse  sm:h-[100vh] h-auto ">
               <div className="col-span-5">
                 <div className="flex flex-col h-full">
-                  <div className="flex h-full">
+                  <div className="flex h-full sm:flex-row flex-col-reverse">
                     <WhyInfluencerMarketing />
                     <motion.div
                       initial={offscreen2}
                       whileInView={onscreen2}
                       viewport={{ once: true, amount: 0.3 }}
-                      className="w-full  pt-20 relative right-[-10px] z-10 rounded-[46px] flex justify-end ml-10 "
+                      className="w-full  sm:pt-20 pt-0 relative sm:right-[-10px] right-0 z-10 rounded-[46px] flex justify-end sm:ml-10 ml-0 "
                       style={{
                         boxShadow: "50px 0 100px 0 rgba(0, 0, 0, 0.95)",
                       }}
@@ -221,15 +221,14 @@ function Aboutone() {
                         loading="lazy"
                         src={aboutimg1}
                         alt="Influencer marketing "
-                        className="shrink-0   max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
+                        className="shrink-0  sm:object-cover sm:w-[30vw] w-[100%]  max-md:mt-10 rounded-[46px] hover:scale-105 transition-transform duration-500 ease-in-out"
                         height="100%"
-                        style={{ objectFit: "cover", width: "30vw" }}
                       />
                     </motion.div>
                   </div>
                 </div>
               </div>
-              <div className="h-full relative">
+              <div className="h-full sm:relative absolute sm:opacity-100 opacity-0 ">
                 <InfluencerMarketingImage />
               </div>
             </div>
@@ -250,7 +249,7 @@ function Aboutone() {
           loading="lazy"
           src={aboutimg2}
           alt=""
-          className="object-cover absolute inset-0 size-full rounded-[82px] "
+          className="object-cover   absolute inset-0 size-full rounded-[82px] "
         />
         <div className="relative px-10 py-20 w-full bg-black bg-opacity-30 flex justify-center size-full min-h-[400px] rounded-[82px] max-md:px-5 max-md:max-w-full">
           <motion.div

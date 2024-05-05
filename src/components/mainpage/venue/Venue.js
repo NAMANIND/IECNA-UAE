@@ -41,7 +41,7 @@ function Venue() {
 
   return (
     <div
-      className={`flex w-full flex-col  md:px-20 px-0 max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
+      className={`flex w-full flex-col  md:px-20 px-0 max-md:gap-0 bg-white  max-h-fit  ${anton.className} `}
     >
       <div className="text-9xl relative top-20 -z-1 text-black w-full uppercase  max-md:max-w-full max-md:text-4xl ">
         <Marquee
@@ -58,7 +58,7 @@ function Venue() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`flex w-full flex-row md:px-0 px-5 overflow-hidden max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
+        className={`flex w-full sm:flex-row flex-col md:px-0 px-5 overflow-hidden max-md:gap-0 bg-white max-h-fit  ${anton.className} `}
       >
         <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div className="flex flex-col  font-bold max-md:mt-10 max-md:max-w-full">
@@ -94,12 +94,7 @@ function Venue() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full relative z-10   max-md:mt-3"
         >
-          <div
-            className="flex overflow-hidden relative flex-col grow justify-center items-center px-16 py-14 text-center uppercase  max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-t-[40px]  "
-            style={{
-              backgroundImage: "linear-gradient(221deg, #fff 80%, #000 20%)",
-            }}
-          >
+          <div className="flex overflow-hidden relative flex-col grow justify-center items-center px-16 py-14 text-center uppercase  max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-t-[40px] sm:bg-gradient-to-l bg-white from-white via-white to-black rotate-60 ">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/927df31f3a6db88ae4468b2806d1762f1ec57b14708866f7702a24ff4b6348e7?apiKey=5e27b1defd60460eaa6dca842133145f&"

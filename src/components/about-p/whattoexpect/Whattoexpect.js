@@ -64,7 +64,7 @@ function Whattoexpect() {
           gradient={false}
           speed={50}
           autoFill
-          className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full max-md:text-4xl"
+          className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full "
         >
           <h2> &nbsp; EXPECT EVERYTHING UNEXPECTED!</h2>
         </Marquee>
@@ -74,14 +74,14 @@ function Whattoexpect() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-10 text-2xl  px-20 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-10 text-2xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At the to Influence Exchange Confex & Awards Series 2024, expect an
         unforgettable experience <br /> filled with engaging interactions,
         curated content, and invaluable insights:
       </motion.div>
 
-      <div className="w-full max-md:mt-10 max-md:max-w-full p-20">
+      <div className="w-full max-md:mt-10 max-md:max-w-full sm:p-20 p-5">
         <div className="grid grid-cols-2 gap-[4%] rounded-[36px] max-md:gap-0 max-md:grid-cols-1">
           {cardData.map((card, index) => (
             <motion.div
@@ -116,7 +116,7 @@ function Whattoexpect() {
                     {card.title}
                   </div>
                   <div
-                    className={`mt-6 text-2xl font-medium tracking-tighter leading-7 text-white max-md:max-w-full ${work_sans.className}`}
+                    className={`mt-6 sm:text-2xl text-lg font-medium tracking-tighter leading-7 text-white max-md:max-w-full ${work_sans.className}`}
                   >
                     {card.description}
                   </div>

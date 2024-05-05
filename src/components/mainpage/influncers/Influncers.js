@@ -37,7 +37,7 @@ function Influncers() {
     },
   };
   return (
-    <div className={`pt-40 bg-black ${anton.className} `}>
+    <div className={`sm:pt-40 pt-0 bg-black ${anton.className} `}>
       <motion.h1
         initial={offscreen2}
         whileInView={onscreen2}
@@ -59,7 +59,7 @@ function Influncers() {
           loading="lazy"
           src={ppl}
           alt="Hero image"
-          className=" shadow-2xl w-full rounded-t-[200px] bg-cover bg-no-repeat bg-lightgray relative z-10"
+          className=" shadow-2xl w-full sm:rounded-t-[200px] rounded-t-[50px] bg-cover bg-no-repeat bg-lightgray relative z-10"
           height="auto"
         />
       </motion.div>

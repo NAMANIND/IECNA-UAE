@@ -181,11 +181,11 @@ export const VideoCarousel = () => {
                           animate={carouselVariant}
                           className="absolute bottom-0 left-0 flex w-full flex-col items-center gap-4 p-5 text-lg text-white md:flex-row md:justify-between md:gap-0"
                         >
-                          <p className="mt-10 text-2xl font-medium ">
+                          <p className="mt-10 sm:text-2xl text-lg font-medium ">
                             Celebrate excellence with us as we honor outstanding
                             contributions across various domains.
                           </p>
-                          <div>
+                          <div className="sm:scale-100 scale-80">
                             <Button color="green" img="arrow" href="/awards">
                               Nominate
                             </Button>
