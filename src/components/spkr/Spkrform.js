@@ -172,7 +172,6 @@ const Spkrform = () => {
       formData.lastName === "" &&
       formData.email === "" &&
       formData.phone === "" &&
-      formData.company === "" &&
       formData.jobTitle === "" &&
       formData.country === ""
     ) {
