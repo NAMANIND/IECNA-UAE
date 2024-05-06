@@ -419,6 +419,13 @@ const NewMultiPageForm = ({ to, name }) => {
       setValues(new Set([]));
       setSelectedCategories([]);
     } else {
+      const imageRef = storage
+        .ref()
+        .child(`india-delegate-image/${formData.image.name}`);
+      await imageRef.put(formData.image);
+      const imageUrl2 = await imageRef.getDownloadURL();
+      setimgu(imageUrl2);
+
       const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
       <p>Last Name: ${formData.lastName}</p>
@@ -437,6 +444,9 @@ const NewMultiPageForm = ({ to, name }) => {
       <p>Snapchat: ${formData.snapchat}</p>
       <p>Recommendation 1: ${formData.recommendation1}</p>
       <p>Recommendation 2: ${formData.recommendation2}</p>
+       
+      ${imageRef ? `<img src="${imageUrl2}" alt="nominee image" />` : ""}
+      ${imageRef ? `<p>Image url: ${imageUrl2}</p>` : ""}
     
   
    
@@ -468,7 +478,7 @@ const NewMultiPageForm = ({ to, name }) => {
         jobTitle: formData.jobTitle,
         country: formData.country,
         industry: formData.industry,
-        imageUrl,
+        imageUrl2,
       });
 
       alert("Delegate Form submitted successfully!");
