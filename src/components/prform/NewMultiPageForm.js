@@ -453,6 +453,24 @@ const NewMultiPageForm = ({ to, name }) => {
       const html = htmlcontent;
 
       await Sendemail(to, subject, html);
+
+      const nomineeRef = firestore.collection("india-delegates").doc();
+      const nomineeId = nomineeRef.id;
+
+      await nomineeRef.set({
+        id: nomineeId,
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+        field,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        imageUrl,
+      });
+
       alert("Delegate Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here
