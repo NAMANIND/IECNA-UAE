@@ -309,6 +309,8 @@ const NewMultiPageForm = ({ to, name }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
+      await Sendemail(to, subject, html);
+
       const nomineeRef = firestore.collection("india-nominees").doc();
       const nomineeId = nomineeRef.id;
       const nomineeQuery = firestore
@@ -393,7 +395,6 @@ const NewMultiPageForm = ({ to, name }) => {
         });
       }
 
-      await Sendemail(to, subject, html);
       alert("Nomination Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here

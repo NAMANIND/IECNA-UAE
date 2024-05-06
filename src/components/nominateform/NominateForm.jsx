@@ -302,6 +302,7 @@ const NominateForm = () => {
       formData.lastName;
     const html = htmlcontent;
 
+    await Sendemail(to, subject, html);
     if (Object.keys(categoriesData).length === 0) {
       setErrorMessage("*Please select at least one category*");
       return;
@@ -319,10 +320,9 @@ const NominateForm = () => {
       jobTitle: formData.jobTitle,
       country: formData.country,
       industry: formData.industry,
-      linkedin: formData.linkedin,
       imageUrl,
     });
-    await Sendemail(to, subject, html);
+
     setSent(true);
     const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
     setvotelink(vlink);
