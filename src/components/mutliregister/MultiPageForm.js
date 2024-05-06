@@ -186,6 +186,12 @@ const MultiPageForm = () => {
 
     if (formData.category === "delegate") {
       console.log("sending email to delegates");
+      const imageRef = storage
+        .ref()
+        .child(`india-delegate-image/${formData.image.name}`);
+      await imageRef.put(formData.image);
+      const imageUrl2 = await imageRef.getDownloadURL();
+      setimgu(imageUrl2);
       const to = [
         "20bei033@ietdavv.edu.in",
         "mohamed.suhel@influenceexchangegroup.com ",
@@ -218,11 +224,29 @@ const MultiPageForm = () => {
     <p><strong>Linkedin:</strong> ${formData.linkedin}</p>
     <p><strong>Coupon:</strong> ${formData.coupon}</p>
 
-  
+    ${imageRef ? `<img src="${imageUrl2}" alt="nominee image" />` : ""}
+      ${imageRef ? `<p>Image url: ${imageUrl2}</p>` : ""}
   `;
 
       console.log(to);
       await Sendemail(to, subject, html);
+      const nomineeRef = firestore.collection("india-delegates").doc();
+      const nomineeId = nomineeRef.id;
+
+      await nomineeRef.set({
+        id: nomineeId,
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+        field,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        imageUrl2,
+      });
+
       alert("Delegate details submitted successfully!");
       setSent(true);
 
