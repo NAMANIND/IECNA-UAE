@@ -136,12 +136,19 @@ const Spkrform = () => {
     const randomString = Math.random().toString(36).substring(7);
     console.log(randomString);
     setrmstring(randomString);
+    const title1 = (formData.firstName + " " + formData.lastName).replace(
+      /[_\-,]/g,
+      ""
+    );
+    const company1 = formData.jobTitle.replace(/[_\-,]/g, "");
+    const marco1 = formData.company.replace(/[_\-,]/g, "");
+
     const popup = (
       <ImageDownloadPage
         imageData={imageFile}
-        title={formData.firstName + " " + formData.lastName}
-        marco={formData.company}
-        company={formData.jobTitle}
+        title={title1}
+        marco={marco1}
+        company={company1}
         category={formData.category}
         field={formData.field}
         rem={randomString}
