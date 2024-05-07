@@ -601,7 +601,7 @@ const NewMultiPageForm = ({ to, name }) => {
                 <SelectItem key="marketer">Marketer</SelectItem>
               </Select>
 
-              <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+              <div className="flex sm:flex-row flex-col justify-between w-full sm:gap-4 gap-1">
                 <button
                   onClick={prevPage}
                   className="newsletterbtn sm:w-6/12 w-full "
@@ -651,7 +651,7 @@ const NewMultiPageForm = ({ to, name }) => {
                   ))}
                 </div>
 
-                <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+                <div className="flex sm:flex-row flex-col justify-between w-full sm:gap-4 gap-1">
                   <button
                     onClick={prevPage}
                     className="newsletterbtn sm:w-6/12 w-full "
@@ -711,7 +711,7 @@ const NewMultiPageForm = ({ to, name }) => {
                       ))}
                 </div>
 
-                <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+                <div className="flex sm:flex-row flex-col justify-between w-full sm:gap-4 gap-1">
                   <button
                     onClick={prevPage}
                     className="newsletterbtn sm:w-6/12 w-full"
@@ -1010,7 +1010,7 @@ const NewMultiPageForm = ({ to, name }) => {
                 </>
               )}
 
-              <div className="flex sm:flex-row flex-col-reverse sm:gap-4 gap- w-full">
+              <div className="flex sm:flex-row flex-col sm:gap-4 gap- w-full">
                 <button
                   onClick={() => {
                     if (formData.registrationType === "delegate") {
