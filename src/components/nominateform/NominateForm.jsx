@@ -300,9 +300,35 @@ const NominateForm = () => {
       formData.firstName +
       " " +
       formData.lastName;
-    const html = htmlcontent;
+    const html = `
+    <p>First Name: ${formData.firstName}</p>
+    <p>Last Name: ${formData.lastName}</p>
+    <p>Field: ${field}</p>
+    <p>Categories: ${selectedCategories.join(", ")}</p>
+    <p>Email: ${formData.email}</p>
+    <p>Phone: ${formData.phone}</p>
+    <p>Company: ${formData.company}</p>
+    <p>Job Title: ${formData.jobTitle}</p>
+    <p>Country: ${formData.country}</p>
+    <p>Industry: ${formData.industry}</p>
+    <p>Vote Link: ${`
+    https://india.theiena.com/vote/${formData.firstName
+      .toLowerCase()
+      .replace(/\s/g, "")}_${formData.lastName.toLowerCase().replace(/\s/g, "")}
+`}</p>
+    <p>LinkedIn: ${formData.linkedin}</p>
+    <p>Instagram: ${formData.instagram}</p>
+    <p>Youtube: ${formData.youtube}</p>
+   
+    <p>Snapchat: ${formData.snapchat}</p>
+
+
+    <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
+    ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
+    `;
 
     await Sendemail(to, subject, html);
+
     if (Object.keys(categoriesData).length === 0) {
       setErrorMessage("*Please select at least one category*");
       return;
