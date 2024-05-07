@@ -45,6 +45,7 @@ const NominateForm = () => {
   const [rmstring, setrmstring] = useState("");
 
   const [values, setValues] = useState(new Set([]));
+  const [imgu, setimgu] = useState("");
 
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -237,58 +238,41 @@ const NominateForm = () => {
       return;
     }
 
-    // Upload image to Firebase storage
+    // setrtype("nomination");
     const imageRef = storage
       .ref()
       .child(`india-nomination-image/${formData.image.name}`);
     await imageRef.put(formData.image);
     const imageUrl = await imageRef.getDownloadURL();
-
-    // Save form data to Firestore
-    const nomineeRef = firestore.collection("india-nominees").doc();
-    const nomineeId = nomineeRef.id;
-
-    const categoriesData = {};
-    selectedCategories.forEach((category) => {
-      const cat = category
-        .toString()
-        .replace(/\s/g, "")
-        .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
-      const og = category;
-      categoriesData[cat] = {
-        og,
-        vote: 0,
-      };
-    });
-
-    console.log(categoriesData);
-
+    setimgu(imageUrl);
     const htmlcontent = `
-    <p>First Name: ${formData.firstName}</p>
-    <p>Last Name: ${formData.lastName}</p>
-    <p>Field: ${field}</p>
-    <p>Categories: ${selectedCategories.join(", ")}</p>
-    <p>Email: ${formData.email}</p>
-    <p>Phone: ${formData.phone}</p>
-    <p>Company: ${formData.company}</p>
-    <p>Job Title: ${formData.jobTitle}</p>
-    <p>Country: ${formData.country}</p>
-    <p>Industry: ${formData.industry}</p>
-    <p>Vote Link: ${`
-    https://india.theiena.com/vote/${formData.firstName
-      .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName.toLowerCase().replace(/\s/g, "")}
-`}</p>
-    <p>LinkedIn: ${formData.linkedin}</p>
-    <p>Instagram: ${formData.instagram}</p>
-    <p>Youtube: ${formData.youtube}</p>
-   
-    <p>Snapchat: ${formData.snapchat}</p>
-
-
-    <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
-    ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
-    `;
+      <p>First Name: ${formData.firstName}</p>
+      <p>Last Name: ${formData.lastName}</p>
+      <p>Field: ${field}</p>
+      <p>Categories: ${selectedCategories.join(", ")}</p>
+      <p>Email: ${formData.email}</p>
+      <p>Phone: ${formData.phone}</p>
+      <p>Company: ${formData.company}</p>
+      <p>Job Title: ${formData.jobTitle}</p>
+      <p>Country: ${formData.country}</p>
+      <p>Industry: ${formData.industry}</p>
+      <p>Vote Link: ${`
+      https://india.theiena.com/vote/${formData.firstName
+        .toLowerCase()
+        .replace(/\s/g, "")}_${formData.lastName
+        .toLowerCase()
+        .replace(/\s/g, "")}
+  `}</p>
+      <p>LinkedIn: ${formData.linkedin}</p>
+      <p>Instagram: ${formData.instagram}</p>
+      <p>Youtube: ${formData.youtube}</p>
+     
+      <p>Snapchat: ${formData.snapchat}</p>
+  
+  
+      <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
+      ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
+      `;
     const to = [
       "20bei033@ietdavv.edu.in",
       "megha.salian@influenceexchangegroup.com",
@@ -300,66 +284,108 @@ const NominateForm = () => {
       formData.firstName +
       " " +
       formData.lastName;
-    const html = `
-    <p>First Name: ${formData.firstName}</p>
-    <p>Last Name: ${formData.lastName}</p>
-    <p>Field: ${field}</p>
-    <p>Categories: ${selectedCategories.join(", ")}</p>
-    <p>Email: ${formData.email}</p>
-    <p>Phone: ${formData.phone}</p>
-    <p>Company: ${formData.company}</p>
-    <p>Job Title: ${formData.jobTitle}</p>
-    <p>Country: ${formData.country}</p>
-    <p>Industry: ${formData.industry}</p>
-    <p>Vote Link: ${`
-    https://india.theiena.com/vote/${formData.firstName
+    const html = htmlcontent;
+    const vlink = `https://india.theiena.com/vote/${formData.firstName
       .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName.toLowerCase().replace(/\s/g, "")}
-`}</p>
-    <p>LinkedIn: ${formData.linkedin}</p>
-    <p>Instagram: ${formData.instagram}</p>
-    <p>Youtube: ${formData.youtube}</p>
-   
-    <p>Snapchat: ${formData.snapchat}</p>
-
-
-    <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
-    ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
-    `;
+      .replace(/\s/g, "")}_${formData.lastName
+      .toLowerCase()
+      .replace(/\s/g, "")}`;
+    setvotelink(vlink);
 
     await Sendemail(to, subject, html);
 
-    if (Object.keys(categoriesData).length === 0) {
-      setErrorMessage("*Please select at least one category*");
-      return;
+    const nomineeRef = firestore.collection("india-nominees").doc();
+    const nomineeId = nomineeRef.id;
+    const nomineeQuery = firestore
+      .collection("india-nominees")
+      .where(
+        "firstName",
+        "==",
+        formData.firstName.toLowerCase().replace(/\s/g, "")
+      )
+      .where(
+        "lastName",
+        "==",
+        formData.lastName.toLowerCase().replace(/\s/g, "")
+      )
+      .where("email", "==", formData.email);
+
+    const nomineeSnapshot = await nomineeQuery.get();
+
+    if (!nomineeSnapshot.empty) {
+      // Nominee already exists, update their categories
+      nomineeSnapshot.forEach(async (doc) => {
+        const nomineeId2 = doc.id;
+        const existingCategories = doc.data().categories;
+        const updatedCategories = { ...existingCategories };
+
+        selectedCategories.forEach((category) => {
+          const cat = category
+            .toString()
+            .replace(/\s/g, "")
+            .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
+          const og = category;
+
+          // Only add new categories
+          if (!existingCategories.hasOwnProperty(cat)) {
+            updatedCategories[cat] = {
+              og,
+              vote: 0,
+            };
+          }
+        });
+
+        await firestore
+          .collection("india-nominees")
+          .doc(nomineeId2)
+          .update({
+            categories: { ...updatedCategories },
+          });
+      });
+    } else {
+      // Nominee does not exist, create a new document for them
+      const categoriesData = {};
+      selectedCategories.forEach((category) => {
+        const cat = category
+          .toString()
+          .replace(/\s/g, "")
+          .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
+        const og = category;
+        categoriesData[cat] = {
+          og,
+          vote: 0,
+        };
+      });
+
+      if (Object.keys(categoriesData).length === 0) {
+        setErrorMessage("*Please select at least one category*");
+        return;
+      }
+
+      await nomineeRef.set({
+        id: nomineeId,
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+        field,
+        categories: { ...categoriesData },
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        imageUrl,
+      });
     }
 
-    await nomineeRef.set({
-      id: nomineeId,
-      field,
-      categories: { ...categoriesData }, // Save categories and their votes
-      firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-      lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      jobTitle: formData.jobTitle,
-      country: formData.country,
-      industry: formData.industry,
-      imageUrl,
-    });
+    const vlinkg = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    setvotelink(vlinkg);
 
     setSent(true);
-    const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
-    setvotelink(vlink);
+    // Form submission logic goes here
     setSubmitted(false);
-    alert("Nomination submitted successfully!");
-    // Reset form to first step
-    setStep(1);
-    setField("");
-    setErrorMessage("");
-    setValues(new Set([]));
-    setSelectedCategories([]);
+    alert("Nomination Form submitted successfully!");
+    // Reset form and page state
     setFormData({
       firstName: "",
       lastName: "",
@@ -377,6 +403,11 @@ const NominateForm = () => {
       field: "",
       image: null,
     });
+    setStep(1);
+    setField("");
+    setValues(new Set([]));
+    setSelectedCategories([]);
+    setErrorMessage("");
   };
 
   // Render different steps based on current step
@@ -730,6 +761,7 @@ const NominateForm = () => {
 
   return (
     <div
+      id="nominate"
       className={`md:p-20 sm:p-5 bg-white text-black text-2xl  ${work_sans.className} font-extralight`}
     >
       <Marquee
