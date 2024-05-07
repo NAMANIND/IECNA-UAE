@@ -395,11 +395,10 @@ const NewMultiPageForm = ({ to, name }) => {
         });
       }
 
-      alert("Nomination Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
-
+      alert("Nomination Form submitted successfully!");
       // Reset form and page state
       setFormData({
         registrationType: "",
@@ -482,11 +481,10 @@ const NewMultiPageForm = ({ to, name }) => {
         imageUrl2,
       });
 
-      alert("Delegate Form submitted successfully!");
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
-
+      alert("Delegate Form submitted successfully!");
       // Reset form and page state
       setFormData({
         registrationType: "",
