@@ -594,8 +594,11 @@ const NewMultiPageForm = ({ to, name }) => {
                 <SelectItem key="marketer">Marketer</SelectItem>
               </Select>
 
-              <div className="flex flex-row justify-between w-full gap-4">
-                <button onClick={prevPage} className="newsletterbtn w-6/12 ">
+              <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+                <button
+                  onClick={prevPage}
+                  className="newsletterbtn sm:w-6/12 w-full "
+                >
                   Previous
                 </button>
                 <button
@@ -612,7 +615,7 @@ const NewMultiPageForm = ({ to, name }) => {
                       alert("Please select a field");
                     }
                   }}
-                  className="newsletterbtn w-6/12 "
+                  className="newsletterbtn sm:w-6/12 w-full "
                 >
                   Next
                 </button>
@@ -641,8 +644,11 @@ const NewMultiPageForm = ({ to, name }) => {
                   ))}
                 </div>
 
-                <div className="flex flex-row justify-between w-full gap-4">
-                  <button onClick={prevPage} className="newsletterbtn w-6/12 ">
+                <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+                  <button
+                    onClick={prevPage}
+                    className="newsletterbtn sm:w-6/12 w-full "
+                  >
                     Previous
                   </button>
                   <button
@@ -655,7 +661,7 @@ const NewMultiPageForm = ({ to, name }) => {
                         alert("Please select at least one topic");
                       }
                     }}
-                    className="newsletterbtn w-6/12 "
+                    className="newsletterbtn sm:w-6/12 w-full "
                   >
                     Next
                   </button>
@@ -698,8 +704,11 @@ const NewMultiPageForm = ({ to, name }) => {
                       ))}
                 </div>
 
-                <div className="flex flex-row justify-between w-full gap-4">
-                  <button onClick={prevPage} className="newsletterbtn w-6/12 ">
+                <div className="flex sm:flex-row flex-col-reverse justify-between w-full sm:gap-4 gap-1">
+                  <button
+                    onClick={prevPage}
+                    className="newsletterbtn sm:w-6/12 w-full"
+                  >
                     Previous
                   </button>
                   <button
@@ -716,7 +725,7 @@ const NewMultiPageForm = ({ to, name }) => {
                         alert("Please select at least one category");
                       }
                     }}
-                    className="newsletterbtn w-6/12 "
+                    className="newsletterbtn sm:w-6/12 w-full "
                   >
                     Next
                   </button>
@@ -994,7 +1003,7 @@ const NewMultiPageForm = ({ to, name }) => {
                 </>
               )}
 
-              <div className="flex flex-row gap-4 w-full">
+              <div className="flex sm:flex-row flex-col-reverse sm:gap-4 gap- w-full">
                 <button
                   onClick={() => {
                     if (formData.registrationType === "delegate") {
@@ -1003,14 +1012,14 @@ const NewMultiPageForm = ({ to, name }) => {
                       prevPage();
                     }
                   }}
-                  className="newsletterbtn w-6/12"
+                  className="newsletterbtn sm:w-6/12 w-full"
                 >
                   Previous
                 </button>
                 <button
                   type="submit"
                   disabled={submitted}
-                  className="newsletterbtn w-6/12"
+                  className="newsletterbtn sm:w-6/12 w-full"
                 >
                   {submitted ? "Submitting..." : "Submit"}
                 </button>
