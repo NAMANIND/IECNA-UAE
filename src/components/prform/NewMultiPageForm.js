@@ -137,12 +137,19 @@ const NewMultiPageForm = ({ to, name }) => {
     console.log(randomString);
     setrmstring(randomString);
 
+    const title1 = (formData.firstName + " " + formData.lastName).replace(
+      /[_\-,\W]/g,
+      ""
+    );
+    const company1 = formData.jobTitle.replace(/[_\-,\W]/g, "");
+    const marco1 = formData.company.replace(/[_\-,\W]/g, "");
+
     const popup = (
       <ImageDownloadPage
         imageData={imageFile}
-        title={formData.firstName + " " + formData.lastName}
-        marco={formData.company}
-        company={formData.jobTitle}
+        title={title1}
+        marco={marco1}
+        company={company1}
         category={formData.registrationType}
         field={formData.field}
         rem={randomString}
