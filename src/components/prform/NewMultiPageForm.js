@@ -138,11 +138,11 @@ const NewMultiPageForm = ({ to, name }) => {
     setrmstring(randomString);
 
     const title1 = (formData.firstName + " " + formData.lastName).replace(
-      /[_\-,\W]/g,
+      /[_\-,]/g,
       ""
     );
-    const company1 = formData.jobTitle.replace(/[_\-,\W]/g, "");
-    const marco1 = formData.company.replace(/[_\-,\W]/g, "");
+    const company1 = formData.jobTitle.replace(/[_\-,]/g, "");
+    const marco1 = formData.company.replace(/[_\-,]/g, "");
 
     const popup = (
       <ImageDownloadPage
