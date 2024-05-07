@@ -17,6 +17,11 @@ function ImageDownloadPage({
 }) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
 
+  // remove any special characters from the title
+  const title1 = title.replace(/[^a-zA-Z0-9]/g, " ");
+  const company1 = company.replace(/[^a-zA-Z0-9]/g, " ");
+  const marco1 = marco.replace(/[^a-zA-Z0-9]/g, " ");
+
   // useEffect(() => {
 
   // }, [transformedImageUrl]);
@@ -74,11 +79,11 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
-            company
+            company1
           )}/fl_layer_apply,x_315,y_195/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            marco
+            marco1
           )}/fl_layer_apply,x_315,y_225/wcrcs6s5lhxhblavydiv.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
@@ -86,9 +91,9 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            company
+            company1
           )}/fl_layer_apply,x_315,y_195/v3009svglfx5ca3zcgkt.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
@@ -100,11 +105,11 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
-            company
+            company1
           )}/fl_layer_apply,x_315,y_160/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            marco
+            marco1
           )}/fl_layer_apply,x_315,y_200/kknzlrusshihcqhc9pqx.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
@@ -112,9 +117,9 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
-            company
+            company1
           )}/fl_layer_apply,x_315,y_160/kknzlrusshihcqhc9pqx.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
@@ -126,7 +131,7 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_0,y_350/rv2jsrolmrhfvcrycfbs.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
@@ -134,7 +139,7 @@ function ImageDownloadPage({
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
-            title
+            title1
           )}/fl_layer_apply,x_0,y_350/rv2jsrolmrhfvcrycfbs.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
