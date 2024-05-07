@@ -18,9 +18,9 @@ function ImageDownloadPage({
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
 
   // remove any special characters from the title
-  const title1 = title.replace(/[^a-zA-Z0-9]/g, " ");
-  const company1 = company.replace(/[^a-zA-Z0-9]/g, " ");
-  const marco1 = marco.replace(/[^a-zA-Z0-9]/g, " ");
+  const title1 = title.replace(/[_\-,\W]/g, "");
+  const company1 = company.replace(/[_\-,\W]/g, "");
+  const marco1 = marco.replace(/[_\-,\W]/g, "");
 
   // useEffect(() => {
 
