@@ -73,9 +73,14 @@ const DelegateRegistrationForm = () => {
     e.preventDefault();
     // Handle form submission
     setSubmitted(true);
-    // Reset form data
+  };
 
-    // console.log("Form submitted:", formData);
+  const closePopup = () => {
+    // Clear the popup content
+    setPoppage(null);
+    // Clear the submitted state
+    setSubmitted(false);
+    // Reset the form data
     setFormData({
       firstName: "",
       lastName: "",
@@ -84,11 +89,11 @@ const DelegateRegistrationForm = () => {
       field: "",
       image: null,
     });
+    window.location.reload();
   };
-
   return (
     <div className="w-full h-full bg-white flex justify-around">
-      <form
+      <div
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto mt-40 bg-black/10 p-5 space-y-6"
       >
@@ -204,18 +209,33 @@ const DelegateRegistrationForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
-            type="submit"
+            onClick={handleSubmit}
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Submit
           </button>
         </div>
-      </form>
-
-      <div className="popup max-w-lg mx-auto mt-40 bg-black/10 p-5 space-y-6">
-        Banner:
-        {submitted && poppage}
       </div>
+
+      {submitted && (
+        <div className="fixed top-0 left-0 w-full h-full pt-20 bg-black/50 flex  justify-center items-center">
+          <div className="max-w-lg bg-white p-5  rounded-md shadow-lg">
+            {/* Popup content */}
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="text-lg font-semibold">
+                Form submitted successfully!
+              </h2>
+              <button
+                className="text-gray-600 hover:text-gray-800"
+                onClick={closePopup}
+              >
+                Close
+              </button>
+            </div>
+            {poppage}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
