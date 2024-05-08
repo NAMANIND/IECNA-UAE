@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import img from "../../../../public/images/charm.png";
+import img from "../../../../public/images/charm1.png";
 import Image from "next/image";
 import { anton } from "@/styles/fonts";
 import Button from "@/components/button/Button";
