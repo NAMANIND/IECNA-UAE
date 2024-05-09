@@ -260,6 +260,7 @@ const VoteViews = () => {
                       {nominees.map((nominee) => (
                         <div
                           key={nominee.id}
+                          id={nominee.id}
                           className="border rounded-lg overflow-hidden shadow-md relative"
                         >
                           <img
