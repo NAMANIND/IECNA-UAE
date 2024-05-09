@@ -105,7 +105,7 @@ function ImageDownloadPage({
             company
           )}/fl_layer_apply,x_315,y_160/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             marco
-          )}/fl_layer_apply,x_315,y_200/kknzlrusshihcqhc9pqx.jpg`;
+          )}/fl_layer_apply,x_315,y_200/yun2faq1lmkkfx2gige2.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
@@ -115,7 +115,7 @@ function ImageDownloadPage({
             title
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_160/kknzlrusshihcqhc9pqx.jpg`;
+          )}/fl_layer_apply,x_315,y_160/yun2faq1lmkkfx2gige2.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
@@ -127,7 +127,7 @@ function ImageDownloadPage({
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
             title
-          )}/fl_layer_apply,x_0,y_350/rv2jsrolmrhfvcrycfbs.jpg`;
+          )}/fl_layer_apply,x_0,y_350/ntgqq5e6s37tamyux4io.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
@@ -135,7 +135,7 @@ function ImageDownloadPage({
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
             title
-          )}/fl_layer_apply,x_0,y_350/rv2jsrolmrhfvcrycfbs.jpg`;
+          )}/fl_layer_apply,x_0,y_350/ntgqq5e6s37tamyux4io.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
