@@ -521,16 +521,17 @@ const NewMultiPageForm = ({ to, name }) => {
     <div
       className={` sm:p-20 p-5 bg-white text-2xl ${work_sans.className} font-extralight`}
     >
-      <Marquee
+      {/* <Marquee
         direction="left"
         gradient={false}
         speed={40}
         className={` z-10 text-9xl w-full ${work_sans.className} font-bold absolute uppercase top-12 `}
         autoFill={true}
-        style={{ height: "300px", ...maskImageStyle }}
+        // style={{ height: "300px", ...maskImageStyle }}
+        style={{ height: "300px" }}
       >
         &nbsp; REGISTER
-      </Marquee>
+      </Marquee> */}
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
