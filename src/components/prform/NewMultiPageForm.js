@@ -24,6 +24,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Socialshare from "@/app/socialshare/page";
 import { MuiPhone } from "../phone/MuiPhone";
+import { datacon } from "../../datacon";
 
 const NewMultiPageForm = ({ to, name }) => {
   const [page, setPage] = useState(1);
@@ -90,15 +91,10 @@ const NewMultiPageForm = ({ to, name }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   useEffect(() => {
-    fetch(
-      "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCountries(data.countries);
+    setCountries(datacon.countries);
 
-        setSelectedCountry(data.userSelectValue);
-      });
+    setSelectedCountry(datacon.userSelectValue);
+    // console.log(datacon.userSelectValue);
   }, []);
 
   const handleChange = (e) => {
@@ -678,37 +674,578 @@ const NewMultiPageForm = ({ to, name }) => {
               <div className="flex  flex-col md:flex-nowrap gap-4 ">
                 <h2 className={` text-black `}>Select Award Categories</h2>
                 <div className="max-w-md">
-                  {field === "influencer"
-                    ? influencerCategories.map((category, index) => (
-                        <div key={category}>
-                          <Checkbox
-                            id={`category-${index}`}
-                            checked={selectedCategories.includes(category)}
-                            onChange={() => handleCategorySelect(category)}
-                            label={category}
-                            defaultSelected={selectedCategories.includes(
-                              category
-                            )}
-                          >
-                            {category}
-                          </Checkbox>
-                        </div>
-                      ))
-                    : marketerCategories.map((category, index) => (
-                        <div key={category}>
-                          <Checkbox
-                            id={`category-${index}`}
-                            checked={selectedCategories.includes(category)}
-                            onChange={() => handleCategorySelect(category)}
-                            defaultSelected={selectedCategories.includes(
-                              category
-                            )}
-                            label={category}
-                          >
-                            {category}
-                          </Checkbox>
-                        </div>
-                      ))}
+                  {field === "influencer" ? (
+                    <>
+                      <div>
+                        <Checkbox
+                          id="category-0"
+                          checked={selectedCategories.includes(
+                            influencerCategories[0]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[0])
+                          }
+                          label={influencerCategories[0]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[0]
+                          )}
+                        >
+                          {influencerCategories[0]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-1"
+                          checked={selectedCategories.includes(
+                            influencerCategories[1]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[1])
+                          }
+                          label={influencerCategories[1]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[1]
+                          )}
+                        >
+                          {influencerCategories[1]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-2"
+                          checked={selectedCategories.includes(
+                            influencerCategories[2]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[2])
+                          }
+                          label={influencerCategories[2]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[2]
+                          )}
+                        >
+                          {influencerCategories[2]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-3"
+                          checked={selectedCategories.includes(
+                            influencerCategories[3]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[3])
+                          }
+                          label={influencerCategories[3]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[3]
+                          )}
+                        >
+                          {influencerCategories[3]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-4"
+                          checked={selectedCategories.includes(
+                            influencerCategories[4]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[4])
+                          }
+                          label={influencerCategories[4]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[4]
+                          )}
+                        >
+                          {influencerCategories[4]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-5"
+                          checked={selectedCategories.includes(
+                            influencerCategories[5]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[5])
+                          }
+                          label={influencerCategories[5]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[5]
+                          )}
+                        >
+                          {influencerCategories[5]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-6"
+                          checked={selectedCategories.includes(
+                            influencerCategories[6]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[6])
+                          }
+                          label={influencerCategories[6]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[6]
+                          )}
+                        >
+                          {influencerCategories[6]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-7"
+                          checked={selectedCategories.includes(
+                            influencerCategories[7]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[7])
+                          }
+                          label={influencerCategories[7]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[7]
+                          )}
+                        >
+                          {influencerCategories[7]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-8"
+                          checked={selectedCategories.includes(
+                            influencerCategories[8]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[8])
+                          }
+                          label={influencerCategories[8]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[8]
+                          )}
+                        >
+                          {influencerCategories[8]}
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          id="category-9"
+                          checked={selectedCategories.includes(
+                            influencerCategories[9]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[9])
+                          }
+                          label={influencerCategories[9]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[9]
+                          )}
+                        >
+                          {influencerCategories[9]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-10"
+                          checked={selectedCategories.includes(
+                            influencerCategories[10]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[10])
+                          }
+                          label={influencerCategories[10]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[10]
+                          )}
+                        >
+                          {influencerCategories[10]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-11"
+                          checked={selectedCategories.includes(
+                            influencerCategories[11]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[11])
+                          }
+                          label={influencerCategories[11]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[11]
+                          )}
+                        >
+                          {influencerCategories[11]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-12"
+                          checked={selectedCategories.includes(
+                            influencerCategories[12]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[12])
+                          }
+                          label={influencerCategories[12]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[12]
+                          )}
+                        >
+                          {influencerCategories[12]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-13"
+                          checked={selectedCategories.includes(
+                            influencerCategories[13]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[13])
+                          }
+                          label={influencerCategories[13]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[13]
+                          )}
+                        >
+                          {influencerCategories[13]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-14"
+                          checked={selectedCategories.includes(
+                            influencerCategories[14]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[14])
+                          }
+                          label={influencerCategories[14]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[14]
+                          )}
+                        >
+                          {influencerCategories[14]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-15"
+                          checked={selectedCategories.includes(
+                            influencerCategories[15]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[15])
+                          }
+                          label={influencerCategories[15]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[15]
+                          )}
+                        >
+                          {influencerCategories[15]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-16"
+                          checked={selectedCategories.includes(
+                            influencerCategories[16]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[16])
+                          }
+                          label={influencerCategories[16]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[16]
+                          )}
+                        >
+                          {influencerCategories[16]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-17"
+                          checked={selectedCategories.includes(
+                            influencerCategories[17]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[17])
+                          }
+                          label={influencerCategories[17]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[17]
+                          )}
+                        >
+                          {influencerCategories[17]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-18"
+                          checked={selectedCategories.includes(
+                            influencerCategories[18]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[18])
+                          }
+                          label={influencerCategories[18]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[18]
+                          )}
+                        >
+                          {influencerCategories[18]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-19"
+                          checked={selectedCategories.includes(
+                            influencerCategories[19]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[19])
+                          }
+                          label={influencerCategories[19]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[19]
+                          )}
+                        >
+                          {influencerCategories[19]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-20"
+                          checked={selectedCategories.includes(
+                            influencerCategories[20]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[20])
+                          }
+                          label={influencerCategories[20]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[20]
+                          )}
+                        >
+                          {influencerCategories[20]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-21"
+                          checked={selectedCategories.includes(
+                            influencerCategories[21]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(influencerCategories[21])
+                          }
+                          label={influencerCategories[21]}
+                          defaultSelected={selectedCategories.includes(
+                            influencerCategories[21]
+                          )}
+                        >
+                          {influencerCategories[21]}
+                        </Checkbox>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <Checkbox
+                          id="category-0"
+                          checked={selectedCategories.includes(
+                            marketerCategories[0]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[0])
+                          }
+                          label={marketerCategories[0]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[0]
+                          )}
+                        >
+                          {marketerCategories[0]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-1"
+                          checked={selectedCategories.includes(
+                            marketerCategories[1]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[1])
+                          }
+                          label={marketerCategories[1]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[1]
+                          )}
+                        >
+                          {marketerCategories[1]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-2"
+                          checked={selectedCategories.includes(
+                            marketerCategories[2]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[2])
+                          }
+                          label={marketerCategories[2]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[2]
+                          )}
+                        >
+                          {marketerCategories[2]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-3"
+                          checked={selectedCategories.includes(
+                            marketerCategories[3]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[3])
+                          }
+                          label={marketerCategories[3]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[3]
+                          )}
+                        >
+                          {marketerCategories[3]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-4"
+                          checked={selectedCategories.includes(
+                            marketerCategories[4]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[4])
+                          }
+                          label={marketerCategories[4]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[4]
+                          )}
+                        >
+                          {marketerCategories[4]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-5"
+                          checked={selectedCategories.includes(
+                            marketerCategories[5]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[5])
+                          }
+                          label={marketerCategories[5]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[5]
+                          )}
+                        >
+                          {marketerCategories[5]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-6"
+                          checked={selectedCategories.includes(
+                            marketerCategories[6]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[6])
+                          }
+                          label={marketerCategories[6]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[6]
+                          )}
+                        >
+                          {marketerCategories[6]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-7"
+                          checked={selectedCategories.includes(
+                            marketerCategories[7]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[7])
+                          }
+                          label={marketerCategories[7]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[7]
+                          )}
+                        >
+                          {marketerCategories[7]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-8"
+                          checked={selectedCategories.includes(
+                            marketerCategories[8]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[8])
+                          }
+                          label={marketerCategories[8]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[8]
+                          )}
+                        >
+                          {marketerCategories[8]}
+                        </Checkbox>
+                      </div>
+
+                      <div>
+                        <Checkbox
+                          id="category-9"
+                          checked={selectedCategories.includes(
+                            marketerCategories[9]
+                          )}
+                          onChange={() =>
+                            handleCategorySelect(marketerCategories[9])
+                          }
+                          label={marketerCategories[9]}
+                          defaultSelected={selectedCategories.includes(
+                            marketerCategories[9]
+                          )}
+                        >
+                          {marketerCategories[9]}
+                        </Checkbox>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="flex sm:flex-row flex-col justify-between w-full sm:gap-4 gap-1">
@@ -875,9 +1412,45 @@ const NewMultiPageForm = ({ to, name }) => {
                     isRequired={formData.field === "marketer" ? true : false}
                     errorMessage={errorMessage}
                   >
-                    {IndustryCategories.map((category, index) => (
+                    {/* {IndustryCategories.map((category, index) => (
                       <SelectItem key={category}>{category}</SelectItem>
-                    ))}
+                    ))} */}
+                    <SelectItem key={IndustryCategories[0]}>
+                      {IndustryCategories[0]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[1]}>
+                      {IndustryCategories[1]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[2]}>
+                      {IndustryCategories[2]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[3]}>
+                      {IndustryCategories[3]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[4]}>
+                      {IndustryCategories[4]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[5]}>
+                      {IndustryCategories[5]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[6]}>
+                      {IndustryCategories[6]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[7]}>
+                      {IndustryCategories[7]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[8]}>
+                      {IndustryCategories[8]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[9]}>
+                      {IndustryCategories[9]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[10]}>
+                      {IndustryCategories[10]}
+                    </SelectItem>
+                    <SelectItem key={IndustryCategories[11]}>
+                      {IndustryCategories[11]}
+                    </SelectItem>
                   </Select>
                 )}
               </div>
@@ -1280,3 +1853,19 @@ const IndustryCategories = [
 export default NewMultiPageForm;
 
 // meta data for image
+
+// influencerCategories.map((category, index) => (
+//   <div key={category}>
+//     <Checkbox
+//       id={`category-${index}`}
+//       checked={selectedCategories.includes(category)}
+//       onChange={() => handleCategorySelect(category)}
+//       label={category}
+//       defaultSelected={selectedCategories.includes(
+//         category
+//       )}
+//     >
+//       {category}
+//     </Checkbox>
+//   </div>
+// ))
