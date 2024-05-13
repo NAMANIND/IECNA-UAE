@@ -535,15 +535,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <div className="flex flex-row justify-center  w-full max-w-[100%] max-md:mt-10 relative bottom-20 z-20  ">
         <form
           onSubmit={handleSubmit}
-          className=" sm:w-[60%] w-[100%]  sm:p-16 p-8   rounded-[32px] "
-          // style={{
-          //   boxShadow: "0px 0px 10px 0px #0000001a ",
-          //   background: "rgba(255, 255, 255, 1.15) ",
-          //   border: "1px solid #0000001a",
-          //   color: "rgba(0, 0, 0, 0.18)",
-          //   filter: "drop-shadow(40px 40px 76px)",
-          //   mixBlendMode: "normal",
-          // }}
+          className=" sm:w-[60%] w-[100%]  sm:p-16 p-8   rounded-[32px] gpg "
         >
           {page === 1 && (
             <div className="flex  flex-col md:flex-nowrap gap-4">
