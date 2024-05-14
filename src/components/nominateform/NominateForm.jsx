@@ -382,6 +382,8 @@ const NominateForm = () => {
         jobTitle: formData.jobTitle,
         country: formData.country,
         industry: formData.industry,
+        linkedin: formData.linkedin,
+        instagram: formData.instagram,
         imageUrl,
       });
     }

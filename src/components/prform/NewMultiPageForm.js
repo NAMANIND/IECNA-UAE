@@ -394,6 +394,8 @@ const NewMultiPageForm = ({ to, name }) => {
           jobTitle: formData.jobTitle,
           country: formData.country,
           industry: formData.industry,
+          linkedin: formData.linkedin,
+          instagram: formData.instagram,
           imageUrl,
         });
       }
@@ -481,6 +483,8 @@ const NewMultiPageForm = ({ to, name }) => {
         jobTitle: formData.jobTitle,
         country: formData.country,
         industry: formData.industry,
+        linkedin: formData.linkedin,
+        instagram: formData.instagram,
         imageUrl2,
       });
 
