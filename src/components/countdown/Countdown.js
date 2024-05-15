@@ -177,7 +177,7 @@ const FlipContainer = ({ number, title }) => {
 const renderer = ({ hours, minutes, seconds, completed, days }) => {
   if (completed) return null;
   return (
-    <div>
+    <div className="sm:scale-100 scale-80">
       <div className="flex flex-row gap-4">
         <FlipContainer number={days} title="days" />
         <FlipContainer number={hours} title="hours" />

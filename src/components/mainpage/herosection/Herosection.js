@@ -21,22 +21,22 @@ function Herosection() {
   futureDate.setDate(today.getDate() + differenceInDays);
   return (
     <section
-      className="flex overflow-hidden relative z-10 flex-col  w-full text-white   bg-black h-full sm:min-h-[100vh] max-md:max-w-full
+      className="flex overflow-hidden relative z-10 flex-col  w-full text-white   bg-black h-full min-h-[100vh] max-md:max-w-full
     "
     >
       <div
-        className="relative pt-[135%] sm:pt-[56.25%] "
+        className="relative pt-[195%] h-full sm:pt-[56.25%] "
         style={{ pointerEvents: "none" }}
       >
         <iframe
           src="https://www.youtube.com/embed/rSuQHzr-TvI?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=rSuQHzr-TvI"
           title="YouTube video player"
           allowFullScreen
-          className="absolute  inset-0 w-full h-full top-0 sm:scale-125 scale-[2.5]"
+          className="absolute  inset-0 w-full h-full top-0 sm:scale-125 scale-[3.5]"
         ></iframe>
       </div>
       <div
-        className={`flex absolute w-full sm:bottom-0 -bottom-8 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
+        className={`flex absolute w-full sm:bottom-0 bottom-0 z-40 flex-col px-10 pt-20 pb-12 mt-48 max-md:px-5 max-md:mt-10 max-md:max-w-full 
       
          ${anton.className} `}
         style={{

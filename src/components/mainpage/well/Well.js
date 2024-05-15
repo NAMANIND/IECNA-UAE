@@ -50,7 +50,7 @@ function Well() {
           viewport={{ once: true, amount: 0.3 }}
           className={`flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full ${anton.className}`}
         >
-          <div className="flex flex-col md:p-10 p-5 uppercase md:mt-10 mt-5 max-md:max-w-full">
+          <div className="flex relative sm:items-start items-center flex-col md:p-10 p-5 uppercase md:mt-10 mt-5 max-md:max-w-full">
             <div className="text-4xl leading-10 text-white max-md:max-w-full">
               Well, they say third time is a{" "}
               <span className="text-[#ccff00]">charm!</span>
@@ -60,7 +60,16 @@ function Well() {
               <br /> of the much awaited{" "}
               <span className="text-[#ccff00]">IEC&A!</span>
             </div>
-            <div className="flex gap-1.5 self-start w-full  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
+            {/* <div className="flex gap-1.5 self-start w-full  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
+              <Button href="./register" color="green" img="arrow">
+                Register Now
+              </Button>
+            </div> */}
+            <div
+              className="sm:scale-100 scale-75 
+              
+              "
+            >
               <Button href="./register" color="green" img="arrow">
                 Register Now
               </Button>

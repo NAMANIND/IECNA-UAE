@@ -213,7 +213,7 @@ function Pastevents() {
         </Marquee>
 
         <h1
-          className="text-8xl text-center uppercase leading-[62px] z-[12] max-md:text-4xl max-md:leading-7 text-[#ccff00] w-[100%] top-[50%] absolute"
+          className="text-8xl text-center uppercase z-[12] max-md:text-4xl  text-[#ccff00] w-[100%] top-[50%] absolute"
           style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85) " }}
         >
           <span className="text-orange-500 ">IN</span>

@@ -100,11 +100,15 @@ function Venue() {
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/927df31f3a6db88ae4468b2806d1762f1ec57b14708866f7702a24ff4b6348e7?apiKey=5e27b1defd60460eaa6dca842133145f&"
               className="object-cover absolute inset-0 w-full h-full rounded-[40px]    "
             />
-            <div className="flex relative justify-between flex-col max-w-full w-full h-full">
+            <div className="relative bottom-0 left-0 flex w-full sm:flex-col flex-col items-center gap-4  text-lg text-white sm:h-full sm:justify-between md:gap-0">
               <div className="text-6xl text-white leading-[120px] max-md:text-4xl">
                 Don't Miss Out!
               </div>
-              <div className="flex justify-center w-full self-start  text-lg font-semibold tracking-tighter leading-[90px] rounded-[40px]">
+              <div
+                className="sm:scale-100 scale-75 
+              
+              "
+              >
                 <Button href="./register" color="green" img="arrow">
                   Register Now
                 </Button>
