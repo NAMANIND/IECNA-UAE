@@ -189,236 +189,151 @@ const NominateForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    if (formData.phone.length < 10) {
-      alert("Please fill complete phone number");
-      return;
-    }
-    if (
-      formData.firstName === "" &&
-      formData.lastName === "" &&
-      formData.email === "" &&
-      formData.phone === "" &&
-      formData.jobTitle === "" &&
-      formData.country === ""
-    ) {
-      alert("Please fill all the fields");
-      return;
-    }
-
-    const notallowedemail = [
-      "gmail",
-      "yahoo",
-      "hotmail",
-      "outlook",
-      "rediffmail",
-      "aol",
-      "zoho",
-      "protonmail",
-      "icloud",
-      "yandex",
-      "gmx",
-      "mail",
-      "inbox",
-      "live",
-    ];
-    if (formData.field === "marketer") {
-      // check email is buissnes email or not
-
-      if (notallowedemail.some((el) => formData.email.includes(el))) {
-        alert("Please enter a valid business email address");
+    try {
+      if (formData.phone.length < 10) {
+        alert("Please fill complete phone number");
         return;
       }
-    }
+      if (
+        formData.firstName === "" &&
+        formData.lastName === "" &&
+        formData.email === "" &&
+        formData.phone === "" &&
+        formData.jobTitle === "" &&
+        formData.country === ""
+      ) {
+        alert("Please fill all the fields");
+        return;
+      }
 
-    e.preventDefault();
-    // Prevent default form submission behavior
-    e.stopPropagation();
+      const notallowedemail = [
+        "gmail",
+        "yahoo",
+        "hotmail",
+        "outlook",
+        "rediffmail",
+        "aol",
+        "zoho",
+        "protonmail",
+        "icloud",
+        "yandex",
+        "gmx",
+        "mail",
+        "inbox",
+        "live",
+      ];
+      if (formData.field === "marketer") {
+        // check email is buissnes email or not
 
-    setSubmitted(true);
+        if (notallowedemail.some((el) => formData.email.includes(el))) {
+          alert("Please enter a valid business email address");
+          return;
+        }
+      }
 
-    if (field === "") {
-      setErrorMessage("*Please select a field*");
-      return;
-    }
+      e.preventDefault();
+      // Prevent default form submission behavior
+      e.stopPropagation();
 
-    if (selectedCategories.length <= 0) {
-      setErrorMessage("*Please select at least one category*");
-      return;
-    }
+      setSubmitted(true);
 
-    // setrtype("nomination");
-    const imageRef = storage
-      .ref()
-      .child(`india-nomination-image/${formData.image.name}`);
-    await imageRef.put(formData.image);
-    const imageUrl = await imageRef.getDownloadURL();
-    setimgu(imageUrl);
-    const htmlcontent = `
-      <p>First Name: ${formData.firstName}</p>
-      <p>Last Name: ${formData.lastName}</p>
-      <p>Field: ${field}</p>
-      <p>Categories: ${selectedCategories.join(", ")}</p>
-      <p>Email: ${formData.email}</p>
-      <p>Phone: ${formData.phone}</p>
-      <p>Company: ${formData.company}</p>
-      <p>Job Title: ${formData.jobTitle}</p>
-      <p>Country: ${formData.country}</p>
-      <p>Industry: ${formData.industry}</p>
-      <p>Vote Link: ${`
-      https://india.theiena.com/vote/${formData.firstName
-        .toLowerCase()
-        .replace(/\s/g, "")}_${formData.lastName
-        .toLowerCase()
-        .replace(/\s/g, "")}
-  `}</p>
-      <p>LinkedIn: ${formData.linkedin}</p>
-      <p>Instagram: ${formData.instagram}</p>
-      <p>Youtube: ${formData.youtube}</p>
-     
-      <p>Snapchat: ${formData.snapchat}</p>
-  
-  
-      <img src=${imageUrl} alt="nominee-image" width="200" height="200" />
-      ${imageRef ? `<p>Image url: ${imageUrl}</p>` : ""}
-      `;
-    const to = [
-      "20bei033@ietdavv.edu.in",
-      "megha.salian@influenceexchangegroup.com",
-      "mohamed.suhel@influenceexchangegroup.com ",
-    ];
-    const subject =
-      field +
-      " Nomination form submission by: " +
-      formData.firstName +
-      " " +
-      formData.lastName;
-    const html = htmlcontent;
-    const vlink = `https://india.theiena.com/vote/${formData.firstName
-      .toLowerCase()
-      .replace(/\s/g, "")}_${formData.lastName
-      .toLowerCase()
-      .replace(/\s/g, "")}`;
-    setvotelink(vlink);
+      if (field === "") {
+        setErrorMessage("*Please select a field*");
+        return;
+      }
 
-    console.log("Information submitted");
-    await Sendemail(to, subject, html);
-
-    const nomineeRef = firestore.collection("india-nominees").doc();
-    const nomineeId = nomineeRef.id;
-    const nomineeQuery = firestore
-      .collection("india-nominees")
-      .where(
-        "firstName",
-        "==",
-        formData.firstName.toLowerCase().replace(/\s/g, "")
-      )
-      .where(
-        "lastName",
-        "==",
-        formData.lastName.toLowerCase().replace(/\s/g, "")
-      )
-      .where("email", "==", formData.email);
-
-    const nomineeSnapshot = await nomineeQuery.get();
-
-    if (!nomineeSnapshot.empty) {
-      // Nominee already exists, update their categories
-      nomineeSnapshot.forEach(async (doc) => {
-        const nomineeId2 = doc.id;
-        const existingCategories = doc.data().categories;
-        const updatedCategories = { ...existingCategories };
-
-        selectedCategories.forEach((category) => {
-          const cat = category
-            .toString()
-            .replace(/\s/g, "")
-            .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
-          const og = category;
-
-          // Only add new categories
-          if (!existingCategories.hasOwnProperty(cat)) {
-            updatedCategories[cat] = {
-              og,
-              vote: 0,
-            };
-          }
-        });
-
-        await firestore
-          .collection("india-nominees")
-          .doc(nomineeId2)
-          .update({
-            categories: { ...updatedCategories },
-          });
-      });
-    } else {
-      // Nominee does not exist, create a new document for them
-      const categoriesData = {};
-      selectedCategories.forEach((category) => {
-        const cat = category
-          .toString()
-          .replace(/\s/g, "")
-          .replace(/[/\\.,;:'"!@#$%^&*()_+|~=`{}[\]]/g, "_");
-        const og = category;
-        categoriesData[cat] = {
-          og,
-          vote: 0,
-        };
-      });
-
-      if (Object.keys(categoriesData).length === 0) {
+      if (selectedCategories.length <= 0) {
         setErrorMessage("*Please select at least one category*");
         return;
       }
 
-      await nomineeRef.set({
-        id: nomineeId,
-        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-        field,
-        categories: { ...categoriesData },
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        jobTitle: formData.jobTitle,
-        country: formData.country,
-        industry: formData.industry,
-        linkedin: formData.linkedin,
-        instagram: formData.instagram,
-        imageUrl,
+      // setrtype("nomination");
+      // const imageRef = storage
+      //   .ref()
+      //   .child(`india-nomination-image/${formData.image.name}`);
+      // await imageRef.put(formData.image);
+      // const imageUrl = await imageRef.getDownloadURL();
+      // setimgu(imageUrl);
+      const htmlcontent = `
+        <p>First Name: ${formData.firstName}</p>
+        <p>Last Name: ${formData.lastName}</p>
+        <p>Field: ${field}</p>
+        <p>Categories: ${selectedCategories.join(", ")}</p>
+        <p>Email: ${formData.email}</p>
+        <p>Phone: ${formData.phone}</p>
+        <p>Company: ${formData.company}</p>
+        <p>Job Title: ${formData.jobTitle}</p>
+        <p>Country: ${formData.country}</p>
+        <p>Industry: ${formData.industry}</p>
+     
+        <p>LinkedIn: ${formData.linkedin}</p>
+        <p>Instagram: ${formData.instagram}</p>
+        <p>Youtube: ${formData.youtube}</p>
+       
+        <p>Snapchat: ${formData.snapchat}</p>
+    
+  
+        `;
+      const to = [
+        "mohamed.suhel@influenceexchangegroup.com",
+        "20bei033@ietdavv.edu.in",
+        // "mohamed.suhel@influenceexchangegroup.com ",
+
+        "megha.salian@influenceexchangegroup.com",
+      ];
+      const subject =
+        field +
+        " Nomination form submission by: " +
+        formData.firstName +
+        " " +
+        formData.lastName;
+      const html = htmlcontent;
+      const vlink = `https://india.theiena.com/vote/${formData.firstName
+        .toLowerCase()
+        .replace(/\s/g, "")}_${formData.lastName
+        .toLowerCase()
+        .replace(/\s/g, "")}`;
+      setvotelink(vlink);
+
+      console.log("Information submitted");
+
+      await Sendemail(to, subject, html);
+      console.log("Information submitted");
+
+      console.log("Information submitted");
+
+      setSent(true);
+      // Form submission logic goes here
+      setSubmitted(false);
+      alert(
+        "Nomination Form submitted successfully!\nOur team will get back to you soon"
+      );
+      // Reset form and page state
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        jobTitle: "",
+        country: "",
+        industry: "",
+        linkedin: "",
+        instagram: "",
+        youtube: "",
+        tiktok: "",
+        snapchat: "",
+        field: "",
+        image: null,
       });
+      setStep(1);
+      setField("");
+      setValues(new Set([]));
+      setSelectedCategories([]);
+      setErrorMessage("");
+    } catch (e) {
+      console.log(e);
     }
-
-    const vlinkg = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
-    setvotelink(vlinkg);
-
-    setSent(true);
-    // Form submission logic goes here
-    setSubmitted(false);
-    alert("Nomination Form submitted successfully!");
-    // Reset form and page state
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      company: "",
-      jobTitle: "",
-      country: "",
-      industry: "",
-      linkedin: "",
-      instagram: "",
-      youtube: "",
-      tiktok: "",
-      snapchat: "",
-      field: "",
-      image: null,
-    });
-    setStep(1);
-    setField("");
-    setValues(new Set([]));
-    setSelectedCategories([]);
-    setErrorMessage("");
   };
 
   // Render different steps based on current step
@@ -725,7 +640,7 @@ const NominateForm = () => {
                 />
               </div>
             )}
-            <div className="flex md:flex-col flex-col gap-2 w-full">
+            {/* <div className="flex md:flex-col flex-col gap-2 w-full">
               <label className="text-sm form-color ">
                 Upload Image<span className="redal">*</span> (800px x 800px)
               </label>
@@ -748,7 +663,7 @@ const NominateForm = () => {
                   ? "Image Selected: " + formData.image.name
                   : "Upload Image"}
               </Button>
-            </div>
+            </div> */}
             <div className="flex flex-row  gap-4 w-full">
               <button onClick={handlePrevStep} className="newsletterbtn w-6/12">
                 Previous
@@ -800,7 +715,7 @@ const NominateForm = () => {
           <div>{stepComponent}</div>
         </div>
       </div>
-      {sent && (
+      {/* {sent && (
         <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-10 rounded-lg  max-h-[90vh] mx-20 my-5">
             <div className="relative w-full">
@@ -853,7 +768,7 @@ const NominateForm = () => {
                     {so}
                   </div>
                 </div>
-                {/* follow this page */}
+
                 <div className="flex">
                   <div className="w-full">
                     <h1 className="mb-5">
@@ -911,7 +826,7 @@ const NominateForm = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
