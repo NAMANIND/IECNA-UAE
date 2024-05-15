@@ -283,8 +283,8 @@ const NominateForm = () => {
       `;
     const to = [
       "20bei033@ietdavv.edu.in",
-      // "megha.salian@influenceexchangegroup.com",
-      // "mohamed.suhel@influenceexchangegroup.com ",
+      "megha.salian@influenceexchangegroup.com",
+      "mohamed.suhel@influenceexchangegroup.com ",
     ];
     const subject =
       field +
