@@ -283,8 +283,8 @@ const NominateForm = () => {
       `;
     const to = [
       "20bei033@ietdavv.edu.in",
-      "megha.salian@influenceexchangegroup.com",
-      "mohamed.suhel@influenceexchangegroup.com ",
+      // "megha.salian@influenceexchangegroup.com",
+      // "mohamed.suhel@influenceexchangegroup.com ",
     ];
     const subject =
       field +
@@ -300,6 +300,7 @@ const NominateForm = () => {
       .replace(/\s/g, "")}`;
     setvotelink(vlink);
 
+    console.log("Information submitted");
     await Sendemail(to, subject, html);
 
     const nomineeRef = firestore.collection("india-nominees").doc();
