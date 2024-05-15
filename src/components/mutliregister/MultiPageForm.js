@@ -378,9 +378,6 @@ const MultiPageForm = () => {
         const to = [
           "mohamed.suhel@influenceexchangegroup.com",
           "20bei033@ietdavv.edu.in",
-          // "mohamed.suhel@influenceexchangegroup.com ",
-
-          "megha.salian@influenceexchangegroup.com",
         ];
         const subject =
           formData.category +
