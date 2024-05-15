@@ -480,7 +480,10 @@ function SpeakerCard() {
                   key={index}
                   img={speaker.imageUrl} // Speaker image URL
                   title={speaker.firstName + " " + speaker.lastName} // Full name
-                  job={speaker.company + ", " + speaker.jobTitle} // Job profile and company
+                  job={
+                    (speaker.jobTitle ? speaker.jobTitle + ", " : "") +
+                    speaker.company
+                  } // Job profile and company
                   des={speaker.details} // Speaker description
                   linkedin={speaker.linkedin} // LinkedIn URL
                   instagram={speaker.instagram} // Instagram URL
