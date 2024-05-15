@@ -249,7 +249,9 @@ const MultiPageForm = () => {
       //   imageUrl2,
       // });
 
-      alert("Delegate details submitted successfully!");
+      alert(
+        "Delegate details submitted successfully!\nOur team will get back to you soon."
+      );
       setSent(true);
 
       // Reset form and page state
@@ -346,7 +348,9 @@ const MultiPageForm = () => {
 
         await Sendemail(to, subject, html);
 
-        alert("Speaker details submitted successfully!");
+        alert(
+          "Speaker details submitted successfully!\nOur team will get back to you soon."
+        );
 
         // Reset form and page state
         setSubmitted(false);
@@ -414,7 +418,9 @@ const MultiPageForm = () => {
         await Sendemail(to, subject, html);
         setSubmitted(true);
 
-        alert("Details submitted successfully!");
+        alert(
+          "Details submitted successfully!\nOur team will get back to you soon."
+        );
 
         // Reset form and page state
         setSubmitted(false);
