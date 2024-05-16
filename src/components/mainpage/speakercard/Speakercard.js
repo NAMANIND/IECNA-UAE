@@ -339,14 +339,16 @@ function SpeakerCard() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex gap-5 self-center md:mt-56 mt-96 relative md:top-0 top-32 max-w-full text-2xl font-medium tracking-tighter uppercase leading-[90px] w-[688px] max-md:flex-wrap max-md:mt-10"
+        className="flex gap-5 self-center items-center md:mt-56 mt-96 relative md:top-0 top-32 w-full  text-2xl font-medium tracking-tighter uppercase max-md:flex-wrap max-md:mt-10 justify-center  "
       >
-        <Button href="./speakers" color="green" img="arrow">
-          See All Speakers
-        </Button>
-        <Button href="./register" color="black" img="mic">
-          Become a Speaker
-        </Button>
+        <div className=" sm:scale-100 scale-75 flex justify-center sm:flex-row gap-5 flex-col items-center">
+          <Button href="./speakers" color="green" img="arrow">
+            See All Speakers
+          </Button>
+          <Button href="./register" color="black" img="mic">
+            Become a Speaker
+          </Button>
+        </div>
       </motion.div>
     </section>
   );
