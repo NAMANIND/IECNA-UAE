@@ -9,6 +9,7 @@ const DelegateRegistrationForm = () => {
     company: "",
     jobTitle: "",
     field: "",
+    category: "",
     image: null,
   });
   const [submitted, setSubmitted] = useState(false);
@@ -24,8 +25,7 @@ const DelegateRegistrationForm = () => {
     if (
       formData.firstName === "" ||
       formData.lastName === "" ||
-      formData.jobTitle === "" ||
-      formData.company === "" ||
+      formData.category === "" ||
       formData.field === ""
     ) {
       alert("Please fill all the fields");
@@ -59,7 +59,7 @@ const DelegateRegistrationForm = () => {
         title={title1}
         marco={marco1}
         company={company1}
-        category="delegate"
+        category={formData.category}
         field={formData.field}
         rem={randomString}
         email="bulkform@mail.com"
@@ -187,6 +187,27 @@ const DelegateRegistrationForm = () => {
             <option value="">Select Field</option>
             <option value="influencer">Influencer</option>
             <option value="marketer">Marketer</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="Category"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Category
+          </label>
+          <select
+            id="category"
+            name="category"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            value={formData.category}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Field</option>
+            <option value="delegate">delegate</option>
+            <option value="nomination">Nomination</option>
           </select>
         </div>
 
