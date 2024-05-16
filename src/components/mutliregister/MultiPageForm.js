@@ -193,11 +193,11 @@ const MultiPageForm = () => {
       // const imageUrl2 = await imageRef.getDownloadURL();
       // setimgu(imageUrl2);
       const to = [
-        // "mohamed.suhel@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
         "20bei033@ietdavv.edu.in",
         // "mohamed.suhel@influenceexchangegroup.com ",
 
-        // "megha.salian@influenceexchangegroup.com",
+        "megha.salian@influenceexchangegroup.com",
       ];
       // "megha.salian@influenceexchangegroup.com",
       const subject =
