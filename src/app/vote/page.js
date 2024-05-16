@@ -109,37 +109,19 @@ const Voting = () => {
   // Handle nominee selection, vote, email validation, and email existence check functions...
   const handleNomineeSelect = (category, nomineeId) => {
     setSelectedNominees((prevSelectedNominees) => {
-      const isCategorySelected = prevSelectedNominees.some(
-        (selectedNominee) => selectedNominee.category === category
+      const existingNomineeIndex = prevSelectedNominees.findIndex(
+        (selectedNominee) =>
+          selectedNominee.category === category &&
+          selectedNominee.nomineeId === nomineeId
       );
 
-      if (isCategorySelected) {
-        // Check if the selected nominee is already in the selected nominees list
-        const isNomineeSelected = prevSelectedNominees.some(
-          (selectedNominee) =>
-            selectedNominee.category === category &&
-            selectedNominee.nomineeId === nomineeId
-        );
-
-        if (isNomineeSelected) {
-          // If the selected nominee is already selected, remove it from the list
-          return prevSelectedNominees.filter(
-            (selectedNominee) =>
-              !(
-                selectedNominee.category === category &&
-                selectedNominee.nomineeId === nomineeId
-              )
-          );
-        } else {
-          // Otherwise, replace the existing selection with the newly selected nominee for the category
-          return prevSelectedNominees.map((selectedNominee) =>
-            selectedNominee.category === category
-              ? { ...selectedNominee, nomineeId: nomineeId }
-              : selectedNominee
-          );
-        }
+      // If the nominee is already selected, deselect it
+      if (existingNomineeIndex !== -1) {
+        const updatedSelectedNominees = [...prevSelectedNominees];
+        updatedSelectedNominees.splice(existingNomineeIndex, 1);
+        return updatedSelectedNominees;
       } else {
-        // Add the newly selected nominee to the selectedNominees array
+        // If the nominee is not selected, add it to the selected nominees
         setIsAnyCategorySelected(true); // Set flag to true when any category is selected
         return [
           ...prevSelectedNominees,
