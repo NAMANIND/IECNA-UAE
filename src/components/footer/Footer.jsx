@@ -126,7 +126,7 @@ function Footer() {
               </div>
             </div>
             <div className="text-center mt-8">
-              <p className="text-sm">
+              <p className="text-medium">
                 &copy; 2024 - Designed and Developed by{" "}
                 <a
                   href="https://bitnibdesign.com "
