@@ -193,11 +193,11 @@ const MultiPageForm = () => {
       // const imageUrl2 = await imageRef.getDownloadURL();
       // setimgu(imageUrl2);
       const to = [
-        "mohamed.suhel@influenceexchangegroup.com",
+        // "mohamed.suhel@influenceexchangegroup.com",
         "20bei033@ietdavv.edu.in",
         // "mohamed.suhel@influenceexchangegroup.com ",
 
-        "megha.salian@influenceexchangegroup.com",
+        // "megha.salian@influenceexchangegroup.com",
       ];
       // "megha.salian@influenceexchangegroup.com",
       const subject =
@@ -232,22 +232,26 @@ const MultiPageForm = () => {
 
       console.log(to);
       await Sendemail(to, subject, html);
-      // const nomineeRef = firestore.collection("india-delegates").doc();
-      // const nomineeId = nomineeRef.id;
+      const nomineeRef = firestore.collection("india-delegates").doc();
+      const nomineeId = nomineeRef.id;
 
-      // await nomineeRef.set({
-      //   id: nomineeId,
-      //   firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-      //   lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-      //   field,
-      //   email: formData.email,
-      //   phone: formData.phone,
-      //   company: formData.company,
-      //   jobTitle: formData.jobTitle,
-      //   country: formData.country,
-      //   industry: formData.industry,
-      //   imageUrl2,
-      // });
+      console.log("id" + nomineeId);
+
+      await nomineeRef.set({
+        id: nomineeId,
+        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
+        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
+        field,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        industry: formData.industry,
+        instagram: formData.instagram,
+        linkedin: formData.linkedin,
+        // imageUrl2,
+      });
 
       alert(
         "Delegate details submitted successfully!\nOur team will get back to you soon."
