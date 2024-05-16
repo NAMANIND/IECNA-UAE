@@ -71,7 +71,8 @@ const PersonalVote = ({ params }) => {
       return;
     }
 
-    const emailExists = await checkEmailExists(email);
+    // const emailExists = await checkEmailExists(email);
+    const emailExists = false;
     if (emailExists) {
       alert("You have already voted with this email address.");
       return;
@@ -82,7 +83,9 @@ const PersonalVote = ({ params }) => {
     try {
       const batch = firestore.batch();
 
-      const isNewEmail = await checkEmailExists(email);
+      // const isNewEmail = await checkEmailExists(email);
+
+      const isNewEmail = false;
 
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email

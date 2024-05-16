@@ -160,7 +160,8 @@ const Voting = () => {
     try {
       const batch = firestore.batch();
 
-      const isNewEmail = await checkEmailExists(email);
+      // const isNewEmail = await checkEmailExists(email);
+      const isNewEmail = false;
 
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email
