@@ -127,7 +127,15 @@ function Footer() {
             </div>
             <div className="text-center mt-8">
               <p className="text-sm">
-                &copy; 2024 - Designed and Developed by Bitnib
+                &copy; 2024 - Designed and Developed by{" "}
+                <a
+                  href="https://bitnibdesign.com "
+                  className="underline cursor-pointer"
+                  target="_blank"
+                >
+                  {" "}
+                  Bitnib
+                </a>{" "}
               </p>
             </div>
           </div>
