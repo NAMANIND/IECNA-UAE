@@ -220,12 +220,12 @@ const Spkrform = () => {
       // Upload image to Firebase storage
       const imageRef = storage
         .ref()
-        .child(`india-speakers-image/${formData.image.name}`);
+        .child(`uae-speakers-image/${formData.image.name}`);
       await imageRef.put(formData.image);
       const imageUrl = await imageRef.getDownloadURL();
       setSelectedImageurl(imageUrl);
 
-      const nomineeRef = firestore.collection("india-speakers").doc();
+      const nomineeRef = firestore.collection("uae-speakers").doc();
       const nomineeId = nomineeRef.id;
 
       // Save speaker details to Firestore
@@ -300,7 +300,7 @@ const Spkrform = () => {
     setSent(true);
     // if (formData.category === "speaker" || formData.category === "delegate") {
     //   setSent(true);
-    //   const vlink = `https://india.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
+    //   const vlink = `https://uae.theiena.com/vote/${formData.firstName.toLowerCase()}_${formData.lastName.toLowerCase()}`;
     //   setvotelink(vlink);
     // }
     // Reset form and page state

@@ -24,7 +24,7 @@ function ImageDownloadPage({
   useEffect(() => {
     const uploadImage = async () => {
       const formData = new FormData();
-      formData.append("upload_preset", "iecna_upload_india");
+      formData.append("upload_preset", "iecna_upload_uae");
       formData.append("file", imageData);
 
       try {
@@ -73,7 +73,7 @@ function ImageDownloadPage({
       if (field === "marketer") {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
             company
@@ -85,7 +85,7 @@ function ImageDownloadPage({
       } else {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
@@ -99,7 +99,7 @@ function ImageDownloadPage({
       if (field === "marketer") {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
             company
@@ -111,7 +111,7 @@ function ImageDownloadPage({
       } else {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_315,y_120/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             company
@@ -125,7 +125,7 @@ function ImageDownloadPage({
       if (field === "marketer") {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_0,y_350/ntgqq5e6s37tamyux4io.jpg`;
 
@@ -133,7 +133,7 @@ function ImageDownloadPage({
       } else {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_india:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_255,h_255,x_0,y_55,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_38_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_0,y_350/ntgqq5e6s37tamyux4io.jpg`;
 

@@ -5,7 +5,7 @@ function Ipvote({ name }) {
   useEffect(() => {
     // Redirect to a custom link automatically
     if (typeof window !== "undefined") {
-      window.location.href = "https://india.theiena.com/vote/" + name; // Replace with your custom link
+      window.location.href = "https://uae.theiena.com/vote/" + name; // Replace with your custom link
     }
   }, []); // Empty dependency array ensures this effect runs only once after component mount
 

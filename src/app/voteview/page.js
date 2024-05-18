@@ -58,7 +58,7 @@ const VoteViews = () => {
     const fetchNominees = async () => {
       try {
         const nomineesSnapshot = await firestore
-          .collection("india-nominees")
+          .collection("uae-nominees")
           .get();
         const nomineesData = nomineesSnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -112,9 +112,7 @@ const VoteViews = () => {
 
     if (isConfirmed) {
       try {
-        const nomineeRef = firestore
-          .collection("india-nominees")
-          .doc(nomineeId);
+        const nomineeRef = firestore.collection("uae-nominees").doc(nomineeId);
         const nomineeDoc = await nomineeRef.get();
         const nomineeData = nomineeDoc.data();
 
@@ -276,12 +274,12 @@ const VoteViews = () => {
                               Votes: {nominee.vote}
                             </p>
                             <Snippet
-                              codeString={`https://india.theiena.com/vote/${nominee.firstName
+                              codeString={`https://uae.theiena.com/vote/${nominee.firstName
                                 .toLowerCase()
                                 .replace(/\s/g, "")}_${nominee.lastName
                                 .toLowerCase()
                                 .replace(/\s/g, "")}`}
-                              symbol={`https://india.theiena.com/vote/${nominee.firstName
+                              symbol={`https://uae.theiena.com/vote/${nominee.firstName
                                 .toLowerCase()
                                 .replace(/\s/g, "")}_${nominee.lastName
                                 .toLowerCase()

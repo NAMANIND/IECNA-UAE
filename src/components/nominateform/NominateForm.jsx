@@ -250,7 +250,7 @@ const NominateForm = () => {
       // setrtype("nomination");
       // const imageRef = storage
       //   .ref()
-      //   .child(`india-nomination-image/${formData.image.name}`);
+      //   .child(`uae-nomination-image/${formData.image.name}`);
       // await imageRef.put(formData.image);
       // const imageUrl = await imageRef.getDownloadURL();
       // setimgu(imageUrl);
@@ -288,7 +288,7 @@ const NominateForm = () => {
         " " +
         formData.lastName;
       const html = htmlcontent;
-      const vlink = `https://india.theiena.com/vote/${formData.firstName
+      const vlink = `https://uae.theiena.com/vote/${formData.firstName
         .toLowerCase()
         .replace(/\s/g, "")}_${formData.lastName
         .toLowerCase()

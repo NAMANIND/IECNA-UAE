@@ -36,10 +36,10 @@ function Ourmisson() {
         viewport={{ once: true, amount: 0.3 }}
         className={`mt-20 sm:px-60 px-5 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        At Influence Exchange Confex and Awards, we are dedicated to fostering
-        connections, inspiring creativity, and acknowledging the efforts of
-        influencers and marketers who are leading transformative initiatives
-        across various sectors.
+        At The Influence Exchange Confex & Awards 2.0 Series, we are dedicated
+        to fostering connections, inspiring creativity, and acknowledging the
+        efforts of influencers and marketers who are leading transformative
+        initiatives across various sectors.
       </motion.p>
 
       <div
@@ -62,8 +62,8 @@ function Ourmisson() {
             <h2
               className={`text-4xl text-center text-[#ccff00] ${anton.className} `}
             >
-              &nbsp; DUBAI * RIYADH * MUMBAI * DUBAI * RIYADH * MUMBAI * DUBAI *
-              DUBAI * RIYADH
+              &nbsp; DUBAI * RIYADH * MUMBAI * INDONESIA * DUBAI * RIYADH *
+              MUMBAI * INDONESIA *
             </h2>
           </Marquee>
         </div>

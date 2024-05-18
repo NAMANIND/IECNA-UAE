@@ -16,25 +16,37 @@ function Whattoexpect() {
       title: "Engaging Interactions",
       imgUrl: engaging,
       description:
-        "Immerse yourself in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects, fostering genuine connections and collaborations.",
+        "Immerse in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects.",
     },
     {
       title: "Curated Program",
       imgUrl: curated,
       description:
-        "Dive into a carefully designed agenda featuring keynote speeches, interactive panel discussions, and hands-on workshops, providing actionable strategies and practical knowledge to drive success in influencer marketing.",
+        "Our carefully designed agenda features keynote speeches, interactive panel discussions, workshops, and networking sessions. Every moment is crafted to deliver valuable content and foster meaningful interactions.",
     },
     {
       title: "Top-Notch Insights",
       imgUrl: top,
       description:
-        "Rub shoulders with industry leaders and experts, gaining valuable insights and establishing significant relationships that transcend the event, empowering you to stay ahead of industry trends and developments.",
+        "Rub shoulders with leading marketeers and influencers from the region, gaining valuable insights and establishing significant relationships that transcend the event.",
     },
     {
       title: "Future of Marketing",
       imgUrl: future,
       description:
-        "Explore the latest trends and technologies in MarTech and AdTech, uncovering innovative approaches and cutting-edge solutions to reshape the future of marketing and influencer collaboration.",
+        "Explore the future of marketing with a focus on the latest trends and technologies in MarTech and AdTech. Stay ahead of the curve with innovative strategies and cutting-edge approaches.",
+    },
+    {
+      title: "Opportunities for All",
+      imgUrl: future,
+      description:
+        "Whether you're a marketer seeking innovative strategies or an influencer eager to collaborate with brands, this event provides the perfect platform to expand your network and explore new business opportunities.",
+    },
+    {
+      title: "Industry Expertise: ",
+      imgUrl: future,
+      description:
+        "Gain practical knowledge from industry experts, discover cutting-edge trends, and unlock the full potential of influencer marketing for your brand.",
     },
     // Add more objects as needed
   ];
@@ -74,11 +86,14 @@ function Whattoexpect() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-10 text-2xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-10 text-xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        At the to Influence Exchange Confex & Awards Series 2024, expect an
-        unforgettable experience <br /> filled with engaging interactions,
-        curated content, and invaluable insights:
+        The Influence Exchange Confex & Awards Series 2.0 in Dubai promises an
+        enriching experience that combines learning, networking, inspiration,
+        and celebration within the dynamic world of influencer marketing.
+        Prepare for a memorable event that leaves you with new perspectives,
+        valuable connections, and actionable insights to propel your influencer
+        marketing endeavors forward.
       </motion.div>
 
       <div className="w-full max-md:mt-10 max-md:max-w-full sm:p-20 p-5">

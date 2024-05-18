@@ -260,7 +260,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setrtype("nomination");
       const imageRef = storage
         .ref()
-        .child(`india-nomination-image/${formData.image.name}`);
+        .child(`uae-nomination-image/${formData.image.name}`);
       await imageRef.put(formData.image);
       const imageUrl = await imageRef.getDownloadURL();
       setimgu(imageUrl);
@@ -279,7 +279,7 @@ const NewMultiPageForm = ({ to, name }) => {
         <p>Country: ${formData.country}</p>
         <p>Industry: ${formData.industry}</p>
         <p>Vote Link: ${`
-      https://india.theiena.com/vote/${formData.firstName
+      https://uae.theiena.com/vote/${formData.firstName
         .toLowerCase()
         .replace(/\s/g, "")}_${formData.lastName
           .toLowerCase()
@@ -305,7 +305,7 @@ const NewMultiPageForm = ({ to, name }) => {
         " " +
         formData.lastName;
       const html = htmlcontent;
-      const vlink = `https://india.theiena.com/vote/${formData.firstName
+      const vlink = `https://uae.theiena.com/vote/${formData.firstName
         .toLowerCase()
         .replace(/\s/g, "")}_${formData.lastName
         .toLowerCase()
@@ -314,10 +314,10 @@ const NewMultiPageForm = ({ to, name }) => {
 
       await Sendemail(to, subject, html);
 
-      const nomineeRef = firestore.collection("india-nominees").doc();
+      const nomineeRef = firestore.collection("uae-nominees").doc();
       const nomineeId = nomineeRef.id;
       const nomineeQuery = firestore
-        .collection("india-nominees")
+        .collection("uae-nominees")
         .where(
           "firstName",
           "==",
@@ -356,7 +356,7 @@ const NewMultiPageForm = ({ to, name }) => {
           });
 
           await firestore
-            .collection("india-nominees")
+            .collection("uae-nominees")
             .doc(nomineeId2)
             .update({
               categories: { ...updatedCategories },
@@ -426,7 +426,7 @@ const NewMultiPageForm = ({ to, name }) => {
     } else {
       const imageRef = storage
         .ref()
-        .child(`india-delegate-image/${formData.image.name}`);
+        .child(`uae-delegate-image/${formData.image.name}`);
       await imageRef.put(formData.image);
       const imageUrl2 = await imageRef.getDownloadURL();
       setimgu(imageUrl2);
@@ -469,7 +469,7 @@ const NewMultiPageForm = ({ to, name }) => {
 
       await Sendemail(to, subject, html);
 
-      const nomineeRef = firestore.collection("india-delegates").doc();
+      const nomineeRef = firestore.collection("uae-delegates").doc();
       const nomineeId = nomineeRef.id;
 
       await nomineeRef.set({

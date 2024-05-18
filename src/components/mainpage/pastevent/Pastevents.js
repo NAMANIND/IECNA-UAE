@@ -76,150 +76,158 @@ function Pastevents() {
       "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)",
   };
   return (
-    <div
-      className={`self-stretch sm:pt-56 p-32  bg-black max-md:max-w-full sm:px-20 px-5 ${anton.className} `}
-    >
-      <motion.h1
-        initial={offscreen} // Initial state
-        whileInView={onscreen} // Target state when in view
-        viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-        className={`text-7xl text-center uppercase mb-20 text-white `}
+    <div className=" bg-black max-md:max-w-full">
+      <h1
+        className={`sm:text-5xl text-sm w-full px-5   text-center uppercase mb-2 font-semibold text-white ${work_sans.className} `}
       >
-        Upcoming events
-      </motion.h1>
-
-      <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">
-        <motion.div
+        UNLOCKING BRAND POWER: THE GLOBAL HUB FOR AD TECH, MAR TECH & INFLUENCER
+        MARKETING
+      </h1>
+      <div
+        className={`self-stretch sm:pt-56 p-32  bg-black max-md:max-w-full sm:px-20 px-5 ${anton.className} `}
+      >
+        <motion.h1
           initial={offscreen} // Initial state
           whileInView={onscreen} // Target state when in view
           viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-          className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+          className={`text-7xl text-center uppercase mb-20 text-white `}
         >
-          <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
-            <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
-              <h1 className="text-4xl ">MUMBAI</h1>
-              <h2
-                className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
-              >
-                12<sup>th</sup> July 2024{" "}
-              </h2>
-            </div>
-          </div>
+          Upcoming events
+        </motion.h1>
+
+        <div className="flex gap-[5%] max-md:flex-col max-md:gap-0">
           <motion.div
-            initial={{ bottom: "40%" }} // Initial state
-            whileInView={imganimation2} // Target state when in view
+            initial={offscreen} // Initial state
+            whileInView={onscreen} // Target state when in view
             viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]  sm:top-auto -top-40"
+            className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+          >
+            <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
+              <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
+                <h1 className="text-4xl ">MUMBAI</h1>
+                <h2
+                  className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
+                >
+                  12<sup>th</sup> July 2024{" "}
+                </h2>
+              </div>
+            </div>
+            <motion.div
+              initial={{ bottom: "40%" }} // Initial state
+              whileInView={imganimation2} // Target state when in view
+              viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+              className="relative bottom-[20%]  sm:top-auto -top-40"
+            >
+              <Image
+                loading="lazy"
+                src={img2}
+                className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
+                style={{
+                  backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
+                  boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
+                }}
+                alt=""
+              />
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial={offscreen} // Initial state
+            whileInView={onscreen2} // Target state when in view
+            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+            className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+          >
+            <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
+              <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
+                <h1 className="text-4xl ">DUBAI</h1>
+                <h2
+                  className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
+                >
+                  20<sup>th</sup> September 2024
+                </h2>
+              </div>
+            </div>
+            <motion.div
+              initial={{ bottom: "40%" }} // Initial state
+              whileInView={imganimation} // Target state when in view
+              viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+              className="relative bottom-[20%]  sm:top-auto -top-40"
+            >
+              <Image
+                loading="lazy"
+                src={img1}
+                className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
+                style={{
+                  backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
+                  boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
+                }}
+                alt=""
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={offscreen} // Initial state
+            whileInView={onscreen3} // Target state when in view
+            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+            className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+          >
+            <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
+              <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
+                <h1 className="text-4xl uppercase"> Indonesia </h1>
+                <h2
+                  className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
+                >
+                  15<sup>th</sup> November 2024
+                </h2>
+              </div>
+            </div>
+            <motion.div
+              initial={{ bottom: "40%" }} // Initial state
+              whileInView={imganimation3} // Target state when in view
+              viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
+              className="relative bottom-[20%]  sm:top-auto -top-40"
+            >
+              <Image
+                loading="lazy"
+                src={img4}
+                className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
+                style={{
+                  backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
+                  boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
+                }}
+                alt=""
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <div className="relative z-0  max-md:max-w-full ">
+          <Marquee
+            direction="left"
+            gradient={false}
+            speed={60}
+            className="mt-10 z-10 text-[36px] w-full  sm:h-[500px] h-[200px]  "
+            autoFill={true}
+            style={{ ...maskImageStyle }}
           >
             <Image
-              loading="lazy"
-              src={img2}
-              className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
-              style={{
-                backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
-                boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
-              }}
-              alt=""
+              src={logo}
+              alt="Hero image"
+              className=" shadow-2xl bg-cover sm:w-auto w-1/2 bg-no-repeat bg-lightgray relative z-10 mx-40  "
+              width="auto"
+              height="auto"
             />
-          </motion.div>
-        </motion.div>
-        <motion.div
-          initial={offscreen} // Initial state
-          whileInView={onscreen2} // Target state when in view
-          viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-          className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
-        >
-          <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
-            <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
-              <h1 className="text-4xl ">DUBAI</h1>
-              <h2
-                className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
-              >
-                20<sup>th</sup> September 2024
-              </h2>
-            </div>
-          </div>
-          <motion.div
-            initial={{ bottom: "40%" }} // Initial state
-            whileInView={imganimation} // Target state when in view
-            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]  sm:top-auto -top-40"
+          </Marquee>
+
+          <h1
+            className="text-8xl text-center uppercase z-[12] max-md:text-4xl  text-[#ccff00] w-[100%] top-[46%] absolute"
+            style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85) " }}
           >
-            <Image
-              loading="lazy"
-              src={img1}
-              className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
-              style={{
-                backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
-                boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
-              }}
-              alt=""
-            />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={offscreen} // Initial state
-          whileInView={onscreen3} // Target state when in view
-          viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-          className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
-        >
-          <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
-            <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
-              <h1 className="text-4xl uppercase"> Indonesia </h1>
-              <h2
-                className={`mt-5 text-2xl tracking-tighter  ${work_sans.className} `}
-              >
-                15<sup>th</sup> November 2024
-              </h2>
-            </div>
-          </div>
-          <motion.div
-            initial={{ bottom: "40%" }} // Initial state
-            whileInView={imganimation3} // Target state when in view
-            viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="relative bottom-[20%]  sm:top-auto -top-40"
-          >
-            <Image
-              loading="lazy"
-              src={img4}
-              className="z-10  w-full  rounded-[42px]  bg-cover bg-no-repeat bg-lightgray "
-              style={{
-                backgroundImage: `url(${require("../../../../public/ok.jpg")})`,
-                boxShadow: "0 -6px 24px 0 rgba(0, 0, 0, 0.15)",
-              }}
-              alt=""
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <div className="relative z-0  max-md:max-w-full ">
-        <Marquee
-          direction="left"
-          gradient={false}
-          speed={60}
-          className="mt-10 z-10 text-[36px] w-full  sm:h-[500px] h-[200px]  "
-          autoFill={true}
-          style={{ ...maskImageStyle }}
-        >
-          <Image
-            src={logo}
-            alt="Hero image"
-            className=" shadow-2xl bg-cover sm:w-auto w-1/2 bg-no-repeat bg-lightgray relative z-10 mx-40  "
-            width="auto"
-            height="auto"
-          />
-        </Marquee>
-
-        <h1
-          className="text-8xl text-center uppercase z-[12] max-md:text-4xl  text-[#ccff00] w-[100%] top-[50%] absolute"
-          style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85) " }}
-        >
-          <span className="text-orange-500 ">IN</span>
-          <span className="text-white ">D</span>
-          <span className="text-green-700">IA</span>, are you ready?
-        </h1>
+            <span className="text-[#ef3340] ">U</span>
+            <span className="text-[#009739] ">A</span>
+            <span className="text-white">E</span>, are you ready?
+          </h1>
+        </div>
       </div>
     </div>
   );

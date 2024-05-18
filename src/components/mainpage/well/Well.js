@@ -56,7 +56,7 @@ function Well() {
               <span className="text-[#ccff00]">charm!</span>
               <br />
               And IXG is back with the{" "}
-              <span className="text-[#ccff00]">third edition </span>
+              <span className="text-[#ccff00]">forth edition </span>
               <br /> of the much awaited{" "}
               <span className="text-[#ccff00]">IEC&A!</span>
             </div>

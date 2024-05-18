@@ -115,7 +115,7 @@ function Aboutone() {
       title: "Social Media Users",
       value: "$462 M",
       description:
-        "India was home to 462.0 million social media users in January 2024, equating to 32.2 percent of the total population.",
+        "Dubai was home to 462.0 million social media users in January 2024, equating to 32.2 percent of the total population.",
     },
   ];
 
@@ -172,24 +172,41 @@ function Aboutone() {
           viewport={{ once: true, amount: 0.3 }}
           className="sm:text-2xl text-lg  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
         >
-          The Influence Exchange Confex and Awards in India presents a fantastic
-          opportunity to bring together industry leaders, innovators, marketers
-          and influencers from various sectors to exchange insights, ideas, and
-          celebrate outstanding achievements. With India's dynamic and rapidly
-          growing economy, there's undoubtedly a wealth of talent and
-          innovation. <br />
-          <br /> The India edition of the Influence Exchange Confex and Awards
-          has the potential to foster collaboration, inspire new ideas, and
-          strengthen connections within the global influencer community. It
-          could also serve as a platform to highlight India's contributions to
-          innovation and progress on the world stage.
-          <br /> <br /> The event would feature keynote speeches, panel
-          discussions, and networking sessions focused on pertinent topics
-          shaping the landscape of influence and marketing in India.
-          <br /> <br /> Join us on the 12th July 2024 for the 3rd Edition of
-          India Exchange Confex & Awards Series and get the chance to be part of
-          an event that's shaping the future of influence and innovation in
-          India and beyond.
+          Join us for an electrifying event that bridges the gap between
+          influencers and brands, creating endless possibilities for
+          collaboration, innovation, and growth. Our platform is designed to
+          unite over 100 dynamic marketeers and 100 influential individuals,
+          creating an unparalleled environment for networking, knowledge
+          exchange, and strategic partnerships. Focused on cultivating genuine
+          connections, this event promises an exceptional gathering of
+          passionate individuals dedicated to the realm of ad tech, mar tech &
+          influencer marketing. <br />
+          <br />
+          This is a one-of-a-kind opportunity for marketers and Influencers to
+          meet under one roof and foster future collaborations and partnerships.
+          At this exclusive event, you'll have the opportunity to engage with
+          top-notch marketeers and influencers from the region, gaining valuable
+          insights and forging valuable relationships. Our carefully curated
+          program features keynote speeches, interactive panel discussions,
+          networking sessions, fireside chat, award ceremony, after party and
+          cocktail dinner ensuring that every moment is packed with valuable
+          content and meaningful interactions.
+          <br />
+          <br />
+          Discover the future of marketing with the latest trends and
+          technologies in AdTech, Martech and Influencer at our upcoming event.
+          Whether you are a marketer seeking innovative strategies to leverage
+          the power of influencers or an influencer looking to collaborate with
+          brands, this event is the perfect platform to expand your network and
+          explore new business opportunities. Gain practical knowledge from
+          industry experts, discover cutting-edge trends, and unlock the
+          potential of ad tech, mar tech & influencer marketing for your brand.
+          <br />
+          <br />
+          Don't miss out on this remarkable gathering of like-minded
+          professionals. Join us at the Influence Exchange Confex and Awards 2.0
+          Series Dubai 2024 to unlock the full potential of ad tech, mar tech &
+          influencer marketing in today's digital landscape.
         </motion.p>
         <motion.div
           initial={offscreen}
@@ -271,10 +288,10 @@ function Aboutone() {
                 <span className="text-xl font-bold text-[#ccff00]">
                   Instagram Growth:{" "}
                 </span>{" "}
-                Instagram Influencer marketing in India has witnessed
+                Instagram Influencer marketing in Dubai has witnessed
                 significant growth and evolution in recent years, becoming a
                 prominent strategy for brands to reach and engage with their
-                target audiences. In India, influencers have become a vital
+                target audiences. In Dubai, influencers have become a vital
                 channel for businesses, forging authentic connections with
                 audiences through relatable content. The influencer marketing
                 industry has witnessed widespread adoption across sectors.

@@ -2,12 +2,12 @@ import * as React from "react";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
 import headimg from "../../../../public/images/head.png";
-import { ephesis, anton } from "@/styles/fonts";
+import { ephesis, anton, work_sans } from "@/styles/fonts";
 import Countdown from "@/components/countdown/Countdown";
 
 function Herosection() {
   const customFutureDateTime = new Date(
-    "Fri July 12 2024 01:52:13 GMT+0530 (India Standard Time)"
+    "Fri September 20 2024 01:52:13 GMT+0530 (India Standard Time)"
   );
   const today = new Date(); // Get the current date
 
@@ -45,27 +45,55 @@ function Herosection() {
       >
         <div className="flex sm:gap-5 gap-0 relative z-50 items-end mt-44 text-4xl max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
           <div className="flex-auto mt-6 leading-[250%] sm:text-left text-center">
-            3<sup className="text-white">rd</sup> EDITION
+            4<sup className="text-white">th</sup> EDITION
           </div>
           <div
             className={`flex-auto self-stretch sm:mb-14 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
             <Countdown futureDate={futureDate} />
-            Aamchi Mumbai
+            Dubai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
-            12<sup className="text-white">th</sup> JULY 2024
+            20<sup className="text-white">th</sup> September
           </div>
         </div>
         {/* <h1 className="mt-5 text-8xl text-center leading-[89.68px] max-md:max-w-full max-md:text-4xl font-anton">
           INFLUENCE EXCHANGE CONFEX AND AWARDS
         </h1> */}
-        <svg viewBox="0 0 253 18" className="w-[100%]">
+        <svg viewBox="0 0 305 18" className="w-[100%]">
           <text x="0" y="15" fill="#ffffff" className="text-white">
-            INFLUENCE EXCHANGE CONFEX AND AWARDS
+            INFLUENCE EXCHANGE CONFEX & AWARDS 2.0 SERIES
           </text>
         </svg>
+
+        {/* <svg
+          viewBox="0 0 372 18"
+          className={`w-[100%] ${work_sans.className} font-light  `}
+        >
+          <text
+            x="0"
+            y="12"
+            fill="#ffffff"
+            className="text-white font-light tracking-tighter  "
+          >
+            UNLOCKING BRAND POWER: THE GLOBAL HUB FOR
+          </text>
+        </svg>
+
+        <svg
+          viewBox="0 0 350 18"
+          className={`w-[100%] ${work_sans.className} font-light  `}
+        >
+          <text
+            x="0"
+            y="12"
+            fill="#ffffff"
+            className="text-white font-light tracking-tighter"
+          >
+            AD TECH, MAR TECH & INFLUENCER MARKETING
+          </text>
+        </svg> */}
       </div>
     </section>
   );

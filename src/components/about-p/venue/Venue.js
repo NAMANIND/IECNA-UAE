@@ -21,25 +21,25 @@ function EventDetails() {
     <>
       <p className={`text-md   text-white font-light   ${work_sans.className}`}>
         Influence Exchange Confex & Awards Series 2024 will take place at a
-        prestigious venue in India, providing a luxurious and conducive
+        prestigious venue in Dubai, providing a luxurious and conducive
         environment for networking, learning, and collaboration. Stay tuned for
         more details on the venue, and get ready to experience an event like no
-        other in the heart of India's vibrant landscape.
+        other in the heart of Dubai's vibrant landscape.
       </p>
       <div
-        className={`flex flex-col pl-14 mt-14 max-md:pl-5 max-md:mt-10 max-md:max-w-full ${anton.className}  `}
+        className={`flex flex-col pl-14 mt-14 max-md:pl-5 uppercase max-md:mt-10 max-md:max-w-full ${anton.className}  `}
       >
         <time className=" text-7xl text-white max-md:text-4xl">
-          <span className="text-white">12</span>
+          <span className="text-white">20</span>
           <sup>
             <span className="text-white">th</span>
           </sup>
-          <span className="text-white"> JULY 2024</span>
+          <span className="text-white"> September 2024</span>
         </time>
         <div className="self-end sm:mt-12 my-5 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px]">
           VENUE
           <br />
-          MUMBAI
+          Dubai
         </div>
       </div>
     </>

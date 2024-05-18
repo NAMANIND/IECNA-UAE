@@ -13,26 +13,45 @@ import exclusive from "../../../../public/images/about/exclusive.jpg";
 function Whyattend() {
   const cardData = [
     {
-      title: "Networking Opportunities",
+      title: "Networking\nOpportunities",
       imageUrl: networking,
-      text: "Connect with over 100 dynamic marketers and 100 key influencers, fostering valuable relationships and partnerships in influencer marketing.",
+      text: "The event provides a platform to connect with industry experts, influencers, marketers, and professionals from various sectors. Networking can lead to valuable partnerships, collaborations, and insights.",
     },
     {
-      title: "Cutting-Edge Insights",
+      title: "Industry\nInsights",
       imageUrl: insights,
-      text: "Gain access to top-notch insights and industry expertise from leading marketers, influencers, and technology contributors, staying ahead of the curve with innovative strategies and trends.",
+      text: "The conference features speakers and panel discussions on the latest trends, strategies, and innovations in influencer marketing, ad tech & mar tech. Attending these sessions can provide you with valuable industry insights and knowledge.",
     },
     {
-      title: "Business Expansion",
+      title: "Business\nOpportunities",
       imageUrl: buiness,
-      text: "Explore new business opportunities, expand your network, and collaborate with like-minded professionals, whether you're a brand seeking innovative strategies or an influencer looking to connect with brands.",
+      text: "Discover potential business opportunities, partnerships, and collaborations with influencers or brands attending the event. It's a chance to explore new markets and expand your business network.",
     },
     {
-      title: "Exclusive Content",
+      title: "Recognition\nand Awards",
       imageUrl: exclusive,
-      text: "Immerse yourself in a curated program featuring keynote speeches, panel discussions, workshops, and networking sessions, ensuring every moment is packed with valuable content and meaningful interactions.",
+      text: "If your company or work in influencer marketing deserves recognition, participating in awards can offer visibility and credibility within the industry.",
     },
-    // Add more card data objects here as needed
+    {
+      title: "Stay\nUpdated",
+      imageUrl: exclusive,
+      text: "Keep abreast of the latest tools, technologies, and platforms in the influencer marketing, ad tech & mar tech landscape. This knowledge can help you adapt and stay competitive in the evolving digital marketing ecosystem.",
+    },
+    {
+      title: "Inspiration\nand Motivation",
+      imageUrl: exclusive,
+      text: "Conferences often inspire attendees with success stories, case studies, and motivational talks. This can ignite creativity and motivation within your own influencer marketing campaigns.",
+    },
+    {
+      title: "Brand\nExposure",
+      imageUrl: exclusive,
+      text: "If you're a brand or agency, attending or sponsoring such an event can enhance your visibility and brand reputation within the influencer marketing community.",
+    },
+    {
+      title: "International\nPerspective",
+      imageUrl: exclusive,
+      text: "Dubai attracts a diverse international audience. Engaging with attendees from different countries and cultures can provide a broader perspective on influencer marketing strategies and practices worldwide.",
+    },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -71,7 +90,9 @@ function Whyattend() {
         className="self-stretch mt-20 w-full sm:text-4xl text-xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
-          INDIA, WE ARE BRINGING TOGETHER OVER{" "}
+          DUBAI We are back with The Influencer Exchange Confex & Awards Series
+          2.0
+          <br /> WE ARE BRINGING TOGETHER OVER{" "}
         </span>
         <span className="font-semibold italic text-[#51B6FF]">
           100+ Marketers

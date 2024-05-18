@@ -73,7 +73,7 @@ function Influncers() {
         style={{ height: "80px" }}
       >
         &nbsp; DUBAI * RIYADH * MUMBAI * INDONESIA * DUBAI * RIYADH * MUMBAI *
-        INODNESIA * DUBAI * RIYADH * MUMBAI * INODNESIA *
+        INDONESIA * DUBAI * RIYADH * MUMBAI * INDONESIA *
       </Marquee>
       <Marquee
         pauseOnHover

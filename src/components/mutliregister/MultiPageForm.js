@@ -188,7 +188,7 @@ const MultiPageForm = () => {
       console.log("sending email to delegates");
       // const imageRef = storage
       //   .ref()
-      //   .child(`india-delegate-image/${formData.image.name}`);
+      //   .child(`uae-delegate-image/${formData.image.name}`);
       // await imageRef.put(formData.image);
       // const imageUrl2 = await imageRef.getDownloadURL();
       // setimgu(imageUrl2);
@@ -232,7 +232,7 @@ const MultiPageForm = () => {
 
       console.log(to);
       await Sendemail(to, subject, html);
-      const nomineeRef = firestore.collection("india-delegates").doc();
+      const nomineeRef = firestore.collection("uae-delegates").doc();
       const nomineeId = nomineeRef.id;
 
       console.log("id" + nomineeId);
@@ -285,12 +285,12 @@ const MultiPageForm = () => {
         // Upload image to Firebase storage
         const imageRef = storage
           .ref()
-          .child(`india-speakers-image/${formData.image.name}`);
+          .child(`uae-speakers-image/${formData.image.name}`);
         await imageRef.put(formData.image);
         const imageUrl = await imageRef.getDownloadURL();
         setSelectedImageurl(imageUrl);
 
-        const nomineeRef = firestore.collection("india-speakers").doc();
+        const nomineeRef = firestore.collection("uae-speakers").doc();
         const nomineeId = nomineeRef.id;
 
         // Save speaker details to Firestore
