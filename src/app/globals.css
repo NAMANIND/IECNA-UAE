@@ -420,3 +420,7 @@ label + .MuiInputBase-root,
     mix-blend-mode: normal;
   }
 }
+
+.uae {
+  bottom: 0;
+}
