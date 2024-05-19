@@ -29,7 +29,10 @@ export default function Home() {
       <div className="bg-white w-full">
         <Missing />
       </div>
-      <Wsa />
+      <div className="bg-black w-full flex justify-center items-center">
+        {" "}
+        <Wsa />
+      </div>
       <div className="bg-white w-full">
         {/* <Awardnrec /> */}
         <div

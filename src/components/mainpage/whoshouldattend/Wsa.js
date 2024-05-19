@@ -49,7 +49,7 @@ function Wsa() {
     },
   };
   return (
-    <section className="flex flex-col px-20 py-20 bg-black max-md:px-5">
+    <section className="flex flex-col max-w-[99vw] w-full px-20 py-20 bg-black max-md:px-5">
       <motion.h2
         initial={offscreen}
         whileInView={onscreen}
