@@ -115,14 +115,14 @@ function Whyattend() {
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
-        <div className="flex gap-y-5 sm:px-[5%] px-[0%] gap-x-[6%] flex-wrap max-md:gap-0 ">
+        <div className="flex gap-y-5 sm:px-[0%] px-[0%]  gap-x-[3%] flex-wrap max-md:gap-0 ">
           {cardData.map((card, index) => (
             <motion.div
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className={`flex flex-grow flex-col w-[47%] max-md:ml-0 max-md:w-full my-[30px] sm:px-[30px] px-[10px] ${
+              className={`flex flex-grow flex-col w-[22%] max-md:ml-0 max-md:w-full my-[30px] sm:px-[10px] px-[10px] ${
                 hoveredIndex === index ? "hoveredaward" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
@@ -130,7 +130,7 @@ function Whyattend() {
             >
               <div className="bg-black w-full h-full rounded-[36px] py-[60px]">
                 <div
-                  className={`text-7xl textaward  text-white uppercase leading-[80px] max-md:mt-10 max-md:text-4xl max-md:leading-[49px] px-[40px] ${anton.className} whitespace-pre-line `}
+                  className={`text-3xl textaward  text-white uppercase  max-md:mt-10 max-md:text-4xl sm:pb-[40px] pb-[5px]  px-[40px] ${anton.className} whitespace-pre-line `}
                 >
                   {card.title}
                 </div>
@@ -140,9 +140,9 @@ function Whyattend() {
                     src={card.imageUrl}
                     width={600}
                     height={300}
-                    className="w-full aspect-[2.38] max-md:max-w-full rounded-[32px] relative scale-[1.12]  my-10 imgaward"
+                    className="w-full aspect-[2.38] max-md:max-w-full rounded-[32px] relative scale-[1.12]  my-0 imgaward"
                   />
-                  <div className="self-center mt-11 max-md:mt-10 px-[40px]">
+                  <div className="self-center mt-11 text-sm max-md:mt-10 px-[10px]">
                     {card.text}
                   </div>
                 </div>

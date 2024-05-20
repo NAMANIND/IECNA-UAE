@@ -90,7 +90,7 @@ function Pastevents() {
           initial={offscreen} // Initial state
           whileInView={onscreen} // Target state when in view
           viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-          className={`text-7xl text-center uppercase mb-20 text-white `}
+          className={`sm:text-7xl text-4xl text-center uppercase mb-20 text-white `}
         >
           Upcoming events
         </motion.h1>

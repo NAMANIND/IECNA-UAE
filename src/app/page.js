@@ -15,6 +15,7 @@ import Countdown from "@/components/countdown/Countdown";
 import { VideoCarousel } from "@/components/mainpage/videocarousel/VideoCarousel";
 
 import { anton } from "@/styles/fonts";
+import { Vc2 } from "@/components/mainpage/vc2/Vc2";
 
 export default function Home() {
   return (
@@ -40,7 +41,13 @@ export default function Home() {
         >
           AWARDS AND RECOGNITION
         </div>
-        <VideoCarousel />
+
+        <div className=" hidden sm:block">
+          <VideoCarousel />
+        </div>
+        <div className="sm:hidden block">
+          <Vc2 />
+        </div>
       </div>
       <Sponsors />
       <Well />
