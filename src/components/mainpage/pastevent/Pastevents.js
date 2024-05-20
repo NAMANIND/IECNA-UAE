@@ -76,7 +76,7 @@ function Pastevents() {
       "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)",
   };
   return (
-    <div className=" bg-black max-w-[100vw] max-md:max-w-full">
+    <div className=" bg-black max-w-full max-md:max-w-full">
       <h1
         className={`sm:text-5xl text-sm  w-full px-5   text-center uppercase mb-2 font-semibold text-white ${work_sans.className} `}
       >
