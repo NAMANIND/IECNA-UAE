@@ -3,6 +3,8 @@ import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Marquee from "react-fast-marquee";
 import Button from "@/components/button/Button";
+import img from "../../../../public/images/home/dv2.jpg";
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 
@@ -36,7 +38,9 @@ function EventDetails() {
           </sup>
           <span className="text-white"> September 2024</span>
         </time>
-        <div className="self-end sm:mt-12 my-5 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px]">
+        <div
+          className={`self-end sm:mt-12 my-5 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px] ${work_sans.className}  `}
+        >
           VENUE
           <br />
           Dubai
@@ -128,9 +132,9 @@ function Venue() {
             className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full"
           >
             <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px]  max-md:mt-0 max-md:max-w-full rounded-[36px] ">
-              <img
+              <Image
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/1f437b9ee47c5ec45b677804bf3ebcb7e7116cf67ea2bc8d3f00f64bde1e7e28?apiKey=5e27b1defd60460eaa6dca842133145f&"
+                src={img}
                 className="object-cover absolute inset-0 size-full rounded-[36px] "
                 alt=""
               />

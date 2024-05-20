@@ -228,7 +228,7 @@ const Voting = () => {
       <Headtop head="Voting" />
       <div className={` mx-auto p-8 bg-white ${work_sans.className} `}>
         <h1
-          className={`text-4xl font-semibold my-20 w-full uppercase text-center ${anton.className} `}
+          className={`text-6xl font-semibold my-20 w-full uppercase text-center ${anton.className} `}
         >
           Vote for Nominees
         </h1>
@@ -305,7 +305,7 @@ const CategoryNominees = ({
   return (
     <div key={category} className="mb-8">
       <h2
-        className={`text-3xl font-semibold my-10 w-full text-center ${work_sans.className} `}
+        className={`text-4xl uppercase font-semibold my-10 w-full text-center ${work_sans.className} `}
       >
         {category}
       </h2>

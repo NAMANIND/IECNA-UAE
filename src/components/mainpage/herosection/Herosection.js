@@ -48,14 +48,14 @@ function Herosection() {
             4<sup className="text-white">th</sup> EDITION
           </div>
           <div
-            className={`flex-auto self-stretch sm:mb-14 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
+            className={`flex-auto self-stretch sm:mb-5 mb-5 text-7xl text-center text-[#ccff00] max-md:max-w-full max-md:text-4xl ${ephesis.className}`}
           >
             {" "}
             <Countdown futureDate={futureDate} />
             Dubai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
-            20<sup className="text-white">th</sup> September
+            20<sup className="text-white">th</sup> SEPT 2024
           </div>
         </div>
         {/* <h1 className="mt-5 text-8xl text-center leading-[89.68px] max-md:max-w-full max-md:text-4xl font-anton">
@@ -67,8 +67,8 @@ function Herosection() {
           </text>
         </svg>
 
-        {/* <svg
-          viewBox="0 0 372 18"
+        <svg
+          viewBox="0 0 730 18"
           className={`w-[100%] ${work_sans.className} font-light  `}
         >
           <text
@@ -77,23 +77,10 @@ function Herosection() {
             fill="#ffffff"
             className="text-white font-light tracking-tighter  "
           >
-            UNLOCKING BRAND POWER: THE GLOBAL HUB FOR
+            UNLOCKING BRAND POWER: THE GLOBAL HUB FOR AD TECH, MAR TECH &
+            INFLUENCER MARKETING
           </text>
         </svg>
-
-        <svg
-          viewBox="0 0 350 18"
-          className={`w-[100%] ${work_sans.className} font-light  `}
-        >
-          <text
-            x="0"
-            y="12"
-            fill="#ffffff"
-            className="text-white font-light tracking-tighter"
-          >
-            AD TECH, MAR TECH & INFLUENCER MARKETING
-          </text>
-        </svg> */}
       </div>
     </section>
   );

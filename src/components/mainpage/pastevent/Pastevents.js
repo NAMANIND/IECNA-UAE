@@ -78,7 +78,7 @@ function Pastevents() {
   return (
     <div className=" bg-black max-w-full max-md:max-w-full">
       <h1
-        className={`sm:text-5xl text-sm  w-full px-5   text-center uppercase mb-2 font-semibold text-white ${work_sans.className} `}
+        className={`sm:text-2xl text-sm  w-full px-5 sm:hidden block  text-center uppercase mb-2 font-semibold text-white ${work_sans.className} `}
       >
         UNLOCKING BRAND POWER: THE GLOBAL HUB FOR AD TECH, MAR TECH & INFLUENCER
         MARKETING
@@ -100,7 +100,11 @@ function Pastevents() {
             initial={offscreen} // Initial state
             whileInView={onscreen} // Target state when in view
             viewport={{ once: true, amount: 0.3 }} // Detect when element enters viewport
-            className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full"
+            className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full cursor-pointer "
+            onClick={() => {
+              // openlink in new tab
+              window.open("https://india.theiena.com/", "_blank");
+            }}
           >
             <div className="flex flex-col grow pt-9 w-full text-black h-[300px] bg-white rounded-[32px] max-md:mt-10">
               <div className="flex flex-col self-start ml-9 max-md:ml-2.5">
@@ -223,9 +227,9 @@ function Pastevents() {
             className="text-8xl text-center uppercase z-[12] max-md:text-4xl  text-[#ccff00] w-[100%] top-[46%] absolute"
             style={{ textShadow: "0 44px 44px rgba(0, 0, 0, 0.85) " }}
           >
-            <span className="text-[#ef3340] ">U</span>
-            <span className="text-[#009739] ">A</span>
-            <span className="text-white">E</span>, are you ready?
+            {/* <span className="text-[#ef3340] ">U</span>
+            <span className="text-[#009739] ">A</span> */}
+            <span className="text-white">DUBAI</span>, are you ready?
           </h1>
         </div>
       </div>

@@ -4,7 +4,8 @@ import Button from "@/components/button/Button";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import img2 from "../../../../public/images/Intersect2.png";
+import img2 from "../../../../public/images/home/dv1.jpg";
+import Image from "next/image";
 
 function Venue() {
   const offscreen = {
@@ -73,10 +74,10 @@ function Venue() {
               >
                 SAVE THE DATE
               </div>
-              <div className="my-5 text-7xl text-white uppercase leading-[120px] max-md:mt-10 max-md:text-4xl">
+              <div className="my-5 text-7xl text-white  leading-[120px] max-md:mt-10 max-md:text-4xl">
                 <span className="text-white ">20</span>
                 <sup className="text-white ">th</sup>
-                <span className="text-white "> September 2024</span>
+                <span className="text-white "> SEPTEMBER 2024</span>
               </div>
               <div
                 className={`mt-0 tracking-tighter leading-[56px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px] ${work_sans.className}`}
@@ -95,9 +96,9 @@ function Venue() {
           className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full relative z-10   max-md:mt-3"
         >
           <div className="flex overflow-hidden relative flex-col grow justify-center items-center px-16 py-14 text-center uppercase  max-md:px-5 max-md:mt-10 max-md:max-w-full rounded-t-[40px] sm:bg-gradient-to-l bg-white from-white via-white to-black rotate-60 ">
-            <img
+            <Image
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/927df31f3a6db88ae4468b2806d1762f1ec57b14708866f7702a24ff4b6348e7?apiKey=5e27b1defd60460eaa6dca842133145f&"
+              src={img2}
               className="object-cover absolute inset-0 w-full h-full rounded-[40px]    "
             />
             <div className="relative bottom-0 left-0 flex w-full sm:flex-col flex-col items-center gap-4  text-lg text-white sm:h-full sm:justify-between md:gap-0">
