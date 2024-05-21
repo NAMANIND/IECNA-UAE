@@ -11,7 +11,7 @@ function Ig() {
   const [isMobileView, setIsMobileView] = useState(false);
 
   const offscreen = {
-    x: -100,
+    x: -50,
     opacity: 0,
   };
   const onscreen = {
