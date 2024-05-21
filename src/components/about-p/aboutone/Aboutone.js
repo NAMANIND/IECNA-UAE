@@ -170,7 +170,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="sm:text-2xl text-lg  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-8 text-white max-md:max-w-full slidein"
+          className="sm:text-md text-xl  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-6 text-white max-md:max-w-full slidein"
         >
           Join us for an electrifying event that bridges the gap between
           influencers and brands, creating endless possibilities for
@@ -203,10 +203,13 @@ function Aboutone() {
           potential of ad tech, mar tech & influencer marketing for your brand.
           <br />
           <br />
-          Don't miss out on this remarkable gathering of like-minded
-          professionals. Join us at the Influence Exchange Confex and Awards 2.0
-          Series Dubai 2024 to unlock the full potential of ad tech, mar tech &
-          influencer marketing in today's digital landscape.
+          <span className="text-[#ccff00]">
+            {" "}
+            Don't miss out on this remarkable gathering of like-minded
+            professionals. Join us at the Influence Exchange Confex and Awards
+            2.0 Series Dubai 2024 to unlock the full potential of ad tech, mar
+            tech & influencer marketing in today's digital landscape.
+          </span>
         </motion.p>
         <motion.div
           initial={offscreen}

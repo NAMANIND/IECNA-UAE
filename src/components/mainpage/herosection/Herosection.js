@@ -67,14 +67,14 @@ function Herosection() {
           </text>
         </svg>
 
-        <div className="bg-[#ccff00] p-1">
+        <div className="bg-[#ccff00] py-1 px-2 mt-5">
           <svg
-            viewBox="0 0 728 24"
+            viewBox="0 0 728 20"
             className={`w-[100%] ${work_sans.className} font-light  `}
           >
             <text
               x="0"
-              y="18"
+              y="16"
               fill="#000000"
               className="text-black font-semibold tracking-tighter  "
             >

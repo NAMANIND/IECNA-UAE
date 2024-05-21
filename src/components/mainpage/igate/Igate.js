@@ -38,7 +38,7 @@ function Ig() {
         }}
       >
         <div
-          className=" absolute h-[250px] w-3/4 sm:flex hidden    right-0 md:flex-row  z-40 flex-col md:pr-8 pr-2 align-middle justify-end  sm:bg-center bg-bottom "
+          className=" absolute h-[250px] w-[80%] sm:flex hidden    right-0 md:flex-row  z-40 flex-col md:pr-8 pr-2 align-middle justify-end  sm:bg-center bg-bottom "
           style={{
             backgroundImage:
               "linear-gradient(90deg, #00A4F1 0.41%,#9B75EC 34.07%, #9B75EC 64.85%, #9B75EC 96.58%)",
@@ -47,20 +47,24 @@ function Ig() {
             alignItems: "center",
           }}
         >
-          <div className="md:mt-0 mt-5 w-3/4  ">
-            <h1 className="leading-7 text-black uppercase   sm:text-2xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
-              The D-day for Brands and Marketing Tech in the World of Influencer
-              Marketing is here!
-            </h1>
-            <time
-              className={`mt-7 text-5xl text-white leading-[90px]  max-md:text-4xl ${anton.className}`}
-              dateTime="2024-07-12"
-            >
-              20<sup className="text-white ">th</sup> SEPTEMBER 2024
-            </time>
-            <p className="mt-5 text-[#ccff00] uppercase leading-[117%]  sm:mb-0 mb-4  font-bold">
-              Dubai
-            </p>
+          <div className="md:mt-0 mt-5 w-full flex flex-row-reverse justify-between  ">
+            <div className="w-1/2 ">
+              <h1 className="leading-7 text-black uppercase   sm:text-4xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
+                The D-day for Brands and Marketing Tech in the World of
+                Influencer Marketing is here!
+              </h1>
+            </div>
+            <div>
+              <time
+                className={`mt-7 text-7xl text-white leading-[90px] w-full max-md:text-4xl ${anton.className}`}
+                dateTime="2024-07-12"
+              >
+                20<sup className="text-white ">th</sup> SEPT 2024
+              </time>
+              <p className="mt-1 text-[#ccff00] uppercase text-7xl text-left leading-[117%]  sm:mb-0 mb-4  font-bold">
+                Dubai
+              </p>
+            </div>
           </div>
         </div>
         <motion.div

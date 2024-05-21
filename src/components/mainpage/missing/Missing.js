@@ -113,7 +113,7 @@ function Missing() {
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
           className={` ${anton.className} 
-         text-5xl text-center text-black uppercase  sm:pt-[200px] pt-[100px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
+         text-5xl text-center text-black uppercase  sm:pt-[100px] pt-[100px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
          
               `}
         >
