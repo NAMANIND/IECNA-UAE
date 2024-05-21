@@ -29,17 +29,18 @@ function EventDetails() {
         other in the heart of Dubai's vibrant landscape.
       </p>
       <div
-        className={`flex flex-col pl-14 mt-14 max-md:pl-5 uppercase max-md:mt-10 max-md:max-w-full ${anton.className}  `}
+        className={`flex flex-col pl-14 mt-14 max-md:pl-5  max-md:mt-10 max-md:max-w-full ${anton.className}  `}
       >
         <time className=" text-7xl text-white max-md:text-4xl">
           <span className="text-white">20</span>
           <sup>
             <span className="text-white">th</span>
           </sup>
-          <span className="text-white"> September 2024</span>
+          <span className="text-white"> SEPTEMBER 2024</span>
         </time>
+
         <div
-          className={`self-end sm:mt-12 my-5 text-5xl  font-medium  text-[#ccff00] tracking-[4px]	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px] ${work_sans.className}  `}
+          className={`self-end sm:mt-12 my-5 text-5xl uppercase  font-bold  text-[#ccff00] tracking-tighter	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px] ${work_sans.className}  `}
         >
           VENUE
           <br />

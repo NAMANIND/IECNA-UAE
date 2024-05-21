@@ -229,7 +229,7 @@ function Pastevents() {
           >
             {/* <span className="text-[#ef3340] ">U</span>
             <span className="text-[#009739] ">A</span> */}
-            <span className="text-white">DUBAI</span>, are you ready?
+            <span className="text-white">DUBAI,</span> are you ready?
           </h1>
         </div>
       </div>

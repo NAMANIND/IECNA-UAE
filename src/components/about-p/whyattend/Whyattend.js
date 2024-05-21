@@ -130,7 +130,7 @@ function Whyattend() {
             >
               <div className="bg-black w-full h-full rounded-[36px] py-[60px]">
                 <div
-                  className={`text-3xl textaward  text-white uppercase  max-md:mt-10 max-md:text-4xl sm:pb-[40px] pb-[5px]  px-[40px] ${anton.className} whitespace-pre-line `}
+                  className={`text-4xl textaward  text-white uppercase  max-md:mt-10 max-md:text-4xl sm:pb-[40px] pb-[5px]  px-[30px] ${anton.className} whitespace-pre-line `}
                 >
                   {card.title}
                 </div>
@@ -142,7 +142,7 @@ function Whyattend() {
                     height={300}
                     className="w-full aspect-[2.38] max-md:max-w-full rounded-[32px] relative scale-[1.12]  my-0 imgaward"
                   />
-                  <div className="self-center mt-11 text-sm max-md:mt-10 px-[10px]">
+                  <div className="self-center mt-11 text-sm max-md:mt-10 px-[30px]">
                     {card.text}
                   </div>
                 </div>

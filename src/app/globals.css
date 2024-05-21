@@ -217,7 +217,7 @@ label + .MuiInputBase-root,
 
 @media (max-width: 640px) {
   .scl {
-    scale: 1.25 !important;
+    scale: 0.75 !important;
   }
 }
 /* Button.module.css */

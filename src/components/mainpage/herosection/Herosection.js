@@ -67,20 +67,22 @@ function Herosection() {
           </text>
         </svg>
 
-        <svg
-          viewBox="0 0 730 18"
-          className={`w-[100%] ${work_sans.className} font-light  `}
-        >
-          <text
-            x="0"
-            y="12"
-            fill="#ffffff"
-            className="text-white font-light tracking-tighter  "
+        <div className="bg-[#ccff00] p-1">
+          <svg
+            viewBox="0 0 728 24"
+            className={`w-[100%] ${work_sans.className} font-light  `}
           >
-            UNLOCKING BRAND POWER: THE GLOBAL HUB FOR AD TECH, MAR TECH &
-            INFLUENCER MARKETING
-          </text>
-        </svg>
+            <text
+              x="0"
+              y="18"
+              fill="#000000"
+              className="text-black font-semibold tracking-tighter  "
+            >
+              UNLOCKING BRAND POWER: THE GLOBAL HUB FOR AD TECH, MAR TECH &
+              INFLUENCER MARKETING
+            </text>
+          </svg>
+        </div>
       </div>
     </section>
   );
