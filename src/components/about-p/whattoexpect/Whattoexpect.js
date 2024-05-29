@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import engaging from "../../../../public/images/about/engaging.jpg";
-import curated from "../../../../public/images/about/ko.jpg";
+import curated from "../../../../public/images/about/ko.jpeg";
 import future from "../../../../public/images/about/future.jpg";
 import top from "../../../../public/images/about/top.jpg";
 
