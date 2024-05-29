@@ -55,7 +55,7 @@ function Herosection() {
             Dubai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
-            20<sup className="text-white">th</sup> SEPT 2024
+            19<sup className="text-white">th</sup> SEPT 2024
           </div>
         </div>
         {/* <h1 className="mt-5 text-8xl text-center leading-[89.68px] max-md:max-w-full max-md:text-4xl font-anton">
