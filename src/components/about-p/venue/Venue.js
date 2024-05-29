@@ -32,7 +32,7 @@ function EventDetails() {
         className={`flex flex-col pl-14 mt-14 max-md:pl-5  max-md:mt-10 max-md:max-w-full ${anton.className}  `}
       >
         <time className=" text-7xl text-white max-md:text-4xl">
-          <span className="text-white">20</span>
+          <span className="text-white">19</span>
           <sup>
             <span className="text-white">th</span>
           </sup>

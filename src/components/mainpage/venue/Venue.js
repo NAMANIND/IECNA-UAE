@@ -75,7 +75,7 @@ function Venue() {
                 SAVE THE DATE
               </div>
               <div className="my-5 text-7xl text-white  leading-[120px] max-md:mt-10 max-md:text-4xl">
-                <span className="text-white ">20</span>
+                <span className="text-white ">19</span>
                 <sup className="text-white ">th</sup>
                 <span className="text-white "> SEPTEMBER 2024</span>
               </div>
