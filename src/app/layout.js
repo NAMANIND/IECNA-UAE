@@ -13,6 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="GIeLJGnYp439xFC_7uYX8__-9-1upG6sSwtUSQ1lQ1Q"
+        />
+      </head>
       <body className={`text-foreground bg-background ${inter.className}`}>
         <Navbar />
         {children}
