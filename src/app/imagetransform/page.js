@@ -146,7 +146,7 @@ function ImageDownloadPage({
     // Call your function here after the image has loaded
     console.log("Transformed image loaded!");
     if (transformedImageUrl !== null) {
-      const trfRef = firestore.collection("transformed-images");
+      const trfRef = firestore.collection("uae-transformed-images");
       trfRef
         .where("trf", "==", rem)
         .get()

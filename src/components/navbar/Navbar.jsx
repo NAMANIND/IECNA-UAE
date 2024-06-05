@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { work_sans } from "@/styles/fonts";
 import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
@@ -24,6 +24,11 @@ function Navbar() {
   };
 
   const [hidden, setHidden] = useState(false);
+  const [navigation, setNavigation] = useState(false);
+
+  useEffect(() => {
+    if (window.location.href.includes("/event")) setNavigation(true);
+  }, [window.location.href]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -61,6 +66,7 @@ function Navbar() {
             </div>
             <div className="hidden md:flex nav-p">
               <ul
+                style={{ display: navigation ? "none" : "flex" }}
                 className={`flex space-x-8 text-white font-medium ${work_sans.className}`}
               >
                 <li className="relative group">
