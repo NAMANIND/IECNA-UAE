@@ -66,7 +66,6 @@ function Navbar() {
             </div>
             <div className="hidden md:flex nav-p">
               <ul
-                style={{ display: navigation ? "none" : "flex" }}
                 className={`flex space-x-8 text-white font-medium ${work_sans.className}`}
               >
                 <li className="relative group">
@@ -97,7 +96,7 @@ function Navbar() {
                     SPONSORS
                   </a>
                 </li>
-                <li>
+                <li style={{ display: navigation ? "none" : "flex" }}>
                   <a href="/register" className=" hover:text-[#ccff00]">
                     REGISTER
                   </a>
@@ -161,7 +160,7 @@ function Navbar() {
                 SPONSORS
               </a>
             </li>
-            <li>
+            <li style={{ display: navigation ? "none" : "flex" }}>
               <a href="/register" className=" hover:text-[#ccff00]">
                 REGISTER
               </a>
