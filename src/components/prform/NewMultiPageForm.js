@@ -1074,7 +1074,7 @@ const NewMultiPageForm = ({ to, name }) => {
               >
                 {poppage}
               </div>
-              <div className="flex flex-col justify-start sm:text-2xl text-medium sm:mt-0 mt-5 flex-col gap-4 align-top h-1/2 sm:h-[70vh] ">
+              <div className="flex justify-start sm:text-2xl text-medium sm:mt-0 mt-5 flex-col gap-4 align-top h-1/2 sm:h-[70vh] ">
                 {rtype === "nomination" && (
                   <div className="w-1/2 flex">
                     <div className="  w-full">
