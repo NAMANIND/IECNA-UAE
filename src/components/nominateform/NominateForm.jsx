@@ -505,7 +505,9 @@ const NominateForm = () => {
                 />
               )}
               <Input
-                label="Job Title"
+                label={
+                  formData.field === "influencer" ? "Job Role" : "Job Title"
+                }
                 name="jobTitle"
                 value={formData.jobTitle}
                 onChange={handleFormDataChange}

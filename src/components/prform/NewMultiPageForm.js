@@ -403,7 +403,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
-      alert("Nomination Form submitted successfully!");
+      // alert("Nomination Form submitted successfully!");
       // Reset form and page state
       setFormData({
         registrationType: "",
@@ -491,7 +491,7 @@ const NewMultiPageForm = ({ to, name }) => {
       setSent(true);
       // Form submission logic goes here
       setSubmitted(false);
-      alert("Delegate Form submitted successfully!");
+      // alert("Delegate Form submitted successfully!");
       // Reset form and page state
       setFormData({
         registrationType: "",
@@ -801,7 +801,9 @@ const NewMultiPageForm = ({ to, name }) => {
                   />
                 )}
                 <Input
-                  label="Job Title"
+                  label={
+                    formData.field === "influencer" ? "Job Role" : "Job Title"
+                  }
                   name="jobTitle"
                   value={formData.jobTitle}
                   onChange={handleChange}
@@ -907,7 +909,8 @@ const NewMultiPageForm = ({ to, name }) => {
                   </div>
 
                   <label className="text-sm form-color ">
-                    Upload Image<span className="redal">*</span> (800px x 800px){" "}
+                    Upload Image<span className="redal">*</span> ( 1:1 Square
+                    Image){" "}
                   </label>
                   <Button
                     component="label"
@@ -945,8 +948,8 @@ const NewMultiPageForm = ({ to, name }) => {
 
                   <div className="flex md:flex-col flex-col gap-2 w-full">
                     <label className="text-sm form-color ">
-                      Upload Image<span className="redal">*</span> (800px x
-                      800px){" "}
+                      Upload Image<span className="redal">*</span> ( 1:1 Square
+                      Image){" "}
                     </label>
                     <Button
                       component="label"
@@ -1001,6 +1004,15 @@ const NewMultiPageForm = ({ to, name }) => {
                   </div>
                 </>
               )}
+
+              {/* error message */}
+              <div className="text-red-500 text-sm">
+                {" "}
+                <h1 className="redal bg-white pt-10 text-center">
+                  *After submitting, please wait for your banner
+                  to be displayed*
+                </h1>
+              </div>
 
               <div className="flex sm:flex-row flex-col sm:gap-4 gap- w-full">
                 <button

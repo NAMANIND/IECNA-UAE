@@ -631,7 +631,9 @@ const MultiPageForm = () => {
                 />
                 <Input
                   variant="underlined"
-                  label="Job Title"
+                  label={
+                    formData.field === "influencer" ? "Job Role" : "Job Title"
+                  }
                   name="jobTitle"
                   className="md:w-1/2 w-full "
                   value={formData.jobTitle}
@@ -807,7 +809,8 @@ const MultiPageForm = () => {
               {formData.category === "speaker" && (
                 <div className="flex md:flex-col flex-col gap-2 w-full">
                   <label className="text-sm form-color ">
-                    Upload Image<span className="redal">*</span> (800px x 800px){" "}
+                    Upload Image<span className="redal">*</span> ( 1:1 Square
+                    Image){" "}
                   </label>
                   <Button
                     component="label"
