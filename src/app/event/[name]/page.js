@@ -85,7 +85,7 @@ function page({ params }) {
           ]
         : [
             "20bei033@ietdavv.edu.in",
-            // "glamoglitzz@gmail.com",
+            "anushri.c@influenceexchangegroup.com",
             "mohamed.suhel@influenceexchangegroup.com",
           ];
     return (
