@@ -28,7 +28,7 @@ function Navbar() {
 
   useEffect(() => {
     if (window.location.href.includes("/event")) setNavigation(true);
-  }, [window.location.href]);
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
