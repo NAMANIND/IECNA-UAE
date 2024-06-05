@@ -5,8 +5,9 @@ import { inter } from "@/styles/fonts";
 import logo from "../../public/logo.svg";
 
 export const metadata = {
-  title: "IE&A",
-  description: "INFLUENCE EXCHANGE CONFEX AND AWARDS",
+  title: "Influence exchange confex & Awards 2.0 Series | 4th edition",
+  description:
+    " Join industry leaders at the 4th edition of Influence Exchange Confex & Awards 2.0 Series for insights, networking, and recognition in the world of influence marketing.",
 };
 
 export default function RootLayout({ children }) {
