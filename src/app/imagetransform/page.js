@@ -113,9 +113,9 @@ function ImageDownloadPage({
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
           `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_338,h_338,x_280,y_-69,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_34_bold_normal_left:${encodeURIComponent(
             title
-          )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_34_bold_normal_left:${encodeURIComponent(
+          )}/fl_layer_apply,x_280,y_165/co_rgb:FFFFFF,l_text:arial_34_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_205/luvko0p4o1yyukl8iiag.jpg`;
+          )}/fl_layer_apply,x_280,y_205/luvko0p4o1yyukl8iiag.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
