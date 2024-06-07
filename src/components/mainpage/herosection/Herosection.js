@@ -29,7 +29,7 @@ function Herosection() {
         style={{ pointerEvents: "none" }}
       >
         <iframe
-          src="https://www.youtube.com/embed/rSuQHzr-TvI?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=rSuQHzr-TvI"
+          src="https://www.youtube.com/embed/Cxlcs7y-0PQ?autoplay=1&mute=1&loop=1&showinfo=0&controls=0&rel=0&playlist=Cxlcs7y-0PQ"
           title="YouTube video player"
           allowFullScreen
           className="absolute  inset-0 w-full h-full top-0 sm:scale-125 scale-[3.5]"
