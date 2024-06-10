@@ -241,29 +241,6 @@ function CriteriaIn() {
         ],
       },
     },
-
-    {
-      "Most Promising Influencer of the Year": {
-        description:
-          "This award recognizes the most promising influencer who shows great potential and promise in their field. They may be relatively new to the influencer scene but have already made a significant impact and garnered attention for their content and engagement with their audience.",
-        criteria: [
-          "Content Quality and Consistency: Demonstrates a high level of quality and consistency in their content creation efforts.",
-          "Audience Engagement: Engages effectively with their audience, fostering a strong sense of community and interaction.",
-          "Innovation and Creativity: Shows innovation and creativity in their approach to content creation, setting themselves apart from others in their niche.",
-        ],
-      },
-    },
-    {
-      "Best Marketing and Hospitality Influencer of the Year": {
-        description:
-          "This award acknowledges the influencer who excels in the fields of marketing and hospitality. They provide valuable insights, strategies, and tips related to marketing tactics, branding, customer service, and the hospitality industry as a whole.",
-        criteria: [
-          "Expertise in Marketing and Hospitality: Demonstrates a deep understanding of marketing principles and strategies, as well as trends and best practices in the hospitality industry.",
-          "Impact and Influence: Has a significant impact on their audience, offering valuable advice and guidance that leads to tangible results or improvements.",
-          "Engagement with Industry Professionals: Actively engages with other professionals in the marketing and hospitality sectors, fostering collaboration and knowledge-sharing within the industry.",
-        ],
-      },
-    },
   ];
 
   // Function to handle button click and set the selected heading
