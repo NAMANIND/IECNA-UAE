@@ -7,6 +7,7 @@ import chef from "../../../../public/images/sponsors/insta.png";
 import fly from "../../../../public/images/sponsors/flybharti.png";
 import views from "../../../../public/images/sponsors/views.jpg";
 import Image from "next/image";
+import { link } from "fs";
 
 function Oursponsor() {
   // Define data for sponsors
@@ -15,25 +16,28 @@ function Oursponsor() {
       title: "TITLE SPONSOR",
       name: "Insta Chef",
       description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+        "InstaChef, Dubai’s top Chef service, offers professional chefs for hire at your home. Available for daily, weekly, monthly needs, or parties, our chefs create delicious, personalized home-cooked meals.",
       imageUrl: "/images/sponsors/instachef-og.jpg",
       logoUrl: chef,
+      link: "https://www.instachef.ae/",
     },
     {
       title: "PRESENTING PARTNER",
       name: "Fly Bharathi",
       description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+        "Fly Bharathi Aviations and Aeronautics Pvt Ltd (FBAA) is a new Indian aviation company offering airport operations, aircraft MRO, cargo handling, and flight training services.",
       imageUrl: "/images/sponsors/flybharathi-og.jpg",
       logoUrl: fly,
+      link: "#",
     },
     {
       title: "DATA ANALYTICS PARTNER",
       name: "Views",
       description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+        "Views is a platform designed for charities, non-profits, and social purpose organizations to manage data and measure impact. It features modules for managing contacts, tracking projects, storing evidence, and generating reports.",
       imageUrl: "/images/sponsors/views-og.jpg",
       logoUrl: views,
+      link: "https://www.viewsapp.net/",
     },
   ];
 

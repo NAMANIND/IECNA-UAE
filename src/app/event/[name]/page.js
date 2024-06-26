@@ -66,7 +66,7 @@ function page({ params }) {
 
   const nameArr = name.split("_");
 
-  const data = ["megha", "navya", "sonu", "anushri"];
+  const data = ["megha", "navya", "sonu", "anushri", "sonuchauhan"];
 
   if (data.includes(nameArr[0])) {
     const to =
@@ -82,6 +82,12 @@ function page({ params }) {
             "megha.salian@influenceexchangegroup.com",
             "navya.kotian@influenceexchangegroup.com",
             "mohamed.suhel@influenceexchangegroup.com",
+          ]
+        : nameArr[0] === "sonuchauhan"
+        ? [
+            "20bei033@ietdavv.edu.in",
+            "mohamed.suhel@influenceexchangegroup.com",
+            "sonu.chauhan@influenceexchangegroup.com",
           ]
         : [
             "20bei033@ietdavv.edu.in",
