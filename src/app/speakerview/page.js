@@ -69,6 +69,58 @@ const SpeakerViews = () => {
     }
   };
 
+  const updatePriority = async (speakerId, newPriority) => {
+    try {
+      await firestore.collection("uae-speakers").doc(speakerId).update({
+        priority: newPriority,
+      });
+      // Refresh the speakers list after updating priority
+      const updatedSpeakers = speakers.map((speaker) =>
+        speaker.id === speakerId
+          ? { ...speaker, priority: newPriority }
+          : speaker
+      );
+      setSpeakers(updatedSpeakers);
+      console.log("Speaker priority updated successfully!");
+    } catch (error) {
+      console.error("Error updating speaker priority:", error);
+    }
+  };
+
+  const updateJobTitle = async (speakerId, newJobTitle) => {
+    try {
+      await firestore.collection("uae-speakers").doc(speakerId).update({
+        jobTitle: newJobTitle,
+      });
+      // Refresh the speakers list after updating job title
+      const updatedSpeakers = speakers.map((speaker) =>
+        speaker.id === speakerId
+          ? { ...speaker, jobTitle: newJobTitle }
+          : speaker
+      );
+      setSpeakers(updatedSpeakers);
+      console.log("Speaker job title updated successfully!");
+    } catch (error) {
+      console.error("Error updating speaker job title:", error);
+    }
+  };
+
+  const updateCompany = async (speakerId, newCompany) => {
+    try {
+      await firestore.collection("uae-speakers").doc(speakerId).update({
+        company: newCompany,
+      });
+      // Refresh the speakers list after updating company
+      const updatedSpeakers = speakers.map((speaker) =>
+        speaker.id === speakerId ? { ...speaker, company: newCompany } : speaker
+      );
+      setSpeakers(updatedSpeakers);
+      console.log("Speaker company updated successfully!");
+    } catch (error) {
+      console.error("Error updating speaker company:", error);
+    }
+  };
+
   return (
     <div>
       <Headtop head="Speaker Views" />
@@ -96,6 +148,35 @@ const SpeakerViews = () => {
                 <p className="text-lg font-medium mb-2">
                   Job Title: {speaker.jobTitle}
                 </p>
+                <input
+                  type="text"
+                  placeholder="Update Job Title"
+                  defaultValue={speaker.jobTitle || ""}
+                  onBlur={(e) => updateJobTitle(speaker.id, e.target.value)}
+                  className="border rounded px-2 py-1 mb-2 w-full"
+                />
+                <p className="text-lg font-medium mb-2">
+                  Company: {speaker.company || "Undefined"}
+                </p>
+                <input
+                  type="text"
+                  placeholder="Update Company"
+                  defaultValue={speaker.company || ""}
+                  onBlur={(e) => updateCompany(speaker.id, e.target.value)}
+                  className="border rounded px-2 py-1 mb-2 w-full"
+                />
+                <p className="text-lg font-medium mb-2">
+                  Priority: {speaker.priority || "Undefined"}
+                </p>
+                <input
+                  type="number"
+                  placeholder="Set Priority"
+                  defaultValue={speaker.priority || ""}
+                  onChange={(e) =>
+                    updatePriority(speaker.id, parseInt(e.target.value, 10))
+                  }
+                  className="border rounded px-2 py-1 mb-2 w-full"
+                />
               </div>
               <button
                 className={`absolute top-2 right-20 ${
