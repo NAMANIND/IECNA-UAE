@@ -229,6 +229,11 @@ const NewMultiPageForm = ({ to, name }) => {
       return;
     }
 
+    if (formData.image === null) {
+      alert("Please upload image");
+      return;
+    }
+
     const notallowedemail = [
       "gmail",
       "yahoo",
@@ -252,6 +257,15 @@ const NewMultiPageForm = ({ to, name }) => {
         alert("Please enter a valid business email address");
         return;
       }
+    }
+
+    // check if email is valid or not
+
+    const email = formData.email;
+    const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailregex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
     }
 
     setSubmitted(true);
