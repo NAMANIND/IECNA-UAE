@@ -4,11 +4,11 @@ import React from "react";
 import Image from "next/image";
 
 import ok from "../../../../public/ok.jpg";
-import aw1 from "../../../../public/images/home/award1.jpg";
-import aw2 from "../../../../public/images/home/award2.jpg";
-import aw3 from "../../../../public/images/home/award3.jpg";
-import aw4 from "../../../../public/images/home/award5.jpg";
-import aw5 from "../../../../public/images/home/award4.jpg";
+import aw1 from "../../../../public/img/india/1.jpg";
+import aw2 from "../../../../public/img/india/2.jpg";
+import aw3 from "../../../../public/img/india/3.jpg";
+import aw4 from "../../../../public/img/india/5.jpg";
+import aw5 from "../../../../public/img/india/4.jpg";
 
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
@@ -105,7 +105,7 @@ const Awardnrec = () => {
                       <Image
                         loading="lazy"
                         src={aw2}
-                        className=" absolute inset-0 size-full w-[100%]  "
+                        className=" absolute object-cover inset-0 size-full w-[100%]  "
                         fill
                         alt=""
                       />

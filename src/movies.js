@@ -2,81 +2,77 @@
 export const movies = [
   {
     id: 1,
-    poster: "/img/2.jpg",
+    poster: "/img/india/1.jpg",
     name: "Awards",
   },
   {
     id: 2,
-    poster: "/img/1.jpg",
+    poster: "/img/india/5.jpg",
     name: "Awards",
   },
 
   {
     id: 3,
-    poster: "/img/3.jpg",
+    poster: "/img/india/3.jpg",
     name: "Awards",
   },
-  { id: 4, poster: "/img/4.jpg", name: "Awards" },
+  { id: 4, poster: "/img/india/4.jpg", name: "Awards" },
   {
     id: 5,
-    poster: "/img/5.jpg",
-    name: "Awards",
-  },
-  {
-    id: 6,
-    poster: "/img/6.jpg",
+    poster: "/img/india/2.jpg",
     name: "Awards",
   },
 ];
 
 const fullmovies = [
   {
-    poster: "/img/1.jpg",
+    id: 1,
+    poster: "/img/india/1.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/2.jpg",
+    id: 2,
+    poster: "/img/india/5.jpg",
+    name: "Awards",
+  },
+
+  {
+    id: 3,
+    poster: "/img/india/3.jpg",
+    name: "Awards",
+  },
+  { id: 4, poster: "/img/india/4.jpg", name: "Awards" },
+  {
+    id: 5,
+    poster: "/img/india/2.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/3.jpg",
-    name: "Awards",
-  },
-  { poster: "/img/4.jpg", name: "Awards" },
-  {
-    poster: "/img/5.jpg",
+    poster: "/img/india/6.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/6.jpg",
+    poster: "/img/india/7.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/7.jpg",
+    poster: "/img/india/8.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/8.jpg",
+    poster: "/img/india/9.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/9.jpg",
+    poster: "/img/india/10.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/10.jpg",
+    poster: "/img/india/11.jpg",
     name: "Awards",
   },
   {
-    poster: "/img/11.jpg",
-    name: "Awards",
-  },
-  {
-    poster: "/img/12.jpg",
-    name: "Awards",
-  },
-  {
-    poster: "/img/13.jpg",
+    poster: "/img/india/12.jpg",
     name: "Awards",
   },
 ];

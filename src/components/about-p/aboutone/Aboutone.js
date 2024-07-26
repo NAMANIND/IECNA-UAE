@@ -4,7 +4,7 @@ import imgman from "../../../../public/images/DSC04857.png";
 import Image from "next/image";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
-import aboutimg1 from "../../../../public/images/about/about1.jpg";
+import aboutimg1 from "../../../../public/images/aboutnew/about1.jpg";
 import aboutimg2 from "../../../../public/images/about/about2.jpg";
 
 function WhyInfluencerMarketing() {

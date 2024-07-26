@@ -5,10 +5,10 @@ import { useState } from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import networking from "../../../../public/images/about/networking.jpg";
-import insights from "../../../../public/images/about/insights.jpg";
-import buiness from "../../../../public/images/about/business.jpg";
-import exclusive from "../../../../public/images/about/exclusive.jpg";
+import networking from "../../../../public/images/aboutnew/networking.jpg";
+import insights from "../../../../public/images/aboutnew/insights.jpg";
+import buiness from "../../../../public/images/aboutnew/business.jpg";
+import exclusive from "../../../../public/images/aboutnew/exclusive.jpg";
 
 function Whyattend() {
   const cardData = [

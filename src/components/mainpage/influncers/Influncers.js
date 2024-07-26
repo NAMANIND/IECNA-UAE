@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import ok from "../../../../public/ok.jpg";
-import ppl from "../../../../public/images/ppl.png";
+import ppl from "../../../../public/images/ppl3.jpg";
 import { anton } from "@/styles/fonts";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
