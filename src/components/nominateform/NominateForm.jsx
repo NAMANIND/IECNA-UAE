@@ -438,9 +438,7 @@ const NominateForm = () => {
     case 3:
       stepComponent = (
         <div className="flex  flex-col md:flex-nowrap gap-4 transition-none">
-          <h2 className={` text-black `}>
-            Fill in Personal Details and Upload Image
-          </h2>
+          <h2 className={` text-black `}>Fill in Personal Details</h2>
           <div className="flex flex-col gap-5">
             <div className="flex md:flex-row flex-col gap-4 w-full">
               <Input
