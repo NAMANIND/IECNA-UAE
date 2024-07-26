@@ -396,7 +396,8 @@ const NewMultiPageForm = ({ to, name }) => {
           industry: formData.industry,
           linkedin: formData.linkedin,
           instagram: formData.instagram,
-          imageUrl,
+          internal_name: name,
+          imageUrl: imageUrl ? imageUrl : null,
         });
       }
 

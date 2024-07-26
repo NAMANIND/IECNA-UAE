@@ -408,7 +408,7 @@ const VoteViews = () => {
                       </p>
                       <img
                         src={image.url}
-                        alt={image.name}
+                        alt={image.email}
                         className="w-full h-56 object-contain object-top"
                       />
                       {/* <p className="text-lg font-medium mb-2">Values: {JSON.stringify(image.values)}</p> */}
