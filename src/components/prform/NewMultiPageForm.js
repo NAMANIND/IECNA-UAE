@@ -35,7 +35,7 @@ const NewMultiPageForm = ({ to, name }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [countries, setCountries] = useState([]);
   const [sent, setSent] = useState(false);
-  const [poppage, setPoppage] = useState(null);
+  const [poppage, setPoppage] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [topics, setTopics] = useState([]);
   const [industry, setIndustry] = useState("");
@@ -43,6 +43,13 @@ const NewMultiPageForm = ({ to, name }) => {
   const [rtype, setrtype] = useState("");
   const [so, setso] = useState(null);
   const [rmstring, setrmstring] = useState("");
+  const [special, setspecial] = useState(false);
+  const [spimg, setimage] = useState(null);
+  const [sptitle1, settitle1] = useState("");
+  const [spcompany1, setcompany1] = useState("");
+  const [spmarco1, setmarco1] = useState("");
+  const [spemail, setspemail] = useState("");
+  const [sptype, setsptype] = useState("");
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -140,21 +147,14 @@ const NewMultiPageForm = ({ to, name }) => {
     const company1 = formData.jobTitle.replace(/[_\-,]/g, "");
     const marco1 = formData.company.replace(/[_\-,]/g, "");
 
-    const popup = (
-      <ImageDownloadPage
-        imageData={imageFile}
-        title={title1}
-        marco={marco1}
-        company={company1}
-        category={formData.registrationType}
-        field={formData.field}
-        rem={randomString}
-        email={formData.email}
-      />
-    );
+    setimage(imageFile);
+    settitle1(title1);
+    setcompany1(company1);
+    setmarco1(marco1);
+    setspemail(formData.email);
+    setsptype(formData.registrationType);
 
-    setPoppage(popup);
-
+    setPoppage(true);
     // save new data in transformed image on firebase with random string as id and popup.trf as url
 
     console.log(formData.registrationType);
@@ -1089,7 +1089,18 @@ const NewMultiPageForm = ({ to, name }) => {
                     rtype === "nomination" ? "50%" : "50%"
                   }]`}
                 >
-                  {poppage}
+                  {poppage && (
+                    <ImageDownloadPage
+                      imageData={spimg}
+                      title={sptitle1}
+                      marco={spmarco1}
+                      company={spcompany1}
+                      category={sptype}
+                      field={field}
+                      rem={rmstring}
+                      email={spemail}
+                    />
+                  )}
                 </div>
                 <div className="flex justify-start sm:text-2xl text-medium sm:mt-0 mt-5 flex-col gap-4 align-top h-1/2 sm:h-[70vh] ">
                   {rtype === "nomination" && (

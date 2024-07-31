@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import fileDownload from "js-file-download";
 import axios from "axios";
 import { firestore } from "../../../firbase/clientApp";
@@ -16,6 +16,8 @@ function ImageDownloadPage({
   email,
 }) {
   const [transformedImageUrl, setTransformedImageUrl] = useState(null);
+  const [displayed, setDisplayed] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   // useEffect(() => {
 
@@ -40,6 +42,9 @@ function ImageDownloadPage({
         applyTransformations(data.public_id);
       } catch (error) {
         console.error("Error uploading image:", error);
+        setErrorMessage(
+          "Error uploading image. Please try again. After reloading the page."
+        );
       }
     };
 
@@ -151,6 +156,7 @@ function ImageDownloadPage({
   const handleImageLoad = () => {
     // Call your function here after the image has loaded
     console.log("Transformed image loaded!");
+    setDisplayed(false);
     if (transformedImageUrl !== null) {
       const trfRef = firestore.collection("uae-transformed-images");
       trfRef
@@ -178,12 +184,16 @@ function ImageDownloadPage({
         .catch((error) => {
           console.error("Error checking documents:", error);
         });
+    } else {
+      setErrorMessage(
+        "Error loading transformed image. Please try again. After reloading the page."
+      );
     }
   };
 
   return (
     <div className=" relative w-[100%] h-fit  max-h-[30vh] sm:max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
-      {transformedImageUrl && (
+      {transformedImageUrl && !displayed && (
         <img
           src={transformedImageUrl}
           alt={title}
@@ -191,13 +201,26 @@ function ImageDownloadPage({
           onLoad={handleImageLoad} // Call handleImageLoad function when the image is loaded
         />
       )}
+      {transformedImageUrl && !displayed && (
+        <button
+          onClick={handleDownloadTransformed}
+          className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+        >
+          Download Poster
+        </button>
+      )}
 
-      <button
-        onClick={handleDownloadTransformed}
-        className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
-      >
-        Download Poster
-      </button>
+      {displayed && (
+        <div className="w-full h-full flex justify-center items-center">
+          <p className="text-2xl">Generating Banner...</p>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="w-full h-full flex justify-center items-center">
+          <p className="text-2xl text-red-500">{errorMessage}</p>
+        </div>
+      )}
     </div>
   );
 }
