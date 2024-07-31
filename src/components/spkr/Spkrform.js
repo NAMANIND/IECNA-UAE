@@ -42,6 +42,13 @@ const Spkrform = () => {
   const [votelink, setvotelink] = useState("");
   const [so, setso] = useState("");
   const [rmstring, setrmstring] = useState("");
+  const [spimg, setimage] = useState(null);
+  const [sptitle1, settitle1] = useState("");
+  const [spcompany1, setcompany1] = useState("");
+  const [spmarco1, setmarco1] = useState("");
+  const [spemail, setspemail] = useState("");
+  const [sptype, setsptype] = useState("");
+  const [spcategory, setcategory] = useState("");
   const [formData, setFormData] = useState({
     category: "speaker",
     field: "",
@@ -143,19 +150,30 @@ const Spkrform = () => {
     const company1 = formData.jobTitle.replace(/[_\-,]/g, "");
     const marco1 = formData.company.replace(/[_\-,]/g, "");
 
-    const popup = (
-      <ImageDownloadPage
-        imageData={imageFile}
-        title={title1}
-        marco={marco1}
-        company={company1}
-        category={formData.category}
-        field={formData.field}
-        rem={randomString}
-        email={formData.email}
-      />
-    );
-    setPoppage(popup);
+    // const popup = (
+    //   <ImageDownloadPage
+    //     imageData={imageFile}
+    //     title={title1}
+    //     marco={marco1}
+    //     company={company1}
+    //     category={formData.category}
+    //     field={formData.field}/
+    //     rem={randomString}/
+    //     email={formData.email}/
+    //   />
+    // );
+    // setPoppage(popup);
+
+    setimage(imageFile);
+    settitle1(title1);
+    setcompany1(company1);
+    setmarco1(marco1);
+    setspemail(formData.email);
+    setsptype(formData.registrationType);
+    setField(formData.field);
+    setcategory(formData.category);
+
+    setPoppage(true);
 
     const socials = (
       <Socialshare
@@ -730,7 +748,18 @@ const Spkrform = () => {
             </div>
             <div className="flex justify-center gap-5 items-center w-full">
               <div className="flex justify-center items-center w-full">
-                {poppage}
+                {poppage && (
+                  <ImageDownloadPage
+                    imageData={spimg}
+                    title={sptitle1}
+                    marco={spmarco1}
+                    company={spcompany1}
+                    category={spcategory}
+                    field={field}
+                    rem={rmstring}
+                    email={spemail}
+                  />
+                )}
               </div>
               {/* <div className="flex  justify-start flex-col gap-4 align-top h-[70vh] ">
                 <div className="w-1/2 flex ">

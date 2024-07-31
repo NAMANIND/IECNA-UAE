@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import {
   Select,
   SelectItem,
@@ -50,6 +50,7 @@ const NewMultiPageForm = ({ to, name }) => {
   const [spmarco1, setmarco1] = useState("");
   const [spemail, setspemail] = useState("");
   const [sptype, setsptype] = useState("");
+  const [isemailsent, setisemailsent] = useState(false);
 
   const [imgu, setimgu] = useState("");
   const VisuallyHiddenInput = styled("input")({
@@ -326,8 +327,16 @@ const NewMultiPageForm = ({ to, name }) => {
         .replace(/\s/g, "")}`;
       setvotelink(vlink);
 
-      await Sendemail(to, subject, html);
+      let isemailok = await Sendemail(to, subject, html);
+      setisemailsent(isemailok);
 
+      do {
+        if (!isemailok) {
+          isemailok = await Sendemail(to, subject, html);
+
+          setisemailsent(isemailok);
+        }
+      } while (!isemailok);
       const nomineeRef = firestore.collection("uae-nominees").doc();
       const nomineeId = nomineeRef.id;
       const nomineeQuery = firestore
@@ -482,8 +491,17 @@ const NewMultiPageForm = ({ to, name }) => {
         formData.lastName;
       const html = htmlcontent;
 
-      await Sendemail(to, subject, html);
+      let isemailok = await Sendemail(to, subject, html);
+      setisemailsent(isemailok);
+      alert(isemailok);
 
+      do {
+        if (!isemailok) {
+          isemailok = await Sendemail(to, subject, html);
+
+          setisemailsent(isemailok);
+        }
+      } while (!isemailok);
       const nomineeRef = firestore.collection("uae-delegates").doc();
       const nomineeId = nomineeRef.id;
 
@@ -503,30 +521,31 @@ const NewMultiPageForm = ({ to, name }) => {
         internal_name: name,
         imageUrl2,
       });
-
-      setSent(true);
-      // Form submission logic goes here
-      setSubmitted(false);
-      // alert("Delegate Form submitted successfully!");
-      // Reset form and page state
-      setFormData({
-        registrationType: "",
-        category: "",
-        field: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        company: "",
-        jobTitle: "",
-        country: "",
-        industry: "",
-        socialMedia: "",
-      });
-      setPage(1);
-      setTopics([]);
-      setSelectedCategories([]);
-      setValues(new Set([]));
+      if (isemailsent) {
+        setSent(true);
+        // Form submission logic goes here
+        setSubmitted(false);
+        // alert("Delegate Form submitted successfully!");
+        // Reset form and page state
+        setFormData({
+          registrationType: "",
+          category: "",
+          field: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          jobTitle: "",
+          country: "",
+          industry: "",
+          socialMedia: "",
+        });
+        setPage(1);
+        setTopics([]);
+        setSelectedCategories([]);
+        setValues(new Set([]));
+      }
     }
   };
 

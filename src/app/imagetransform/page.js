@@ -78,13 +78,13 @@ function ImageDownloadPage({
       if (field === "marketer") {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_338,h_338,x_280,y_-68,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             title
-          )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
+          )}/fl_layer_apply,x_280,y_165/co_rgb:FFFFFF,l_text:arial_24_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_195/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          )}/fl_layer_apply,x_280,y_205/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
             marco
-          )}/fl_layer_apply,x_315,y_225/wcrcs6s5lhxhblavydiv.jpg`;
+          )}/fl_layer_apply,x_280,y_245/pbs2kxsy5kyqs7rvthx8.jpg`;
 
         //   const transformedImageUrl =
         // `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
@@ -98,11 +98,11 @@ function ImageDownloadPage({
       } else {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_209,h_209,x_315,y_-34,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_lfill,w_338,h_338,x_280,y_-68,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_34_bold_normal_left:${encodeURIComponent(
             title
-          )}/fl_layer_apply,x_315,y_165/co_rgb:FFFFFF,l_text:arial_24_bold_normal_left:${encodeURIComponent(
+          )}/fl_layer_apply,x_280,y_165/co_rgb:FFFFFF,l_text:arial_34_bold_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_315,y_195/v3009svglfx5ca3zcgkt.jpg`;
+          )}/fl_layer_apply,x_280,y_205/pbs2kxsy5kyqs7rvthx8.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
@@ -205,19 +205,22 @@ function ImageDownloadPage({
         <img
           src={transformedImageUrl}
           alt={title}
+          style={displayed ? { display: "none" } : { display: "block" }} // Hide the image
           className={`object-contain w-[100%] max-h-[25vh] h-[60vh] sm:max-h-[60vh]`}
           onLoad={handleImageLoad} // Call handleImageLoad function when the image is loaded
         />
       )}
+      {transformedImageUrl && (
+        <button
+          style={displayed ? { display: "none" } : { display: "block" }} // Hide the button
+          onClick={handleDownloadTransformed}
+          className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+        >
+          Download Poster
+        </button>
+      )}
 
-      <button
-        onClick={handleDownloadTransformed}
-        className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
-      >
-        Download Poster
-      </button>
-
-      {/* {displayed && (
+      {displayed && (
         <div className="w-full h-full flex justify-center items-center">
           <p className="text-2xl">Generating Banner...</p>
         </div>
@@ -227,7 +230,7 @@ function ImageDownloadPage({
         <div className="w-full h-full flex justify-center items-center">
           <p className="text-2xl text-red-500">{errorMessage}</p>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
