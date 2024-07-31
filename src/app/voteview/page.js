@@ -301,6 +301,16 @@ const VoteViews = () => {
                               color="default"
                             />
                           </div>
+                          {nominee && (
+                            <button
+                              className="absolute top-2 left-2 px-2 py-1  bg-yellow-500  text-black rounded-md"
+                              onClick={() => {
+                                setDetails(nominee.allData);
+                              }}
+                            >
+                              See Details
+                            </button>
+                          )}
                           <button
                             className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
                             onClick={() =>
@@ -315,6 +325,80 @@ const VoteViews = () => {
                     </div>
                   </div>
                 )
+              )}
+              {details && (
+                <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 flex justify-center items-center z-50 ">
+                  <div className="w-1/2 h-auto bg-white p-4 rounded-lg shadow-lg">
+                    <div className="flex justify-end">
+                      <button
+                        className="text-2xl font-bold"
+                        onClick={() => setDetails(null)}
+                      >
+                        x
+                      </button>
+                    </div>
+
+                    <div className="flex space-y-2 text-medium flex-col">
+                      <p className="">
+                        First Name: {details.firstName}
+                        {details.firstName && ` ${details.lastName}`}
+                      </p>
+
+                      {details.lastName && (
+                        <p className="">Last Name: {details.lastName}</p>
+                      )}
+                      {details.company && (
+                        <p className="">Company: {details.company}</p>
+                      )}
+                      {details.country && (
+                        <p className="">Country: {details.country}</p>
+                      )}
+                      {details.email && (
+                        <p className="">Email: {details.email}</p>
+                      )}
+                      {details.field && (
+                        <p className="">Field: {details.field}</p>
+                      )}
+                      {details.imageUrl && (
+                        <p className="" style={{ whiteSpace: "pre-wrap" }}>
+                          Image URL: {details.imageUrl}
+                        </p>
+                      )}
+                      {details.industry && (
+                        <p className="">Industry: {details.industry}</p>
+                      )}
+                      {details.instagram && (
+                        <p className="">Instagram: {details.instagram}</p>
+                      )}
+                      {details.jobTitle && (
+                        <p className="">Job Title: {details.jobTitle}</p>
+                      )}
+                      {details.linkedin && (
+                        <p className="">LinkedIn: {details.linkedin}</p>
+                      )}
+                      {details.phone && (
+                        <p className="">Phone: {details.phone}</p>
+                      )}
+                      {/* also map categories */}
+                      <div className="flex flex-row flex-wrap gap-[1%] ">
+                        {details.categories &&
+                          Object.entries(details.categories).map(
+                            ([category, data]) => (
+                              <div
+                                key={category}
+                                className="w-[48%] shadow-md p-2 rounded-lg"
+                              >
+                                <p className="text-lg font-semibold">
+                                  {data.og}
+                                </p>
+                                <p className="">Votes: {data.vote}</p>
+                              </div>
+                            )
+                          )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )}
             </>
           ) : activeSection === "voteCount" ? (
