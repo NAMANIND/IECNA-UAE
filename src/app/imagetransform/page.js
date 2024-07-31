@@ -201,7 +201,7 @@ function ImageDownloadPage({
 
   return (
     <div className=" relative w-[100%] h-fit  max-h-[30vh] sm:max-h-[70vh] pb-[10vh]  justify-center items-center gap-4">
-      {transformedImageUrl && !displayed && (
+      {transformedImageUrl && (
         <img
           src={transformedImageUrl}
           alt={title}
@@ -209,16 +209,15 @@ function ImageDownloadPage({
           onLoad={handleImageLoad} // Call handleImageLoad function when the image is loaded
         />
       )}
-      {transformedImageUrl && !displayed && (
-        <button
-          onClick={handleDownloadTransformed}
-          className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
-        >
-          Download Poster
-        </button>
-      )}
 
-      {displayed && (
+      <button
+        onClick={handleDownloadTransformed}
+        className="newsletterbtn w-full absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/30 text-white p-2 rounded-md"
+      >
+        Download Poster
+      </button>
+
+      {/* {displayed && (
         <div className="w-full h-full flex justify-center items-center">
           <p className="text-2xl">Generating Banner...</p>
         </div>
@@ -228,7 +227,7 @@ function ImageDownloadPage({
         <div className="w-full h-full flex justify-center items-center">
           <p className="text-2xl text-red-500">{errorMessage}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
