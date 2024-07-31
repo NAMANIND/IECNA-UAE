@@ -55,6 +55,12 @@ function ImageDownloadPage({
     fileDownload(imageData, `${title}.jpg`);
   };
 
+  useEffect(() => {
+    if (!displayed) {
+      handleDownloadTransformed();
+    }
+  }, [displayed]);
+
   const handleDownloadTransformed = () => {
     if (transformedImageUrl) {
       axios
