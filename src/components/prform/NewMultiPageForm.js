@@ -493,7 +493,6 @@ const NewMultiPageForm = ({ to, name }) => {
 
       let isemailok = await Sendemail(to, subject, html);
       setisemailsent(isemailok);
-      alert(isemailok);
 
       do {
         if (!isemailok) {
