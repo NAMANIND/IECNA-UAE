@@ -423,30 +423,31 @@ const NewMultiPageForm = ({ to, name }) => {
           imageUrl,
         });
       }
-
-      setSent(true);
-      // Form submission logic goes here
-      setSubmitted(false);
-      // alert("Nomination Form submitted successfully!");
-      // Reset form and page state
-      setFormData({
-        registrationType: "",
-        category: "",
-        field: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        company: "",
-        jobTitle: "",
-        country: "",
-        industry: "",
-        socialMedia: "",
-      });
-      setPage(1);
-      setTopics([]);
-      setValues(new Set([]));
-      setSelectedCategories([]);
+      if (isemailok) {
+        setSent(true);
+        // Form submission logic goes here
+        setSubmitted(false);
+        // alert("Nomination Form submitted successfully!");
+        // Reset form and page state
+        setFormData({
+          registrationType: "",
+          category: "",
+          field: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          jobTitle: "",
+          country: "",
+          industry: "",
+          socialMedia: "",
+        });
+        setPage(1);
+        setTopics([]);
+        setValues(new Set([]));
+        setSelectedCategories([]);
+      }
     } else {
       const imageRef = storage
         .ref()
@@ -520,7 +521,7 @@ const NewMultiPageForm = ({ to, name }) => {
         internal_name: name,
         imageUrl2,
       });
-      if (isemailsent) {
+      if (isemailok) {
         setSent(true);
         // Form submission logic goes here
         setSubmitted(false);
