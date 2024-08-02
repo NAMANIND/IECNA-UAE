@@ -576,6 +576,9 @@ const NewMultiPageForm = ({ to, name }) => {
         <a href="https://namanrai.tech" target="_blank" download>
           Open in browser
         </a>
+        <a href="https://mywebsite.com/DummyBytes" target="_system">
+          Open in default mobile browser
+        </a>
       </div>
     );
   }
