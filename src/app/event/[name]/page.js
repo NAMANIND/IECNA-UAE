@@ -64,10 +64,6 @@ function page({ params }) {
 
   // check if name consists  _ or not and make it two wordsif yes
 
-  if (navigator.userAgent.includes("Instagram")) {
-    window.location.href = "https://mywebsite.com/DummyBytes";
-  }
-
   const nameArr = name.split("_");
 
   const data = ["megha", "navya", "sonu", "anushri", "sonuchauhan"];

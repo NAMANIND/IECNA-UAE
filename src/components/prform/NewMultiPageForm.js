@@ -86,6 +86,15 @@ const NewMultiPageForm = ({ to, name }) => {
     image: null,
   });
 
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      navigator.userAgent.includes("Instagram")
+    ) {
+      window.location.href = "https://mywebsite.com/DummyBytes";
+    }
+  }, []);
+
   const nextPage = () => {
     setPage(page + 1);
   };
