@@ -560,30 +560,21 @@ const NewMultiPageForm = ({ to, name }) => {
     typeof window !== "undefined" &&
     navigator.userAgent.includes("Instagram")
   ) {
-    // window.location.href = "https://mywebsite.com/DummyBytes";
-
     return (
-      <div>
-        <h1>Instagram Browser is not allowed</h1>
-        <Button
-          onClick={() => {
-            // Attempt to open in new tab/window
-            window.open("https://mywebsite.com/DummyBytes", "_blank");
-          }}
+      <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+        <div
+          className="flex flex-col items-center justify-center h-full min-h-[200px] gap-4 text-center
+      w-full bg-white text-black font-light
+      "
         >
-          Open in new browser
-        </Button>
-        <a
-          href="https://mywebsite.com/DummyBytes"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open in browser
-        </a>
-        <p>
-          If the above options don't work, please copy and paste the URL into
-          your default browser manually.
-        </p>
+          <h1 className=" font-bold ">Instagram Browser is not supported</h1>
+          <p>
+            Please copy and paste the URL into your browser to access the page
+          </p>
+          <Snippet symbol="$" variant="bordered" color="default" className=" ">
+            {`https://uae.theiena.com/event/${name}`}
+          </Snippet>
+        </div>
       </div>
     );
   }
