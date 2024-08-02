@@ -91,7 +91,24 @@ const NewMultiPageForm = ({ to, name }) => {
       typeof window !== "undefined" &&
       navigator.userAgent.includes("Instagram")
     ) {
-      window.location.href = "https://mywebsite.com/DummyBytes";
+      // window.location.href = "https://mywebsite.com/DummyBytes";
+
+      return (
+        <div>
+          <h1>Instagram Browser is not allowed</h1>
+          {/* open in new browser */}
+          <Button
+            onClick={() => {
+              window.open("https://mywebsite.com/DummyBytes");
+            }}
+          >
+            Open in new browser
+          </Button>
+          <a href="https://namanrai.tech" target="_blank" download>
+            Open in browser
+          </a>
+        </div>
+      );
     }
   }, []);
 
