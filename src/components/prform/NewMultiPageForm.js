@@ -86,32 +86,6 @@ const NewMultiPageForm = ({ to, name }) => {
     image: null,
   });
 
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      navigator.userAgent.includes("Instagram")
-    ) {
-      // window.location.href = "https://mywebsite.com/DummyBytes";
-
-      return (
-        <div>
-          <h1>Instagram Browser is not allowed</h1>
-          {/* open in new browser */}
-          <Button
-            onClick={() => {
-              window.open("https://mywebsite.com/DummyBytes");
-            }}
-          >
-            Open in new browser
-          </Button>
-          <a href="https://namanrai.tech" target="_blank" download>
-            Open in browser
-          </a>
-        </div>
-      );
-    }
-  }, []);
-
   const nextPage = () => {
     setPage(page + 1);
   };
@@ -581,6 +555,30 @@ const NewMultiPageForm = ({ to, name }) => {
     WebkitMaskImage:
       "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)",
   };
+
+  if (
+    typeof window !== "undefined" &&
+    navigator.userAgent.includes("Instagram")
+  ) {
+    // window.location.href = "https://mywebsite.com/DummyBytes";
+
+    return (
+      <div>
+        <h1>Instagram Browser is not allowed</h1>
+        {/* open in new browser */}
+        <Button
+          onClick={() => {
+            window.open("https://mywebsite.com/DummyBytes");
+          }}
+        >
+          Open in new browser
+        </Button>
+        <a href="https://namanrai.tech" target="_blank" download>
+          Open in browser
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div
