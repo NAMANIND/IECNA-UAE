@@ -564,7 +564,7 @@ const NewMultiPageForm = ({ to, name }) => {
       <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
         <div
           className="flex flex-col items-center justify-center h-full min-h-[200px] gap-4 text-center
-      w-full bg-white text-black font-light
+      w-full bg-white text-black font-light p-4
       "
         >
           <h1 className=" font-bold ">Instagram Browser is not supported</h1>
