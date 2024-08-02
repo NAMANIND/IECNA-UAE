@@ -565,20 +565,25 @@ const NewMultiPageForm = ({ to, name }) => {
     return (
       <div>
         <h1>Instagram Browser is not allowed</h1>
-        {/* open in new browser */}
         <Button
           onClick={() => {
-            window.open("https://mywebsite.com/DummyBytes");
+            // Attempt to open in new tab/window
+            window.open("https://mywebsite.com/DummyBytes", "_blank");
           }}
         >
           Open in new browser
         </Button>
-        <a href="https://namanrai.tech" target="_blank" download>
+        <a
+          href="https://mywebsite.com/DummyBytes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Open in browser
         </a>
-        <a href="https://mywebsite.com/DummyBytes" target="_system">
-          Open in default mobile browser
-        </a>
+        <p>
+          If the above options don't work, please copy and paste the URL into
+          your default browser manually.
+        </p>
       </div>
     );
   }
