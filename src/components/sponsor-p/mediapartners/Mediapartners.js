@@ -4,34 +4,63 @@ import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import coin from "../../../../public/images/sponsors/coinpedia.png";
-import ply from "../../../../public/images/sponsors/deriveply.png";
-import gluf from "../../../../public/images/sponsors/gulf.png";
+import uae_ai from "../../../../public/images/sponsors/uae/ai-time-journal.png";
+import uae_explorer from "../../../../public/images/sponsors/uae/abudhabi-explorer.png";
+import uae_impact from "../../../../public/images/sponsors/uae/impact.png";
+import uae_outreach from "../../../../public/images/sponsors/uae/business-outreach.png";
+import uae_gulf from "../../../../public/images/sponsors/uae/gulf-good-news.png";
+import uae_magazine from "../../../../public/images/sponsors/uae/latin-gulf-magazine.png";
 
 function Mediapartners() {
   // Define data for sponsors
   const sponsors = [
-    // {
-    //   name: "Gulf Moments",
-    //   description:
-    //     "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-    //   imageUrl:
-    //     "https://cdn.builder.io/api/v1/image/assets/TEMP/2177b778065eb53456e9aae35c54027c06ae1da4769bc4ccee832d4b516451f3?apiKey=5e27b1defd60460eaa6dca842133145f&",
-    //   logoUrl: gluf,
-    // },
     {
-      name: "Coin Pedia",
+      name: "iMPACT",
       description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
-      imageUrl: "/images/sponsors/coinpedia-og.jpg",
-      logoUrl: coin,
+        "iMPACT serves as a dedicated media outlet for nonprofits, civil society, and socially-focused businesses, offering curated news, trends, insights, and best practices from influential voices within the development sector.",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      logoUrl: uae_impact,
+      link: "https://www.theimpactmagazine.org/",
     },
     {
-      name: "Drive Ply",
+      name: "AI Time Journal",
       description:
-        "The platform provides brand awareness across various channels like web search engines, content and email marketing and provides measurable and transparent results.",
+        "AI Time Journal explores how Artificial Intelligence and Exponential Technologies bring opportunities for people, organizations, and societies to increase their wealth and health. They provide insights from industry leaders and experts, and use cases of exponential technologies across multiple fields, including finance, healthcare, and education.",
       imageUrl: "/images/sponsors/deriveply-og.jpg",
-      logoUrl: ply,
+      logoUrl: uae_ai,
+      link: "https://www.aitimejournal.com/",
+    },
+    {
+      name: "Abudhabi Explorer",
+      description:
+        "Abudhabi.explorer uncovers the hidden gems, vibrant culture, and must-see attractions of Abu Dhabi. With the support of prominent media blogs in the UAE, they bring the latest events, in-depth reviews, and insider tips to enhance your experience.",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      logoUrl: uae_explorer,
+      link: "https://www.instagram.com/abudhabi.explorer?igsh=eWIwN3Vrc3IwY2Y0",
+    },
+    {
+      name: "Business Outreach",
+      description:
+        "Business Outreach is one of the fastest-growing business magazines in India, where CEOs, CXOs, and top executives of a company share their insights about their industry and initiate productive discussions about the latest market trends with the editorial staff and peers.",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      logoUrl: uae_outreach,
+      link: "https://www.businessoutreach.in/",
+    },
+    {
+      name: "Gulf Good News",
+      description:
+        "Gulf Good News is the most reliable source for good news. Gulf Good News is a Google News approved high authority domain. Our aim is to spread positive news from within GCC & all around the world to uplift and inspire millions to become more optimistic.",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      logoUrl: uae_gulf,
+      link: "https://gulfgoodnews.com",
+    },
+    {
+      name: "Latin & Gulf Magazine",
+      description:
+        "Latin&Gulf Magazine is a News Media platform covering cultural exchange, business collaboration, and diplomatic relations between Latin America and the Gulf Cooperation Council (GCC).",
+      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      logoUrl: uae_magazine,
+      link: "https://latingulf.ae/business/",
     },
   ];
 
@@ -63,12 +92,12 @@ function Mediapartners() {
       </motion.div>
 
       <div className="self-stretch mt-24 w-full max-md:mt-10 max-md:max-w-full">
-        <div className="flex gap-[3%] max-md:flex-col  max-md:gap-0">
+        <div className="flex gap-[3%] gap-y-14 flex-wrap  max-md:flex-col max-md:gap-0">
           {/* Map over sponsors array and render sponsor cards dynamically */}
           {sponsors.map((sponsor, index) => (
             <div
               key={index}
-              className="flex flex-wrap w-[32%] max-md:ml-0 max-md:w-full"
+              className="flex flex-wrap w-[31%] max-md:ml-0 max-md:w-full"
             >
               <div
                 className="flex flex-col grow pb-11 w-full text-2xl tracking-tighter 
@@ -94,11 +123,13 @@ function Mediapartners() {
                   <div className="mt-6 text-sm tracking-tight leading-5">
                     {sponsor.description}
                   </div>
-                  <Image
-                    loading="lazy"
-                    src={sponsor.logoUrl}
-                    className="mt-20 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
-                  />
+                  <a href={sponsor.link} target="_blank">
+                    <Image
+                      loading="lazy"
+                      src={sponsor.logoUrl}
+                      className="mt-20 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
+                    />
+                  </a>
                 </motion.div>
               </div>
             </div>

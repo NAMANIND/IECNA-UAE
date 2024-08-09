@@ -5,6 +5,54 @@ import Headtop from "@/components/head/Headtop";
 import { anton, work_sans } from "@/styles/fonts";
 import { Snippet } from "@nextui-org/react";
 
+const influencerCategories = [
+  "Mega/Celeb-Influencer of the Year",
+  "Macro-Influencer of the Year",
+  "Micro-Influencer of the Year",
+  "Nano Influencer of the year",
+  "Creative Visual Content Creator",
+  "Social Media Engagement Champion",
+  "Best Fashion and Style Influencer of the Year",
+  "Best Travel Influencer of the Year",
+  "Best Beauty Influencer of the Year",
+  "Best Health & Wellbeing Influencer of the Year",
+  "Best Tech Influencer",
+  "Best Financial Influencer Award",
+  "Gaming Influencer of the Year",
+  "Blogger of the year",
+  "Mom Influencer of the year",
+  "Youtuber of the year",
+  "Entertainment Maven of the Year",
+  "Food/Culinary Influencer of the Year",
+  "Educational Content Creator of the Year",
+  "Best Art & Photography Influencer",
+];
+
+const marketerCategories = [
+  "Marketing Leader of the Year",
+  "Branding Leader of the Year",
+  "Digital Marketeer of the Year",
+  "Influencer Marketeer of the Year",
+  "Social Media Marketeer of the Year",
+  "Data-Driven Marketer of the Year",
+  "Marketing Campaign of the Year",
+  "Best Innovative Marketing Campaign",
+  "Content Marketing Leader",
+  "Email Marketeer of the Year",
+  "Affiliate Marketeer of the Year",
+  "SEO/SEM Marketeer of the Year",
+  "B2B Marketeer of the Year",
+  "B2C Marketeer of the Year",
+  "Product Marketing Leader",
+  "Customer Experience Marketeer of the Year",
+  "Growth Marketeer of the Year",
+  "SaaS Marketeer of the Year",
+  "Best Influencer Marketing Campaign",
+  "Performance Marketeer of the Year",
+];
+
+const allCategories = [...marketerCategories, ...influencerCategories];
+
 const VoteViews = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState([]);
   const [searchQuery1, setSearchQuery1] = useState("");
@@ -99,6 +147,18 @@ const VoteViews = () => {
         }, {});
 
         setNomineesByCategory(groupedNominees);
+
+        // Sort the categories according to the specified order
+        // const sortedGroupedNominees = allCategories.reduce((acc, category) => {
+        //   if (groupedNominees[category]) {
+        //     acc[category] = groupedNominees[category];
+        //   } else {
+        //     acc[category] = [];
+        //   }
+        //   return acc;
+        // }, {});
+
+        // setNomineesByCategory(sortedGroupedNominees);
       } catch (error) {
         console.error("Error fetching nominees:", error);
       }
