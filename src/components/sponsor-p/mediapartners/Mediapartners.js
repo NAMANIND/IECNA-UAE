@@ -10,6 +10,8 @@ import uae_impact from "../../../../public/images/sponsors/uae/impact.png";
 import uae_outreach from "../../../../public/images/sponsors/uae/business-outreach.png";
 import uae_gulf from "../../../../public/images/sponsors/uae/gulf-good-news.png";
 import uae_magazine from "../../../../public/images/sponsors/uae/latin-gulf-magazine.png";
+import uae_businessoutlook from "../../../../public/images/sponsors/uae/asia-business-outlook.png";
+import uae_gazet from "../../../../public/images/sponsors/uae/gazet-international.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -18,7 +20,7 @@ function Mediapartners() {
       name: "iMPACT",
       description:
         "iMPACT serves as a dedicated media outlet for nonprofits, civil society, and socially-focused businesses, offering curated news, trends, insights, and best practices from influential voices within the development sector.",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/4.png",
       logoUrl: uae_impact,
       link: "https://www.theimpactmagazine.org/",
     },
@@ -26,7 +28,7 @@ function Mediapartners() {
       name: "AI Time Journal",
       description:
         "AI Time Journal explores how Artificial Intelligence and Exponential Technologies bring opportunities for people, organizations, and societies to increase their wealth and health. They provide insights from industry leaders and experts, and use cases of exponential technologies across multiple fields, including finance, healthcare, and education.",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/6.png",
       logoUrl: uae_ai,
       link: "https://www.aitimejournal.com/",
     },
@@ -34,7 +36,7 @@ function Mediapartners() {
       name: "Abudhabi Explorer",
       description:
         "Abudhabi.explorer uncovers the hidden gems, vibrant culture, and must-see attractions of Abu Dhabi. With the support of prominent media blogs in the UAE, they bring the latest events, in-depth reviews, and insider tips to enhance your experience.",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/7.png",
       logoUrl: uae_explorer,
       link: "https://www.instagram.com/abudhabi.explorer?igsh=eWIwN3Vrc3IwY2Y0",
     },
@@ -42,7 +44,7 @@ function Mediapartners() {
       name: "Business Outreach",
       description:
         "Business Outreach is one of the fastest-growing business magazines in India, where CEOs, CXOs, and top executives of a company share their insights about their industry and initiate productive discussions about the latest market trends with the editorial staff and peers.",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/3.png",
       logoUrl: uae_outreach,
       link: "https://www.businessoutreach.in/",
     },
@@ -50,7 +52,7 @@ function Mediapartners() {
       name: "Gulf Good News",
       description:
         "Gulf Good News is the most reliable source for good news. Gulf Good News is a Google News approved high authority domain. Our aim is to spread positive news from within GCC & all around the world to uplift and inspire millions to become more optimistic.",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/5.png",
       logoUrl: uae_gulf,
       link: "https://gulfgoodnews.com",
     },
@@ -58,9 +60,25 @@ function Mediapartners() {
       name: "Latin & Gulf Magazine",
       description:
         "Latin&Gulf Magazine is a News Media platform covering cultural exchange, business collaboration, and diplomatic relations between Latin America and the Gulf Cooperation Council (GCC).",
-      imageUrl: "/images/sponsors/deriveply-og.jpg",
+      imageUrl: "/images/sponsors/uae/og/8.png",
       logoUrl: uae_magazine,
       link: "https://latingulf.ae/business/",
+    },
+    {
+      name: "Asia Business Outlook",
+      description:
+        "Asia Business Outlook is a premier business magazine delivering a comprehensive analysis of Asia's dynamic industrial landscape. Catering to C-level executives, it provides valuable insights into market trends, disruptive technologies, regulatory changes, and investment opportunities.",
+      imageUrl: "/images/sponsors/uae/og/1.png",
+      logoUrl: uae_businessoutlook,
+      link: "https://www.asiabusinessoutlook.com/",
+    },
+    {
+      name: "Gazet International",
+      description:
+        "Gazet International is a global entity that aims to become the leading destination for the latest and most in-depth news from diverse industries worldwide. With a steadfast commitment to delivering accurate, up-to-the-minute information, we have established ourselves as a trusted source for all things related to business, technology, finance, banking, and corporate affairs. Our mission is to empower readers with the knowledge they need to navigate the rapidly evolving global landscape.",
+      imageUrl: "/images/sponsors/uae/og/2.png",
+      logoUrl: uae_gazet,
+      link: "https://gazetinternational.com/",
     },
   ];
 
