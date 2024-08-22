@@ -68,33 +68,63 @@ function page({ params }) {
 
   const data = ["megha", "navya", "sonu", "anushri", "sonuchauhan"];
 
-  if (data.includes(nameArr[0])) {
-    const to =
-      nameArr[0] === "megha"
-        ? [
-            "20bei033@ietdavv.edu.in",
-            "megha.salian@influenceexchangegroup.com",
-            "mohamed.suhel@influenceexchangegroup.com",
-          ]
-        : nameArr[0] === "navya"
-        ? [
-            "20bei033@ietdavv.edu.in",
-            "megha.salian@influenceexchangegroup.com",
-            "navya.kotian@influenceexchangegroup.com",
-            "mohamed.suhel@influenceexchangegroup.com",
-          ]
-        : nameArr[0] === "sonuchauhan"
-        ? [
-            "20bei033@ietdavv.edu.in",
-            "mohamed.suhel@influenceexchangegroup.com",
-            "sonu.chauhan@influenceexchangegroup.com",
-          ]
-        : [
-            "20bei033@ietdavv.edu.in",
-            "anushri.c@influenceexchangegroup.com",
-            "mohamed.suhel@influenceexchangegroup.com",
-            "megha.salian@influenceexchangegroup.com",
-          ];
+  const formData = {
+    megha: {
+      FormType: "general",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "megha.salian@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+      ],
+    },
+    navya: {
+      FormType: "general",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "megha.salian@influenceexchangegroup.com",
+        "navya.kotian@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+      ],
+    },
+    sonuchauhan: {
+      FormType: "general",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "mohamed.suhel@influenceexchangegroup.com",
+        "sonu.chauhan@influenceexchangegroup.com",
+      ],
+    },
+    anushri: {
+      FormType: "general",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "anushri.c@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+        "megha.salian@influenceexchangegroup.com",
+      ],
+    },
+    sonu: {
+      FormType: "speaker",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "mohamed.suhel@influenceexchangegroup.com",
+        "sonu.chauhan@influenceexchangegroup.com",
+      ],
+    },
+    meghaK: {
+      FormType: "speaker",
+      emails: [
+        "20bei033@ietdavv.edu.in",
+        "mohamed.suhel@influenceexchangegroup.com",
+        "megha.kottary@influenceexchangegroup.com",
+      ],
+    },
+  };
+
+  if (formData.hasOwnProperty(nameArr[0])) {
+    const { FormType, emails } = formData[nameArr[0]];
+    // console.log(FormType, emails);
+
     return (
       <div>
         <Headtop head="Event Registration" />
@@ -102,10 +132,9 @@ function page({ params }) {
           *Free Delegate pass is not applicable to Technology providers,
           Consultants, Agencies, MarTech and AdTech Companies*
         </h1>
-        {nameArr[0] === "sonu" ? (
-          <Spkrform />
-        ) : (
-          <NewMultiPageForm to={to} name={nameArr[0]} />
+        {FormType === "speaker" && <Spkrform />}
+        {FormType === "general" && (
+          <NewMultiPageForm to={emails} name={nameArr[0]} />
         )}
       </div>
     );

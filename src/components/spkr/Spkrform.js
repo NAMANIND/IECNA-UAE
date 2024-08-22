@@ -27,7 +27,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Socialshare from "@/app/socialshare/page";
 
-const Spkrform = () => {
+const Spkrform = ({ to, name }) => {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [countries, setCountries] = useState([]);
@@ -179,7 +179,7 @@ const Spkrform = () => {
       <Socialshare
         field={formData.category}
         category={formData.field}
-        pr="sonu"
+        pr={name}
         rem={randomString}
       />
     );
@@ -266,13 +266,9 @@ const Spkrform = () => {
         approved: false,
       });
 
-      const to = [
-        "20bei033@ietdavv.edu.in",
-        "mohamed.suhel@influenceexchangegroup.com",
-        "sonu.chauhan@influenceexchangegroup.com",
-      ];
       const subject =
-        "Sonu's " +
+        { name } +
+        "'s " +
         " " +
         formData.category +
         " Registration Form Submission by " +
