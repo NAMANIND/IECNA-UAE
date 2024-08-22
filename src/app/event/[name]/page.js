@@ -132,7 +132,7 @@ function page({ params }) {
           *Free Delegate pass is not applicable to Technology providers,
           Consultants, Agencies, MarTech and AdTech Companies*
         </h1>
-        {FormType === "speaker" && <Spkrform />}
+        {FormType === "speaker" && <Spkrform to={emails} name={nameArr[0]} />}
         {FormType === "general" && (
           <NewMultiPageForm to={emails} name={nameArr[0]} />
         )}
