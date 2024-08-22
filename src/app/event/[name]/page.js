@@ -111,7 +111,7 @@ function page({ params }) {
         "sonu.chauhan@influenceexchangegroup.com",
       ],
     },
-    meghaK: {
+    meghak: {
       FormType: "speaker",
       emails: [
         "20bei033@ietdavv.edu.in",
