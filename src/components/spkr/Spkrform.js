@@ -268,6 +268,7 @@ const Spkrform = ({ to, name }) => {
 
       const subject =
         name +
+        " " +
         formData.category +
         " Registration Form Submission by " +
         formData.firstName +
