@@ -12,6 +12,8 @@ import uae_gulf from "../../../../public/images/sponsors/uae/gulf-good-news.png"
 import uae_magazine from "../../../../public/images/sponsors/uae/latin-gulf-magazine.png";
 import uae_businessoutlook from "../../../../public/images/sponsors/uae/asia-business-outlook.png";
 import uae_gazet from "../../../../public/images/sponsors/uae/gazet-international.png";
+import uae_utoday from "../../../../public/images/sponsors/uae/utoday.png";
+import uae_mideastinfo from "../../../../public/images/sponsors/uae/mid.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -79,6 +81,22 @@ function Mediapartners() {
       imageUrl: "/images/sponsors/uae/og/2.png",
       logoUrl: uae_gazet,
       link: "https://gazetinternational.com/",
+    },
+    {
+      name: "U. Today",
+      description:
+        "U. Today is a leading cryptocurrency and blockchain media outlet launched in 2017, covering trends in Web3, crypto, blockchain, and AI. With a global team, it provides a range of content including news, guides, reviews, and price forecasts to its three million readers.",
+      imageUrl: "/images/sponsors/uae/og/utoday.png",
+      logoUrl: uae_utoday,
+      link: "https://u.today/",
+    },
+    {
+      name: "Mid East Info",
+      description:
+        "Mid-east.info is a leading business news and information publisher that covers the greater Middle East region. Since 2012, we have been providing daily updates on news, articles, reports, and other forms of content for professionals interested in doing business in the Middle East. Our goal is to offer instant business updates, market data, tips, reports, and analysis to help business professionals stay informed about the MENA region.",
+      imageUrl: "/images/sponsors/uae/og/mid.png",
+      logoUrl: uae_mideastinfo,
+      link: "https://mid-east.info/",
     },
   ];
 
