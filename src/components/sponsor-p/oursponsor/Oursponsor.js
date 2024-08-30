@@ -3,40 +3,20 @@ import * as React from "react";
 import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
-import chef from "../../../../public/images/sponsors/insta.png";
-import fly from "../../../../public/images/sponsors/flybharti.png";
-import views from "../../../../public/images/sponsors/views.jpg";
+import proven from "../../../../public/images/sponsors/uae/proven.png";
 import Image from "next/image";
 
 function Oursponsor() {
   // Define data for sponsors
   const sponsors = [
     {
-      title: "TITLE SPONSOR",
-      name: "Insta Chef",
+      title: "Exhibitor",
+      name: "PROVEN 360",
       description:
-        "InstaChef, Dubai’s top Chef service, offers professional chefs for hire at your home. Available for daily, weekly, monthly needs, or parties, our chefs create delicious, personalized home-cooked meals.",
-      imageUrl: "/images/sponsors/instachef-og.jpg",
-      logoUrl: chef,
-      link: "https://www.instachef.ae/",
-    },
-    {
-      title: "PRESENTING PARTNER",
-      name: "Fly Bharathi",
-      description:
-        "Fly Bharathi Aviations and Aeronautics Pvt Ltd (FBAA) is a new Indian aviation company offering airport operations, aircraft MRO, cargo handling, and flight training services.",
-      imageUrl: "/images/sponsors/flybharathi-og.jpg",
-      logoUrl: fly,
-      link: "#",
-    },
-    {
-      title: "DATA ANALYTICS PARTNER",
-      name: "Views",
-      description:
-        "Views is a platform designed for charities, non-profits, and social purpose organizations to manage data and measure impact. It features modules for managing contacts, tracking projects, storing evidence, and generating reports.",
-      imageUrl: "/images/sponsors/views-og.jpg",
-      logoUrl: views,
-      link: "https://www.viewsapp.net/",
+        "Founded in 2022, PROVEN 360 is a premier digital marketing agency dedicated to helping businesses grow through tailored strategies. They offer website development, social media, SEO, and more to drive engagement and conversions.",
+      imageUrl: "/images/sponsors/uae/og/proven.png",
+      logoUrl: proven,
+      link: "https://www.proven-360.com",
     },
   ];
 
@@ -111,11 +91,13 @@ function Oursponsor() {
                   <div className="mt-6 text-sm tracking-tight leading-5">
                     {sponsor.description}
                   </div>
-                  <Image
-                    loading="lazy"
-                    src={sponsor.logoUrl}
-                    className="mt-14 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
-                  />
+                  <a href={sponsor.link} target="_blank" rel="noreferrer">
+                    <Image
+                      loading="lazy"
+                      src={sponsor.logoUrl}
+                      className="mt-14 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
+                    />
+                  </a>
                 </motion.div>
               </div>
             </div>
