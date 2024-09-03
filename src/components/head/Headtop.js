@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { anton } from "@/styles/fonts";
 import headimg from "../../../public/images/head/about-hero.jpg";
 import awards from "../../../public/images/head/awards-hero.jpg";
@@ -7,10 +8,32 @@ import speakers from "../../../public/images/head/speakers-hero.jpg";
 import register from "../../../public/images/head/register-hero.jpg";
 import register2 from "../../../public/images/head/register.png";
 import votee from "../../../public/images/head/vote2.png";
+import vote_m from "../../../public/images/head/dead-1.jpeg";
+import vote_d from "../../../public/images/head/dead.jpeg";
 import voteb from "../../../public/images/head/voteb.png";
+
 import Image from "next/image";
 
 function Headtop({ head, opacity }) {
+  const [ismobileView, setIsMobileView] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+
+    // Check window availability and add event listener
+    if (typeof window !== "undefined") {
+      setIsMobileView(window.innerWidth < 768);
+      window.addEventListener("resize", handleResize);
+    }
+
+    // Clean up event listener
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
   const lower = head.toLowerCase();
   let url = headimg;
 
@@ -27,13 +50,13 @@ function Headtop({ head, opacity }) {
     url = register;
   }
   if (lower === "voting") {
-    url = votee;
+    url = ismobileView ? vote_m : vote_d;
   }
   if (lower === "event registration") {
     url = register2;
   }
   if (lower === "vote for me") {
-    url = voteb;
+    url = ismobileView ? vote_m : vote_d;
   }
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">

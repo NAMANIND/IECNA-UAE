@@ -145,6 +145,7 @@ const SpeakerViews = () => {
                 <p className="text-xl font-semibold mb-2">
                   {speaker.firstName} {speaker.lastName}
                 </p>
+                <p className="text-lg font-medium mb-2">{speaker.id}</p>
                 <p className="text-lg font-medium mb-2">
                   Job Title: {speaker.jobTitle}
                 </p>
