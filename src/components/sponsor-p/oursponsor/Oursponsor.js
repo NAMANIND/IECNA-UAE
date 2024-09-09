@@ -4,11 +4,22 @@ import { anton, work_sans } from "@/styles/fonts";
 import Button from "@/components/button/Button";
 import { motion } from "framer-motion";
 import proven from "../../../../public/images/sponsors/uae/proven.png";
+import takefluence from "../../../../public/images/sponsors/uae/takef.png";
+import socialChameleon from "../../../../public/images/sponsors/uae/socialc.png";
 import Image from "next/image";
 
 function Oursponsor() {
   // Define data for sponsors
   const sponsors = [
+    {
+      title: "Gold Sponsor",
+      name: "Social Chameleon",
+      description:
+        "Social Chameleon is a leading Search-First Social Media® agency with expertise in social media, search, and content creation. Our teams in London and Sydney work with pioneering brands to deliver measurable outcomes and strategies that get noticed.",
+      imageUrl: "/images/sponsors/uae/og/socialc.png",
+      logoUrl: socialChameleon,
+      link: "https://socialchameleon.com",
+    },
     {
       title: "Exhibitor",
       name: "PROVEN 360",
@@ -17,6 +28,15 @@ function Oursponsor() {
       imageUrl: "/images/sponsors/uae/og/proven.png",
       logoUrl: proven,
       link: "https://www.proven-360.com",
+    },
+    {
+      title: "Solution partner",
+      name: "Takefluence",
+      description:
+        "Takefluence is a platform to collaborate with creators/influencers or even engage customers to create, distribute, amplify content, drive sales with promocode attribution, write reviews and get paid. We automate all the flow from invitation, moderation, reporting to payouts.",
+      imageUrl: "/images/sponsors/uae/og/takef.png",
+      logoUrl: takefluence,
+      link: "https://takefluence.com",
     },
   ];
 
