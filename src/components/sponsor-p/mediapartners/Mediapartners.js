@@ -14,6 +14,7 @@ import uae_businessoutlook from "../../../../public/images/sponsors/uae/asia-bus
 import uae_gazet from "../../../../public/images/sponsors/uae/gazet-international.png";
 import uae_utoday from "../../../../public/images/sponsors/uae/utoday.png";
 import uae_mideastinfo from "../../../../public/images/sponsors/uae/mid.png";
+import uae_cbhtimes from "../../../../public/images/sponsors/uae/cbhtimes.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -97,6 +98,14 @@ function Mediapartners() {
       imageUrl: "/images/sponsors/uae/og/mid.png",
       logoUrl: uae_mideastinfo,
       link: "https://mid-east.info/",
+    },
+    {
+      name: "CBHtimes Media",
+      description:
+        "CBHtimes Media - A UAE-based media personality with 15+ years of experience. Chanda Bhatia, a celebrated influencer and advocate for Women Empowerment, with 12 million+ Google viewers and prestigious awards from Sharjah and Abu Dhabi Authorities.",
+      imageUrl: "/images/sponsors/uae/og/cbhtimes.png",
+      logoUrl: uae_cbhtimes,
+      link: "https://www.cbhtimes.com/",
     },
   ];
 
