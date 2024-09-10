@@ -15,6 +15,8 @@ import uae_gazet from "../../../../public/images/sponsors/uae/gazet-internationa
 import uae_utoday from "../../../../public/images/sponsors/uae/utoday.png";
 import uae_mideastinfo from "../../../../public/images/sponsors/uae/mid.png";
 import uae_cbhtimes from "../../../../public/images/sponsors/uae/cbhtimes.png";
+import uae_globalhues from "../../../../public/images/sponsors/uae/global-hues.png";
+import uae_startupnews from "../../../../public/images/sponsors/uae/startupnews.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -106,6 +108,22 @@ function Mediapartners() {
       imageUrl: "/images/sponsors/uae/og/cbhtimes.png",
       logoUrl: uae_cbhtimes,
       link: "https://www.cbhtimes.com/",
+    },
+    {
+      name: "The Global Hues",
+      description:
+        "The Global Hues is a leading media platform focused on delivering engaging and insightful content across various industries. They specialize in offering comprehensive news, trends, and analysis, providing valuable perspectives and information to a global audience.",
+      imageUrl: "/images/sponsors/uae/og/global-hues.png",
+      logoUrl: uae_globalhues,
+      link: "https://www.theglobalhues.com/",
+    },
+    {
+      name: "Startupnews.fyi",
+      description:
+        "Startupnews.fyi is a media platform dedicated to providing the latest news, insights, and resources for the startup community. They focus on delivering timely updates, industry trends, and expert opinions to support entrepreneurs, investors, and innovators. As a media partner, Startup.fyi offers valuable exposure and thought leadership within the startup ecosystem.",
+      imageUrl: "/images/sponsors/uae/og/startupnews.png",
+      logoUrl: uae_startupnews,
+      link: "https://startupnews.fyi/",
     },
   ];
 
