@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import proven from "../../../../public/images/sponsors/uae/proven.png";
 import takefluence from "../../../../public/images/sponsors/uae/takef.png";
 import socialChameleon from "../../../../public/images/sponsors/uae/socialc.png";
+import yalaYala from "../../../../public/images/sponsors/uae/yalayala.png";
+import whoyer from "../../../../public/images/sponsors/uae/whoyer.png";
 import Image from "next/image";
 
 function Oursponsor() {
@@ -37,6 +39,24 @@ function Oursponsor() {
       imageUrl: "/images/sponsors/uae/og/takef.png",
       logoUrl: takefluence,
       link: "https://takefluence.com",
+    },
+    {
+      title: "Exhibitor",
+      name: "Yala Yala Media CO. L.L.C",
+      description:
+        "Yala Yala Media CO. L.L.C, a Dubai-based social media company focused on TikTok. With a founding team from China. They understand TikTok’s commercial potential and aim to foster stronger collaborations with brands and media companies to build a robust MCN ecosystem in the Middle East.",
+      imageUrl: "/images/sponsors/uae/og/yalayala.png",
+      logoUrl: yalaYala,
+      link: "https://yalayala.ae",
+    },
+    {
+      title: "Supporting Partner",
+      name: "Whoyer",
+      description:
+        "Whoyer connects influencers, brands, and fashion enthusiasts, offering tools, mentorship, and personalized fashion guidance to help users succeed, grow their audience, and make smart style choices.",
+      imageUrl: "/images/sponsors/uae/og/whoyer.png",
+      logoUrl: whoyer,
+      link: "https://www.whoyer.com",
     },
   ];
 
@@ -77,7 +97,7 @@ function Oursponsor() {
         support and contribution towards the success of the event.
       </motion.div>
       <div className="self-stretch mt-24 w-full max-md:mt-10 max-md:max-w-full">
-        <div className="flex gap-[3%] max-md:flex-col  max-md:gap-0">
+        <div className="flex gap-[2%] gap-y-14 flex-wrap  max-md:flex-col max-md:gap-0">
           {/* Map over sponsors array and render sponsor cards dynamically */}
           {sponsors.map((sponsor, index) => (
             <div
