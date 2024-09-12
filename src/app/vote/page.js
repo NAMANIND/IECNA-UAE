@@ -221,6 +221,26 @@ const Voting = () => {
     }
   };
 
+  const votingclosed = true;
+  if (votingclosed) {
+    return (
+      <div>
+        <Headtop head="Voting" opacity={true} />
+        <div className={` mx-auto p-8 bg-white ${work_sans.className} `}>
+          <h1
+            className={`text-4xl font-semibold my-20 w-full uppercase text-center ${anton.className} `}
+          >
+            Voting is closed
+          </h1>
+          <p className={`text-center text-2xl  ${work_sans.className} `}>
+            Thank you for your interest in voting.
+            <br /> Voting is now closed. <br /> Winners will be announced soon.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Headtop head="Voting" />
