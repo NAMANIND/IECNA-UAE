@@ -17,6 +17,9 @@ import uae_mideastinfo from "../../../../public/images/sponsors/uae/mid.png";
 import uae_cbhtimes from "../../../../public/images/sponsors/uae/cbhtimes.png";
 import uae_globalhues from "../../../../public/images/sponsors/uae/global-hues.png";
 import uae_startupnews from "../../../../public/images/sponsors/uae/startupnews.png";
+import uae_approachentertainment from "../../../../public/images/sponsors/uae/approchentertainment.png";
+import uae_approachbollywood from "../../../../public/images/sponsors/uae/approchbollywood.png";
+import uae_publicfront from "../../../../public/images/sponsors/uae/publicfront.png";
 
 function Mediapartners() {
   // Define data for sponsors
@@ -124,6 +127,30 @@ function Mediapartners() {
       imageUrl: "/images/sponsors/uae/og/startupnews.png",
       logoUrl: uae_startupnews,
       link: "https://startupnews.fyi/",
+    },
+    {
+      name: "Approach Entertainment",
+      description:
+        "Approach Entertainment Group is a distinguished leader in the fields of Celebrity Management, Film Production, Advertising and Corporate Film Solutions, Film Marketing, and Events & Entertainment Marketing. Complementing these core services, Approach Communications operates as a premier PR and Integrated Communications agency, catering to diverse sectors including Corporate, Healthcare, Entertainment, Finance, Education, and Social domains. The group's unwavering commitment to excellence has been recognized through numerous prestigious accolades, such as The Biz India 2010 Award from the World Confederation of Business, the Service Excellence Award from the Worldwide Marketing Organization, the PR Agency of the Year Award, and the Yuva Ratn Award.",
+      imageUrl: "/images/sponsors/uae/approchentertainment.png",
+      logoUrl: uae_approachentertainment,
+      link: "https://www.approachentertainment.com/",
+    },
+    {
+      name: "Approach Bollywood",
+      description:
+        "Approach Bollywood is a comprehensive newswire service, portal, and app dedicated to creating and distributing multimedia Bollywood and entertainment content for newspapers, magazines, TV channels, radio, apps, and all digital media platforms. Launched by Approach Entertainment, India’s premier group specializing in Celebrity Management, Film Production, Advertising and Corporate Film Solutions, Film Marketing, and Events & Entertainment Marketing, Approach Bollywood serves as a dynamic platform for delivering entertainment news across a wide array of media channels.",
+      imageUrl: "/images/sponsors/uae/approchbollywood.png",
+      logoUrl: uae_approachbollywood,
+      link: "https://www.approachbollywood.com/",
+    },
+    {
+      name: "Public Front",
+      description:
+        '"Public Front" National English Weekly is among India\'s leading newspapers and journals (since 2002), with wide circulation at home and abroad (in print and e-paper modes). It covers local, national, and international news on ongoing political situations, current affairs, business and economic affairs, legal affairs, world affairs, cinema and entertainment, and sports news, among other subjects of national and global importance. We are a dedicated team of dynamic aristocrats who voice facts to the public.',
+      imageUrl: "/images/sponsors/uae/publicfront.png",
+      logoUrl: uae_publicfront,
+      link: "https://publicfront.news/",
     },
   ];
 

@@ -8,6 +8,8 @@ import takefluence from "../../../../public/images/sponsors/uae/takef.png";
 import socialChameleon from "../../../../public/images/sponsors/uae/socialc.png";
 import yalaYala from "../../../../public/images/sponsors/uae/yalayala.png";
 import whoyer from "../../../../public/images/sponsors/uae/whoyer.png";
+import proExpo from "../../../../public/images/sponsors/uae/proexpo.png";
+import socialCash from "../../../../public/images/sponsors/uae/socialcash.png";
 import Image from "next/image";
 
 function Oursponsor() {
@@ -57,6 +59,24 @@ function Oursponsor() {
       imageUrl: "/images/sponsors/uae/og/whoyer.png",
       logoUrl: whoyer,
       link: "https://www.whoyer.com",
+    },
+    {
+      title: "Event contracting partner",
+      name: "Pro Expo",
+      description:
+        "Pro Expo Ltd, based in Kenya, specializes in creative exhibition and stand construction solutions for events and conferences. Since 2016, the company has delivered over 870,000 square meters of stands across 46 exhibitions, serving diverse sectors like health, technology, hospitality, and automotive. Renowned for its efficiency and high-quality service, Pro Expo offers customized event setups, branding, and AV equipment hire. With a strong track record of delivering major projects like Medic East Africa and China Trade Week, Pro Expo is a trusted partner for businesses across East Africa and beyond.",
+      imageUrl: "/images/sponsors/uae/og/proexpo.png",
+      logoUrl: proExpo,
+      link: "https://www.pro-expo.co.ke/",
+    },
+    {
+      title: "Exhibitor",
+      name: "Social Cash",
+      description:
+        "Social Cash is a UAE-based Influencer Marketing Platform where anyone can become an influencer, regardless of their follower count and get paid based on their social engagement. Social Cash empowers brands to connect with influencers who truly align with their campaign goals through advanced algorithms that match profiles based on demographics, interests, and engagement rates. By focusing on authentic digital word-of-mouth marketing, Social Cash enables brands to run targeted, impactful campaigns with influencers who resonate with their audience, ensuring maximum reach and meaningful connections.",
+      imageUrl: "/images/sponsors/uae/og/socialcash.png",
+      logoUrl: socialCash,
+      link: "https://www.socialcash.ae/",
     },
   ];
 

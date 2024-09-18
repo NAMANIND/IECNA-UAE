@@ -51,13 +51,15 @@ function Headtop({ head, opacity }) {
     url = register;
   }
   if (lower === "voting") {
-    url = ismobileView ? vote_m : vote_d;
+    // url = ismobileView ? vote_m : vote_d;
+    url = votee;
   }
   if (lower === "event registration") {
     url = register2;
   }
   if (lower === "vote for me") {
-    url = ismobileView ? vote_m : vote_d;
+    // url = ismobileView ? vote_m : vote_d;
+    url = voteb;
   }
   return (
     <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
