@@ -115,7 +115,7 @@ const VoteViews = () => {
         }));
 
         const nomineesWithVotes = [];
-
+        // alert(nomineesSnapshot.size);
         nomineesData.forEach((nominee) => {
           for (const categoryKey in nominee.categories) {
             const category = nominee.categories[categoryKey];
@@ -147,7 +147,7 @@ const VoteViews = () => {
         }, {});
 
         setNomineesByCategory(groupedNominees);
-
+        // totalVotes(groupedNominees);
         // Sort the categories according to the specified order
         // const sortedGroupedNominees = allCategories.reduce((acc, category) => {
         //   if (groupedNominees[category]) {
@@ -167,7 +167,7 @@ const VoteViews = () => {
     fetchNominees();
   }, []);
 
-  function totalVotes() {
+  function totalVotes(nomineesByCategory) {
     let total = 0;
     for (const category in nomineesByCategory) {
       nomineesByCategory[category].forEach((nominee) => {
