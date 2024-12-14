@@ -94,12 +94,20 @@ function Reasons() {
             whileInView={onscreen}
             viewport={{ once: true, amount: 0.3 }}
             key={title}
+            className="flex flex-col items-center gap-4 group"
           >
-            <span className="p-8 mb-4 flex sm:scale-100 scale-80  h-32 w-32 items-center justify-center rounded-[1.8rem]  bg-black ">
+            <span
+              className="p-8 mb-4 flex sm:scale-100 scale-80  h-32 w-32 items-center justify-center rounded-[1.8rem]  bg-black
+            group-hover:transform group-hover:-translate-y-2 transition-transform duration-300
+            group-hover:shadow-lg
+             "
+            >
               <Icon className="h-12 w-12 text-[#ccff00]" />
             </span>
-            <h3 className="mb-2 text-3xl font-medium text-black">{title}</h3>
-            <p className="text-lg  text-gray-600 ">{text}</p>
+            <h3 className="mb-2 text-2xl font-medium text-black text-center">
+              {title}
+            </h3>
+            <p className="text-lg  text-gray-600 text-justify">{text}</p>
           </motion.div>
         ))}
       </motion.section>
