@@ -88,7 +88,7 @@ function Whattoexpect() {
         viewport={{ once: true, amount: 0.3 }}
         className={`mt-10 text-xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        The Influence Exchange Confex & Awards Series 2.0 in Dubai promises an
+        The Influence Exchange Confex & Awards Series 3.0 in Dubai promises an
         enriching experience that combines learning, networking, inspiration,
         and celebration within the dynamic world of influencer marketing.
         Prepare for a memorable event that leaves you with new perspectives,

@@ -207,7 +207,7 @@ function Aboutone() {
             {" "}
             Don't miss out on this remarkable gathering of like-minded
             professionals. Join us at the Influence Exchange Confex and Awards
-            2.0 Series Dubai 2024 to unlock the full potential of ad tech, mar
+            3.0 Series Dubai 2025 to unlock the full potential of ad tech, mar
             tech & influencer marketing in today's digital landscape.
           </span>
         </motion.p>

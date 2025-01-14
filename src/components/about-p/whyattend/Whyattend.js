@@ -91,7 +91,7 @@ function Whyattend() {
       >
         <span className="font-semibold  italic">
           DUBAI We are back with The Influencer Exchange Confex & Awards Series
-          2.0
+          3.0
           <br /> WE ARE BRINGING TOGETHER OVER{" "}
         </span>
         <span className="font-semibold italic text-[#51B6FF]">
@@ -110,7 +110,7 @@ function Whyattend() {
       >
         Experience the future of marketing in the dynamic world of influencer
         marketing at the Influence
-        <br /> Influence Exchange Confex & Awards Series 2024. Here are some
+        <br /> Influence Exchange Confex & Awards Series 2025. Here are some
         reasons why you shouldn't miss this event:
       </motion.div>
       {/* Render each card dynamically */}
