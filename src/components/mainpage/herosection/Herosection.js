@@ -55,7 +55,7 @@ function Herosection() {
             Dubai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[250%] sm:text-right text-center">
-            19<sup className="text-white">th</sup> SEPT 2024
+            10<sup className="text-white">th</sup> SEPT 2025
           </div>
         </div>
         {/* <h1 className="mt-5 text-8xl text-center leading-[89.68px] max-md:max-w-full max-md:text-4xl font-anton">
@@ -63,7 +63,7 @@ function Herosection() {
         </h1> */}
         <svg viewBox="0 0 305 18" className="w-[100%]">
           <text x="0" y="15" fill="#ffffff" className="text-white">
-            INFLUENCE EXCHANGE CONFEX & AWARDS 2.0 SERIES
+            INFLUENCE EXCHANGE CONFEX & AWARDS 3.0 SERIES
           </text>
         </svg>
 
