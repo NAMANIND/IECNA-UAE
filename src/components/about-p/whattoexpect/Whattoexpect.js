@@ -49,6 +49,30 @@ function Whattoexpect() {
         "Gain practical knowledge from industry experts, discover cutting-edge trends, and unlock the full potential of influencer marketing for your brand.",
     },
     // Add more objects as needed
+    {
+      title: "Inspiring Interactions",
+      imgUrl: future,
+      description:
+        "Collaborate with a dynamic community of marketers, creators, and tech leaders.",
+    },
+    {
+      title: "Industry Leadership",
+      imgUrl: future,
+      description:
+        "Learn actionable strategies and insights from the best in the field.",
+    },
+    {
+      title: "Cutting-Edge Trends",
+      imgUrl: future,
+      description:
+        "Stay updated on the technologies and practices shaping the future of marketing.",
+    },
+    {
+      title: "Limitless Opportunities",
+      imgUrl: future,
+      description:
+        "Whether you're a marketer, influencer, or tech innovator, discover endless possibilities to grow.",
+    },
   ];
 
   const offscreen = {
@@ -88,16 +112,14 @@ function Whattoexpect() {
         viewport={{ once: true, amount: 0.3 }}
         className={`mt-10 text-xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        The Influence Exchange Confex & Awards Series 3.0 in Dubai promises an
-        enriching experience that combines learning, networking, inspiration,
-        and celebration within the dynamic world of influencer marketing.
-        Prepare for a memorable event that leaves you with new perspectives,
-        valuable connections, and actionable insights to propel your influencer
-        marketing endeavors forward.
+        The UAE is a hub of digital innovation, driven by a tech-savvy
+        population and a strong culture of social engagement. This vibrant
+        ecosystem provides the perfect stage for groundbreaking ideas and
+        collaborations.
       </motion.div>
 
-      <div className="w-full max-md:mt-10 max-md:max-w-full sm:p-20 p-5">
-        <div className="grid grid-cols-2 gap-[4%] rounded-[36px] max-md:gap-0 max-md:grid-cols-1">
+      <div className="w-full max-md:mt-10 max-md:max-w-full h-full sm:p-20 p-5">
+        <div className="grid grid-cols-2 gap-x-[4%] gap-y-[1%] rounded-[36px] max-md:gap-0 max-md:grid-cols-1">
           {cardData.map((card, index) => (
             <motion.div
               initial={offscreen}

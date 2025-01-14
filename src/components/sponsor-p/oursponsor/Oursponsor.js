@@ -104,7 +104,7 @@ function Oursponsor() {
         viewport={{ once: true, amount: 0.3 }}
         className={`text-5xl text-center text-black leading-[61.92px] max-md:text-4xl ${anton.className} `}
       >
-        OUR SPONSORS
+        OUR SERIES SPONSORS
       </motion.div>
       <motion.div
         initial={offscreen}

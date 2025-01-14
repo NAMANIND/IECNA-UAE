@@ -52,6 +52,27 @@ function Whyattend() {
       imageUrl: exclusive,
       text: "Dubai attracts a diverse international audience. Engaging with attendees from different countries and cultures can provide a broader perspective on influencer marketing strategies and practices worldwide.",
     },
+
+    {
+      title: "Stay Ahead of\nTrends",
+      imageUrl: exclusive,
+      text: "Dive into the latest influencer marketing strategies shaping the global landscape.",
+    },
+    {
+      title: "Expand Your\nNetwork",
+      imageUrl: exclusive,
+      text: "Connect with top-tier brands, creators, and innovators.",
+    },
+    {
+      title: "Unlock\nOpportunities",
+      imageUrl: exclusive,
+      text: "Explore partnerships and collaborations that could redefine your business or career.",
+    },
+    {
+      title: "Elevate\nYourself",
+      imageUrl: exclusive,
+      text: "Take your professional growth to the next level through expert insights and industry connections.",
+    },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -108,10 +129,11 @@ function Whyattend() {
         viewport={{ once: true, amount: 0.3 }}
         className="mt-11 text-2xl sm:px-10 px-0 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
       >
-        Experience the future of marketing in the dynamic world of influencer
-        marketing at the Influence
-        <br /> Influence Exchange Confex & Awards Series 2025. Here are some
-        reasons why you shouldn't miss this event:
+        This event isn’t just another conference—it’s your gateway to influence,
+        innovation, and industry leadership in one of the world’s most dynamic
+        digital markets
+        <br />
+        Here are some reasons why you shouldn't miss this event:
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">

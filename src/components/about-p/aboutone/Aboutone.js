@@ -172,35 +172,31 @@ function Aboutone() {
           viewport={{ once: true, amount: 0.3 }}
           className="sm:text-md text-xl  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-6 text-white max-md:max-w-full slidein"
         >
-          Join us for an electrifying event that bridges the gap between
-          influencers and brands, creating endless possibilities for
-          collaboration, innovation, and growth. Our platform is designed to
-          unite over 100 dynamic marketeers and 100 influential individuals,
-          creating an unparalleled environment for networking, knowledge
-          exchange, and strategic partnerships. Focused on cultivating genuine
-          connections, this event promises an exceptional gathering of
-          passionate individuals dedicated to the realm of ad tech, mar tech &
-          influencer marketing. <br />
+          Dubai stands as an ideal destination for The Influence Exchange Confex
+          & Awards due to its position as a global hub for innovation, business,
+          and digital transformation. The UAE’s influencer marketing landscape
+          is thriving, with the sector experiencing exponential growth as brands
+          increasingly recognize its power to drive authentic engagement and
+          measurable results. <br />
           <br />
-          This is a one-of-a-kind opportunity for marketers and Influencers to
-          meet under one roof and foster future collaborations and partnerships.
-          At this exclusive event, you'll have the opportunity to engage with
-          top-notch marketeers and influencers from the region, gaining valuable
-          insights and forging valuable relationships. Our carefully curated
-          program features keynote speeches, interactive panel discussions,
-          networking sessions, fireside chat, award ceremony, after party and
-          cocktail dinner ensuring that every moment is packed with valuable
-          content and meaningful interactions.
+          The global influencer marketing market, valued at $21.1 billion in
+          2023, is projected to reach $24 billion by year-end. Within this
+          vibrant ecosystem, Dubai emerges as a beacon for creativity and
+          collaboration, offering a unique blend of cultural diversity,
+          tech-savvy consumers, and a robust digital infrastructure. The UAE’s
+          marketing ecosystem reflects this growth, with 80% of marketers
+          dedicating budgets to influencer campaigns and 67% planning to
+          increase spending, signaling confidence in the region’s ROI potential.
           <br />
           <br />
           Discover the future of marketing with the latest trends and
-          technologies in AdTech, Martech and Influencer at our upcoming event.
-          Whether you are a marketer seeking innovative strategies to leverage
-          the power of influencers or an influencer looking to collaborate with
-          brands, this event is the perfect platform to expand your network and
-          explore new business opportunities. Gain practical knowledge from
-          industry experts, discover cutting-edge trends, and unlock the
-          potential of ad tech, mar tech & influencer marketing for your brand.
+          technologies in AdTech, Martech and Influencer at our event. Whether
+          you are a marketer seeking innovative strategies to leverage the power
+          of influencers or an influencer looking to collaborate with brands,
+          this event is the perfect platform to expand your network and explore
+          new business opportunities. Gain practical knowledge from industry
+          experts, discover cutting-edge trends, and unlock the potential of ad
+          tech, mar tech & influencer marketing for your brand.
           <br />
           <br />
           <span className="text-[#ccff00]">

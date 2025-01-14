@@ -151,10 +151,13 @@ function Criteria() {
         viewport={{ once: true, amount: 0.3 }}
         className="md:text-2xl text-md font-medium tracking-tighter md:mx-80 mx-10  text-justify  leading-8 text-white max-md:max-w-full"
       >
-        Celebrate excellence with us as we honour outstanding contributions
+        {/* Celebrate excellence with us as we honour outstanding contributions
         across various domains. Nominate deserving individuals, brands, or
         organizations for their achievements and innovation in marketing and
-        influencer engagement.
+        influencer engagement. */}
+        Join us in recognizing brilliance by nominating trailblazing
+        individuals, brands, or organizations setting new standards in marketing
+        innovation and influencer leadership.
       </motion.div>
       <div className=" bg-black w-full">
         <Awardnrec />
