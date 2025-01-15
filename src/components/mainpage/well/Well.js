@@ -52,11 +52,11 @@ function Well() {
         >
           <div className="flex relative sm:items-start sm:ml-10 ml-0 items-center flex-col md:p-10 p-5 uppercase md:mt-10 mt-5 max-md:max-w-full">
             <div className="text-4xl leading-10 text-white max-md:max-w-full">
-              Well, they say third time is a{" "}
+              Well, they say second time is a{" "}
               <span className="text-[#ccff00]">charm!</span>
               <br />
               And IXG is back with the{" "}
-              <span className="text-[#ccff00]">sixth edition </span>
+              <span className="text-[#ccff00]">3.0 series</span>
               <br /> of the much awaited{" "}
               <span className="text-[#ccff00]">IEC&A!</span>
             </div>
