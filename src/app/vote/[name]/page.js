@@ -21,7 +21,7 @@ const PersonalVote = ({ params }) => {
 
         // Query the database with lowercase first and last names
         const nomineeSnapshot = await firestore
-          .collection("uae-nominees")
+          .collection("uae-nominees2025")
           .where("firstName", "==", firstName)
           .where("lastName", "==", lastName)
           .get();
@@ -90,13 +90,13 @@ const PersonalVote = ({ params }) => {
 
       if (!isNewEmail) {
         // Add the email to the votes collection if it's a new email
-        const voteRef = firestore.collection("uae-votes").doc();
+        const voteRef = firestore.collection("uae-votes2025").doc();
         batch.set(voteRef, { email: email, social: social }); // Include social media handle
       }
 
       // Fetch the latest nominee data before voting
       const nomineeRef = firestore
-        .collection("uae-nominees")
+        .collection("uae-nominees2025")
         .doc(nomineeData.id);
       const nomineeDoc = await nomineeRef.get();
 
@@ -140,7 +140,7 @@ const PersonalVote = ({ params }) => {
   const checkEmailExists = async (email) => {
     try {
       const query = await firestore
-        .collection("uae-votes")
+        .collection("uae-votes2025")
         .where("email", "==", email)
         .get();
       return !query.empty;

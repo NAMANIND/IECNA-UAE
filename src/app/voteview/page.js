@@ -69,7 +69,7 @@ const VoteViews = () => {
     const fetchTransformedImages = async () => {
       try {
         const imagesSnapshot = await firestore
-          .collection("uae-transformed-images")
+          .collection("uae-transformed-images2025")
           .get();
         const imagesData = imagesSnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -107,7 +107,7 @@ const VoteViews = () => {
     const fetchNominees = async () => {
       try {
         const nomineesSnapshot = await firestore
-          .collection("uae-nominees")
+          .collection("uae-nominees2025")
           .get();
         const nomineesData = nomineesSnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -184,7 +184,9 @@ const VoteViews = () => {
 
     if (isConfirmed) {
       try {
-        const nomineeRef = firestore.collection("uae-nominees").doc(nomineeId);
+        const nomineeRef = firestore
+          .collection("uae-nominees2025")
+          .doc(nomineeId);
         const nomineeDoc = await nomineeRef.get();
         const nomineeData = nomineeDoc.data();
 
