@@ -119,15 +119,15 @@ function Footer() {
               >
                 <Image
                   src={logo}
-                  alt="IE&A Logo"
+                  alt="IEC&A Logo"
                   className=" sm:w-[10vw] w-[60vw]"
                 />
-                <p className="text-sm">2024 - © ie&a</p>
+                <p className="text-sm">2025 - © iec&a</p>
               </div>
             </div>
             <div className="text-center mt-8">
               <p className="text-medium">
-                &copy; 2024 - Designed and Developed by{" "}
+                &copy; 2025 - Designed and Developed by{" "}
                 <a
                   href="https://bitnibdesign.com "
                   className="underline cursor-pointer"

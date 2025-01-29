@@ -223,7 +223,7 @@ const Voting = () => {
     }
   };
 
-  const votingclosed = true;
+  const votingclosed = false;
   if (votingclosed) {
     return (
       <div>
