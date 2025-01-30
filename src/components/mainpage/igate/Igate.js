@@ -59,7 +59,7 @@ function Ig() {
                 className={`mt-7 text-7xl text-white leading-[90px] w-full max-md:text-4xl ${anton.className}`}
                 dateTime="2025-07-12"
               >
-                20<sup className="text-white ">th</sup> SEPT 2025
+                10<sup className="text-white ">th</sup> SEPT 2025
               </time>
               <p className="mt-1 text-[#ccff00] uppercase text-7xl text-left leading-[117%]  sm:mb-0 mb-4  font-bold">
                 Dubai
