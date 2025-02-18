@@ -149,7 +149,7 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="md:text-2xl text-md font-medium tracking-tighter md:mx-80 mx-10  text-justify  leading-8 text-white max-md:max-w-full"
+        className="md:text-2xl text-md font-medium tracking-tighter md:mx-80 mx-10  text-justify  leading-[130%] text-white max-md:max-w-full"
       >
         {/* Celebrate excellence with us as we honour outstanding contributions
         across various domains. Nominate deserving individuals, brands, or
@@ -166,7 +166,7 @@ function Criteria() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-24 text-5xl text-center anton-f text-white leading-[61.92px] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
+        className={`mt-24 text-5xl text-center anton-f text-white leading-[130%] max-md:mt-10 max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         MARKETING AWARD CATEGORIES AND CRITERIA
       </motion.div>

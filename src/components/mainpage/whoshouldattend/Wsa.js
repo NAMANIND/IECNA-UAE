@@ -11,7 +11,7 @@ const AttendeeCard = ({ title, isBold = false }) => (
     <div
       className={`grow justify-center align-middle flex items-center px-16 py-12 w-full text-[28px] ${
         isBold ? "font-semibold" : "font-medium"
-      } leading-7 text-center text-black break-words bg-[#ccff00] rounded-3xl max-md:px-5 max-md:py-8 max-md:mt-10 max-md:text-[20px] transition-colors duration-300 group-hover:bg-black group-hover:text-white hover-box-shadow`}
+      } leading-[130%] text-center text-black break-words bg-[#ccff00] rounded-3xl max-md:px-5 max-md:py-8 max-md:mt-10 max-md:text-[20px] transition-colors duration-300 group-hover:bg-black group-hover:text-white hover-box-shadow`}
     >
       <h1>{title}</h1>
     </div>
@@ -54,7 +54,7 @@ function Wsa() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`self-center mt-1 text-5xl text-center text-white uppercase leading-[61.92px] max-md:text-4xl ${anton.className}  `}
+        className={`self-center mt-1 text-5xl text-center text-white uppercase leading-[130%] max-md:text-4xl ${anton.className}  `}
       >
         Who Should Attend?
       </motion.h2>

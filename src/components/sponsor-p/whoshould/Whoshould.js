@@ -86,7 +86,7 @@ function Whoshould() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`self-center text-5xl text-center text-white leading-[61.92px] max-md:max-w-full max-md:text-4xl ${anton.className}`}
+        className={`self-center text-5xl text-center text-white leading-[130%] max-md:max-w-full max-md:text-4xl ${anton.className}`}
       >
         WHO SHOULD SPONSOR?
       </motion.div>
@@ -119,7 +119,7 @@ function Whoshould() {
                   `}
                   />
                 </div>
-                <div className="text-xl font-medium tracking-tighter leading-7 text-white flex flex-col justify-between max-md:mt-10">
+                <div className="text-xl font-medium tracking-tighter leading-[130%] text-white flex flex-col justify-between max-md:mt-10">
                   <span className="text-3xl font-bold text-[#ccff00] uppercase">
                     {card.title}
                   </span>

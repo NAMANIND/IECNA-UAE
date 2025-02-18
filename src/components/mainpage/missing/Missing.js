@@ -13,7 +13,7 @@ import { anton, work_sans } from "@/styles/fonts";
 import Ig from "../igate/Igate";
 
 const SectionTitle = ({ children }) => (
-  <h2 className="text-5xl text-center text-black uppercase leading-[61.92px] max-md:max-w-full max-md:text-4xl">
+  <h2 className="text-5xl text-center text-black uppercase leading-[130%] max-md:max-w-full max-md:text-4xl">
     {children}
   </h2>
 );
@@ -31,7 +31,7 @@ const HighlightedText = ({ children, color }) => (
 
 const TextContent = ({ children, wid }) => (
   <div
-    className={`self-stretch my-auto text-xl  font-medium leading-7 md:text-right text-left text-black group-hover:text-white w-[${wid}]  max-md:mt-10 max-md:max-w-full`}
+    className={`self-stretch my-auto text-xl  font-medium leading-[130%] md:text-right text-left text-black group-hover:text-white w-[${wid}]  max-md:mt-10 max-md:max-w-full`}
   >
     {children}
   </div>
@@ -113,7 +113,7 @@ function Missing() {
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
           className={` ${anton.className} 
-         text-5xl text-center text-black uppercase  sm:pt-[100px] pt-[100px] pb-[100px] leading-[61.92px]  max-md:max-w-full max-md:text-4xl
+         text-5xl text-center text-black uppercase  sm:pt-[100px] pt-[100px] pb-[100px] leading-[130%]  max-md:max-w-full max-md:text-4xl
          
               `}
         >

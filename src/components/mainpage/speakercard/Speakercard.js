@@ -296,7 +296,7 @@ function SpeakerCard() {
             initial={offscreen}
             whileInView={onscreen}
             viewport={{ once: true, amount: 0.3 }}
-            className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+            className="self-center text-5xl text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
           >
             KEYNOTE SPEAKER
           </motion.h2>
@@ -337,7 +337,7 @@ function SpeakerCard() {
             initial={offscreen}
             whileInView={onscreen}
             viewport={{ once: true, amount: 0.3 }}
-            className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+            className="self-center text-5xl text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
           >
             OUR ESTEEMED SPEAKERS
           </motion.h2>
@@ -380,7 +380,7 @@ function SpeakerCard() {
         viewport={{ once: true, amount: 0.3 }}
         className={`self-center text-5xl ${
           speakers.length > 0 && "mt-52"
-        } text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl`}
+        } text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl`}
       >
         OUR PAST SPEAKERS
       </motion.h2>

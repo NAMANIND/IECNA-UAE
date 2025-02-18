@@ -28,7 +28,7 @@ function Whyattend() {
       text: "Discover potential business opportunities, partnerships, and collaborations with influencers or brands attending the event. It's a chance to explore new markets and expand your business network.",
     },
     {
-      title: "Recognition\nand Awards",
+      title: "Recognition\n& Awards",
       imageUrl: exclusive,
       text: "If your company or work in influencer marketing deserves recognition, participating in awards can offer visibility and credibility within the industry.",
     },
@@ -38,7 +38,7 @@ function Whyattend() {
       text: "Keep abreast of the latest tools, technologies, and platforms in the influencer marketing, ad tech & mar tech landscape. This knowledge can help you adapt and stay competitive in the evolving digital marketing ecosystem.",
     },
     {
-      title: "Inspiration\nand Motivation",
+      title: "Inspiration\n& Motivation",
       imageUrl: exclusive,
       text: "Conferences often inspire attendees with success stories, case studies, and motivational talks. This can ignite creativity and motivation within your own influencer marketing campaigns.",
     },
@@ -100,7 +100,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`text-5xl text-center text-black uppercase leading-[61.92px] max-md:text-4xl ${anton.className} `}
+        className={`text-5xl text-center text-black uppercase leading-[130%] max-md:text-4xl ${anton.className} `}
       >
         WHY ATTEND?
       </motion.div>
@@ -108,7 +108,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="self-stretch mt-20 w-full sm:text-4xl text-xl italic font-bold tracking-tighter leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
+        className="self-stretch mt-20 w-full sm:text-4xl text-xl italic font-bold tracking-tighter leading-[130%] text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
           DUBAI We are back with The Influencer Exchange Confex & Awards Series
@@ -127,7 +127,7 @@ function Whyattend() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="mt-11 text-2xl sm:px-10 px-0 mb-28 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full"
+        className="mt-11 text-2xl sm:px-10 px-0 mb-28 font-medium tracking-tighter leading-[130%] text-center text-black max-md:mt-10 max-md:max-w-full"
       >
         This event isn’t just another conference—it’s your gateway to influence,
         innovation, and industry leadership in one of the world’s most dynamic
@@ -137,40 +137,61 @@ function Whyattend() {
       </motion.div>
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
-        <div className="flex gap-y-5 sm:px-[0%] px-[0%]  gap-x-[3%] flex-wrap max-md:gap-0 ">
-          {cardData.map((card, index) => (
-            <motion.div
-              initial={offscreen}
-              whileInView={onscreen}
-              viewport={{ once: true, amount: 0.3 }}
-              key={index}
-              className={`flex flex-grow flex-col w-[22%] max-md:ml-0 max-md:w-full my-[30px] sm:px-[10px] px-[10px] ${
-                hoveredIndex === index ? "hoveredaward" : ""
-              }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="bg-black w-full h-full rounded-[36px] py-[60px]">
+        <div className="flex gap-y-5 sm:px-[5%] px-[0%] gap-x-[6%] flex-wrap max-md:gap-0 ">
+          <div className="grid grid-cols-3 gap-8 md:px-4 md:py-12 mx-auto max-w-7xl py-0 px-0 max-md:grid-cols-1">
+            {cardData.map((card, index) => (
+              <motion.div
+                key={index}
+                initial={offscreen}
+                whileInView={onscreen}
+                viewport={{ once: true, amount: 0.3 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`transform transition-all duration-300 !leading-[130%] px-4 py-8   ${
+                  hoveredIndex === index ? "scale-[1.02]" : ""
+                }`}
+              >
                 <div
-                  className={`text-4xl textaward  text-white uppercase  max-md:mt-10 max-md:text-4xl sm:pb-[40px] pb-[5px]  px-[30px] ${anton.className} whitespace-pre-line `}
+                  className=" bg-white mis group hover:bg-black/90 transition-all duration-500 hover:text-white text-wrap rounded-xl overflow-hidden h-full shadow-[0_0_30px_0_rgba(81,182,255,0.3)]
+            hover:shadow-[0_0_30px_0_rgba(81,182,255,0.3)]
+    
+            "
                 >
-                  {card.title}
-                </div>
-                <div className="flex flex-col self-stretch my-auto text-xl font-medium leading-6 text-white max-md:mt-10 max-md:max-w-full">
-                  <Image
-                    loading="lazy"
-                    src={card.imageUrl}
-                    width={600}
-                    height={300}
-                    className="w-full aspect-[2.38] max-md:max-w-full rounded-[32px] relative scale-[1.12]  my-0 imgaward"
-                  />
-                  <div className="self-center mt-11 text-sm max-md:mt-10 px-[30px]">
-                    {card.text}
+                  {/* Card Header */}
+                  <div className="py-6 px-5">
+                    <h2
+                      className={`text-[30px] max-md:text-xl font-bold text-[#51B6FF] tracking-tight leading-[130%]  
+                    ${anton.className}
+                    uppercase   w-full    group-hover:text-[#ccff00]
+                    `}
+                    >
+                      {card.title}
+                    </h2>
+                  </div>
+
+                  {/* Card Image */}
+                  <div className="relative px-5">
+                    <div className="relative overflow-hidden rounded-md">
+                      <Image
+                        src={card.imageUrl}
+                        alt={card.title}
+                        width={600}
+                        height={300}
+                        className="w-full  object-cover h-[300px]  transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="py-6 px-5">
+                    <p className=" text-neutral-950 text-[16px] leading-[130%]  font-normal group-hover:text-white ">
+                      {card.text}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

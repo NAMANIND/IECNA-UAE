@@ -26,7 +26,7 @@ function Ourmisson() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`text-5xl leading-[61.92px] max-md:text-4xl ${anton.className} `}
+        className={`text-5xl leading-[130%] max-md:text-4xl ${anton.className} `}
       >
         OUR MISSION
       </motion.h1>
@@ -34,7 +34,7 @@ function Ourmisson() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-20 sm:px-60 px-5 text-2xl font-medium tracking-tighter leading-8 max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-20 sm:px-60 px-5 text-2xl font-medium tracking-tighter leading-[130%] max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         At The Influence Exchange Confex & Awards 3.0 Series, we are dedicated
         to fostering connections, inspiring creativity, and acknowledging the

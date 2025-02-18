@@ -165,7 +165,7 @@ const FlipContainer = ({ number, title }) => {
           fontSize="xs"
           fontWeight="light"
           textTransform="uppercase"
-          className=" cto leading-4 tracking-wider"
+          className=" cto leading-[130%] tracking-wider"
         >
           {title}
         </Text>

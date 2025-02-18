@@ -93,14 +93,14 @@ function Whattoexpect() {
   return (
     <div className="flex flex-col items-center  bg-white">
       <div className={`${anton.className} w-full`}>
-        <h1 className="uppercase text-5xl relative z-10 text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5  top-[132px]">
+        <h1 className="uppercase text-5xl relative z-10 text-center text-black leading-[130%] max-md:text-4xl max-md:leading-[130%] max-md:max-w-full max-md:mt-10 max-md:mb-5  top-[132px]">
           What to expect
         </h1>
         <Marquee
           gradient={false}
           speed={50}
           autoFill
-          className="self-stretch w-full h-[200px] text-8xl text-center leading-[62.4px] text-black text-opacity-10 max-md:max-w-full "
+          className="self-stretch w-full h-[200px] text-8xl text-center leading-[130%] text-black text-opacity-10 max-md:max-w-full "
         >
           <h2> &nbsp; EXPECT EVERYTHING UNEXPECTED!</h2>
         </Marquee>
@@ -110,7 +110,7 @@ function Whattoexpect() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`mt-10 text-xl  sm:px-20 px-5 font-medium tracking-tighter leading-8 text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
+        className={`mt-10 text-xl  sm:px-20 px-5 font-medium tracking-tighter leading-[130%] text-center text-black max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
         The UAE is a hub of digital innovation, driven by a tech-savvy
         population and a strong culture of social engagement. This vibrant
@@ -153,7 +153,7 @@ function Whattoexpect() {
                     {card.title}
                   </div>
                   <div
-                    className={`mt-6 sm:text-2xl text-lg font-medium tracking-tighter leading-7 text-white max-md:max-w-full ${work_sans.className}`}
+                    className={`mt-6 sm:text-2xl text-lg font-medium tracking-tighter leading-[130%] text-white max-md:max-w-full ${work_sans.className}`}
                   >
                     {card.description}
                   </div>

@@ -11,7 +11,7 @@ const Button = ({ href, children, color, img }) => {
   return (
     <Link
       href={href}
-      className={`button_main ${color}_main flex justify-center align-middle rounded-[40px] ${work_sans.className} font-medium  ${color}_img group      tracking-tighter text-2xl  leading-[90px]    `}
+      className={`button_main ${color}_main flex justify-center align-middle rounded-[40px] ${work_sans.className} font-medium  ${color}_img group      tracking-tighter text-2xl  leading-[130%]    `}
     >
       <span>
         {children}

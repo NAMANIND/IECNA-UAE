@@ -74,7 +74,7 @@ function Reasons() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className="self-stretch mt-20 w-full sm:text-4xl my-32 text-xl italic font-bold  leading-7 text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
+        className="self-stretch mt-20 w-full sm:text-4xl my-32 text-xl italic font-bold  leading-[130%] text-center text-black uppercase max-md:mt-10 max-md:max-w-full  "
       >
         <span className="font-semibold  italic">
           <span className="font-semibold italic text-[#51B6FF]">

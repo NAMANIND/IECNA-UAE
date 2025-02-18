@@ -10,7 +10,7 @@ import aboutimg2 from "../../../../public/images/about/about2.jpg";
 function WhyInfluencerMarketing() {
   return (
     <section className="flex flex-col w-[100%] max-md:ml-0 max-md:w-full">
-      <ul className="mt-24 text-xl text-justify tracking-tighter leading-7 text-white max-md:mt-10 max-md:max-w-full  list-disc   ">
+      <ul className="mt-24 text-xl text-justify tracking-tighter leading-[130%] text-white max-md:mt-10 max-md:max-w-full  list-disc   ">
         <li>
           Elevate search engine rankings by harnessing influencer collaborations
           to increase brand visibility and organic reach.
@@ -86,11 +86,11 @@ function InfluencerMarketingStats({ title, value, description }) {
   return (
     <div className="flex flex-col max-md:mt-10">
       <div
-        className={`text-6xl text-[#ccff00]   leading-[62.08px] max-md:text-4xl ${anton.className} `}
+        className={`text-6xl text-[#ccff00]   leading-[130%] max-md:text-4xl ${anton.className} `}
       >
         {value}
       </div>
-      <div className="mt-7 text-xl font-medium tracking-tighter leading-7 text-white">
+      <div className="mt-7 text-xl font-medium tracking-tighter leading-[130%] text-white">
         <span className="font-bold text-[#ccff00]">{title}:</span> {description}
       </div>
     </div>
@@ -170,7 +170,7 @@ function Aboutone() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="sm:text-md text-xl  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-6 text-white max-md:max-w-full slidein"
+          className="sm:text-md text-xl  sm:px-20 px-0 font-medium text-justify tracking-tighter leading-[130%] text-white max-md:max-w-full slidein"
         >
           Dubai stands as an ideal destination for The Influence Exchange Confex
           & Awards due to its position as a global hub for innovation, business,
@@ -214,7 +214,7 @@ function Aboutone() {
           className="sm:px-20 px-0 sm:pl-24 pl-5 sm:mt-44 mt-20 mb-32  max-md:max-w-full"
         >
           <h2
-            className={`self-end text-5xl text-center leading-[61.92px] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
+            className={`self-end text-5xl text-center leading-[130%] max-md:max-w-full max-md:text-4xl text-white slidein ${anton.className} `}
           >
             WHY INFLUENCER MARKETING?
           </h2>
@@ -283,7 +283,7 @@ function Aboutone() {
               </div>
             ))}
             <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-              <p className="relative text-base font-medium tracking-tighter leading-5 text-justify text-white max-md:mt-10">
+              <p className="relative text-base font-medium tracking-tighter leading-[130%] text-justify text-white max-md:mt-10">
                 <span className="text-xl font-bold text-[#ccff00]">
                   Instagram Growth:{" "}
                 </span>{" "}

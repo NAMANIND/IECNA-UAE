@@ -67,7 +67,7 @@ const Awardnrec = () => {
       // }}
     >
       <motion.div
-        className={`self-center mt-20 text-6xl text-center text-white leading-[62.08px] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
+        className={`self-center mt-20 text-6xl text-center text-white leading-[130%] max-md:mt-10 max-md:max-w-full max-md:text-4xl  ${anton.className} `}
       >
         AWARDS AND RECOGNITION
       </motion.div>
@@ -112,7 +112,7 @@ const Awardnrec = () => {
                     </div>
                   </div>
                   <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-7 text-white  aspect-[1.01] max-md:mt-3">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-[130%] text-white  aspect-[1.01] max-md:mt-3">
                       <Image
                         loading="lazy"
                         src={ok}
@@ -203,7 +203,7 @@ const Awardnrec = () => {
                     </div>
                   </div>
                   <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-7 text-white  aspect-[1.01] max-md:mt-3">
+                    <div className="flex overflow-hidden relative flex-col grow justify-center text-2xl font-medium tracking-tighter leading-[130%] text-white  aspect-[1.01] max-md:mt-3">
                       <Image
                         loading="lazy"
                         src={ok}

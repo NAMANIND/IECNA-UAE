@@ -21,7 +21,7 @@ function Sponsors() {
 
   return (
     <div
-      className="flex flex-col justify-center sm:px-20 px-5 sm:pt-32 pt-10 sm:pb-20 pb-0 text-5xl text-center text-black bg-white whitespace-nowrap leading-[61.92px] w-full max-md:text-4xl"
+      className="flex flex-col justify-center sm:px-20 px-5 sm:pt-32 pt-10 sm:pb-20 pb-0 text-5xl text-center text-black bg-white whitespace-nowrap leading-[130%] w-full max-md:text-4xl"
       style={{ alignItems: "center" }}
     >
       <div

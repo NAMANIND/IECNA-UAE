@@ -51,7 +51,7 @@ function Well() {
           className={`flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full ${anton.className}`}
         >
           <div className="flex relative sm:items-start sm:ml-10 ml-0 items-center flex-col md:p-10 p-5 uppercase md:mt-10 mt-5 max-md:max-w-full">
-            <div className="text-4xl leading-10 text-white max-md:max-w-full">
+            <div className="text-4xl leading-[130%]0 text-white max-md:max-w-full">
               Well, they say second time is a{" "}
               <span className="text-[#ccff00]">charm!</span>
               <br />

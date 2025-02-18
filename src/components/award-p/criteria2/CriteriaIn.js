@@ -271,7 +271,7 @@ function CriteriaIn() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`pt-44 text-5xl text-center anton-f text-white leading-[61.92px]  max-md:max-w-full max-md:text-4xl ${anton.className} `}
+        className={`pt-44 text-5xl text-center anton-f text-white leading-[130%]  max-md:max-w-full max-md:text-4xl ${anton.className} `}
       >
         INFLUENCER AWARD CATEGORIES AND CRITERIA
       </motion.div>

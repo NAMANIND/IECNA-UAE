@@ -466,7 +466,7 @@ function SpeakerCard() {
               initial={offscreen}
               whileInView={onscreen}
               viewport={{ once: true, amount: 0.3 }}
-              className="self-center text-5xl text-center text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+              className="self-center text-5xl text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
             >
               OUR PAST SPEAKERS
             </motion.h2>
@@ -509,7 +509,7 @@ function SpeakerCard() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="self-center text-5xl text-center pt-[200px] text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+          className="self-center text-5xl text-center pt-[200px] text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
         >
           PAST KSA SPEAKERS
         </motion.h2>
@@ -547,7 +547,7 @@ function SpeakerCard() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className="self-center text-5xl text-center uppercase text-black leading-[61.92px] max-md:max-w-full max-md:text-4xl"
+          className="self-center text-5xl text-center uppercase text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
         >
           PAST Dubai SPEAKERS
         </motion.h2>

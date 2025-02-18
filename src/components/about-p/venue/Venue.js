@@ -40,7 +40,7 @@ function EventDetails() {
         </time>
 
         <div
-          className={`self-end sm:mt-12 my-5 text-5xl uppercase  font-bold  text-[#ccff00] tracking-tighter	 leading-[56px] w-[282px]  max-md:text-4xl max-md:leading-[52px] ${work_sans.className}  `}
+          className={`self-end sm:mt-12 my-5 text-5xl uppercase  font-bold  text-[#ccff00] tracking-tighter	 leading-[130%] w-[282px]  max-md:text-4xl max-md:leading-[130%] ${work_sans.className}  `}
         >
           VENUE
           <br />
@@ -115,7 +115,7 @@ function Venue() {
           initial={offscreen}
           whileInView={onscreen}
           viewport={{ once: true, amount: 0.3 }}
-          className={`uppercase text-5xl  text-center text-black leading-[62.4px] max-md:text-4xl max-md:leading-7 max-md:max-w-full max-md:mt-10 max-md:mb-5 mb-10 ${anton.className} `}
+          className={`uppercase text-5xl  text-center text-black leading-[130%] max-md:text-4xl max-md:leading-[130%] max-md:max-w-full max-md:mt-10 max-md:mb-5 mb-10 ${anton.className} `}
         >
           Venue
         </motion.h1>
@@ -132,7 +132,7 @@ function Venue() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full"
           >
-            <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[90px] min-h-[460px]  max-md:mt-0 max-md:max-w-full rounded-[36px] ">
+            <div className="flex overflow-hidden relative flex-col grow items-center px-16 pt-20 pb-12 text-2xl font-semibold text-center text-black uppercaseleading-[130%] min-h-[460px]  max-md:mt-0 max-md:max-w-full rounded-[36px] ">
               <Image
                 loading="lazy"
                 src={img}
@@ -151,7 +151,7 @@ function Venue() {
           </motion.div>
           <div className="flex flex-col mr-10 w-[44%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col self-stretch px-5 my-auto font-bold text-right max-md:mt-10 max-md:max-w-full">
-              <h2 className="text-3xl py-5 tracking-tighter text-[#ccff00] uppercase leading-[56px] max-md:max-w-full">
+              <h2 className="text-3xl py-5 tracking-tighter text-[#ccff00] uppercase leading-[130%] max-md:max-w-full">
                 We will be waiting for you, HERE!
               </h2>
               <EventDetails />

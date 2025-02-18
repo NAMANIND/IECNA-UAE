@@ -49,7 +49,7 @@ function Ig() {
         >
           <div className="md:mt-0 mt-5 w-full flex flex-row-reverse justify-between  ">
             <div className="w-1/2 ">
-              <h1 className="leading-7 text-black uppercase   sm:text-4xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
+              <h1 className="leading-[130%] text-black uppercase   sm:text-4xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
                 The D-day for Brands and Marketing Tech in the World of
                 Influencer Marketing is here!
               </h1>
@@ -86,7 +86,7 @@ function Ig() {
           />
         </motion.div>
         <div className="md:mt-0 mt-5">
-          <h1 className="leading-7 text-black uppercase  sm:text-2xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
+          <h1 className="leading-[130%] text-black uppercase  sm:text-2xl text-lg sm:mb-0 mb-4 max-md:max-w-full  font-bold">
             The D-day for Brands and Marketing Tech in the World of Influencer
             Marketing is here!
           </h1>

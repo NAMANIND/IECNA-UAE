@@ -176,7 +176,7 @@ function Mediapartners() {
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`text-5xl text-center text-black leading-[61.92px] max-md:text-4xl ${anton.className} `}
+        className={`text-5xl text-center text-black leading-[130%] max-md:text-4xl ${anton.className} `}
       >
         MEDIA PARTNERS
       </motion.div>
@@ -192,7 +192,7 @@ function Mediapartners() {
               <div
                 className="flex flex-col grow pb-11 w-full text-2xl tracking-tighter 
               group
-               leading-6 text-white bg-black rounded-[36px] max-md:mt-6"
+               leading-[130%] text-white bg-black rounded-[36px] max-md:mt-6"
               >
                 <div className="overflow-hidden rounded-t-[36px]">
                   <img
@@ -210,7 +210,7 @@ function Mediapartners() {
                   <div className=" font-bold text-[#ccff00]">
                     {sponsor.name}
                   </div>
-                  <div className="mt-6 text-sm tracking-tight leading-5">
+                  <div className="mt-6 text-sm tracking-tight leading-[130%]">
                     {sponsor.description}
                   </div>
                   <a href={sponsor.link} target="_blank">
