@@ -12,58 +12,58 @@ import Image from "next/image";
 function Whattoexpect() {
   // Sample data for cards
   const cardData = [
-    {
-      title: "Engaging Interactions",
-      imgUrl: engaging,
-      description:
-        "Immerse in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects.",
-    },
-    {
-      title: "Curated Program",
-      imgUrl: curated,
-      description:
-        "Our carefully designed agenda features keynote speeches, interactive panel discussions, workshops, and networking sessions. Every moment is crafted to deliver valuable content and foster meaningful interactions.",
-    },
-    {
-      title: "Top-Notch Insights",
-      imgUrl: top,
-      description:
-        "Rub shoulders with leading marketeers and influencers from the region, gaining valuable insights and establishing significant relationships that transcend the event.",
-    },
-    {
-      title: "Future of Marketing",
-      imgUrl: future,
-      description:
-        "Explore the future of marketing with a focus on the latest trends and technologies in MarTech and AdTech. Stay ahead of the curve with innovative strategies and cutting-edge approaches.",
-    },
-    {
-      title: "Opportunities for All",
-      imgUrl: future,
-      description:
-        "Whether you're a marketer seeking innovative strategies or an influencer eager to collaborate with brands, this event provides the perfect platform to expand your network and explore new business opportunities.",
-    },
-    {
-      title: "Industry Expertise: ",
-      imgUrl: future,
-      description:
-        "Gain practical knowledge from industry experts, discover cutting-edge trends, and unlock the full potential of influencer marketing for your brand.",
-    },
+    // {
+    //   title: "Engaging Interactions",
+    //   imgUrl: engaging,
+    //   description:
+    //     "Immerse in a vibrant atmosphere where marketeers and influencers converge to share ideas, insights, and business prospects.",
+    // },
+    // {
+    //   title: "Curated Program",
+    //   imgUrl: curated,
+    //   description:
+    //     "Our carefully designed agenda features keynote speeches, interactive panel discussions, workshops, and networking sessions. Every moment is crafted to deliver valuable content and foster meaningful interactions.",
+    // },
+    // {
+    //   title: "Top-Notch Insights",
+    //   imgUrl: top,
+    //   description:
+    //     "Rub shoulders with leading marketeers and influencers from the region, gaining valuable insights and establishing significant relationships that transcend the event.",
+    // },
+    // {
+    //   title: "Future of Marketing",
+    //   imgUrl: future,
+    //   description:
+    //     "Explore the future of marketing with a focus on the latest trends and technologies in MarTech and AdTech. Stay ahead of the curve with innovative strategies and cutting-edge approaches.",
+    // },
+    // {
+    //   title: "Opportunities for All",
+    //   imgUrl: future,
+    //   description:
+    //     "Whether you're a marketer seeking innovative strategies or an influencer eager to collaborate with brands, this event provides the perfect platform to expand your network and explore new business opportunities.",
+    // },
+    // {
+    //   title: "Industry Expertise: ",
+    //   imgUrl: future,
+    //   description:
+    //     "Gain practical knowledge from industry experts, discover cutting-edge trends, and unlock the full potential of influencer marketing for your brand.",
+    // },
     // Add more objects as needed
     {
       title: "Inspiring Interactions",
-      imgUrl: future,
+      imgUrl: engaging,
       description:
         "Collaborate with a dynamic community of marketers, creators, and tech leaders.",
     },
     {
       title: "Industry Leadership",
-      imgUrl: future,
+      imgUrl: curated,
       description:
         "Learn actionable strategies and insights from the best in the field.",
     },
     {
       title: "Cutting-Edge Trends",
-      imgUrl: future,
+      imgUrl: top,
       description:
         "Stay updated on the technologies and practices shaping the future of marketing.",
     },

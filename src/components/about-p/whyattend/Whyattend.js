@@ -12,60 +12,60 @@ import exclusive from "../../../../public/images/aboutnew/exclusive.jpg";
 
 function Whyattend() {
   const cardData = [
-    {
-      title: "Networking\nOpportunities",
-      imageUrl: networking,
-      text: "The event provides a platform to connect with industry experts, influencers, marketers, and professionals from various sectors. Networking can lead to valuable partnerships, collaborations, and insights.",
-    },
-    {
-      title: "Industry\nInsights",
-      imageUrl: insights,
-      text: "The conference features speakers and panel discussions on the latest trends, strategies, and innovations in influencer marketing, ad tech & mar tech. Attending these sessions can provide you with valuable industry insights and knowledge.",
-    },
-    {
-      title: "Business\nOpportunities",
-      imageUrl: buiness,
-      text: "Discover potential business opportunities, partnerships, and collaborations with influencers or brands attending the event. It's a chance to explore new markets and expand your business network.",
-    },
-    {
-      title: "Recognition\n& Awards",
-      imageUrl: exclusive,
-      text: "If your company or work in influencer marketing deserves recognition, participating in awards can offer visibility and credibility within the industry.",
-    },
-    {
-      title: "Stay\nUpdated",
-      imageUrl: exclusive,
-      text: "Keep abreast of the latest tools, technologies, and platforms in the influencer marketing, ad tech & mar tech landscape. This knowledge can help you adapt and stay competitive in the evolving digital marketing ecosystem.",
-    },
-    {
-      title: "Inspiration\n& Motivation",
-      imageUrl: exclusive,
-      text: "Conferences often inspire attendees with success stories, case studies, and motivational talks. This can ignite creativity and motivation within your own influencer marketing campaigns.",
-    },
-    {
-      title: "Brand\nExposure",
-      imageUrl: exclusive,
-      text: "If you're a brand or agency, attending or sponsoring such an event can enhance your visibility and brand reputation within the influencer marketing community.",
-    },
-    {
-      title: "International\nPerspective",
-      imageUrl: exclusive,
-      text: "Dubai attracts a diverse international audience. Engaging with attendees from different countries and cultures can provide a broader perspective on influencer marketing strategies and practices worldwide.",
-    },
+    // {
+    //   title: "Networking\nOpportunities",
+    //   imageUrl: networking,
+    //   text: "The event provides a platform to connect with industry experts, influencers, marketers, and professionals from various sectors. Networking can lead to valuable partnerships, collaborations, and insights.",
+    // },
+    // {
+    //   title: "Industry\nInsights",
+    //   imageUrl: insights,
+    //   text: "The conference features speakers and panel discussions on the latest trends, strategies, and innovations in influencer marketing, ad tech & mar tech. Attending these sessions can provide you with valuable industry insights and knowledge.",
+    // },
+    // {
+    //   title: "Business\nOpportunities",
+    //   imageUrl: buiness,
+    //   text: "Discover potential business opportunities, partnerships, and collaborations with influencers or brands attending the event. It's a chance to explore new markets and expand your business network.",
+    // },
+    // {
+    //   title: "Recognition\n& Awards",
+    //   imageUrl: exclusive,
+    //   text: "If your company or work in influencer marketing deserves recognition, participating in awards can offer visibility and credibility within the industry.",
+    // },
+    // {
+    //   title: "Stay\nUpdated",
+    //   imageUrl: exclusive,
+    //   text: "Keep abreast of the latest tools, technologies, and platforms in the influencer marketing, ad tech & mar tech landscape. This knowledge can help you adapt and stay competitive in the evolving digital marketing ecosystem.",
+    // },
+    // {
+    //   title: "Inspiration\n& Motivation",
+    //   imageUrl: exclusive,
+    //   text: "Conferences often inspire attendees with success stories, case studies, and motivational talks. This can ignite creativity and motivation within your own influencer marketing campaigns.",
+    // },
+    // {
+    //   title: "Brand\nExposure",
+    //   imageUrl: exclusive,
+    //   text: "If you're a brand or agency, attending or sponsoring such an event can enhance your visibility and brand reputation within the influencer marketing community.",
+    // },
+    // {
+    //   title: "International\nPerspective",
+    //   imageUrl: exclusive,
+    //   text: "Dubai attracts a diverse international audience. Engaging with attendees from different countries and cultures can provide a broader perspective on influencer marketing strategies and practices worldwide.",
+    // },
 
     {
       title: "Stay Ahead of\nTrends",
-      imageUrl: exclusive,
+      imageUrl: networking,
       text: "Dive into the latest influencer marketing strategies shaping the global landscape.",
     },
     {
       title: "Expand Your\nNetwork",
-      imageUrl: exclusive,
+      imageUrl: insights,
       text: "Connect with top-tier brands, creators, and innovators.",
     },
     {
       title: "Unlock\nOpportunities",
-      imageUrl: exclusive,
+      imageUrl: buiness,
       text: "Explore partnerships and collaborations that could redefine your business or career.",
     },
     {
@@ -138,7 +138,7 @@ function Whyattend() {
       {/* Render each card dynamically */}
       <div className="self-stretch mt-2 w-full max-md:max-w-full">
         <div className="flex gap-y-5 sm:px-[5%] px-[0%] gap-x-[6%] flex-wrap max-md:gap-0 ">
-          <div className="grid grid-cols-3 gap-8 md:px-4 md:py-12 mx-auto max-w-7xl py-0 px-0 max-md:grid-cols-1">
+          <div className="grid grid-cols-2 gap-8 md:px-4 md:py-12 mx-auto max-w-7xl py-0 px-0 max-md:grid-cols-1">
             {cardData.map((card, index) => (
               <motion.div
                 key={index}

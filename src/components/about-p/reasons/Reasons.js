@@ -1,57 +1,41 @@
 "use client";
 
-import { AiOutlineGlobal } from "react-icons/ai";
+import {
+  FaComments,
+  FaLightbulb,
+  FaTrophy,
+  FaGlassCheers,
+} from "react-icons/fa";
 import { RiUserFollowLine } from "react-icons/ri";
-import { FaBullseye } from "react-icons/fa";
-import { GiPencilRuler } from "react-icons/gi";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaDollarSign } from "react-icons/fa";
-import { FaShieldAlt } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { work_sans, anton } from "@/styles/fonts";
 
 const content = [
   {
-    icon: AiOutlineGlobal,
-    title: "Reach and Exposure",
-    text: "Influencers have built large, engaged audiences across various platforms like Instagram, LinkedIn, YouTube, and blogs. Partnering with them allows brands to reach these targeted audiences effectively.",
+    icon: FaComments,
+    title: "Visionary Panel Discussions",
+    text: "Engage with industry thought leaders as they decode challenges and unlock the untapped potential in the UAE's influencer marketing landscape. Gain actionable insights into groundbreaking strategies driving success.",
+  },
+  {
+    icon: FaLightbulb,
+    title: "Exclusive Presentations & Insights",
+    text: "Discover transformative campaigns and technologies that are revolutionizing marketing. Learn to leverage MarTech and AdTech innovations to maximize ROI and captivate your audience.",
+  },
+  {
+    icon: FaTrophy,
+    title: "Prestigious Awards Ceremony",
+    text: "Celebrate excellence and innovation as we honor the visionaries and disruptors redefining influencer marketing. Witness industry leaders being recognized for their impactful contributions.",
   },
   {
     icon: RiUserFollowLine,
-    title: "Credibility and Trust",
-    text: "Influencers often have a close connection with their followers, who trust their opinions and recommendations. When an influencer promotes a product or service, it can lend credibility and authenticity to the brand.",
+    title: "Elite Networking Opportunities",
+    text: "Build meaningful connections with top marketers, influencers, and tech pioneers. Our exclusive networking spaces are designed to foster collaborations and spark growth.",
   },
   {
-    icon: FaBullseye,
-    title: "Audience Targeting",
-    text: "Influencers often specialize in specific niches or demographics. This targeting capability allows brands to reach their ideal customers more precisely.",
-  },
-  {
-    icon: GiPencilRuler,
-    title: "Content Creation",
-    text: "Influencers are skilled content creators. By collaborating with them, brands can leverage their creativity to develop engaging and authentic content that resonates with their audience.",
-  },
-  {
-    icon: FaCheckCircle,
-    title: "Social Proof and Conversions",
-    text: "Recommendations from influencers can lead to increased social proof. When consumers see influencers using and endorsing products, it can positively impact purchase decisions and conversions.",
-  },
-  {
-    icon: FaDollarSign,
-    title: "Cost-Effective",
-    text: "Compared to traditional advertising, influencer marketing can offer a good return on investment. It can be more affordable and potentially more impactful, especially for smaller brands.",
-  },
-  {
-    icon: FaShieldAlt,
-    title: "Ad Blocker Immunity",
-    text: "As traditional advertising faces challenges like ad blockers, influencer marketing provides a way to reach audiences organically through content.",
-  },
-  {
-    icon: FaSearch,
-    title: "SEO Benefits",
-    text: "Collaborating with influencers can also contribute to SEO efforts, especially through backlinks and increased brand mentions across the web.",
+    icon: FaGlassCheers,
+    title: "Gala Dinner & Executive Dialogues",
+    text: "Indulge in an elegant culinary experience while engaging in strategic discussions with industry icons. Forge valuable partnerships in a setting that blends sophistication with inspiration.",
   },
 ];
 function Reasons() {

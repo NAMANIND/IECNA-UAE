@@ -81,12 +81,12 @@ function Whoshould() {
   };
 
   return (
-    <div className="flex flex-col pt-11 pb-28 bg-black">
+    <div className="flex flex-col pt-11 pb-28 bg-white">
       <motion.div
         initial={offscreen}
         whileInView={onscreen}
         viewport={{ once: true, amount: 0.3 }}
-        className={`self-center text-5xl text-center text-white leading-[130%] max-md:max-w-full max-md:text-4xl ${anton.className}`}
+        className={`self-center text-5xl text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl ${anton.className}`}
       >
         WHO SHOULD SPONSOR?
       </motion.div>
@@ -115,12 +115,12 @@ function Whoshould() {
                   <div
                     className={`shrink-0 my-12 h-px  max-md:my-10 
                   
-                  ${index % 3 === 1 ? "bg-[#ccff00]" : "bg-white"}
+                  ${index % 3 === 1 ? "bg-[#51B6FF]" : "bg-neutral-800"}
                   `}
                   />
                 </div>
-                <div className="text-xl font-medium tracking-tighter leading-[130%] text-white flex flex-col justify-between max-md:mt-10">
-                  <span className="text-3xl font-bold text-[#ccff00] uppercase">
+                <div className="text-xl font-medium tracking-tighter leading-[130%] text-black flex flex-col justify-between max-md:mt-10">
+                  <span className="text-3xl font-bold text-[#51B6FF] uppercase">
                     {card.title}
                   </span>
                   <br />

@@ -174,7 +174,7 @@ function Aboutone() {
         >
           Dubai stands as an ideal destination for The Influence Exchange Confex
           & Awards due to its position as a global hub for innovation, business,
-          and digital transformation. The UAE’s influencer marketing landscape
+          and digital transformation. The UAE's influencer marketing landscape
           is thriving, with the sector experiencing exponential growth as brands
           increasingly recognize its power to drive authentic engagement and
           measurable results. <br />
@@ -183,10 +183,10 @@ function Aboutone() {
           2023, is projected to reach $24 billion by year-end. Within this
           vibrant ecosystem, Dubai emerges as a beacon for creativity and
           collaboration, offering a unique blend of cultural diversity,
-          tech-savvy consumers, and a robust digital infrastructure. The UAE’s
+          tech-savvy consumers, and a robust digital infrastructure. The UAE's
           marketing ecosystem reflects this growth, with 80% of marketers
           dedicating budgets to influencer campaigns and 67% planning to
-          increase spending, signaling confidence in the region’s ROI potential.
+          increase spending, signaling confidence in the region's ROI potential.{" "}
           <br />
           <br />
           Discover the future of marketing with the latest trends and
@@ -196,15 +196,11 @@ function Aboutone() {
           this event is the perfect platform to expand your network and explore
           new business opportunities. Gain practical knowledge from industry
           experts, discover cutting-edge trends, and unlock the potential of ad
-          tech, mar tech & influencer marketing for your brand.
-          <br />
+          tech, mar tech & influencer marketing for your brand. <br />
           <br />
           <span className="text-[#ccff00]">
-            {" "}
-            Don't miss out on this remarkable gathering of like-minded
-            professionals. Join us at the Influence Exchange Confex and Awards
-            3.0 Series Dubai 2025 to unlock the full potential of ad tech, mar
-            tech & influencer marketing in today's digital landscape.
+            Welcome to the 7th Edition of The Influence Exchange Confex &
+            Awards!
           </span>
         </motion.p>
         <motion.div
