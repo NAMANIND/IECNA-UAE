@@ -150,7 +150,7 @@ function ImageDownloadPage({
             company
           )}/fl_layer_apply,x_0,y_380/co_rgb:FFFFFF,l_text:arial_28_normal_left:${encodeURIComponent(
             marco
-          )}/fl_layer_apply,x_0,y_420/ozfp4vnlwhsvql9lqqi9.jpg`;
+          )}/fl_layer_apply,x_0,y_420/qwigpevfhdgg5yxyy8cp.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
@@ -160,7 +160,7 @@ function ImageDownloadPage({
             title
           )}/fl_layer_apply,x_0,y_330/co_rgb:FFFFFF,l_text:arial_28_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_0,y_380/ozfp4vnlwhsvql9lqqi9.jpg`;
+          )}/fl_layer_apply,x_0,y_380/qwigpevfhdgg5yxyy8cp.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
