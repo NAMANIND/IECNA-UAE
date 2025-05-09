@@ -16,6 +16,66 @@ function Oursponsor() {
   // Define data for sponsors
   const sponsors = [
     {
+      title: "Solution Partner",
+      name: "Divo",
+      description:
+        "Divo, a part of Warner Music Group, is one of India's leading digital media and music companies. Founded in 2014, it operates across Chennai, Bengaluru, Cochin, Mumbai, Delhi, and Hyderabad. Divo specializes in Online Video, Music Distribution, and Digital/Influencer Marketing. It is a top Multi-Channel Network, a major independent music distributor in South India, and a key player in digital marketing, working with brands, artists, and influencers.",
+      imageUrl: "https://india.theiena.com/images/sponsors/divo-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/divo.png",
+      link: "https://divo.in/",
+      special: true,
+    },
+    {
+      title: "Solution Partner",
+      name: "KlugKlug",
+      description:
+        "KlugKlug is a leading Influencer Marketing Tech SaaS platform offering real-time, AI-ML powered data on millions of influencers across Instagram, YouTube, and TikTok. With up to 85% data accuracy, it enables brands to discover the right influencers, access deep audience insights, avoid overlap, and improve campaign efficiency by 20–80%.",
+      imageUrl: "https://india.theiena.com/images/sponsors/klug-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/klug.png",
+      link: "https://klugklug.com/",
+      special: true,
+    },
+    {
+      title: "Solution Partner",
+      name: "Enki Studio",
+      description:
+        "At Enki Studio, creativity meets rebellion. What started as a classic design agency transformed into a powerhouse of imagination, innovation, and bold storytelling. They don't just deliver what brands ask for—they go beyond, crafting visual stories that pleasantly shock, deeply resonate, and leave lasting impressions.",
+      imageUrl: "https://india.theiena.com/images/sponsors/enki-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/enki.png",
+      link: "https://www.enki.studio/",
+      special: true,
+    },
+    {
+      title: "Exhibitor",
+      name: "Flaunt",
+      description:
+        "Flaunt offers an AI-powered SaaS platform purposefully designed for beauty & fashion brands to grow their social media & scale their influencer marketing!",
+      imageUrl: "https://india.theiena.com/images/sponsors/flaunt-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/flaunt.png",
+      link: "https://www.letsflaunt.com/",
+      special: true,
+    },
+    {
+      title: "Exhibitor",
+      name: "Offer18",
+      description:
+        'Offer18 is an "Award Winning" Campaign Tracking Platform for Affiliate Networks, Advertisers, and Agencies with professional tracking capabilities. Offer18 helps digital professionals to create their affiliate network, optimize their campaign performance and utilize every bit of their traffic sources to generate better ROI using in-built advanced tools of technology.',
+      imageUrl: "https://india.theiena.com/images/sponsors/offer-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/offer.png",
+      link: "https://www.offer18.com",
+      special: true,
+    },
+    {
+      title: "Exhibitor",
+      name: "Voxxy Media",
+      description:
+        "Voxxy Media is an award-winning, integrated creator economy agency driving the future of digital storytelling across India, Indonesia, and Southeast Asia. Our comprehensive suite of offerings includes high-impact influencer marketing, exceptional content creation, robust community building, experiential activations, meme marketing, talent management, affiliate and social commerce, and strategic brand collaborations.",
+      imageUrl: "https://india.theiena.com/images/sponsors/voxxy-og.png",
+      logoUrl: "https://india.theiena.com/images/sponsors/voxxy.png",
+      link: "https://voxxymedia.com/",
+      special: true,
+    },
+    {
       title: "Lanyard Sponsor",
       name: "Socio Genee",
       description:
