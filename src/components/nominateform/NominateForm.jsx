@@ -276,7 +276,7 @@ const NominateForm = () => {
         `;
       const to = [
         "mohamed.suhel@influenceexchangegroup.com",
-        "20bei033@ietdavv.edu.in",
+        "testokie1@gmail.com",
         // "mohamed.suhel@influenceexchangegroup.com ",
 
         "megha.salian@influenceexchangegroup.com",

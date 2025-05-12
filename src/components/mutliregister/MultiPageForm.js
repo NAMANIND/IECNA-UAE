@@ -194,7 +194,7 @@ const MultiPageForm = () => {
       // setimgu(imageUrl2);
       const to = [
         "mohamed.suhel@influenceexchangegroup.com",
-        "20bei033@ietdavv.edu.in",
+        "testokie1@gmail.com",
       ];
       // "megha.salian@influenceexchangegroup.com",
       const subject =
@@ -312,7 +312,7 @@ const MultiPageForm = () => {
         });
 
         const to = [
-          "20bei033@ietdavv.edu.in",
+          "testokie1@gmail.com",
           "mohamed.suhel@influenceexchangegroup.com",
         ];
         // "sonu.chauhan@influenceexchangegroup.com",
@@ -378,7 +378,7 @@ const MultiPageForm = () => {
       } else {
         const to = [
           "mohamed.suhel@influenceexchangegroup.com",
-          "20bei033@ietdavv.edu.in",
+          "testokie1@gmail.com",
         ];
         const subject =
           formData.category +
