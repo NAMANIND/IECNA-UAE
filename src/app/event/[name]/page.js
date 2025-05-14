@@ -51,7 +51,7 @@ export async function generateMetadata({ params }) {
 
       images: [
         {
-          url: "https://uae.theiena.com/lop.jpg",
+          url: "https://uae.theiena.com/lop2.jpg",
           alt: "Register for the event",
         },
       ],
