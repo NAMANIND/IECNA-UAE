@@ -46,7 +46,7 @@ function Herosection() {
         <div className="flex sm:gap-5 gap-0 relative z-50 items-end mt-44 text-4xl max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
           <div
             className="flex-auto mt-6 leading-[130%] sm:text-left text-center
-          opacity-0 pointer-events-none
+       pointer-events-none
           "
           >
             6<sup className="text-white">th</sup> EDITION

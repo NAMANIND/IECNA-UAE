@@ -199,7 +199,7 @@ function Aboutone() {
           tech, mar tech & influencer marketing for your brand. <br />
           <br />
           <span className="text-[#ccff00]">
-            Welcome to the 7th Edition of The Influence Exchange Confex &
+            Welcome to the 6th Edition of The Influence Exchange Confex &
             Awards!
           </span>
         </motion.p>
