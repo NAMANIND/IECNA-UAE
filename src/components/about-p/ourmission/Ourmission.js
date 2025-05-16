@@ -36,8 +36,8 @@ function Ourmisson() {
         viewport={{ once: true, amount: 0.3 }}
         className={`mt-20 sm:px-60 px-5 text-2xl font-medium tracking-tighter leading-[130%] max-md:mt-10 max-md:max-w-full ${work_sans.className} `}
       >
-        At The Influence Exchange Confex & Awards 3.0 Series, we are dedicated
-        to fostering connections, inspiring creativity, and acknowledging the
+        At The Influence Exchange Confex & Awards Series, we are dedicated to
+        fostering connections, inspiring creativity, and acknowledging the
         efforts of influencers and marketers who are leading transformative
         initiatives across various sectors.
       </motion.p>

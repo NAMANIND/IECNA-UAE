@@ -112,7 +112,6 @@ function Whyattend() {
       >
         <span className="font-semibold  italic">
           DUBAI We are back with The Influencer Exchange Confex & Awards Series
-          3.0
           <br /> WE ARE BRINGING TOGETHER OVER{" "}
         </span>
         <span className="font-semibold italic text-[#51B6FF]">
