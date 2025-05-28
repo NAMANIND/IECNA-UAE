@@ -22,10 +22,19 @@ import uae_approachbollywood from "../../../../public/images/sponsors/uae/approc
 import uae_publicfront from "../../../../public/images/sponsors/uae/publicfront.png";
 import uae_cargoinsights from "../../../../public/images/sponsors/cargo.png";
 import uae_bharatcxo from "../../../../public/images/sponsors/bharath.png";
+import uae_bd from "../../../../public/images/sponsors/db_ventures.png";
 
 function Mediapartners() {
   // Define data for sponsors
   const sponsors = [
+    {
+      name: "BD Ventures",
+      description:
+        "BD Ventures (short for Big Deal) is a professional organization founded in 2020 in Vietnam. The company currently operates two main sections: BD Ventures, which functions as a dynamic crypto community, and BD Agency, which serves as a dedicated marketing agency. BD Ventures focuses on supporting and engaging with high-quality projects within the blockchain space, particularly in areas such as the Metaverse, DeFi, NFTs, GameFi, and Layer-1/Layer-2 technologies. Through both its community and agency arms, BD Ventures aims to drive innovation and foster growth in the evolving landscape of blockchain applications.",
+      imageUrl: "/images/sponsors/db_ventures-og.png",
+      logoUrl: uae_bd,
+      link: "https://www.bdventures.vn/",
+    },
     {
       name: "Cargo Insights",
       description:
