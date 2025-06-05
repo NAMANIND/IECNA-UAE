@@ -144,23 +144,23 @@ function ImageDownloadPage({
       if (field === "marketer") {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_thumb,w_352,h_352,x_-5,y_0,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_42_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_thumb,w_395,h_395,x_-10,y_-50,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_42_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_0,y_330/co_rgb:FFFFFF,l_text:arial_28_normal_left:${encodeURIComponent(
             company
           )}/fl_layer_apply,x_0,y_380/co_rgb:FFFFFF,l_text:arial_28_normal_left:${encodeURIComponent(
             marco
-          )}/fl_layer_apply,x_0,y_420/xoalg0h30shd4tyxiena.jpg`;
+          )}/fl_layer_apply,x_0,y_420/DUBAI_AWAR.NewD_hbacvz.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       } else {
         const transformedImageUrl =
           `https://res.cloudinary.com/dmedpnbvc/image/upload/` +
-          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_thumb,w_352,h_352,x_-5,y_0,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_42_bold_normal_left:${encodeURIComponent(
+          `l_iecna_upload_uae:${overlayParam}/fl_layer_apply,ar_1.0,c_thumb,w_395,h_395,x_-10,y_-50,r_max/c_scale/co_rgb:FFFFFF,l_text:arial_42_bold_normal_left:${encodeURIComponent(
             title
           )}/fl_layer_apply,x_0,y_330/co_rgb:FFFFFF,l_text:arial_28_normal_left:${encodeURIComponent(
             company
-          )}/fl_layer_apply,x_0,y_380/xoalg0h30shd4tyxiena.jpg`;
+          )}/fl_layer_apply,x_0,y_380/DUBAI_AWAR.NewD_hbacvz.jpg`;
 
         setTransformedImageUrl(transformedImageUrl);
       }
