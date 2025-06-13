@@ -252,7 +252,7 @@ function SpeakerCard() {
     const fetchPastIndiaspeakers = async () => {
       try {
         const pastIndiaspeakersCollection = await firestore
-          .collection("uae-speakers2025")
+          .collection("uae-speakers")
           .where("approved", "==", true) // Filter speakers where approved is true
           .get();
         const pastIndiaspeakersData = pastIndiaspeakersCollection.docs.map(
@@ -309,21 +309,21 @@ function SpeakerCard() {
                   viewport={{ once: true, amount: 0.3 }}
                   key={index}
                 >
-                  {/* Replace sample data with fetched speaker data */}
+            
                   <DescriptionCard
                     key={index}
-                    img={speaker.imageUrl} // Speaker image URL
-                    title={speaker.firstName + " " + speaker.lastName} // Full name
+                    img={speaker.imageUrl}
+                    title={speaker.firstName + " " + speaker.lastName} 
                     job={
                       speaker.jobTitle +
                       (speaker.company ? ", " + speaker.company : "")
-                    } // Job profile and company
-                    des={speaker.details} // Speaker description
-                    linkedin={speaker.linkedin} // LinkedIn URL
-                    instagram={speaker.instagram} // Instagram URL
-                    tiktok={speaker.tiktok} // TikTok URL
-                    snapchat={speaker.snapchat} // Snapchat URL
-                    youtube={speaker.youtube} // YouTube URL
+                    }
+                    des={speaker.details}
+                    linkedin={speaker.linkedin} 
+                    instagram={speaker.instagram} 
+                    tiktok={speaker.tiktok} 
+                    snapchat={speaker.snapchat}
+                    youtube={speaker.youtube} 
                   />
                 </motion.div>
               ))}
