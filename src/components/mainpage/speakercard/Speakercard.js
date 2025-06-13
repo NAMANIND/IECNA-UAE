@@ -290,7 +290,7 @@ function SpeakerCard() {
     <section
       className={`flex flex-col md:px-20 px-5 bg-white py-[200px] w-full   ${anton.className}`}
     >
-      {speakers.length > 0 && (
+      {/* {speakers.length > 0 && (
         <>
           <motion.h2
             initial={offscreen}
@@ -330,7 +330,7 @@ function SpeakerCard() {
             </div>
           </div>
         </>
-      )}
+      )} */}
       {speakers.length > 0 && (
         <>
           <motion.h2
@@ -344,7 +344,7 @@ function SpeakerCard() {
 
           <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-              {speakers.slice(1, 9).map((speaker, index) => (
+              {speakers.slice(0, 8).map((speaker, index) => (
                 <motion.div
                   initial={offscreen}
                   whileInView={onscreen}

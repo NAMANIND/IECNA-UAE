@@ -472,7 +472,7 @@ function SpeakerCard() {
             </motion.h2>
             <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-                {speakers.slice(1).map((speaker, index) => (
+                {speakers.slice(0).map((speaker, index) => (
                   <motion.div
                     initial={offscreen}
                     whileInView={onscreen}
