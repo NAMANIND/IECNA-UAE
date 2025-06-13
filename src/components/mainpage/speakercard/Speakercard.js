@@ -245,7 +245,7 @@ function SpeakerCard() {
       }
     };
 
-    // Call the fetchSpeakers function when component mounts
+    // Call the fetchSpeakers function when component mount
     fetchSpeakers();
 
     // Function to fetch past speakers data from Firestore
