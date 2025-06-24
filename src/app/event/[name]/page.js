@@ -86,6 +86,15 @@ function page({ params }) {
         "mohamed.suhel@influenceexchangegroup.com",
       ],
     },
+    meghana: {
+      FormType: "general",
+      emails: [
+        "testokie1@gmail.com",
+        "megha.salian@influenceexchangegroup.com",
+        "meghana.rao@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+      ],
+    },
     veera: {
       FormType: "general",
       emails: [
