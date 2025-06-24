@@ -245,7 +245,7 @@ function SpeakerCard() {
       }
     };
 
-    // Call the fetchSpeakers function when component mounts
+    // Call the fetchSpeakers function when component mount
     fetchSpeakers();
 
     // Function to fetch past speakers data from Firestore
@@ -290,7 +290,7 @@ function SpeakerCard() {
     <section
       className={`flex flex-col md:px-20 px-5 bg-white py-[200px] w-full   ${anton.className}`}
     >
-      {speakers.length > 0 && (
+      {/* {speakers.length > 0 && (
         <>
           <motion.h2
             initial={offscreen}
@@ -309,28 +309,28 @@ function SpeakerCard() {
                   viewport={{ once: true, amount: 0.3 }}
                   key={index}
                 >
-                  {/* Replace sample data with fetched speaker data */}
+            
                   <DescriptionCard
                     key={index}
-                    img={speaker.imageUrl} // Speaker image URL
-                    title={speaker.firstName + " " + speaker.lastName} // Full name
+                    img={speaker.imageUrl}
+                    title={speaker.firstName + " " + speaker.lastName} 
                     job={
                       speaker.jobTitle +
                       (speaker.company ? ", " + speaker.company : "")
-                    } // Job profile and company
-                    des={speaker.details} // Speaker description
-                    linkedin={speaker.linkedin} // LinkedIn URL
-                    instagram={speaker.instagram} // Instagram URL
-                    tiktok={speaker.tiktok} // TikTok URL
-                    snapchat={speaker.snapchat} // Snapchat URL
-                    youtube={speaker.youtube} // YouTube URL
+                    }
+                    des={speaker.details}
+                    linkedin={speaker.linkedin} 
+                    instagram={speaker.instagram} 
+                    tiktok={speaker.tiktok} 
+                    snapchat={speaker.snapchat}
+                    youtube={speaker.youtube} 
                   />
                 </motion.div>
               ))}
             </div>
           </div>
         </>
-      )}
+      )} */}
       {speakers.length > 0 && (
         <>
           <motion.h2
@@ -344,7 +344,7 @@ function SpeakerCard() {
 
           <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-              {speakers.slice(1, 9).map((speaker, index) => (
+              {speakers.slice(0, 8).map((speaker, index) => (
                 <motion.div
                   initial={offscreen}
                   whileInView={onscreen}

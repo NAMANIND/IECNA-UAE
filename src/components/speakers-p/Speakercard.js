@@ -426,7 +426,7 @@ function SpeakerCard() {
     const fetchSpeakers = async () => {
       try {
         const speakersCollection = await firestore
-          .collection("uae-speakers")
+          .collection("uae-speakers2025")
           .where("approved", "==", true) // Filter speakers where approved is true
           .get();
         const speakersData = speakersCollection.docs.map((doc) => doc.data());
@@ -468,11 +468,11 @@ function SpeakerCard() {
               viewport={{ once: true, amount: 0.3 }}
               className="self-center text-5xl text-center text-black leading-[130%] max-md:max-w-full max-md:text-4xl"
             >
-              OUR PAST SPEAKERS
+              OUR ESTEEMED SPEAKERS
             </motion.h2>
             <div className="mt-[120px] w-full max-md:mt-10 max-md:max-w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 gap-y-[150px] w-full">
-                {speakers.slice(1).map((speaker, index) => (
+                {speakers.slice(0).map((speaker, index) => (
                   <motion.div
                     initial={offscreen}
                     whileInView={onscreen}
