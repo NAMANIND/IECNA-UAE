@@ -336,6 +336,22 @@ const NominateForm = () => {
     }
   };
 
+  // Function to map influencer categories to detailed versions with follower counts
+  const getDetailedInfluencerCategory = (category) => {
+    const categoryMapping = {
+      "Mega/Celeb-Influencer of the Year":
+        "Mega Influencer of the Year (500K+ followers)",
+      "Macro-Influencer of the Year":
+        "Macro Influencer of the Year (100K-500K followers)",
+      "Micro-Influencer of the Year":
+        "Micro Influencer of the Year (50K-100K followers)",
+      "Nano Influencer of the year":
+        "Nano Influencer of the Year (25K-50K followers)",
+    };
+
+    return categoryMapping[category] || category;
+  };
+
   // Render different steps based on current step
   let stepComponent;
   switch (step) {
@@ -390,7 +406,7 @@ const NominateForm = () => {
                       defaultSelected={selectedCategories.includes(category)}
                       label={category}
                     >
-                      {category}
+                      {getDetailedInfluencerCategory(category)}
                     </Checkbox>
                   </div>
                 ))
@@ -822,10 +838,10 @@ const NominateForm = () => {
 };
 
 const influencerCategories = [
-  "Mega/Celeb-Influencer of the Year",
-  "Macro-Influencer of the Year",
-  "Micro-Influencer of the Year",
   "Nano Influencer of the year",
+  "Micro-Influencer of the Year",
+  "Macro-Influencer of the Year",
+  "Mega/Celeb-Influencer of the Year",
   "Creative Visual Content Creator",
   "Social Media Engagement Champion",
   "Best Fashion and Style Influencer of the Year",
