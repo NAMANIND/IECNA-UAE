@@ -33,7 +33,7 @@ const DescriptionCard = ({
       onHoverEnd={() => setIsHovered(false)}
     >
       <div>
-        <Image
+        <img
           src={img}
           alt="Speaker Image"
           width={400} // Add the width property
