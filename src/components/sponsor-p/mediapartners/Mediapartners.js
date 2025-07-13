@@ -28,6 +28,72 @@ function Mediapartners() {
   // Define data for sponsors
   const sponsors = [
     {
+      name: "Business Minds Media",
+      description:
+        "Business Minds Media is a global media platform committed to delivering authentic and valuable business insights to entrepreneurs, industry leaders, and decision-makers. The publication serves as a trusted source of information, offering high-quality content designed to inform, inspire, and empower its readership.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fbmm.png?alt=media&token=49127510-b79d-4a4b-84c0-1ff40032fbd6",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fbmm-og.png?alt=media&token=18a4318f-066b-426c-9092-077cd03048c4",
+      link: "https://www.businessmindsmedia.com",
+      new: true,
+    },
+    {
+      name: "Cyber Defense Magazine",
+      description:
+        "Cyber Defense Magazine is by ethical, honest, passionate information security professionals for IT Security professionals.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fcd-og.png?alt=media&token=c9d90160-e5b9-468f-bd43-24a6f087993b",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fcd.png?alt=media&token=1c3a54c9-93a6-4246-b331-828e6a3669a6",
+      link: "https://www.cyberdefensemagazine.com/",
+      new: true,
+    },
+    {
+      name: "News Patrolling",
+      description:
+        "News Patrolling is an independent news platform that brings you unbiased stories, trending updates, and insightful articles across politics, lifestyle, startups, technology, and more shaping informed perspectives daily.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fnp-og.png?alt=media&token=805e6192-a32e-4488-8f0e-40aea5ed1a50",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fnp.png?alt=media&token=1abdf08a-123f-4c5d-bb5e-dd377092219c",
+      link: "https://newspatrolling.com/",
+      new: true,
+    },
+    {
+      name: "Silicon India",
+      description:
+        "Siliconindia, your window to the US-India tech boom. This trailblazing magazine spotlights rising entrepreneurs, tech wizards, and top CEOs, offering crucial business insights that bridge two powerhouse nations. It's the go-to platform for game-changers, featuring stories of icons like Satya Nadella and Sundar Pichai. From startup dreams to public company triumphs, Siliconindia captures it all. With editions in both the US and India, it's not just a magazine – it's a launchpad for the next generation of global tech leaders.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fsi-og.png?alt=media&token=28db2fd1-a04b-4eb9-b2e5-69d139af4d6c",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fsi.png?alt=media&token=fdf29922-3dc4-418f-a5cd-e9314e328d1a",
+      link: "https://www.siliconindia.com/",
+      new: true,
+    },
+    {
+      name: "TechCrack",
+      description:
+        "TechCrack is a technology blog founded & managed by Romit Sharma. TechCrack is a destination which updates you about the latest technology by providing info on tech news, gadgets, how to's, apps & softwares, gaming, business, marketing and much more... Our aim is to look for Tech In Every Thing.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Ftc-og.png?alt=media&token=8308586e-1477-4a23-9d35-ef8c941ef660",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Ftc.png?alt=media&token=16e5094d-a98b-4603-8108-0f3017c463e5",
+      link: "http://www.techcrackblog.com/",
+      new: true,
+    },
+    {
+      name: "The Business Fame",
+      description:
+        "The Business Fame Magazine is ISO 9001:2015 Certified Media Firm that caters business information to the C- level professionals of a vast series of industries. We are providing the innovative online advertising platform to the new start-up companies and young entrepreneurs to showcase their product and services over the globe. The main vision is to boost the start-up and recognize by respective sectors.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fbf-og.png?alt=media&token=985004f8-fb35-44ab-8f8e-8053f42f37c1",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2Fbf.png?alt=media&token=4aa23108-4e1d-4a53-9c83-2ab39cefcc54",
+      link: "https://thebusinessfame.com/",
+      new: true,
+    },
+    {
       name: "BD Ventures",
       description:
         "BD Ventures (short for Big Deal) is a professional organization founded in 2020 in Vietnam. The company currently operates two main sections: BD Ventures, which functions as a dynamic crypto community, and BD Agency, which serves as a dedicated marketing agency. BD Ventures focuses on supporting and engaging with high-quality projects within the blockchain space, particularly in areas such as the Metaverse, DeFi, NFTs, GameFi, and Layer-1/Layer-2 technologies. Through both its community and agency arms, BD Ventures aims to drive innovation and foster growth in the evolving landscape of blockchain applications.",
@@ -241,9 +307,8 @@ function Mediapartners() {
                     {sponsor.description}
                   </div>
                   <a href={sponsor.link} target="_blank">
-                    <Image
-                      loading="lazy"
-                      src={sponsor.logoUrl}
+                    <img
+                      src={sponsor.new ? sponsor.logoUrl : sponsor.logoUrl.src}
                       className="mt-20 max-w-full aspect-[2.13] w-[114px] max-md:mt-10"
                     />
                   </a>
