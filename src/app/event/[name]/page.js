@@ -77,6 +77,15 @@ function page({ params }) {
         "mohamed.suhel@influenceexchangegroup.com",
       ],
     },
+    rajat: {
+      FormType: "general",
+      emails: [
+        "testokie1@gmail.com",
+        "megha.salian@influenceexchangegroup.com",
+        "rajat.dhekane@influenceexchangegroup.com",
+        "mohamed.suhel@influenceexchangegroup.com",
+      ],
+    },
     navya: {
       FormType: "general",
       emails: [
