@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import img2 from "../../../../public/images/home/dv1.jpg";
 import Image from "next/image";
+import { FaLocationDot } from "react-icons/fa6";
 
 function Venue() {
   const offscreen = {
@@ -82,9 +83,18 @@ function Venue() {
               <div
                 className={`mt-0 tracking-tighter leading-[56px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px] ${work_sans.className}`}
               >
-                VENUE
-                <br />
-                DUBAI
+                <a
+                  href="https://maps.app.goo.gl/G2WiPdbyZZdcv3uL8"
+                  target="_blank"
+                >
+                  Taj Dubai
+                  <br />
+                  <span className="flex flex-row gap-2">
+                    {" "}
+                    UAE {"    "}
+                    <FaLocationDot />
+                  </span>
+                </a>
               </div>
             </div>
           </div>

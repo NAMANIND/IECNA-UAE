@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 import Button from "@/components/button/Button";
 import img from "../../../../public/images/home/dv2.jpg";
 import Image from "next/image";
+import { FaLocationDot } from "react-icons/fa6";
 
 import { motion } from "framer-motion";
 
@@ -39,12 +40,19 @@ function EventDetails() {
           <span className="text-white"> SEPTEMBER 2025</span>
         </time>
 
-        <div
-          className={`self-end sm:mt-12 my-5 text-5xl uppercase  font-bold  text-[#ccff00] tracking-tighter	 leading-[130%] w-[282px]  max-md:text-4xl max-md:leading-[130%] ${work_sans.className}  `}
-        >
-          VENUE
-          <br />
-          Dubai
+        <div className={`${work_sans.className} text-right`}>
+          <a
+            href="https://maps.app.goo.gl/G2WiPdbyZZdcv3uL8"
+            className="inline-block text-5xl font-bold text-[#ccff00] tracking-tight hover:text-lime-300 transition-colors max-md:text-3xl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Taj Dubai
+            <div className="flex items-center justify-end gap-2 mt-2">
+              UAE
+              <FaLocationDot className="text-4xl max-md:text-2xl" />
+            </div>
+          </a>
         </div>
       </div>
     </>
