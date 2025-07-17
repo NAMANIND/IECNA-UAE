@@ -230,7 +230,7 @@ const NewMultiPageForm = ({ to, name }) => {
       return;
     }
 
-    if (formData.image === null) {
+    if (formData.registrationType === "nomination" && formData.image === null) {
       alert("Please upload image");
       return;
     }
@@ -425,10 +425,9 @@ const NewMultiPageForm = ({ to, name }) => {
       }
       if (isemailok) {
         setSent(true);
-        // Form submission logic goes here
+        setPoppage(true); // Always show popup after successful submission
         setSubmitted(false);
-        // alert("Nomination Form submitted successfully!");
-        // Reset form and page state
+        // Reset form and page state with all fields
         setFormData({
           registrationType: "",
           category: "",
@@ -441,21 +440,32 @@ const NewMultiPageForm = ({ to, name }) => {
           jobTitle: "",
           country: "",
           industry: "",
-          socialMedia: "",
+          recommendation1: "",
+          recommendation2: "",
+          instagram: "",
+          linkedin: "",
+          youtube: "",
+          tiktok: "",
+          snapchat: "",
+          image: null,
         });
         setPage(1);
         setTopics([]);
-        setValues(new Set([]));
         setSelectedCategories([]);
+        setValues(new Set([]));
       }
     } else {
-      const imageRef = storage
-        .ref()
-        .child(`uae-delegate-image2025/${formData.image.name}`);
-      await imageRef.put(formData.image);
-      const imageUrl2 = await imageRef.getDownloadURL();
-      setimgu(imageUrl2);
-
+      let imageRef = null;
+      let imageUrl2 = "";
+      if (formData.image) {
+        imageRef = storage
+          .ref()
+          .child(`uae-delegate-image2025/${formData.image.name}`);
+        await imageRef.put(formData.image);
+        imageUrl2 = await imageRef.getDownloadURL();
+        setimgu(imageUrl2);
+        setimage(formData.image); // Set spimg for delegate
+      }
       const htmlcontent = `
       <p>First Name: ${formData.firstName}</p>
       <p>Last Name: ${formData.lastName}</p>
@@ -482,11 +492,14 @@ const NewMultiPageForm = ({ to, name }) => {
    
     `;
 
+      const noImage = imageRef ? " " : " (no Image): ";
+
       const subject =
         name +
         " " +
         field +
-        " delegate form submission by: " +
+        " delegate form submission by" +
+        noImage +
         formData.firstName +
         " " +
         formData.lastName;
@@ -507,22 +520,28 @@ const NewMultiPageForm = ({ to, name }) => {
 
       await nomineeRef.set({
         id: nomineeId,
-        firstName: formData.firstName.toLowerCase().replace(/\s/g, ""),
-        lastName: formData.lastName.toLowerCase().replace(/\s/g, ""),
-        field,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        jobTitle: formData.jobTitle,
-        country: formData.country,
-        industry: formData.industry,
-        linkedin: formData.linkedin,
-        instagram: formData.instagram,
-        internal_name: name,
-        imageUrl2,
+        firstName: formData.firstName?.toLowerCase().replace(/\s/g, "") || "",
+        lastName: formData.lastName?.toLowerCase().replace(/\s/g, "") || "",
+        field: field || "",
+        email: formData.email || "",
+        phone: formData.phone || "",
+        company: formData.company || "",
+        jobTitle: formData.jobTitle || "",
+        country: formData.country || "",
+        industry: formData.industry || "",
+        linkedin: formData.linkedin || "",
+        instagram: formData.instagram || "",
+        youtube: formData.youtube || "",
+        tiktok: formData.tiktok || "",
+        snapchat: formData.snapchat || "",
+        recommendation1: formData.recommendation1 || "",
+        recommendation2: formData.recommendation2 || "",
+        internal_name: name || "",
+        imageUrl2: imageUrl2 || null,
       });
       if (isemailok) {
         setSent(true);
+        setPoppage(true); // Always show popup after successful submission
         // Form submission logic goes here
         setSubmitted(false);
         // alert("Delegate Form submitted successfully!");
@@ -983,8 +1002,14 @@ const NewMultiPageForm = ({ to, name }) => {
                   </div>
 
                   <label className="text-sm form-color ">
-                    Upload Image<span className="redal">*</span> ( 1:1 Square
-                    Image){" "}
+                    {formData.registrationType === "nomination" ? (
+                      <p>
+                        Upload Image<span className="redal">*</span> ( 1:1
+                        Square Image)
+                      </p>
+                    ) : (
+                      <p>Get your "I'm Attending" poster (Optional)</p>
+                    )}
                   </label>
                   <Button
                     component="label"
@@ -1022,8 +1047,14 @@ const NewMultiPageForm = ({ to, name }) => {
 
                   <div className="flex md:flex-col flex-col gap-2 w-full">
                     <label className="text-sm form-color ">
-                      Upload Image<span className="redal">*</span> ( 1:1 Square
-                      Image){" "}
+                      {formData.registrationType === "nomination" ? (
+                        <p>
+                          Upload Image<span className="redal">*</span> ( 1:1
+                          Square Image)
+                        </p>
+                      ) : (
+                        <p>Get your "I'm Attending" poster (Optional)</p>
+                      )}
                     </label>
                     <Button
                       component="label"
@@ -1122,11 +1153,12 @@ const NewMultiPageForm = ({ to, name }) => {
                 <h1 className="text-2xl font-bold sm:mb-10 mb-0 sm:text-center text-left w-full text-black">
                   Form submitted successfully!
                 </h1>
-
                 <button
                   onClick={() => {
                     setSent(false);
                     setrtype("");
+                    // reload the page
+                    window.location.reload();
                   }}
                   className={`absolute right-0 top-0  
                 bg-black text-white w-fit h-fit rounded-3xl 
@@ -1142,12 +1174,11 @@ const NewMultiPageForm = ({ to, name }) => {
                 </button>
               </div>
               <div className="flex-col justify-center sm:justify-around sm:flex-row flex gap-5 items-center w-full">
-                <div
-                  className={`flex justify-center items-center w-full sm:w-[${
-                    rtype === "nomination" ? "50%" : "50%"
-                  }]`}
-                >
-                  {poppage && (
+                {/* Only show banner if image was uploaded */}
+                {spimg && (
+                  <div
+                    className={`flex justify-center items-center w-full sm:w-[50%]`}
+                  >
                     <ImageDownloadPage
                       imageData={spimg}
                       title={sptitle1}
@@ -1158,8 +1189,8 @@ const NewMultiPageForm = ({ to, name }) => {
                       rem={rmstring}
                       email={spemail}
                     />
-                  )}
-                </div>
+                  </div>
+                )}
                 <div className="flex justify-start sm:text-2xl text-medium sm:mt-0 mt-5 flex-col gap-4 align-top h-1/2 sm:h-[70vh] ">
                   {rtype === "nomination" && (
                     <div className="w-1/2 flex">
@@ -1195,12 +1226,14 @@ const NewMultiPageForm = ({ to, name }) => {
                       </div>
                     </div>
                   )}
-                  <div className="w-1/2 flex ">
-                    <div className="  w-full">
-                      Social Share:
-                      {so}
+                  {spimg && (
+                    <div className="w-1/2 flex ">
+                      <div className="  w-full">
+                        Social Share:
+                        {so}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="flex">
                     <div className="w-full">
                       <h1 className="mb-5">
