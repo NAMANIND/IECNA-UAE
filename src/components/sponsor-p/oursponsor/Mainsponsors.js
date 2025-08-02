@@ -24,6 +24,18 @@ function Mainsponsors() {
       logoUrl: proExpo,
       link: "https://www.pro-expo.co.ke/",
     },
+    {
+      title: "Visibility Partner",
+      name: "Life2sparks",
+      description:
+        "Life2sparks is a groundbreaking mobile app that blends the best of dating and travel platforms, tailored for adventurous singles seeking deep connections around the globe. By combining intelligent matchmaking with intuitive travel planning features, Sparks is redefining how people meet, bond, and explore the world together. Sparks is world's first fusion travel dating app and it is live in 175+ countries.",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/sponsors%2Fls-og.png?alt=media&token=1bff2282-d592-43f8-8374-30ec0b8aa143",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/sponsors%2Fls.png?alt=media&token=36ce510a-078f-424e-82b8-e941cfe50232",
+      link: "https://www.life2sparks.com/",
+      special: true,
+    },
   ];
 
   const offscreen = {
@@ -77,7 +89,6 @@ function Mainsponsors() {
               >
                 <div className="overflow-hidden rounded-t-[36px]">
                   <img
-                    loading="lazy"
                     src={sponsor.imageUrl}
                     className="w-full aspect-[2.38] group-hover:scale-105 transition-transform duration-300 ease-in-out"
                   />

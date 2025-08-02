@@ -144,19 +144,24 @@ const VoteViews = () => {
           return acc;
         }, {});
 
-        setNomineesByCategory(groupedNominees);
-        // totalVotes(groupedNominees);
-        // Sort the categories according to the specified order
-        // const sortedGroupedNominees = allCategories.reduce((acc, category) => {
-        //   if (groupedNominees[category]) {
-        //     acc[category] = groupedNominees[category];
-        //   } else {
-        //     acc[category] = [];
-        //   }
-        //   return acc;
-        // }, {});
+        // Sort the categories: marketers first, then influencers
+        const sortedGroupedNominees = {};
 
-        // setNomineesByCategory(sortedGroupedNominees);
+        // Add marketer categories first
+        marketerCategories.forEach((category) => {
+          if (groupedNominees[category]) {
+            sortedGroupedNominees[category] = groupedNominees[category];
+          }
+        });
+
+        // Then add influencer categories
+        influencerCategories.forEach((category) => {
+          if (groupedNominees[category]) {
+            sortedGroupedNominees[category] = groupedNominees[category];
+          }
+        });
+
+        setNomineesByCategory(sortedGroupedNominees);
       } catch (error) {
         console.error("Error fetching nominees:", error);
       }
