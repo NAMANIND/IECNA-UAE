@@ -1358,6 +1358,8 @@ const influencerCategories = [
   "Food/Culinary Influencer of the Year",
   "Educational Content Creator of the Year",
   "Best Art & Photography Influencer",
+  "Plus size influencer of the Year",
+  "Most Promising Influencer of the Year",
 ];
 
 const marketerCategories = [
