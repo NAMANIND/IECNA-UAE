@@ -47,7 +47,7 @@ function EventDetails() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Taj Dubai
+            Dubai
             <div className="flex items-center justify-end gap-2 mt-2">
               UAE
               <FaLocationDot className="text-4xl max-md:text-2xl" />

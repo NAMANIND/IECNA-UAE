@@ -56,7 +56,7 @@ function Herosection() {
           >
             {" "}
             <Countdown futureDate={futureDate} />
-            Taj &nbsp;Dubai
+            &nbsp;Dubai
           </div>
           <div className="flex-auto sm:mt-6  mt-0 leading-[130%] sm:text-right text-center">
             10<sup className="text-white">th</sup> SEPT 2025

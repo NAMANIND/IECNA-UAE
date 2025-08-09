@@ -87,7 +87,7 @@ function Venue() {
                   href="https://maps.app.goo.gl/G2WiPdbyZZdcv3uL8"
                   target="_blank"
                 >
-                  Taj Dubai
+                  Dubai
                   <br />
                   <span className="flex flex-row gap-2">
                     {" "}

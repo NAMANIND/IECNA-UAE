@@ -41,8 +41,6 @@ const marketerCategories = [
   "PR and Communication Strategist of the Year",
 ];
 
-const allCategories = [...marketerCategories, ...influencerCategories];
-
 const VoteViews = () => {
   const [nomineesByCategory, setNomineesByCategory] = useState([]);
   const [searchQuery1, setSearchQuery1] = useState("");
