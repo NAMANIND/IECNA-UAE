@@ -62,11 +62,10 @@ function Headtop({ head, opacity }) {
     url = voteb;
   }
   return (
-    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center h-[80vh] md:min-h-[574px] text-white">
-      <Image
-        loading="lazy"
-        src={url}
-        className={`object-cover  absolute inset-0 w-full h-full  object-${
+    <main className="flex overflow-hidden relative flex-col pt-20 text-9xl text-center sm:h-[80vh] h-[40vh] md:min-h-[574px] text-white">
+      <img
+        src={url.src}
+        className={` object-fit sm:object-cover absolute inset-0 w-full h-full  object-${
           lower === "event registration" ? "top" : "center"
         }  `}
         alt={head}
