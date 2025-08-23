@@ -93,6 +93,74 @@ function Mediapartners() {
       link: "https://thebusinessfame.com/",
       new: true,
     },
+
+    {
+      name: "Business Lens Media",
+      description:
+        "Business Lens Media is a worldwide magazine for industries and inspiring leaders, reaching 75K+ print subscribers and 320K+ monthly online visitors globally. They cover diverse sectors including finance, technology, consulting, manufacturing, engineering, and more through print and digital platforms.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F5.png?alt=media&token=6b70030c-b839-436d-aa3c-1127a239e874",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F6-og.png?alt=media&token=e52a56dd-5991-441b-995a-b7eb5b7c003f",
+      link: "http://www.businesslensmedia.com/",
+      new: true,
+    },
+    {
+      name: "World Business Outlook",
+      description:
+        "World Business Outlook is a Singapore-based business magazine delivering global financial news, market insights and industry perspectives. With 50k+ monthly visitors and strong social media presence, they showcase innovative companies and thought leadership across sectors.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F4.png?alt=media&token=0ed48abf-2cdf-4e94-a794-1839fab35a2e",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F5-og.png?alt=media&token=f2f9d55d-7c60-475a-aa48-02bc5f065c19",
+      link: "https://worldbusinessoutlook.com/",
+      new: true,
+    },
+    {
+      name: "CIOTechOutlook",
+      description:
+        "CIOTechOutlook serves as a premier platform for enterprises to showcase innovative solutions, particularly focusing on the growing Indian enterprise market and startup ecosystem. They bridge the information gap between enterprise startups and their target audience.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F2.png?alt=media&token=877ae1c0-7f16-4271-b63b-d862b6699adc",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F3-og.png?alt=media&token=ae899f9b-e377-4aba-a084-5b5dc79bd8b3",
+      link: "https://www.ciotechoutlook.com/",
+      new: true,
+    },
+    {
+      name: "Corporate Achievers Club",
+      description:
+        "Corporate Achievers Club (CAC) is a digital media organization specializing in digital promotions, personal branding, and career acceleration, helping professionals and businesses enhance visibility and establish authority in their fields.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F6.png?alt=media&token=ec1b234b-f985-47dd-b5c8-5905da188195",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F2-og.png?alt=media&token=a7ec2335-dd19-4f50-9c03-a319ca6ef24a",
+      link: "https://www.linkedin.com/company/corporate-achiever-club",
+      new: true,
+    },
+    {
+      name: "AIPressRoom",
+      description:
+        "AIPressRoom is dedicated to curating AI news, providing in-depth industry analyses, and showcasing AI startup innovations. They offer specialized news distribution services focused on artificial intelligence developments and startups.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F1.png?alt=media&token=5e7afce0-51ce-45af-81d5-9270511f7b46",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F1-og.png?alt=media&token=7cc02b42-4d84-418d-b198-51306b70e23c",
+      link: "https://aipressroom.com/",
+      new: true,
+    },
+    {
+      name: "Middle East News 247",
+      description:
+        "Middle East News 247 is a digital portal delivering verified news and information about the Middle East and GCC region. Their experienced journalists provide high-quality, fact-checked content while maintaining the perfect balance between AI technology and human expertise.",
+      logoUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F3.png?alt=media&token=8d3777a3-c46e-46ba-9496-1af11b576591",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/iena-597b2.appspot.com/o/media-partners%2F4-og.png?alt=media&token=1f3b9434-7e02-4289-80d3-6a74ec13ab7b",
+      link: "https://menews247.com/",
+      new: true,
+    },
+
     {
       name: "BD Ventures",
       description:
