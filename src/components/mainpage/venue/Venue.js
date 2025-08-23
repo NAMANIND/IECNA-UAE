@@ -84,10 +84,10 @@ function Venue() {
                 className={`mt-0 tracking-tighter leading-[56px] max-md:mt-10 max-md:text-4xl max-md:leading-[52px] ${work_sans.className}`}
               >
                 <a
-                  href="https://maps.app.goo.gl/G2WiPdbyZZdcv3uL8"
+                  href="https://maps.app.goo.gl/BrVBYZbYnYJoHxuk7"
                   target="_blank"
                 >
-                  Dubai
+                  One&Only Royal Mirage
                   <br />
                   <span className="flex flex-row gap-2">
                     {" "}

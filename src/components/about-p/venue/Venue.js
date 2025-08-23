@@ -30,7 +30,7 @@ function EventDetails() {
         other in the heart of Dubai's vibrant landscape.
       </p>
       <div
-        className={`flex flex-col pl-14 mt-14 max-md:pl-5  max-md:mt-10 max-md:max-w-full ${anton.className}  `}
+        className={`flex flex-col pl-2 mt-14 max-md:pl-0  max-md:mt-10 max-md:max-w-full ${anton.className}  `}
       >
         <time className=" text-7xl text-white max-md:text-4xl">
           <span className="text-white">10</span>
@@ -40,14 +40,14 @@ function EventDetails() {
           <span className="text-white"> SEPTEMBER 2025</span>
         </time>
 
-        <div className={`${work_sans.className} text-right`}>
+        <div className={`${work_sans.className} text-right w-full`}>
           <a
-            href="https://maps.app.goo.gl/G2WiPdbyZZdcv3uL8"
+            href="https://maps.app.goo.gl/BrVBYZbYnYJoHxuk7"
             className="inline-block text-5xl font-bold text-[#ccff00] tracking-tight hover:text-lime-300 transition-colors max-md:text-3xl"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dubai
+            One&Only Royal Mirage
             <div className="flex items-center justify-end gap-2 mt-2">
               UAE
               <FaLocationDot className="text-4xl max-md:text-2xl" />
