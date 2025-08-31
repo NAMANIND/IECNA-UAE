@@ -151,7 +151,7 @@ const PersonalVote = ({ params }) => {
   };
 
   const [firstName, lastName] = name.toLowerCase().split("_");
-  const votingclosed = false;
+  const votingclosed = true;
   if (votingclosed) {
     return (
       <div>
